@@ -16,7 +16,7 @@
 			<a href="//github.com/mat-1"><img src="/github.svg" class="icon" /></a>
 			<a href="//twitter.com/mat1"><img src="/twitter.svg" class="icon" /></a>
 		</div>
-		
+
 		<p>I'm mat, I do full-stack software development.</p>
 		<p>This portfolio contains my blog posts and links to some of the projects I've made.</p>
 		<div class="button-row">
@@ -47,26 +47,26 @@
 		font-weight: normal;
 	}
 	h1:first-letter {
-		text-shadow: 0 0 .15em var(--text-color);
+		text-shadow: 0 0 0.15em var(--text-color);
 	}
 	p {
 		margin: 0.25em;
 	}
 	.button-row {
 		width: fit-content;
-		margin: .5em auto;
+		margin: 0.5em auto;
 		display: flex;
-		gap: .5em
+		gap: 0.5em;
 	}
 	.icon {
 		height: 1em;
-		opacity: .5;
+		opacity: 0.5;
 	}
 	.icon:hover {
-		opacity: .9;
-		transition: opacity 500ms
+		opacity: 0.9;
+		transition: opacity 500ms;
 	}
 	.social-media-row {
-		font-size: 1.25em
+		font-size: 1.25em;
 	}
 </style>
