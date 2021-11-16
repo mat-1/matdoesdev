@@ -1,0 +1,34 @@
+@import '$lib/atkinson-hyperlegible.css';
+
+:root {
+	--background-color: #000;
+	--background-color-alt: #111;
+	--background-color-alt-2: #222;
+	--background-color-alt-3: #333;
+	--text-color: #f0f0f0;
+
+	--text-font: 'Atkinson Hyperlegible';
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: var(--text-font);
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+button {
+	background-color: var(--background-color-alt);
+	border: 1px solid var(--background-color-alt-3);
+	color: var(--text-color);
+	font-size: inherit;
+	border-radius: 0.25em;
+	padding: 0.1em 0.5em;
+}
