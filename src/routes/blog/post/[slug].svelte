@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import type { APIBlogPost } from './[slug].json';
+	import type { APIBlogPost } from './[slug].json'
 	import type { Load } from '@sveltejs/kit'
 
 	export const load: Load = async ({ page, fetch }) => {
@@ -24,14 +24,22 @@
 	export let html: string
 </script>
 
-<article>
-	<h1>{title}</h1>
-	{@html html}
-</article>
+<div class="article-container">
+	<a href="/blog" class="back-anchor">← Back</a>
+	<article>
+		<h1>{title}</h1>
+		{@html html}
+	</article>
+</div>
 
 <style>
-	article {
+	.article-container {
 		max-width: 50em;
 		margin: 0 auto;
+	}
+
+	.back-anchor {
+		color: inherit;
+		text-decoration: none;
 	}
 </style>
