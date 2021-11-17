@@ -1,6 +1,7 @@
 {
 	"name": "matdoesdev",
 	"version": "0.0.1",
+	"license": "MIT",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"dev:host": "svelte-kit dev --host",
@@ -32,6 +33,9 @@
 		"@fontsource/fira-mono": "^4.5.0",
 		"@lukeed/uuid": "^2.0.0",
 		"@sveltejs/adapter-static": "^1.0.0-next.21",
-		"cookie": "^0.4.1"
+		"cookie": "^0.4.1",
+		"htmlparser2": "^7.2.0",
+		"marked": "^4.0.3",
+		"svelte-markdown": "^0.1.14"
 	}
 }

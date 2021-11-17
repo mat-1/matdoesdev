@@ -13,8 +13,8 @@
 		<h1>matdoesdev</h1>
 
 		<div class="button-row social-media-row">
-			<a href="//github.com/mat-1"><img src="/github.svg" class="icon" /></a>
-			<a href="//twitter.com/mat1"><img src="/twitter.svg" class="icon" /></a>
+			<a href="//github.com/mat-1"><img src="/github.svg" class="icon" alt="GitHub" /></a>
+			<a href="//twitter.com/mat1"><img src="/twitter.svg" class="icon" alt="Twitter" /></a>
 		</div>
 
 		<p>I'm mat, I do full-stack software development.</p>

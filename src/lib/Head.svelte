@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let title: string = 'matdoesdev'
-	export let description: string = ''
+	export let title = 'matdoesdev'
+	export let description = ''
 </script>
 
 <svelte:head>
