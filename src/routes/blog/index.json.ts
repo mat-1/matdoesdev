@@ -8,6 +8,7 @@ const postsDir = 'src/posts'
 export interface BlogPostPreview {
 	title: string
 	html: string
+	slug: string
 }
 
 export const get: RequestHandler = async () => {
@@ -24,6 +25,7 @@ export const get: RequestHandler = async () => {
 				return {
 					title: blogPost.title,
 					html: markdownToHtml(blogPost.body),
+					slug: blogPost.slug,
 				}
 			})
 		)

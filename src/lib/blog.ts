@@ -6,6 +6,7 @@ const postsDir = 'src/posts'
 interface BlogPost {
 	title: string
 	body: string
+	slug: string
 }
 
 /** Get a blog post by the slug, returning null if it doesn't exist */
@@ -32,5 +33,6 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 	return {
 		body: postBody,
 		title: postTitle,
+		slug,
 	}
 }

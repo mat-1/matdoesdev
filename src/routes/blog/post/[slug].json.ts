@@ -2,7 +2,7 @@ import { getPost } from '$lib/blog'
 import { markdownToHtml } from '$lib/textutils'
 import type { RequestHandler } from '@sveltejs/kit'
 
-interface APIBlogPost {
+export interface APIBlogPost {
 	title: string
 	html: string
 }
@@ -21,7 +21,9 @@ export const get: RequestHandler = async ({ params }) => {
 		} as any
 
 	return {
-		title: post.title,
-		html: markdownToHtml(post.body),
-	} as APIBlogPost
+		body: {
+			title: post.title,
+			html: markdownToHtml(post.body),
+		} as APIBlogPost,
+	}
 }

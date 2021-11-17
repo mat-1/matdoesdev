@@ -1,31 +1,37 @@
 <script lang="ts" context="module">
+	import type { APIBlogPost } from './[slug].json';
 	import type { Load } from '@sveltejs/kit'
 
-	export const get: Load = async ({ page, fetch }) => {
-		const { slug } = page.params
+	export const load: Load = async ({ page, fetch }) => {
+		const slug: string = page.params.slug ?? ''
 
 		const resp = await fetch(`/blog/post/${slug}.json`)
 		if (resp.status === 404) return
 
-		const body = await resp.json()
+		const body: APIBlogPost = await resp.json()
 
 		return {
 			props: {
 				title: body.title,
-				body: body.body,
+				html: body.html,
 			},
 		}
 	}
 </script>
 
 <script lang="ts">
-	import SvelteMarkdown from 'svelte-markdown'
 	export let title: string
-	export let body: string
+	export let html: string
 </script>
 
 <article>
 	<h1>{title}</h1>
-
-	<SvelteMarkdown source={body} />
+	{@html html}
 </article>
+
+<style>
+	article {
+		max-width: 50em;
+		margin: 0 auto;
+	}
+</style>

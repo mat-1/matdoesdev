@@ -2,8 +2,10 @@
 	import type { Load } from '@sveltejs/kit'
 	import type { BlogPostPreview } from './index.json'
 
-	export const get: Load = async ({ page, fetch }) => {
-		const posts = await fetch(`/blog.json`).then((r) => r.json())
+	export const load: Load = async ({ page, fetch }) => {
+		const posts = await fetch(`/blog.json`).then((r: Response) => r.json())
+
+		console.log(posts)
 
 		return {
 			props: {
@@ -14,14 +16,37 @@
 </script>
 
 <script lang="ts">
-	export let posts: BlogPostPreview[]
+	export let posts: BlogPostPreview[] = []
 </script>
 
 <div>
 	{#each posts as post}
-		<article>
-			<h2>{post.title}</h2>
-			<p>{@html post.body}</p>
-		</article>
+		<a href="/blog/post/{post.slug}"
+			><article>
+				<h2>{post.title}</h2>
+				<div class="preview">{@html post.html}</div>
+			</article></a
+		>
 	{/each}
 </div>
+
+<style>
+	article > .preview {
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2; /* number of lines to show */
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
+		height: 3.8em;
+
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+</style>
