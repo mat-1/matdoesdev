@@ -32,4 +32,5 @@ button {
 	border-radius: 0.25em;
 	padding: 0.1em 0.5em;
 	cursor: pointer;
+	font-family: inherit
 }
