@@ -34,8 +34,10 @@
 	"dependencies": {
 		"@lukeed/uuid": "^2.0.0",
 		"@sveltejs/adapter-static": "^1.0.0-next.21",
+		"@types/js-yaml": "^4.0.4",
 		"cookie": "^0.4.1",
 		"html-minifier": "^4.0.0",
+		"js-yaml": "^4.1.0",
 		"marked": "^4.0.3"
 	},
 	"engines": {

@@ -1,4 +1,7 @@
-# this is the title of the post
+---
+title: hello
+published: Nov 17, 2021
+---
 
 Tempor id lorem sit velit. Amet labore tempor mollit ad dolore exercitation ipsum dolore ipsum nostrud nulla nulla. Tempor laboris laboris cillum voluptate commodo duis aliqua. Do deserunt irure dolor quis elit irure occaecat excepteur laboris ipsum pariatur nostrud. Enim duis nostrud enim quis reprehenderit sunt officia aliquip laboris non non tempor cupidatat.
 

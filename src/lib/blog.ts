@@ -1,3 +1,4 @@
+import yaml from 'js-yaml'
 import path from 'path'
 import fs from 'fs'
 
@@ -21,18 +22,25 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 
 	// ok the post exists, so we can safely read the md file
 	const postMarkdown = await fs.promises.readFile(path.join(postsDir, slug, 'index.md'), 'utf8')
-	const postTitleMatch = postMarkdown.match(/^# (.+)/)
-	if (!postTitleMatch) {
-		throw new Error(`Post "${slug}" doesn't have a title.`)
-	}
 
-	// remove the title from the content
-	const postBody: string = postMarkdown.slice(postTitleMatch[0].length).trim()
-	const postTitle: string = postTitleMatch[1]
+	const [ _, yamlMetadata=null, markdownContent=null ] = postMarkdown.match(/^---\n([\w\W]+?)\n---\n([\w\W]+)$/) ?? []
+
+	if (yamlMetadata === null)
+		throw new Error(`Blog post "${slug}" has no metadata.`)
+	if (markdownContent === null)
+		throw new Error(`Blog post "${slug}" has no content.`)
+
+	const metadata: NonNullable<any> = yaml.load(yamlMetadata)
+
+	// make sure the post has all the required metadata
+	const requiredFields = [ 'title' ]
+	for (const requiredField of requiredFields)
+		if (!(requiredField in metadata))
+			throw new Error(`Blog post "${slug}" is missing metadata field "${requiredField}"`)
 
 	return {
-		body: postBody,
-		title: postTitle,
+		body: markdownContent.trim(),
+		title: metadata.title,
 		slug,
 	}
 }
