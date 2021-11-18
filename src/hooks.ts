@@ -1,11 +1,11 @@
-import { minify } from 'html-minifier'
+import { minify, Options } from 'html-minifier'
 import { prerendering } from '$app/env'
 import type { Handle } from '@sveltejs/kit'
 
-const minification_options = {
+const minificationOptions: Options = {
 	collapseBooleanAttributes: true,
 	collapseWhitespace: true,
-	conservativeCollapse: true,
+	// conservativeCollapse: true,
 	decodeEntities: true,
 	html5: true,
 	ignoreCustomComments: [/^#/],
@@ -25,7 +25,7 @@ export const handle: Handle = async ({ request, resolve }) => {
 	const response = await resolve(request)
 
 	if (prerendering && response.headers['content-type'] === 'text/html') {
-		response.body = minify(response.body, minification_options)
+		response.body = minify(response.body?.toString() ?? '', minificationOptions)
 	}
 
 	return response

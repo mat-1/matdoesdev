@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@sveltejs/kit": "next",
 		"@types/cookie": "^0.4.1",
+		"@types/html-minifier": "^4.0.1",
 		"@types/marked": "^4.0.0",
 		"@typescript-eslint/eslint-plugin": "^4.31.1",
 		"@typescript-eslint/parser": "^4.31.1",
