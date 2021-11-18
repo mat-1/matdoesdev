@@ -23,17 +23,16 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 	// ok the post exists, so we can safely read the md file
 	const postMarkdown = await fs.promises.readFile(path.join(postsDir, slug, 'index.md'), 'utf8')
 
-	const [ _, yamlMetadata=null, markdownContent=null ] = postMarkdown.match(/^---\n([\w\W]+?)\n---\n([\w\W]+)$/) ?? []
+	const [_, yamlMetadata = null, markdownContent = null] =
+		postMarkdown.match(/^---\n([\w\W]+?)\n---\n([\w\W]+)$/) ?? []
 
-	if (yamlMetadata === null)
-		throw new Error(`Blog post "${slug}" has no metadata.`)
-	if (markdownContent === null)
-		throw new Error(`Blog post "${slug}" has no content.`)
+	if (yamlMetadata === null) throw new Error(`Blog post "${slug}" has no metadata.`)
+	if (markdownContent === null) throw new Error(`Blog post "${slug}" has no content.`)
 
 	const metadata: NonNullable<any> = yaml.load(yamlMetadata)
 
 	// make sure the post has all the required metadata
-	const requiredFields = [ 'title' ]
+	const requiredFields = ['title']
 	for (const requiredField of requiredFields)
 		if (!(requiredField in metadata))
 			throw new Error(`Blog post "${slug}" is missing metadata field "${requiredField}"`)
