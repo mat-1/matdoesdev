@@ -20,8 +20,7 @@ async function doesBlogPostExist(slug: string) {
 /** Checks whether an asset exists in a blog post */
 export async function doesAssetExist(postSlug: string, assetName: string) {
 	// return false if the blog post doesn't exist
-	if (!await doesBlogPostExist(postSlug))
-		return false
+	if (!(await doesBlogPostExist(postSlug))) return false
 
 	const existingAssets: string[] = await fs.promises.readdir(path.join(postsDir, postSlug))
 
@@ -30,8 +29,7 @@ export async function doesAssetExist(postSlug: string, assetName: string) {
 
 /** Get a blog post by the slug, returning null if it doesn't exist */
 export async function getPost(slug: string): Promise<BlogPost | null> {
-	if (!doesBlogPostExist(slug))
-		return null
+	if (!doesBlogPostExist(slug)) return null
 
 	// ok the post exists, so we can safely read the md file
 	const postMarkdown = await fs.promises.readFile(path.join(postsDir, slug, 'index.md'), 'utf8')

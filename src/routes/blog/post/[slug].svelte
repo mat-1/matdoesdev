@@ -2,6 +2,10 @@
 	import type { APIBlogPost } from './[slug].json'
 	import type { Load } from '@sveltejs/kit'
 
+	export const prerender = true
+	export const hydrate = false
+	// export const router = false
+
 	export const load: Load = async ({ page, fetch }) => {
 		const slug: string = page.params.slug ?? ''
 
@@ -41,5 +45,11 @@
 	.back-anchor {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	.article-container > article :global(img) {
+		max-width: fit-content;
+		width: 100%;
+		margin: 0 auto;
 	}
 </style>
