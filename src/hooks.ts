@@ -1,4 +1,5 @@
-import { minify, Options } from 'html-minifier'
+import { minify } from 'html-minifier'
+import type { Options } from 'html-minifier'
 import { prerendering } from '$app/env'
 import type { Handle } from '@sveltejs/kit'
 

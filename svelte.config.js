@@ -1,5 +1,3 @@
-import { minify } from 'html-minifier'
-
 import staticAdapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 
