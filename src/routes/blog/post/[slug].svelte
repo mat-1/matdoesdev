@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
 	import type { APIBlogPost } from './[slug].json'
 	import type { Load } from '@sveltejs/kit'
-	import type { APIBlogPost } from './[slug].json'
 
 	export const load: Load = async ({ page, fetch }) => {
 		const slug: string = page.params.slug ?? ''

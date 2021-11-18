@@ -23,7 +23,7 @@ export const get: RequestHandler = async ({ params }) => {
 	return {
 		body: {
 			title: post.title,
-			html: markdownToHtml(post.body),
+			html: markdownToHtml(post.body, `/blog/post/${post.slug}/index.md`),
 		} as APIBlogPost,
 	}
 }

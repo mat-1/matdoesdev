@@ -6,13 +6,24 @@
 
 <script lang="ts">
 	import Head from '$lib/Head.svelte'
+	import { onMount } from 'svelte'
+
+	let titleEl: HTMLParagraphElement
+	onMount(async () => {
+		const titleContent = titleEl.textContent ?? ''
+		titleEl.textContent = ''
+		for (let i = 0; i < titleContent.length; i++) {
+			await new Promise((r) => setTimeout(r, 100))
+			titleEl.textContent = titleContent.slice(i)
+		}
+	})
 </script>
 
 <Head />
 
 <div class="section-container">
 	<section>
-		<h1>matdoesdev</h1>
+		<h1 bind:this={titleEl}>matdoesdev</h1>
 
 		<div class="button-row social-media-row">
 			<a href="//github.com/mat-1"><img src="/github.svg" class="icon" alt="GitHub" /></a>

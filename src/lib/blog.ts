@@ -2,7 +2,7 @@ import yaml from 'js-yaml'
 import path from 'path'
 import fs from 'fs'
 
-const postsDir = 'src/posts'
+export const postsDir = 'src/posts' as const
 
 interface BlogPost {
 	title: string
@@ -10,15 +10,28 @@ interface BlogPost {
 	slug: string
 }
 
-/** Get a blog post by the slug, returning null if it doesn't exist */
-export async function getPost(slug: string): Promise<BlogPost | null> {
-	// get all the posts in the posts directory, so we can check that the user is going to a valid one
+/** Checks whether a slug is valid or not */
+async function doesBlogPostExist(slug: string) {
 	const existingPosts: string[] = await fs.promises.readdir(postsDir)
 
-	if (!existingPosts.includes(slug)) {
-		// this post doesn't exist, give them an error
+	return existingPosts.includes(slug)
+}
+
+/** Checks whether an asset exists in a blog post */
+export async function doesAssetExist(postSlug: string, assetName: string) {
+	// return false if the blog post doesn't exist
+	if (!await doesBlogPostExist(postSlug))
+		return false
+
+	const existingAssets: string[] = await fs.promises.readdir(path.join(postsDir, postSlug))
+
+	return existingAssets.includes(assetName)
+}
+
+/** Get a blog post by the slug, returning null if it doesn't exist */
+export async function getPost(slug: string): Promise<BlogPost | null> {
+	if (!doesBlogPostExist(slug))
 		return null
-	}
 
 	// ok the post exists, so we can safely read the md file
 	const postMarkdown = await fs.promises.readFile(path.join(postsDir, slug, 'index.md'), 'utf8')
