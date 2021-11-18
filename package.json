@@ -36,5 +36,8 @@
 		"cookie": "^0.4.1",
 		"html-minifier": "^4.0.0",
 		"marked": "^4.0.3"
+	},
+	"engines": {
+		"node": ">=14.13"
 	}
 }
