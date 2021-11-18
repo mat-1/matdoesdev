@@ -1,5 +1,5 @@
 import { getPost } from '$lib/blog'
-import { markdownToHtml } from '$lib/textutils'
+import { markdownToHtml } from '$lib/utils'
 import type { RequestHandler } from '@sveltejs/kit'
 
 export interface APIBlogPost {

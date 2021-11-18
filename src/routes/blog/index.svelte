@@ -2,10 +2,8 @@
 	import type { Load } from '@sveltejs/kit'
 	import type { BlogPostPreview } from './index.json'
 
-	export const load: Load = async ({ page, fetch }) => {
+	export const load: Load = async ({ fetch }) => {
 		const posts = await fetch(`/blog.json`).then((r: Response) => r.json())
-
-		console.log(posts)
 
 		return {
 			props: {
@@ -21,12 +19,12 @@
 
 <div>
 	{#each posts as post}
-		<a href="/blog/post/{post.slug}"
-			><article>
+		<a href="/blog/post/{post.slug}" class="preview-anchor">
+			<article>
 				<h2>{post.title}</h2>
 				<div class="preview">{@html post.html}</div>
-			</article></a
-		>
+			</article>
+		</a>
 	{/each}
 </div>
 
@@ -45,7 +43,7 @@
 		margin: 0;
 	}
 
-	a {
+	.preview-anchor {
 		color: inherit;
 		text-decoration: none;
 	}

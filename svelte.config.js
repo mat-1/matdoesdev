@@ -1,5 +1,7 @@
-import preprocess from 'svelte-preprocess'
+import { minify } from 'html-minifier'
+
 import staticAdapter from '@sveltejs/adapter-static'
+import preprocess from 'svelte-preprocess'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,7 +10,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: staticAdapter(),
+		adapter: staticAdapter({}),
 		target: 'body',
 
 		vite: {

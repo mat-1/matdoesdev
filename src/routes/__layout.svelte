@@ -32,5 +32,6 @@
 	footer {
 		text-align: center;
 		flex: 0 0;
+		color: var(--text-color-alt-3);
 	}
 </style>

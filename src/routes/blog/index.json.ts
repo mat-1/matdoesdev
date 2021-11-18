@@ -1,5 +1,5 @@
 import { getPost } from '$lib/blog'
-import { markdownToHtml } from '$lib/textutils'
+import { markdownToHtml } from '$lib/utils'
 import type { RequestHandler } from '@sveltejs/kit'
 import fs from 'fs'
 
@@ -24,7 +24,8 @@ export const get: RequestHandler = async () => {
 
 				return {
 					title: blogPost.title,
-					html: markdownToHtml(blogPost.body),
+					// cut it off after 255 characters because that's a nice number
+					html: markdownToHtml(blogPost.body.slice(0, 255)),
 					slug: blogPost.slug,
 				}
 			})

@@ -5,7 +5,11 @@
 	--background-color-alt: #111;
 	--background-color-alt-2: #222;
 	--background-color-alt-3: #333;
+
 	--text-color: #f0f0f0;
+	--text-color-alt: #ddd;
+	--text-color-alt-2: #bbb;
+	--text-color-alt-3: #999;
 
 	--text-font: 'Atkinson Hyperlegible';
 }
