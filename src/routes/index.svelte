@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	export const prerender = true
 	export const hydrate = false
-	export const router = false
+	// export const router = false
 </script>
 
 <script lang="ts">
@@ -12,9 +12,9 @@
 	onMount(async () => {
 		const titleContent = titleEl.textContent ?? ''
 		titleEl.textContent = ''
-		for (let i = 0; i < titleContent.length; i++) {
-			await new Promise((r) => setTimeout(r, 100))
-			titleEl.textContent = titleContent.slice(i)
+		for (let i = 1; i <= titleContent.length; i++) {
+			await new Promise((r) => setTimeout(r, 40))
+			titleEl.textContent = titleContent.slice(0, i)
 		}
 	})
 </script>

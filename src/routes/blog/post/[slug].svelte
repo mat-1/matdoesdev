@@ -29,7 +29,9 @@
 </script>
 
 <div class="article-container">
-	<a href="/blog" class="back-anchor">← Back</a>
+	<nav>
+		<a href="/blog" class="back-anchor">← Back</a>
+	</nav>
 	<article>
 		<h1>{title}</h1>
 		{@html html}
@@ -43,7 +45,7 @@
 	}
 
 	.back-anchor {
-		color: inherit;
+		color: var(--text-color-alt-2);
 		text-decoration: none;
 	}
 
