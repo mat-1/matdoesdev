@@ -1,7 +1,6 @@
 <script context="module" lang="ts">
 	export const prerender = true
-	export const hydrate = false
-	// export const router = false
+	export const router = false
 </script>
 
 <script lang="ts">
@@ -9,6 +8,7 @@
 	import { onMount } from 'svelte'
 
 	let titleEl: HTMLParagraphElement
+
 	onMount(async () => {
 		const titleContent = titleEl.textContent ?? ''
 		titleEl.textContent = ''

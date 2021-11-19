@@ -3,7 +3,6 @@
 	import type { Load } from '@sveltejs/kit'
 
 	export const prerender = true
-	export const hydrate = false
 	// export const router = false
 
 	export const load: Load = async ({ page, fetch }) => {
