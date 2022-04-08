@@ -26,8 +26,11 @@
 	}
 
 	main {
-		margin: 1em;
+		padding: 1em;
+		margin: auto;
 		flex: 1 0;
+		max-width: 50em;
+		width: calc(100% - 2em);
 	}
 	footer {
 		text-align: center;

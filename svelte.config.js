@@ -9,7 +9,6 @@ const config = {
 
 	kit: {
 		adapter: staticAdapter({}),
-		target: 'body',
 
 		vite: {
 			build: {
@@ -19,12 +18,12 @@ const config = {
 			server:
 				process.env.REPL_ID || process.env.GITPOD_WORKSPACE_ID
 					? {
-							hmr: {
-								protocol: 'wss',
-								port: 443,
-							},
-					  }
-					: undefined,
+						hmr: {
+							protocol: 'wss',
+							port: 443,
+						},
+					}
+					: {},
 		},
 	},
 }

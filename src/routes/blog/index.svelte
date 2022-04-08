@@ -17,37 +17,18 @@
 </script>
 
 <script lang="ts">
+	import BackAnchor from '$lib/BackAnchor.svelte'
+	import PostPreview from '$lib/PostPreview.svelte'
+
 	export let posts: BlogPostPreview[] = []
 </script>
 
 <div>
+	<nav>
+		<BackAnchor href="/" />
+	</nav>
+
 	{#each posts as post}
-		<a href="/blog/post/{post.slug}" class="preview-anchor">
-			<article>
-				<h2>{post.title}</h2>
-				<div class="preview">{@html post.html}</div>
-			</article>
-		</a>
+		<PostPreview {post} />
 	{/each}
 </div>
-
-<style>
-	article > .preview {
-		display: block;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-line-clamp: 2; /* number of lines to show */
-		line-clamp: 2;
-		-webkit-box-orient: vertical;
-		height: 3.8em;
-
-		padding: 0;
-		margin: 0;
-	}
-
-	.preview-anchor {
-		color: inherit;
-		text-decoration: none;
-	}
-</style>

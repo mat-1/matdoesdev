@@ -6,15 +6,18 @@
 <script lang="ts">
 	import Head from '$lib/Head.svelte'
 	import { onMount } from 'svelte'
+	import { fade } from 'svelte/transition'
+	import { flip } from 'svelte/animate'
 
 	let titleEl: HTMLParagraphElement
 
 	onMount(async () => {
+		const delays = [60, 63, 126, 19, 88, 95, 91, 61, 83] as const
 		const titleContent = titleEl.textContent ?? ''
 		titleEl.textContent = ''
-		for (let i = 1; i <= titleContent.length; i++) {
-			await new Promise((r) => setTimeout(r, 40))
-			titleEl.textContent = titleContent.slice(0, i)
+		for (let i = 0; i <= titleContent.length; i++) {
+			titleEl.textContent = titleContent.slice(0, i + 1)
+			await new Promise((r) => setTimeout(r, delays[i]))
 		}
 	})
 </script>
@@ -27,7 +30,6 @@
 
 		<div class="button-row social-media-row">
 			<a href="//github.com/mat-1"><img src="/github.svg" class="icon" alt="GitHub" /></a>
-			<a href="//twitter.com/mat1"><img src="/twitter.svg" class="icon" alt="Twitter" /></a>
 		</div>
 
 		<p>I'm mat, I do full-stack software development.</p>
@@ -74,10 +76,10 @@
 	.icon {
 		height: 1em;
 		opacity: 0.5;
+		transition: opacity 200ms;
 	}
 	.icon:hover {
 		opacity: 0.9;
-		transition: opacity 500ms;
 	}
 	.social-media-row {
 		font-size: 1.25em;

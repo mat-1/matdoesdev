@@ -1,20 +1,19 @@
 <script context="module" lang="ts">
-import type { ErrorLoad } from "@sveltejs/kit";
-
+	import type { ErrorLoad } from '@sveltejs/kit'
 
 	export const load: ErrorLoad = ({ error, status }) => {
 		return {
 			props: {
 				status,
-                message: error?.message
-			}
+				message: error?.message,
+			},
 		}
 	}
 </script>
 
 <script lang="ts">
-    export let status: number
-    export let message: string
+	export let status: number
+	export let message: string
 </script>
 
 <nav>
@@ -22,9 +21,9 @@ import type { ErrorLoad } from "@sveltejs/kit";
 </nav>
 <section class="error-page">
 	<div>
-<h1>{status}</h1>
-<h2>{message}</h2>
-</div>
+		<h1>{status}</h1>
+		<h2>{message}</h2>
+	</div>
 </section>
 
 <style>

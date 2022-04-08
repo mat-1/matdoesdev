@@ -18,7 +18,7 @@ async function doesBlogPostExist(slug: string) {
 }
 
 /** Checks whether an asset exists in a blog post */
-export async function doesAssetExist(postSlug: string, assetName: string) {
+export async function doesAssetExist(postSlug: string, assetName: string): Promise<boolean> {
 	// return false if the blog post doesn't exist
 	if (!(await doesBlogPostExist(postSlug))) return false
 
@@ -32,7 +32,9 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 	if (!doesBlogPostExist(slug)) return null
 
 	// ok the post exists, so we can safely read the md file
-	const postMarkdown = await fs.promises.readFile(path.join(postsDir, slug, 'index.md'), 'utf8')
+	const postMarkdown = (
+		await fs.promises.readFile(path.join(postsDir, slug, 'index.md'), 'utf8')
+	).replace(/\r\n/g, '\n')
 
 	const [_, yamlMetadata = null, markdownContent = null] =
 		postMarkdown.match(/^---\n([\w\W]+?)\n---\n([\w\W]+)$/) ?? []

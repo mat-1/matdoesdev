@@ -25,7 +25,13 @@ export const get: RequestHandler = async () => {
 				return {
 					title: blogPost.title,
 					// cut it off after 255 characters because that's a nice number
-					html: markdownToHtml(blogPost.body.slice(0, 512), `/blog/post/${blogPost.slug}/index.md`),
+					html: markdownToHtml(
+						blogPost.body
+							.slice(0, 512)
+							.replace(/!\[[^\]]+?\]\([^)]+?\)/g, '')
+							.replace(/\[([^\]]+?)\]\([^)]+?\)/g, '$1'),
+						`/blog/post/${blogPost.slug}/index.md`
+					),
 					slug: blogPost.slug,
 				}
 			})

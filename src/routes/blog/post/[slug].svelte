@@ -3,13 +3,15 @@
 	import type { Load } from '@sveltejs/kit'
 
 	export const prerender = true
-	// export const router = false
 
-	export const load: Load = async ({ page, fetch }) => {
-		const slug: string = page.params.slug ?? ''
+	export const load: Load = async ({ params, fetch }) => {
+		const slug: string = params.slug ?? ''
 
 		const resp = await fetch(`/blog/post/${slug}.json`)
-		if (resp.status === 404) return
+		if (resp.status === 404)
+			return {
+				status: 404,
+			}
 
 		const body: APIBlogPost = await resp.json()
 
@@ -23,13 +25,15 @@
 </script>
 
 <script lang="ts">
+	import BackAnchor from '$lib/BackAnchor.svelte'
+
 	export let title: string
 	export let html: string
 </script>
 
 <div class="article-container">
 	<nav>
-		<a href="/blog" class="back-anchor">← Back</a>
+		<BackAnchor href="/blog" />
 	</nav>
 	<article>
 		<h1>{title}</h1>
@@ -38,16 +42,6 @@
 </div>
 
 <style>
-	.article-container {
-		max-width: 50em;
-		margin: 0 auto;
-	}
-
-	.back-anchor {
-		color: var(--text-color-alt-2);
-		text-decoration: none;
-	}
-
 	.article-container > article :global(img) {
 		max-width: fit-content;
 		width: 100%;
