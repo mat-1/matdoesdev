@@ -45,6 +45,8 @@
 	.article-container > article :global(img) {
 		max-width: fit-content;
 		width: 100%;
+		max-width: 30rem;
 		margin: 0 auto;
+		display: block;
 	}
 </style>
