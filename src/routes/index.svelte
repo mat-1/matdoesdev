@@ -35,8 +35,8 @@
 		<p>I'm mat, I do full-stack software development.</p>
 		<p>This portfolio contains my blog posts and links to some of the projects I've made.</p>
 		<div class="button-row">
-			<a href="/blog"><button>Blog</button></a>
-			<a href="/projects"><button>Projects</button></a>
+			<a href="/blog" class="button">Blog</a>
+			<a href="/projects" class="button">Projects</a>
 		</div>
 	</section>
 </div>

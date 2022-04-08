@@ -30,7 +30,8 @@ body {
 	margin: 0;
 }
 
-button {
+button,
+.button {
 	background-color: var(--background-color-alt);
 	border: 1px solid var(--background-color-alt-3);
 	color: var(--text-color);
@@ -40,6 +41,7 @@ button {
 	cursor: pointer;
 	font-family: inherit;
 	box-shadow: 0 0.1em 0.2em #000;
+	text-decoration: none;
 }
 
 p {
@@ -53,4 +55,11 @@ a {
 .center {
 	width: fit-content;
 	margin: 0 auto;
+}
+
+hr {
+	background-color: var(--background-color-alt);
+	border-color: var(--background-color-alt);
+	width: 90%;
+	margin: 1rem auto;
 }

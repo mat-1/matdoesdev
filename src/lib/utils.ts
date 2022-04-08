@@ -50,7 +50,7 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 
 	marked.use({ renderer, extensions: [centered] })
 
-	return marked.parse(md, { baseUrl })
+	return marked.parse(md, { baseUrl, breaks: true })
 }
 
 // https://nodejs.org/api/url.html#urlresolvefrom-to
