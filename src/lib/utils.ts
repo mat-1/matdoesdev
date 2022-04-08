@@ -13,19 +13,21 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 		},
 	}
 
-	const centered = {
+	const centered: marked.TokenizerExtension = {
 		name: 'centered',
 		level: 'block', // Is this a block-level or inline-level tokenizer?
 		start(src: string) {
-			return src.match(/\|\|/)?.index
+			// the marked typings want a `number` and we're returning a `number | undefined` :(
+			return src.match(/\|\|/)?.index as number
 		}, // Hint to Marked.js to stop and check for a match
 
-		tokenizer(src: string, tokens: string[]) {
+		tokenizer(
+			this: marked.TokenizerThis,
+			src: string,
+			tokens: marked.Token[]
+		): marked.Tokens.Generic | void {
 			const rule = /^\|\|(.*?)\|\|/
 			const match = rule.exec(src)
-			if (src.includes('||')) {
-				console.log('src', src, match)
-			}
 			if (match) {
 				const token = {
 					// Token to generate
@@ -38,7 +40,10 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 				return token
 			}
 		},
-		renderer(token) {
+
+		// @ts-expect-error Marked doesn't include `renderer` in the typings.
+		renderer(this: marked.TokenizerThis, token: marked.Tokens): string | false {
+			// @ts-expect-error Property 'parser' does not exist on type 'TokenizerThis'.
 			return `<div class="center">${this.parser.parseInline(token.tokens)}\n</div>` // parseInline to turn child tokens into HTML
 		},
 	}
