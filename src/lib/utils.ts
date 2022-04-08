@@ -41,7 +41,7 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 		// @ts-expect-error Marked doesn't include `renderer` in the typings.
 		renderer(this: marked.TokenizerThis, token: marked.Tokens): string | false {
 			// @ts-expect-error Property 'parser' does not exist on type 'TokenizerThis'.
-			return `<div class="center">${this.parser.parseInline(token.tokens)}\n</div>`
+			return `<div class="center">${this.parser.parse(token.tokens)}\n</div>`
 		},
 	}
 	const left: marked.TokenizerExtension = {
@@ -56,7 +56,7 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 			src: string,
 			tokens: marked.Token[]
 		): marked.Tokens.Generic | void {
-			const rule = /^<-\W(.+?)\W<-/
+			const rule = /^<-\W([\w\W]+?)\W<-/
 			const match = rule.exec(src)
 			if (match) {
 				const token = {
@@ -65,14 +65,14 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 					text: match[1].trim(),
 					tokens: [],
 				}
-				this.lexer.inline(token.text, token.tokens)
+				this.lexer.blockTokens(token.text, token.tokens)
 				return token
 			}
 		},
 		// @ts-expect-error Marked doesn't include `renderer` in the typings.
 		renderer(this: marked.TokenizerThis, token: marked.Tokens): string | false {
 			// @ts-expect-error Property 'parser' does not exist on type 'TokenizerThis'.
-			return `<div class="markdown-float-left">${this.parser.parseInline(token.tokens)}\n</div>`
+			return `<div class="markdown-float-left">${this.parser.parse(token.tokens)}\n</div>`
 		},
 	}
 	const right: marked.TokenizerExtension = {
@@ -87,7 +87,7 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 			src: string,
 			tokens: marked.Token[]
 		): marked.Tokens.Generic | void {
-			const rule = /^->\W(.+?)\W->/
+			const rule = /^->\W([\w\W]+?)\W->/
 			const match = rule.exec(src)
 			if (match) {
 				const token = {
@@ -96,14 +96,14 @@ export function markdownToHtml(md: string, baseUrl?: string): string {
 					text: match[1].trim(),
 					tokens: [],
 				}
-				this.lexer.inline(token.text, token.tokens)
+				this.lexer.blockTokens(token.text, token.tokens)
 				return token
 			}
 		},
 		// @ts-expect-error Marked doesn't include `renderer` in the typings.
 		renderer(this: marked.TokenizerThis, token: marked.Tokens): string | false {
 			// @ts-expect-error Property 'parser' does not exist on type 'TokenizerThis'.
-			return `<div class="markdown-float-right">${this.parser.parseInline(token.tokens)}\n</div>`
+			return `<div class="markdown-float-right">${this.parser.parse(token.tokens)}\n</div>`
 		},
 	}
 

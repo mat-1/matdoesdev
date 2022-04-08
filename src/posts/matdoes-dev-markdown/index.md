@@ -8,12 +8,12 @@ I present: matdown™
 
 ---
 
-Relative anchor: `\[matdoesdev\]\(/blog\)` [matdoesdev](/blog)
+Relative anchor: `[matdoesdev](/blog)` [matdoesdev](/blog)
 
-External anchor: `\[matdoesdev\]\(https://matdoes.dev\)` [matdoesdev](https://matdoes.dev)
+External anchor: `[matdoesdev](https://matdoes.dev)` [matdoesdev](https://matdoes.dev)
 (External anchors have target=\_blank so they open in new pages)
 
-Normal links: `https:\/\/matdoes.dev` https://matdoes.dev
+Normal links: `https://matdoes.dev` https://matdoes.dev
 
 Code block: \`\`\`py
 print('code')
@@ -23,7 +23,7 @@ print('code')
 print('code')
 ```
 
-Inline code: `\`code\`` `code`
+Inline code: `` `code` `` `code`
 
 Block quote: `> text`
 
@@ -33,7 +33,7 @@ Italic: \*text\* _text_
 Bold: \*\*text\*\* **text**
 Italic & bold: \*\*\*text\*\*\* **_text_**
 
-Horizontal center: `\|\|text\|\|`
+Horizontal center: `||text||`
 ||text||
 
 Titles:
@@ -62,5 +62,11 @@ Image:
 !\[description](https://image)
 
 <-
-Float left
+**Float left**
+`<- text <-`
 <-
+
+->
+**Float right**
+`-> text ->`
+->

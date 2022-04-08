@@ -57,6 +57,7 @@
 	}
 	article :global(.markdown-float-left),
 	:global(.markdown-float-right) {
+		border: 1px solid var(--background-color-alt-3);
 		padding: 0.2em;
 		border-radius: 0.2rem;
 		margin: 0.1rem 1rem;
