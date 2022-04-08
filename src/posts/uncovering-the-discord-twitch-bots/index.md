@@ -36,11 +36,11 @@ Another notable thing was that when we searched up the owner of the "Free Nitro"
 
 Anyway, we booted up Windows Sandbox and ran the virus with a process monitor in the background. There were a bunch of references to Python, so it was likely a Python script compiled into an exe.
 
-,![Process monitor](https://i.matdoes.dev/60O9N)
+<- ![Process monitor](https://i.matdoes.dev/60O9N) <-
 
 I wasn't sure what it was compiled with, so I tried running unpy2exe on it, but it returned an error telling me to use pyinstxtractor instead, as it was compiled with pyinstaller. After we ran pyinstxtractor on the exe, it returned a folder with a bunch of pyc and pyd (Python bytecode) files.
 
-.![PyInstxtractor](https://i.matdoes.dev/QTWOT)
+-> ![PyInstxtractor](https://i.matdoes.dev/QTWOT) ->
 
 ![Created on March 2nd](https://i.matdoes.dev/YOYVJ)
 

@@ -42,11 +42,23 @@
 </div>
 
 <style>
-	.article-container > article :global(img) {
-		max-width: fit-content;
-		width: 100%;
+	article :global(img) {
 		max-width: 30rem;
+		max-height: 20rem;
 		margin: 0 auto;
 		display: block;
+	}
+
+	article :global(.markdown-float-left) {
+		float: left;
+	}
+	article :global(.markdown-float-right) {
+		float: right;
+	}
+	article :global(.markdown-float-left),
+	:global(.markdown-float-right) {
+		padding: 0.2em;
+		border-radius: 0.2rem;
+		margin: 0.1rem 1rem;
 	}
 </style>

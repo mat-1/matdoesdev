@@ -60,7 +60,7 @@ Titles:
 
 Image:
 !\[description](https://image)
-Left image:
-,!\[description](https://image)
-Right image:
-.!\[description](https://image)
+
+<-
+Float left
+<-

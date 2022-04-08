@@ -2,6 +2,9 @@
 
 :root {
 	--background-color: #010502;
+	/* used for gradients */
+	--background-color-transparent: #01050200;
+
 	--background-color-alt: #111;
 	--background-color-alt-2: #222;
 	--background-color-alt-3: #333;

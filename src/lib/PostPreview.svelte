@@ -7,11 +7,16 @@
 <a href="/blog/post/{post.slug}" class="preview-anchor">
 	<article>
 		<h2>{post.title}</h2>
+		<div class="disappearing-text-preview" />
 		<div class="preview">{@html post.html}</div>
 	</article>
 </a>
 
 <style>
+	article {
+		position: relative;
+	}
+
 	article > .preview {
 		display: block;
 		overflow: hidden;
@@ -20,10 +25,22 @@
 		-webkit-line-clamp: 2; /* number of lines to show */
 		line-clamp: 2;
 		-webkit-box-orient: vertical;
-		height: 3.7em;
+		height: 5em;
 
 		padding: 0;
 		margin: 0;
+	}
+
+	.disappearing-text-preview {
+		background: linear-gradient(
+			var(--background-color-transparent) 0%,
+			var(--background-color) 100%
+		);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 70%;
 	}
 
 	.preview-anchor {
