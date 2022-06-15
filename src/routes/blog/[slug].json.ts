@@ -4,7 +4,7 @@ import type { RequestHandler } from '@sveltejs/kit'
 
 export interface APIBlogPost {
 	title: string
-	published: Date
+	published: string
 	html: string
 }
 
