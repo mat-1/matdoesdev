@@ -3,7 +3,7 @@ title: What Are Domain Hacks?
 published: 2019-06-21T17:24:30.105+00:00
 ---
 
-<- ![Domain Hack Example](domain-hack-example.png) <-
+![Domain Hack Example](domain-hack-example.png)
 **A domain hack is a domain in which both the top level domain (TLD) and the second level domain (SLD) are combined to make up a word or phrase.**
 For example, matdoes.dev is a domain hack for mat does dev.
 Domain hacks are _not_ security-related and they are completely legal.
@@ -22,7 +22,7 @@ An advantage to using a domain hack is that your domain is much shorter and ther
 # How to Choose a Domain Hack?
 
 Finding a good domain isn't always easy, so I've created a tool hosted on [Repl.it](https://repl.it) that helps you find domain hacks
--> [![Domain Hack Generator](domain-hack-generator.png)](https://repl.it/talk/share/Domain-Hack-Finder/15778) ->
+[![Domain Hack Generator](domain-hack-generator.png)](https://repl.it/talk/share/Domain-Hack-Finder/15778)
 [Click here to view the domain hack finder](https://repl.it/talk/share/Domain-Hack-Finder/15778)
 
 At the moment, it uses every TLD currently in existence, which may not be what you want since some top level domains cannot be used by most people as they require you to live in a certain area or work for a certain organization. You can customize it by adding or removing from the tlds.txt file.

@@ -45,7 +45,7 @@
 	article :global(img) {
 		max-width: 30rem;
 		max-height: 20rem;
-		margin: 0 auto;
+		margin: 1em auto;
 		display: block;
 	}
 	article :global(.box) {

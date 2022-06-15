@@ -13,7 +13,7 @@ It all started on April 27th, 2020. I was bored and wanted to make a Hypixel For
 # madcausebad11
 
 I didn’t do anything with this idea until a couple weeks later on May 14th, when I remembered it, and was actually motivated to create it. I asked around on the SkyBlock Community Discord for what it should be called and what it should do, and I decided on calling it madcausebad11 (name chosen by @TatorCheese), and making it say “thats crazy but I dont remember asking” (@Bliziq chose that one) to all posts that mentioned being scammed.
--> ![Screenshot of a post on the Hypixel Forums where a user named madcausebad11 says "thats crazy but i dont remember asking"](thats-crazy-but-i-dont-remember-asking.png) ->
+![Screenshot of a post on the Hypixel Forums where a user named madcausebad11 says "thats crazy but i dont remember asking"](thats-crazy-but-i-dont-remember-asking.png)
 When that had been decided, I started working on the code. It was written in Python, using BeautifulSoup to scrape the web pages and aiohttp to make the requests. After an hour of writing code, madcausebad11 was working.
 
 Less than an hour after the bot started working, it got banned for the reason “spam”.

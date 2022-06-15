@@ -8,7 +8,7 @@ So a few days ago my friend Slip got a DM on Discord from this "Twitch" bot aski
 ![Twitch partnership scam dm](https://i.matdoes.dev/NWRDK)
 It obviously looked fake, so Slip created a testing server and added me and some friends to help. Upon joining, the fake Twitch bot DMed everyone in the server with the same message as it sent to Slip. It looked like some sort of social engineering worm, but it hadn't done anything bad yet, so we revoked the bot's perms and left it in the server.
 
-.![Free nitro scam dm](https://i.matdoes.dev/YZBAZ)
+![Free nitro scam dm](https://i.matdoes.dev/YZBAZ)
 When I joined the server it linked, it looked like some sort of bad giveaway server with giveaway channels, and even a rules and TOS channel. Unfortunately for us, there were no channels that we could talk in to inform other people. Soon after joining, we got another DM from a different bot but with the same name. Again, it contained a link to join a Discord server. However, this time, instead of saying it was from Twitch, it took a more straightforward attempt, saying to join for "Nitro / Nudes".
 
 It was getting late, so we went to sleep. When we woke up, we were greeted by at least 4 other bots with the same message and name, so we just invited all of them to our server! The old bots were now offline and for some people, the bots' names were displayed as things such as "thisisaspambot", "Fake Twitch Bot", and "Fake bot". We later found out that this was in fact a doing of the Discord Trust and Safety team, but they didn't do it very well because some of the bots could still DM people, and it didn't always show up with their new names.
@@ -36,11 +36,11 @@ Another notable thing was that when we searched up the owner of the "Free Nitro"
 
 Anyway, we booted up Windows Sandbox and ran the virus with a process monitor in the background. There were a bunch of references to Python, so it was likely a Python script compiled into an exe.
 
-<- ![Process monitor](https://i.matdoes.dev/60O9N) <-
+![Process monitor](https://i.matdoes.dev/60O9N)
 
 I wasn't sure what it was compiled with, so I tried running unpy2exe on it, but it returned an error telling me to use pyinstxtractor instead, as it was compiled with pyinstaller. After we ran pyinstxtractor on the exe, it returned a folder with a bunch of pyc and pyd (Python bytecode) files.
 
--> ![PyInstxtractor](https://i.matdoes.dev/QTWOT) ->
+![PyInstxtractor](https://i.matdoes.dev/QTWOT)
 
 ![Created on March 2nd](https://i.matdoes.dev/YOYVJ)
 
