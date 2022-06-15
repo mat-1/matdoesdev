@@ -64,5 +64,6 @@
 	}
 	time {
 		opacity: 0.5;
+		font-style: italic;
 	}
 </style>
