@@ -13,12 +13,13 @@
 				status: 404,
 			}
 
-		const body: APIBlogPost = await resp.json()
+		const post: APIBlogPost = await resp.json()
 
 		return {
 			props: {
-				title: body.title,
-				html: body.html,
+				title: post.title,
+				html: post.html,
+				published: new Date(post.published),
 			},
 		}
 	}
@@ -29,6 +30,7 @@
 
 	export let title: string
 	export let html: string
+	export let published: Date
 </script>
 
 <div class="article-container">
@@ -36,7 +38,11 @@
 		<BackAnchor href="/blog" />
 	</nav>
 	<article>
-		<h1>{title}</h1>
+		<div class="article-header">
+			<h1>{title}</h1>
+			<time>{published.toLocaleDateString()}</time>
+		</div>
+
 		{@html html}
 	</article>
 </div>
@@ -65,5 +71,15 @@
 		margin-right: 0.2em;
 		margin-bottom: 0.2em;
 		font-weight: bold;
+	}
+	h1 {
+		margin-bottom: 0;
+	}
+	.article-header {
+		margin-bottom: 1em;
+	}
+	time {
+		opacity: 0.5;
+		font-style: italic;
 	}
 </style>

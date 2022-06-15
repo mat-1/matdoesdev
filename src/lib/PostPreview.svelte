@@ -6,7 +6,11 @@
 
 <a href="/blog/{post.slug}" class="preview-anchor">
 	<article>
-		<h2>{post.title}</h2>
+		<div class="article-header">
+			<h2>{post.title}</h2>
+			<time>{new Date(post.published).toLocaleDateString()}</time>
+		</div>
+
 		<div class="disappearing-text-preview" />
 		<div class="preview">{@html post.html}</div>
 	</article>
@@ -50,5 +54,15 @@
 
 	article :global(.box) {
 		display: none;
+	}
+
+	h2 {
+		margin-bottom: 0;
+	}
+	.article-header {
+		margin-bottom: 0.5em;
+	}
+	time {
+		opacity: 0.5;
 	}
 </style>

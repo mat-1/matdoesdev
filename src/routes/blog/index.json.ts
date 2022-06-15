@@ -7,6 +7,7 @@ const postsDir = 'src/posts'
 
 export interface BlogPostPreview {
 	title: string
+	published: string
 	html: string
 	slug: string
 }
@@ -24,6 +25,7 @@ export const get: RequestHandler = async () => {
 
 				return {
 					title: blogPost.title,
+					published: blogPost.published,
 					// cut it off after 255 characters because that's a nice number
 					html: markdownToHtml(
 						blogPost.body

@@ -4,6 +4,7 @@ import type { RequestHandler } from '@sveltejs/kit'
 
 export interface APIBlogPost {
 	title: string
+	published: Date
 	html: string
 }
 
@@ -23,6 +24,7 @@ export const get: RequestHandler = async ({ params }) => {
 	return {
 		body: {
 			title: post.title,
+			published: post.published,
 			html: markdownToHtml(post.body, `/blog/${post.slug}/index.md`),
 		} as APIBlogPost,
 	}

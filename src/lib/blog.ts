@@ -6,6 +6,7 @@ export const postsDir = 'src/posts' as const
 
 interface BlogPost {
 	title: string
+	published: string
 	body: string
 	slug: string
 }
@@ -45,14 +46,15 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 	const metadata: NonNullable<any> = yaml.load(yamlMetadata)
 
 	// make sure the post has all the required metadata
-	const requiredFields = ['title']
+	const requiredFields = ['title', 'published']
 	for (const requiredField of requiredFields)
 		if (!(requiredField in metadata))
 			throw new Error(`Blog post "${slug}" is missing metadata field "${requiredField}"`)
 
 	return {
-		body: markdownContent.trim(),
 		title: metadata.title,
+		published: new Date(metadata.published).toString(),
+		body: markdownContent.trim(),
 		slug,
 	}
 }
