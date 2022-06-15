@@ -30,7 +30,7 @@ export const get: RequestHandler = async () => {
 							.slice(0, 512)
 							.replace(/!\[[^\]]+?\]\([^)]+?\)/g, '')
 							.replace(/\[([^\]]+?)\]\([^)]+?\)/g, '$1'),
-						`/blog/post/${blogPost.slug}/index.md`
+						`/blog/${blogPost.slug}/index.md`
 					),
 					slug: blogPost.slug,
 				}

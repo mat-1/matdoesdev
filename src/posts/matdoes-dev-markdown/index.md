@@ -3,6 +3,10 @@ title: matdoes.dev markdown
 published: 2021-03-24T05:53:14.373+00:00
 ---
 
+<div class="warning box">
+This article is outdated.
+</div>
+
 A couple years ago when I was creating the matdoes.dev blog I wrote a somewhat powerful markdown system with Regex to allow me to more easily write blog posts. Although I've barely written any posts, I'm still proud of it. Also this post is mostly just reference for myself, lol.
 I present: matdown™
 

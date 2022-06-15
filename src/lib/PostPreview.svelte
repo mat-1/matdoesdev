@@ -4,7 +4,7 @@
 	export let post: BlogPostPreview
 </script>
 
-<a href="/blog/post/{post.slug}" class="preview-anchor">
+<a href="/blog/{post.slug}" class="preview-anchor">
 	<article>
 		<h2>{post.title}</h2>
 		<div class="disappearing-text-preview" />
@@ -46,5 +46,9 @@
 	.preview-anchor {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	article :global(.box) {
+		display: none;
 	}
 </style>
