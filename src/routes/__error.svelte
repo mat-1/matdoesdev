@@ -12,12 +12,14 @@
 </script>
 
 <script lang="ts">
+	import BackAnchor from '$lib/BackAnchor.svelte'
+
 	export let status: number
 	export let message: string
 </script>
 
 <nav>
-	<a href="/" class="back-anchor">← Home</a>
+	<BackAnchor href="/" />
 </nav>
 <section class="error-page">
 	<div>

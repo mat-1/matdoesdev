@@ -29,7 +29,7 @@
 		<h1 bind:this={titleEl}>matdoesdev</h1>
 
 		<div class="button-row social-media-row">
-			<a href="//github.com/mat-1"><img src="/github.svg" class="icon" alt="GitHub" /></a>
+			<a href="//github.com/mat-1"><img src="/icons/github.svg" class="icon" alt="GitHub" /></a>
 		</div>
 
 		<p>I'm mat, I do full-stack software development.</p>

@@ -2,7 +2,9 @@
 	export let href: string
 </script>
 
-<a {href} class="back-anchor">← Back</a>
+<a {href} class="back-anchor">
+	← {#if href === '/'}Home{:else}Back{/if}
+</a>
 
 <style>
 	.back-anchor {

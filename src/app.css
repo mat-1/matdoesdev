@@ -45,6 +45,11 @@ button,
 	font-family: inherit;
 	box-shadow: 0 0.1em 0.2em #000;
 	text-decoration: none;
+	transition: background-color 200ms;
+}
+button:hover,
+.button:hover {
+	background-color: var(--background-color-alt-2);
 }
 
 p {

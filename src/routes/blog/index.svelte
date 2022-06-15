@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
 	export const prerender = true
-	// export const router = false
 
 	import type { Load } from '@sveltejs/kit'
 	import type { BlogPostPreview } from './index.json'
@@ -27,7 +26,7 @@
 	<nav>
 		<BackAnchor href="/" />
 	</nav>
-
+	<h1>Blog</h1>
 	{#each posts as post}
 		<PostPreview {post} />
 	{/each}
