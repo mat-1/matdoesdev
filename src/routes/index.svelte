@@ -6,8 +6,9 @@
 <script lang="ts">
 	import Head from '$lib/Head.svelte'
 	import { onMount } from 'svelte'
-	import { fade } from 'svelte/transition'
-	import { flip } from 'svelte/animate'
+	import GitHubIcon from '$lib/Icon/GitHub.svelte'
+	import ButtonRow from '$lib/ButtonRow.svelte'
+	import IconButtonRow from '$lib/IconButtonRow.svelte'
 
 	let titleEl: HTMLParagraphElement
 
@@ -28,16 +29,16 @@
 	<section>
 		<h1 bind:this={titleEl}>matdoesdev</h1>
 
-		<div class="button-row social-media-row">
-			<a href="//github.com/mat-1"><img src="/icons/github.svg" class="icon" alt="GitHub" /></a>
-		</div>
+		<IconButtonRow>
+			<a href="//github.com/mat-1"><GitHubIcon /></a>
+		</IconButtonRow>
 
 		<p>I'm mat, I do full-stack software development.</p>
 		<p>This portfolio contains my blog posts and links to some of the projects I've made.</p>
-		<div class="button-row">
+		<ButtonRow>
 			<a href="/blog" class="button">Blog</a>
 			<a href="/projects" class="button">Projects</a>
-		</div>
+		</ButtonRow>
 	</section>
 </div>
 
@@ -66,22 +67,5 @@
 	}
 	p {
 		margin: 0.25em;
-	}
-	.button-row {
-		width: fit-content;
-		margin: 0.5em auto;
-		display: flex;
-		gap: 0.5em;
-	}
-	.icon {
-		height: 1em;
-		opacity: 0.5;
-		transition: opacity 200ms;
-	}
-	.icon:hover {
-		opacity: 0.9;
-	}
-	.social-media-row {
-		font-size: 1.25em;
 	}
 </style>
