@@ -15,31 +15,30 @@
 	})
 </script>
 
-<div>
-	<div class="projects-header">
-		<nav>
-			<BackAnchor href="/" />
-		</nav>
-		<h1>Projects</h1>
-		<hr />
-	</div>
-	<div class="projects" bind:this={projectsEl}>
-		{#each projects as project, i}
-			<Project
-				name={project.name}
-				href={project.href}
-				source={project.source}
-				nextName={projects[i + 1]?.name}
-			>
-				{project.description}
-			</Project>
-		{/each}
-	</div>
+<div class="projects-header">
+	<nav>
+		<BackAnchor href="/" />
+	</nav>
+	<h1>Projects</h1>
+	<hr />
+</div>
+<div class="projects" bind:this={projectsEl}>
+	{#each projects as project, i}
+		<Project
+			name={project.name}
+			href={project.href}
+			source={project.source}
+			nextName={projects[i + 1]?.name}
+		>
+			{project.description}
+		</Project>
+	{/each}
 </div>
 
 <style>
 	.projects-header {
-		height: 0;
+		position: absolute;
+		z-index: 10;
 	}
 	.projects {
 		position: relative;

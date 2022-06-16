@@ -38,6 +38,7 @@
 		align-items: stretch;
 		overflow-x: hidden;
 		overflow-wrap: break-word;
+		position: relative;
 	}
 
 	main {
