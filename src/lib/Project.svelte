@@ -4,6 +4,7 @@
 	import IconButtonRow from './IconButtonRow.svelte'
 
 	export let name: string
+	export let nextName: string | undefined
 	export let href: string | undefined = undefined
 
 	/** A link to where the code is hosted. */
@@ -11,14 +12,11 @@
 
 	export let archived = false
 
-	export let rust = false
-	export let svelte = false
-	export let javascript = false
-	export let typescript = false
-	export let python = false
+	$: id = name.replace(/[^a-z0-9]/gi, '-')
+	$: nextId = nextName?.replace(/[^a-z0-9]/gi, '-')
 </script>
 
-<div class="project-container">
+<div class="project-container" {id}>
 	<div class="project-background-container">
 		<div class="project-background" />
 	</div>
@@ -41,13 +39,17 @@
 				</a>
 			</IconButtonRow>
 		{/if}
-		<p><slot /></p>
+		<p class="project-description"><slot /></p>
 	</div>
+	{#if nextId}
+		<a class="next-anchor" href="#{nextId}">↓ Next</a>
+	{/if}
 </div>
 
 <style>
 	.project-container {
-		height: 100vh;
+		--adjusted-project-height: max(var(--project-height), 15em);
+		height: var(--adjusted-project-height);
 		width: 100%;
 		display: grid;
 		align-items: center;
@@ -59,6 +61,8 @@
 	}
 	h2 {
 		margin: 0;
+		text-align: center;
+		width: 100%;
 	}
 	a {
 		text-decoration: none;
@@ -85,5 +89,20 @@
 		right: 50%;
 		width: 100vw;
 		height: 100%;
+	}
+	.project-description {
+		margin: 0 auto;
+		width: fit-content;
+		max-width: 20em;
+	}
+	.next-anchor {
+		color: var(--text-color-alt-3);
+		text-decoration: none;
+		text-align: center;
+		display: block;
+		margin-top: 0.5em;
+		position: absolute;
+		bottom: calc(calc(var(--adjusted-project-height) * 0.5) - 6em);
+		width: 100%;
 	}
 </style>

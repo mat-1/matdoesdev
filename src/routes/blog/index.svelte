@@ -27,6 +27,7 @@
 		<BackAnchor href="/" />
 	</nav>
 	<h1>Blog</h1>
+	<hr />
 	{#each posts as post}
 		<PostPreview {post} />
 	{/each}
