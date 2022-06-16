@@ -12,8 +12,12 @@
 
 	export let archived = false
 
-	$: id = name.replace(/[^a-z0-9]/gi, '-')
-	$: nextId = nextName?.replace(/[^a-z0-9]/gi, '-')
+	function nameToId(name: string): string {
+		return name.toLowerCase().replace(/\s+/g, '-')
+	}
+
+	$: id = nameToId(name)
+	$: nextId = nextName ? nameToId(nextName) : undefined
 </script>
 
 <div class="project-container" {id}>

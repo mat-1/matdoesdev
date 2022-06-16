@@ -1,20 +1,35 @@
+<script context="module" lang="ts">
+	import type { Load } from '@sveltejs/kit'
+
+	export const load: Load = async ({ url: { pathname } }) => ({
+		props: { pathname },
+	})
+</script>
+
 <script lang="ts">
 	import '../app.css'
+	import { fly } from 'svelte/transition'
+	export let pathname: string
 
 	export const copyrightYear = new Date().getFullYear()
 </script>
 
-<div id="page">
-	<main>
-		<slot />
-	</main>
+{#key pathname}
+	<div id="page" in:fly={{ x: -5, duration: 200, delay: 200 }} out:fly={{ x: 5, duration: 200 }}>
+		<main>
+			<slot />
+		</main>
 
-	<footer>
-		<p>&copy; {copyrightYear} matdoesdev</p>
-	</footer>
-</div>
+		<footer>
+			<p>&copy; {copyrightYear} matdoesdev</p>
+		</footer>
+	</div>
+{/key}
 
 <style>
+	:global(body) {
+		overflow: hidden;
+	}
 	#page {
 		height: 100%;
 		display: flex;

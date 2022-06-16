@@ -16,11 +16,13 @@
 </script>
 
 <div>
-	<nav>
-		<BackAnchor href="/" />
-	</nav>
-	<h1>Projects</h1>
-	<hr />
+	<div class="projects-header">
+		<nav>
+			<BackAnchor href="/" />
+		</nav>
+		<h1>Projects</h1>
+		<hr />
+	</div>
 	<div class="projects" bind:this={projectsEl}>
 		{#each projects as project, i}
 			<Project
@@ -36,6 +38,9 @@
 </div>
 
 <style>
+	.projects-header {
+		height: 0;
+	}
 	.projects {
 		position: relative;
 	}
