@@ -67,7 +67,7 @@ We also found out that they had deleted their webhook, which meant we couldn't s
 
 The first two quickly left, but one sent us a message before leaving.
 
-!["wtf are you"](https://i.matdoes.dev/VJMW9)
+!['wtf are you'](https://i.matdoes.dev/VJMW9)
 
 We asked kzh to join back again.
 

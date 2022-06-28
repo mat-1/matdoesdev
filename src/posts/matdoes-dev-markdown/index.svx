@@ -64,13 +64,3 @@ Titles:
 
 Image:
 !\[description](https://image)
-
-<-
-**Float left**
-`<- text <-`
-<-
-
-->
-**Float right**
-`-> text ->`
-->

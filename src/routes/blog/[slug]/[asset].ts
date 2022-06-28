@@ -1,5 +1,4 @@
 import { doesAssetExist, getPost, postsDir } from '$lib/blog'
-import { markdownToHtml } from '$lib/utils'
 import type { RequestHandler } from '@sveltejs/kit'
 import path from 'path'
 import fs from 'fs'

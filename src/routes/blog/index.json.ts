@@ -1,5 +1,4 @@
 import { getPost } from '$lib/blog'
-import { markdownToHtml } from '$lib/utils'
 import type { RequestHandler } from '@sveltejs/kit'
 import fs from 'fs'
 
@@ -27,13 +26,11 @@ export const get: RequestHandler = async () => {
 					title: blogPost.title,
 					published: blogPost.published,
 					// cut it off after 255 characters because that's a nice number
-					html: markdownToHtml(
-						blogPost.body
-							.slice(0, 512)
-							.replace(/!\[[^\]]+?\]\([^)]+?\)/g, '')
-							.replace(/\[([^\]]+?)\]\([^)]+?\)/g, '$1'),
-						`/blog/${blogPost.slug}/index.md`
-					),
+					// html: blogPost.body
+					// 	.slice(0, 512)
+					// 	.replace(/!\[[^\]]+?\]\([^)]+?\)/g, '')
+					// 	.replace(/\[([^\]]+?)\]\([^)]+?\)/g, '$1'),
+					html: blogPost.html,
 					slug: blogPost.slug,
 				}
 			})

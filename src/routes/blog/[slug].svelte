@@ -7,19 +7,21 @@
 	export const load: Load = async ({ params, fetch }) => {
 		const slug: string = params.slug ?? ''
 
-		const resp = await fetch(`/blog/${slug}.json`)
-		if (resp.status === 404)
-			return {
-				status: 404,
-			}
+		// const resp = await fetch(`/blog/${slug}.json`)
+		// if (resp.status === 404)
+		// 	return {
+		// 		status: 404,
+		// 	}
 
-		const post: APIBlogPost = await resp.json()
+		// const post: APIBlogPost = await resp.json()
+
+		const { default: body, metadata } = await import(`../../posts/${slug}/index.svx`)
 
 		return {
 			props: {
-				title: post.title,
-				html: post.html,
-				published: new Date(post.published),
+				title: metadata.title,
+				published: new Date(metadata.published),
+				PostComponent: body,
 			},
 		}
 	}
@@ -29,8 +31,8 @@
 	import BackAnchor from '$lib/BackAnchor.svelte'
 
 	export let title: string
-	export let html: string
 	export let published: Date
+	export let PostComponent: any
 </script>
 
 <div class="article-container">
@@ -43,7 +45,7 @@
 			<time>{published.toLocaleDateString()}</time>
 		</div>
 
-		{@html html}
+		<svelte:component this={PostComponent} />
 	</article>
 </div>
 
