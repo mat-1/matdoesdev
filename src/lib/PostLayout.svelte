@@ -1,36 +1,14 @@
-<script lang="ts" context="module">
-	import type { APIBlogPost } from './[slug].json'
-	import type { Load } from '@sveltejs/kit'
-
-	export const prerender = true
-
-	export const load: Load = async ({ params, fetch }) => {
-		const slug: string = params.slug ?? ''
-
-		const resp = await fetch(`/blog/${slug}.json`)
-		if (resp.status === 404)
-			return {
-				status: 404,
-			}
-
-		const post: APIBlogPost = await resp.json()
-
-		return {
-			props: {
-				title: post.title,
-				html: post.html,
-				published: new Date(post.published),
-			},
-		}
-	}
-</script>
-
-<script lang="ts">
+<script context="module">
+	import img from './components/img.svelte'
 	import BackAnchor from '$lib/BackAnchor.svelte'
 
-	export let title: string
-	export let html: string
-	export let published: Date
+	// mdsvex moment
+	export { img as image, img }
+</script>
+
+<script>
+	export let title = 'Untitled'
+	export let published = ''
 </script>
 
 <div class="article-container">
@@ -40,10 +18,10 @@
 	<article>
 		<div class="article-header">
 			<h1>{title}</h1>
-			<time>{published.toLocaleDateString()}</time>
+			<time>{new Date(published).toLocaleDateString()}</time>
 		</div>
 
-		{@html html}
+		<slot />
 	</article>
 </div>
 

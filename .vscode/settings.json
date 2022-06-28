@@ -3,5 +3,6 @@
 	"editor.formatOnSave": true,
 	"[typescript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+	"files.associations": { "*.svx": "markdown" }
 }

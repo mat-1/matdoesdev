@@ -1,19 +1,16 @@
-import { getPost } from '$lib/blog'
-import { markdownToHtml } from '$lib/utils'
+import { getPost, listBlogPostSlugs } from '$lib/blog'
 import type { RequestHandler } from '@sveltejs/kit'
-import fs from 'fs'
-
-const postsDir = 'src/posts'
 
 export interface BlogPostPreview {
 	title: string
 	published: string
 	html: string
+	css: string
 	slug: string
 }
 
 export const get: RequestHandler = async () => {
-	const existingPosts: string[] = await fs.promises.readdir(postsDir)
+	const existingPosts: string[] = await listBlogPostSlugs()
 
 	const posts = (
 		await Promise.all(
@@ -26,14 +23,10 @@ export const get: RequestHandler = async () => {
 				return {
 					title: blogPost.title,
 					published: blogPost.published,
-					// cut it off after 255 characters because that's a nice number
-					html: markdownToHtml(
-						blogPost.body
-							.slice(0, 512)
-							.replace(/!\[[^\]]+?\]\([^)]+?\)/g, '')
-							.replace(/\[([^\]]+?)\]\([^)]+?\)/g, '$1'),
-						`/blog/${blogPost.slug}/index.md`
-					),
+					// HACK: remove images, i WILL parse html with regex and you won't stop me
+					// TODO: cut off the html so it's not sending a bunch of unnecessary data over the network
+					html: blogPost.html.replace(/<img.+?\/?>/g, ''),
+					css: blogPost.css,
 					slug: blogPost.slug,
 				}
 			})
