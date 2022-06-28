@@ -57,25 +57,6 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 
 	const { default: post, metadata } = await import(`../routes/blog/${slug}/index.svx`)
 
-	// ok the post exists, so we can safely read the md file
-	// const postMarkdown = (
-	// 	await fs.promises.readFile(path.join(postsDir, slug, 'index.md'), 'utf8')
-	// ).replace(/\r\n/g, '\n')
-
-	// const [_, yamlMetadata = null, markdownContent = null] =
-	// 	postMarkdown.match(/^---\n([\w\W]+?)\n---\n([\w\W]+)$/) ?? []
-
-	// if (yamlMetadata === null) throw new Error(`Blog post "${slug}" has no metadata.`)
-	// if (markdownContent === null) throw new Error(`Blog post "${slug}" has no content.`)
-
-	// const metadata: NonNullable<any> = yaml.load(yamlMetadata)
-
-	// // make sure the post has all the required metadata
-	// const requiredFields = ['title', 'published']
-	// for (const requiredField of requiredFields)
-	// 	if (!(requiredField in metadata))
-	// 		throw new Error(`Blog post "${slug}" is missing metadata field "${requiredField}"`)
-
 	const result: {
 		title: string
 		head: string
