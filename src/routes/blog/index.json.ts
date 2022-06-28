@@ -1,8 +1,5 @@
-import { getPost } from '$lib/blog'
+import { getPost, listBlogPostSlugs } from '$lib/blog'
 import type { RequestHandler } from '@sveltejs/kit'
-import fs from 'fs'
-
-const postsDir = 'src/posts'
 
 export interface BlogPostPreview {
 	title: string
@@ -12,7 +9,7 @@ export interface BlogPostPreview {
 }
 
 export const get: RequestHandler = async () => {
-	const existingPosts: string[] = await fs.promises.readdir(postsDir)
+	const existingPosts: string[] = await listBlogPostSlugs()
 
 	const posts = (
 		await Promise.all(

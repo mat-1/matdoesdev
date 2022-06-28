@@ -1,7 +1,28 @@
 import path from 'path'
 import fs from 'fs'
 
-export const postsDir = 'src/posts' as const
+export const postsDir = 'src/routes/blog' as const
+
+export async function listBlogPostSlugs(): string[] {
+	await fs.promises.readdir(postsDir)
+
+	const existingPosts: string[] = await fs.promises.readdir(postsDir)
+
+	// https://stackoverflow.com/a/46842181
+	async function filter<T>(arr: T[], callback: (item: T) => Promise<boolean>): Promise<T[]> {
+		const fail = Symbol()
+		return (
+			await Promise.all(arr.map(async (item) => ((await callback(item)) ? item : fail)))
+		).filter((i) => i !== fail) as any
+	}
+
+	return await filter(existingPosts, (slug) =>
+		fs.promises
+			.stat(path.join(postsDir, slug, 'index.svx'))
+			.then(() => true)
+			.catch(() => false)
+	)
+}
 
 interface BlogPost {
 	title: string
@@ -13,8 +34,8 @@ interface BlogPost {
 /** Checks whether a slug is valid or not */
 async function doesBlogPostExist(slug: string) {
 	const existingPosts: string[] = await fs.promises.readdir(postsDir)
-
-	return existingPosts.includes(slug)
+	if (!existingPosts.includes(slug)) return false
+	return true
 }
 
 /** Checks whether an asset exists in a blog post */
@@ -33,7 +54,7 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 
 	const url = new URL(`protocol://-/blog/${slug}`)
 
-	const { default: post, metadata } = await import(`../posts/${slug}/index.svx`)
+	const { default: post, metadata } = await import(`../routes/blog/${slug}/index.svx`)
 
 	// ok the post exists, so we can safely read the md file
 	// const postMarkdown = (
@@ -91,12 +112,12 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 	const css = Array.from(result.css)
 		.map((css) => css.code)
 		.join('')
-	console.log(result)
+	const out = html + `<style>${css}</style>`
 
 	return {
 		title: metadata.title,
 		published: new Date(metadata.published).toString(),
-		html: html + `<style>${css}</style>`,
+		html: out,
 		slug,
 	}
 }
