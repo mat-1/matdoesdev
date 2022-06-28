@@ -9,7 +9,7 @@ const config = {
 	preprocess: [
 		preprocess(),
 		mdsvex({
-			layout: './src/lib/Layout.svelte'
+			layout: './src/lib/PostLayout.svelte'
 		}),
 	],
 

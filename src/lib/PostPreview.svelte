@@ -2,6 +2,8 @@
 	import type { BlogPostPreview } from 'src/routes/blog/index.json'
 
 	export let post: BlogPostPreview
+	// HACK: we have to do this otherwise sveltekit does a dumb
+	const postHtml = `${post.html}<sty` + `le>${post.css}</style>`
 </script>
 
 <a href="/blog/{post.slug}" class="preview-anchor">
@@ -12,7 +14,9 @@
 		</div>
 
 		<div class="disappearing-text-preview" />
-		<div class="preview">{@html post.html}</div>
+		<div class="preview">
+			{@html postHtml}
+		</div>
 	</article>
 </a>
 

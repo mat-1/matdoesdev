@@ -3,7 +3,7 @@ import fs from 'fs'
 
 export const postsDir = 'src/routes/blog' as const
 
-export async function listBlogPostSlugs(): string[] {
+export async function listBlogPostSlugs(): Promise<string[]> {
 	await fs.promises.readdir(postsDir)
 
 	const existingPosts: string[] = await fs.promises.readdir(postsDir)
@@ -28,6 +28,7 @@ interface BlogPost {
 	title: string
 	published: string
 	html: string
+	css: string
 	slug: string
 }
 
@@ -84,7 +85,7 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 		}>
 	} = { title: '', head: '', css: new Set() }
 
-	const html = post.$$render(
+	const renderHtml = post.$$render(
 		result,
 		{},
 		{},
@@ -94,7 +95,7 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 				'__svelte__',
 				{
 					page: {
-						// this is necessary so the hack with images works
+						// HACK: this is necessary so the hack with images works
 						// probably a war crime :)
 						subscribe: (r: any) => {
 							r({ url })
@@ -109,15 +110,20 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 			],
 		])
 	)
+
+	// HACK: i'm probably comitting a felony by putting this here
+	// but i couldn't come up with a better solution
+	const html = /^[\w\W]*?<\/div>\s*([\w\W]+)<\/article>[\w\W]*?$/.exec(renderHtml)?.[1] ?? ''
+
 	const css = Array.from(result.css)
 		.map((css) => css.code)
 		.join('')
-	const out = html + `<style>${css}</style>`
 
 	return {
 		title: metadata.title,
 		published: new Date(metadata.published).toString(),
-		html: out,
+		html,
+		css,
 		slug,
 	}
 }

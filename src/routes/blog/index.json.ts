@@ -5,6 +5,7 @@ export interface BlogPostPreview {
 	title: string
 	published: string
 	html: string
+	css: string
 	slug: string
 }
 
@@ -22,12 +23,10 @@ export const get: RequestHandler = async () => {
 				return {
 					title: blogPost.title,
 					published: blogPost.published,
-					// cut it off after 255 characters because that's a nice number
-					// html: blogPost.body
-					// 	.slice(0, 512)
-					// 	.replace(/!\[[^\]]+?\]\([^)]+?\)/g, '')
-					// 	.replace(/\[([^\]]+?)\]\([^)]+?\)/g, '$1'),
-					html: blogPost.html,
+					// HACK: remove images, i WILL parse html with regex and you won't stop me
+					// TODO: cut off the html so it's not sending a bunch of unnecessary data over the network
+					html: blogPost.html.replace(/<img.+?\/?>/g, ''),
+					css: blogPost.css,
 					slug: blogPost.slug,
 				}
 			})

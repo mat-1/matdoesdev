@@ -7,9 +7,8 @@
 </script>
 
 <script>
-	// can't use ts in here, mdsvx bug
-	export let title
-	export let published
+	export let title = 'Untitled'
+	export let published = ''
 </script>
 
 <div class="article-container">
