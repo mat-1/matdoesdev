@@ -28,6 +28,7 @@
 			name={project.name}
 			href={project.href}
 			source={project.source}
+			languages={project.languages}
 			nextName={projects[i + 1]?.name}
 		>
 			{project.description}

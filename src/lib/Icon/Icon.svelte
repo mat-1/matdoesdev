@@ -10,7 +10,11 @@
 		transition: opacity 200ms;
 		display: inline-block;
 	}
-	.icon:hover {
+	.icon :global(img) {
+		display: block;
+		margin: 0 auto;
+	}
+	:global(a) .icon:hover {
 		opacity: 0.9;
 	}
 </style>

@@ -1,11 +1,13 @@
 <script lang="ts">
 	import GitHubIcon from '$lib/Icon/GitHub.svelte'
 	import ButtonRow from './ButtonRow.svelte'
+	import Icon from './Icon/Icon.svelte'
 	import IconButtonRow from './IconButtonRow.svelte'
 
 	export let name: string
 	export let nextName: string | undefined
 	export let href: string | undefined = undefined
+	export let languages: string[] = []
 
 	/** A link to where the code is hosted. */
 	export let source: string | undefined = undefined
@@ -32,8 +34,8 @@
 		{:else}
 			<h2 class="no-link">{name}</h2>
 		{/if}
-		{#if source}
-			<IconButtonRow>
+		<IconButtonRow>
+			{#if source}
 				<a href={source} class="source">
 					{#if source.startsWith('https://github.com/')}
 						<GitHubIcon />
@@ -41,8 +43,23 @@
 						<GitHubIcon />
 					{/if}
 				</a>
-			</IconButtonRow>
-		{/if}
+			{/if}
+			{#if languages.includes('python')}
+				<Icon><img src="/icons/python.svg" alt="Python" /></Icon>
+			{/if}
+			{#if languages.includes('svelte')}
+				<Icon><img src="/icons/svelte.svg" alt="Svelte" /></Icon>
+			{/if}
+			{#if languages.includes('rust')}
+				<Icon><img src="/icons/rust.svg" alt="Rust" /></Icon>
+			{/if}
+			{#if languages.includes('typescript')}
+				<Icon><img src="/icons/typescript.svg" alt="TypeScript" /></Icon>
+			{/if}
+			{#if languages.includes('javascript')}
+				<Icon><img src="/icons/javascript.svg" alt="JavaScript" /></Icon>
+			{/if}
+		</IconButtonRow>
 		<p class="project-description"><slot /></p>
 	</div>
 	{#if nextId}
