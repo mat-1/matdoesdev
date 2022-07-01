@@ -25,7 +25,7 @@ export const get: RequestHandler = async () => {
 					published: blogPost.published,
 					// HACK: remove images, i WILL parse html with regex and you won't stop me
 					// TODO: cut off the html so it's not sending a bunch of unnecessary data over the network
-					html: blogPost.html.replace(/<img.+?\/?>/g, ''),
+					html: blogPost.html.replace(/<(img|iframe).+?\/?>|<\/?(img|iframe)>/g, ''),
 					css: blogPost.css,
 					slug: blogPost.slug,
 				}
