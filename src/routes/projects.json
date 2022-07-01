@@ -1,5 +1,14 @@
 [
 	{
+		"name": "msdsmchr",
+		"href": "https://h.matdoes.dev/",
+		"source": "https://github.com/mat-1/msdsmchr",
+		"languages": [
+			"rust"
+		],
+		"description": "A fast Minecraft head API."
+	},
+	{
 		"name": "matdoesdev",
 		"href": "https://matdoes.dev",
 		"source": "https://github.com/mat-1/matdoesdev-svelte",
