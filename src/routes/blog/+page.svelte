@@ -7,6 +7,10 @@
 	export let posts: BlogPostPreview[] = data.posts
 </script>
 
+<svelte:head>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="/blog.rss" />
+</svelte:head>
+
 <div>
 	<nav>
 		<BackAnchor href="/" />

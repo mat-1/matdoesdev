@@ -9,7 +9,7 @@ export interface BlogPostPreview {
 	slug: string
 }
 
-export const GET: RequestHandler = async () => {
+export async function getPosts() {
 	const existingPosts: string[] = await listBlogPostSlugs()
 
 	const posts = (
@@ -34,6 +34,13 @@ export const GET: RequestHandler = async () => {
 	)
 		.filter((p) => p)
 		.sort((a, b) => (new Date(a!.published) > new Date(b!.published) ? -1 : 1))
+
+	// typescript thinks posts is (BlogPostPreview | null)[] but it's not because of the .filter
+	return posts as BlogPostPreview[]
+}
+
+export const GET: RequestHandler = async () => {
+	const posts = await getPosts()
 
 	return json(posts)
 }
