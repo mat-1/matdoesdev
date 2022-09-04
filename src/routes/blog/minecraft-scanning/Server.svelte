@@ -38,18 +38,6 @@
 	<p class="minecraft-server-description">{data.description}</p>
 </div>
 
-<!-- {#if data.players.sample || data.players}
-	<div class="player-list">
-		{#if data.players.sample}
-			{#each data.players.sample as player}
-				<div class="minecraft-player">
-					<img src="https://mc-heads.net/avatar/{player.id}/8" alt={player.name} />
-					{player.name}
-				</div>
-			{/each}
-		{/if}
-	</div>
-{/if} -->
 <style>
 	@font-face {
 		font-family: Minecraft;
@@ -91,16 +79,9 @@
 	.minecraft-playercount-divider {
 		color: #3f3f3f;
 	}
-	.minecraft-player img {
-		height: fit-content;
-		image-rendering: crisp-edges;
-	}
 	@media only screen and (max-width: 720px) {
 		.minecraft-server {
 			font-size: 2.5vw;
 		}
-	}
-	.player-list {
-		margin-bottom: 1em;
 	}
 </style>

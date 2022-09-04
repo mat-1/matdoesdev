@@ -19,6 +19,7 @@
 		} catch (error) {
 			console.error(error)
 			await new Promise((resolve) => setTimeout(resolve, 1000))
+			loading = false
 			return await fetchServers()
 		}
 	}
