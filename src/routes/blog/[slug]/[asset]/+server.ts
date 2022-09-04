@@ -18,8 +18,6 @@ const extContentTypes: Record<string, string> = {
 export const GET: RequestHandler = async ({ params }) => {
 	const { slug: postSlug, asset: assetName } = params
 
-	console.log(postSlug, assetName)
-
 	if (!postSlug) throw new Error('No slug')
 	if (!assetName) throw new Error('No asset')
 
