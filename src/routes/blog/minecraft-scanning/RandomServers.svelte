@@ -15,6 +15,7 @@
 			const data = await response.json()
 			loading = false
 			servers = data
+			index = Math.floor(Math.random() * servers!.length)
 		} catch (error) {
 			console.error(error)
 			await new Promise((resolve) => setTimeout(resolve, 1000))
