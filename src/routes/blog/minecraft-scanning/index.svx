@@ -37,7 +37,7 @@ My current design for my scanner runs on two servers. The first server has a Pyt
 
 Since Oracle Cloud was dropping packets, I had to find a different host to do my server scanning on. First, I tried Google Cloud, but they shut down my instance after a couple of days for "abnormal activity". Then I tried Azure, but their website was broken and didn't let me use my free credits. After those, I decided to try Linode. I'd heard people recommend Linode for scanning, so I thought it'd be fine, And it was, for about two weeks. I occasionally received abuse complaints on Linode, but I just replied to them telling them that I was simply scanning the internet for Minecraft servers and everything I was doing is legal. I had to do this several times, and they were fine with me, until they decided they weren't.
 
-![Final Linode abuse complaint](linode-ticket.webp)
+![Final Linode abuse complaint](linode-ticket.jpg)
 
 The final abuse complaint was actually sent by Hetzner for some reason, even though I wasn't using Hetzner for scanning. After being banned from Linode, I deleted my account and went back to searching for a new host for my server scanning. I'd heard from Souper that Scaleway was very good for scanning, so I bought their $2/mo Stardust plan and went right back to scanning. Their 100mbps bandwidth is a bit limiting, but the reliability of their service and the fact that I haven't received a single abuse complaint makes up for it.
 
