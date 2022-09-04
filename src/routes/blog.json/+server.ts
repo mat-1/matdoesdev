@@ -1,5 +1,5 @@
 import { getPost, listBlogPostSlugs } from '$lib/blog'
-import type { RequestHandler } from '@sveltejs/kit'
+import { json, type RequestHandler } from '@sveltejs/kit'
 
 export interface BlogPostPreview {
 	title: string
@@ -9,7 +9,7 @@ export interface BlogPostPreview {
 	slug: string
 }
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
 	const existingPosts: string[] = await listBlogPostSlugs()
 
 	const posts = (
@@ -31,9 +31,9 @@ export const get: RequestHandler = async () => {
 				}
 			})
 		)
-	).filter((p) => p)
+	)
+		.filter((p) => p)
+		.sort((a, b) => (new Date(a!.published) > new Date(b!.published) ? -1 : 1))
 
-	return {
-		body: posts,
-	} as any
+	return json(posts)
 }

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import GitHubIcon from '$lib/Icon/GitHub.svelte'
-	import ButtonRow from './ButtonRow.svelte'
 	import Icon from './Icon/Icon.svelte'
 	import IconButtonRow from './IconButtonRow.svelte'
 

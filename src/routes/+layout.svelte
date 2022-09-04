@@ -1,20 +1,14 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-
-	export const load: Load = async ({ url: { pathname } }) => ({
-		props: { pathname },
-	})
-</script>
-
 <script lang="ts">
 	import '../app.css'
 	import { fly } from 'svelte/transition'
-	export let pathname: string
+	import type { LayoutData } from './$types'
+
+	export let data: LayoutData
 
 	export const copyrightYear = new Date().getFullYear()
 </script>
 
-{#key pathname}
+{#key data.pathname}
 	<div id="page" in:fly={{ x: -5, duration: 200, delay: 200 }} out:fly={{ x: 5, duration: 200 }}>
 		<main>
 			<slot />

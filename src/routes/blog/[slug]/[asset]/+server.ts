@@ -1,7 +1,10 @@
-import { doesAssetExist, getPost, postsDir } from '$lib/blog'
+import { doesAssetExist, postsDir } from '$lib/blog'
 import type { RequestHandler } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit'
 import path from 'path'
 import fs from 'fs'
+
+export const prerender = true
 
 export interface APIBlogPost {
 	title: string
@@ -12,10 +15,15 @@ const extContentTypes: Record<string, string> = {
 	png: 'image/png',
 }
 
-export const get: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params }) => {
 	const { slug: postSlug, asset: assetName } = params
 
-	if (!(await doesAssetExist(postSlug, assetName))) return { body: { error: 'Not found' } }
+	console.log(postSlug, assetName)
+
+	if (!postSlug) throw new Error('No slug')
+	if (!assetName) throw new Error('No asset')
+
+	if (!(await doesAssetExist(postSlug, assetName))) throw error(404, 'Not found')
 
 	const file = await fs.promises.readFile(path.join(postsDir, postSlug, assetName))
 
@@ -23,10 +31,9 @@ export const get: RequestHandler = async ({ params }) => {
 	const [ext = ''] = assetName.split('.').slice(-1)
 	const contentType = ext in extContentTypes ? extContentTypes[ext] : 'text/plain'
 
-	return {
+	return new Response(file, {
 		headers: {
-			'content-type': contentType,
+			'Content-Type': contentType,
 		},
-		body: file,
-	}
+	})
 }

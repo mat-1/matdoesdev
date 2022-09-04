@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { BlogPostPreview } from 'src/routes/blog/index.json'
+	import type { BlogPostPreview } from 'src/routes/blog.json/+server'
 
 	export let post: BlogPostPreview
 	// HACK: we have to do this otherwise sveltekit does a dumb
