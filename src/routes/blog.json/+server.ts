@@ -9,6 +9,27 @@ export interface BlogPostPreview {
 	slug: string
 }
 
+function cutOffAtLine(text: string, line: number) {
+	let row = 0
+	let column = 0
+	for (let i = 0; i < text.length; i++) {
+		if (text[i] === '\n') {
+			row++
+			column = 0
+		} else {
+			column++
+		}
+		if (column > 128) {
+			row++
+			column = 0
+		}
+		if (row >= line) {
+			return text.slice(0, i) + '...'
+		}
+	}
+	return text
+}
+
 export async function getPosts() {
 	const existingPosts: string[] = await listBlogPostSlugs()
 
@@ -24,8 +45,10 @@ export async function getPosts() {
 					title: blogPost.title,
 					published: blogPost.published,
 					// HACK: remove images, i WILL parse html with regex and you won't stop me
-					// TODO: cut off the html so it's not sending a bunch of unnecessary data over the network
-					html: blogPost.html.replace(/<(img|iframe).+?\/?>|<\/?(img|iframe)>/g, ''),
+					html: cutOffAtLine(
+						blogPost.html.replace(/<(img|iframe).+?\/?>|<\/?(img|iframe)>/g, ''),
+						6
+					),
 					css: blogPost.css,
 					slug: blogPost.slug,
 				}
