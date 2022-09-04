@@ -15,7 +15,7 @@ A while ago, on April 1st 2022, cybersecurity YouTuber [LiveOverflow](https://ww
 
 A few weeks later, Minecraft documentary YouTuber [TheMisterEpic](https://www.youtube.com/c/TheMisterEpic) uploaded a video about ["Minecraft's most dangerous glitch"](https://www.youtube.com/watch?v=EEG_c3ycDg4). Spoiler: The bug in the video is not dangerous. I wanted to let TheMisterEpic know, so I joined his Discord and pinged him in general chat. Some people were disagreeing with me, but a member in the server named Ada came to my defense. We talked a bit and another server member named Gildfesh told me how him and Ada developed Minecraft hacks and had recently released a mod for [faking Minecraft chat reports](https://www.youtube.com/watch?v=uyqi-CzB8Dg). Later, a member named Shrecknt brought up LiveOverflow's Minecraft YouTube series. This made me start thinking about it again, so I decided to rejoin the server once again. This time, there was a player online. We talked a bit, and they invited me to a Discord server named "Server Scanning Inc". Everyone in the server was super cool, and coincidentally Ada and Gildfesh also happened to be members here.
 
-![Original screenshot of my base, unfortunately it's too griefed now to take a better screenshot](home.png)
+![Original screenshot of my base, unfortunately it's too griefed now to take a better screenshot](home.jpg)
 
 I grinded on LiveOverflow's Minecraft server for the next few days, building a house, acquiring good tools, building some infrastructure in the Nether, and making an underground potato farm. For fun, I set up a website that [tracked Hermitcraft player activity](https://hermitcraft-tracker.mat1.repl.co) and made a honeypot Minecraft server using [node-minecraft-protocol](https://github.com/PrismarineJS/node-minecraft-protocol/) that logged all the bots who pinged or joined. I got pings from [Souper](https://github.com/SSouper) (who was in the Discord), [Natekomodo](https://www.reddit.com/user/Natekomodo), Shodan, and other IPs whom I couldn't find the owners of. Later I also got joins from some bots and other random people with scanners.
 
@@ -47,18 +47,18 @@ One funny thing I encountered early on was a silly little website called [AbuseI
 
 So remember that underground potato farm I made on LiveOverflow's server? I could obtain about 1 inventory's worth of potatoes per 30 minutes-ish, but me and a player named 3j4 decided that just wasn't going to cut it. Together we made a massive potato farm, which we dubbed Ireland, so by the time you finished harvesting all of the potatoes it would be ready to be reharvested. We tried [Baritone](https://github.com/cabaletta/baritone)'s farm feature, but it left many potatoes to despawn and I didn't want to leave my Minecraft client open. I decided I was going to make my own potato farming bot that stayed online 24/7. I used [Mineflayer](https://github.com/PrismarineJS/mineflayer) to make it, and it worked by walking back and forth in the farm and instantly breaking and placing 5 potatoes at a time. With this, we were easily able to obtain millions of potatoes.
 
-![Potato farm](potato.png)
+![Potato farm](potato.jpg)
 
 I also decided to make the bot bridge in-game chat to a channel in the Discord, so we could easily talk to players on the server. For a while, my bot was the only bot on the server. A bit later, my friend [SushiPython](https://sushipython.us) set up his own bot that stayed near the servers spawn-point to monitor events near the server's spawn, so if someone attempted to grief we would know who it was. For a while these were the only bots, but after LiveOverflow leaked the IP several times many more players started joining and making their own bots. First, it was uptime_check; every 5 minutes they joined and sent "chat test". Then, it was EmmaIsSad, who made a bot that joined after uptime_check joined and sent "cat test &lt;3". This became a meme. There were also a few other people who made bots that linked chat to their own servers, and bots that added custom commands to chat. Funnily enough one of these people was Shrecknt, the person who mentioned LiveOverflow in TheMisterEpic's Discord and made me want to check on it and basically the reason I ended up doing all this.
 
 
 ## Honeypots
 
-![Screenshot of a Discord channel showing several pingers](honeypot.png)
+![Screenshot of a Discord channel showing several pingers](honeypot.jpg)
 
 I briefly mentioned my honeypot server earlier, how it uses node-minecraft-protocol to pretend to be a real server. However, the server is juat a void world and kicks you after 15 seconds with an invite to the Discord server with the honeypot logs. I also set the server MOTD and player list to something enticing, with the hope that a random person with a scanner finds the server and tries to join. And it worked! At first, I was getting joins from bots with randomized names such as "WwMygQ" and "5PhFta3", but after a bit I got my first griefer who fell for the honeypot. They also joined the Discord server, so I DMed them. Their username was "Gangmaster", apparently they were an independent griefer who thought my server was legit, but unfortunately for them it was not. I also got joins from at least two Copenheimer users, including the lead developer of it, Orsond.
 
-![A lot of signs at spawn](signs.png)
+![A lot of signs at spawn](signs.jpg)
 
 I also gave the source code for my honeypot to some friends, and they modified it and set it up on their own servers. A member named Cleo made a [really cool honeypot](https://github.com/cleonyc/proxypot) that proxies traffic from the honeypot to the real server, but logging the players who join and adding some fake disconnections and lag to troll the people using them. TODO: write more here later
 
