@@ -3,6 +3,10 @@ title: Minecraft Server Scanning Inc
 published: 2022-09-03T22:54:51.000Z
 ---
 
+<script>
+	import RandomServers from './RandomServers.svelte'
+</script>
+
 For several years I've occasionally logged onto [Shodan](https://shodan.io) and searched for Minecraft servers. I just join, look around, and maybe leave a sign for the server owner. I'd also occasionally heard stories about people making their own Minecraft [server](https://blog.bithole.dev/blogposts/mc-census/) [scanners](https://www.youtube.com/watch?v=hoS0PM20KJk).
 
 ---
@@ -60,6 +64,8 @@ I also gave the source code for my honeypot to some friends, and they modified i
 
 ## Conclusion
 
-There were some other fun things that happened, such as me realizing that [Docker Minecraft Server](https://github.com/itzg/docker-minecraft-server) has "minecraft" as the default [RCON](https://wiki.vg/RCON) password (though I only found a few hundred servers with the port open with that password) and me and SushiPython confusing a lot of random Minecrafters by joining their servers. If you read this entire blog post, I encourage you to make your own server scanner and have your own adventures.
+There were some other fun things that happened, such as me realizing that [Docker Minecraft Server](https://github.com/itzg/docker-minecraft-server) has "minecraft" as the default [RCON](https://wiki.vg/RCON) password (though I only found a few hundred servers with the port open with that password) and me and SushiPython confusing a lot of random Minecrafters by joining their servers. If you read this entire blog post, I encourage you to make your own server scanner and have your own adventures. As a little sendoff, here's a few completely random servers from my database for you to explore:
 
-Until next time, when I decide to publish another blog post in two years ;)
+<RandomServers />
+
+If you want more, make your own scanner. See you next time, when I decide to publish another blog post in two years ;)
