@@ -11,7 +11,7 @@
 		if (loading) return
 		try {
 			loading = true
-			const response = await fetch('https://minecraft-server-dispenser.mat1.repl.co')
+			const response = await fetch('https://minecraft-server-dispenser.mat1.repl.co/r')
 			const data = await response.json()
 			loading = false
 			servers = data
