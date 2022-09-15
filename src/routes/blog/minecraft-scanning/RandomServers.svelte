@@ -36,7 +36,7 @@
 <div class="random-servers">
 	{#if servers}
 		{#key index}
-			<div class="server" in:fly={{ x: -50, duration: 200 }} out:fly={{ x: 50, duration: 200 }}>
+			<div class="server" in:fly={{ x: 50, duration: 200 }} out:fly={{ x: -50, duration: 200 }}>
 				<Server data={servers[index]} />
 			</div>
 		{/key}

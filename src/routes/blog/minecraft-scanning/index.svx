@@ -21,7 +21,7 @@ I grinded on LiveOverflow's Minecraft server for the next few days, building a h
 
 ## Making a scanner
 
-I got jealous of how everyone in the server had their own scanner and I cheated by using Shodan, so I decided to scan the internet myself. I already knew of [masscan](https://github.com/robertdavidgraham/masscan), which lets you send TCP SYN packets to every IPv4. Masscan also has support for getting basic banner data of various protocols such as HTTP and SSH, but it didn't have support for pinging Minecraft servers, so I decided to attempt to add it myself. Unfortunately, masscan is written in C and I have very little experience in C. While trying to write the code, I remembered [Bithole's blog post](https://blog.bithole.dev/blogposts/mc-census/) about scanning the internet for Minecraft servers so I went to it to see how they implemented scanning. It turns out, Bithole had done exactly what I was attempting to do, so I decided not to waste more time writing C and just "borrowed" [their masscan fork](https://github.com/adrian154/masscan). I had to make slight modifications, such as making it possible to scan for Minecraft servers on every port and not just 25565.
+I got jealous of how everyone in the server had their own scanner and I cheated by using Shodan, so I decided to scan the internet myself. I already knew of [masscan](https://github.com/robertdavidgraham/masscan), which lets you send TCP SYN packets to every IPv4. Masscan also has support for getting basic banner data of various protocols such as HTTP and SSH, but it didn't have support for pinging Minecraft servers, so I decided to attempt to add it myself. Unfortunately, masscan is written in C and I have very little experience in C. While trying to write the code, I remembered [Bithole's blog post](https://blog.bithole.dev/blogposts/mc-census/) about scanning the internet for Minecraft servers so I went to re-read it to see how they implemented scanning. As it turns out, they had done exactly what I was attempting to do, so I decided not to waste more time writing C and just "borrowed" [their masscan fork](https://github.com/adrian154/masscan). I had to make slight modifications, such as making it possible to scan for Minecraft servers on every port and not just 25565.
 
 I already had a VPS on Oracle Cloud, which gives you a free "forever" powerful server, so I ran the masscan fork on it. There were several issues. First, it took several hours to scan as opposed to the 5 minutes I was led to believe it would take. Second, it was missing most servers which I expected to be there. Third, when I searched for my honeypot in the results, there were several servers that looked like they had the same MOTD as my honeypot but had different IP addresses.
 
@@ -31,7 +31,7 @@ The second issue was a much bigger deal: Oracle Cloud was dropping packets. When
 
 The third issue was a bit annoying, and I found out it was happening because crazy people decided to make "mirror" servers that open TCP connections with you and send you everything you send them, so they ended up pinging my honeypot (which was on the same server as my scanner) when I scanned them. This would stop being an issue once I switched hosts.
 
-My current design for my scanner runs on two servers. The first server has a Python script that hosts a Discord bot and executes masscan commands that pipe into another Python script that uploads to my database. The second server has a Cron Job that executes every couple hours that runs a custom scanner I made in Rust that checks every alive server that's already in my database, and pipes the output to the same script used for uploading my masscan results. I also store players that were previously online into my database so later I can search for servers that players frequent.
+My current design for my scanner runs on two servers. The first server has a Python script that hosts a Discord bot and automatically executes masscan commands that pipe into another Python script that uploads to my database. The second server has a Cron Job that executes every hour that runs a custom scanner I made in Rust that checks every alive server that's already in my database, and pipes that output to the same script used for uploading my masscan results. I also store players that were previously online into my database so later I can search for servers that players frequent.
 
 ## Trying Hosts & Complaints
 
@@ -64,7 +64,12 @@ I also gave the source code for my honeypot to some friends, and they modified i
 
 ## Conclusion
 
-There were some other fun things that happened, such as me realizing that [Docker Minecraft Server](https://github.com/itzg/docker-minecraft-server) has "minecraft" as the default [RCON](https://wiki.vg/RCON) password (though I only found a few hundred servers with the port open with that password) and me and SushiPython confusing a lot of random Minecrafters by joining their servers. If you read this entire blog post, I encourage you to make your own server scanner and have your own adventures. As a little sendoff, here's a few completely random servers from my database for you to explore:
+There were some other fun things that happened, such as:
+- Me realizing that [Docker Minecraft Server](https://github.com/itzg/docker-minecraft-server) has "minecraft" as the default [RCON](https://wiki.vg/RCON) password (though I only found a few hundred servers with the port open with that password)
+- Me making a Minecraft server for exploring servers in my database by entering doors in an infinite hallway.
+- SushiPython and I confusing a lot of random Minecrafters by joining their servers.
+- Me making a bot that joined every 1.19.2 offline mode server and tried joining as past usernames until it found an admin.
+If you read this entire blog post, I encourage you to make your own server scanner and have your own adventures. As a little sendoff, here's a few completely random servers from my database for you to explore:
 
 <RandomServers />
 
