@@ -69,6 +69,7 @@ There were some other fun things that happened, such as:
 - Me making a Minecraft server for exploring servers in my database by entering doors in an infinite hallway.
 - SushiPython and I confusing a lot of random Minecrafters by joining their servers.
 - Me making a bot that joined every 1.19.2 offline mode server and tried joining as past usernames until it found an admin.
+
 If you read this entire blog post, I encourage you to make your own server scanner and have your own adventures. As a little sendoff, here's a few completely random servers from my database for you to explore:
 
 <RandomServers />
