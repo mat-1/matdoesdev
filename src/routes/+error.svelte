@@ -1,21 +1,7 @@
-<script context="module" lang="ts">
-	import type { ErrorLoad } from '@sveltejs/kit'
-
-	export const load: ErrorLoad = ({ error, status }) => {
-		return {
-			props: {
-				status,
-				message: error?.message,
-			},
-		}
-	}
-</script>
-
 <script lang="ts">
 	import BackAnchor from '$lib/BackAnchor.svelte'
 
-	export let status: number
-	export let message: string
+	import { page } from '$app/stores'
 </script>
 
 <nav>
@@ -23,8 +9,8 @@
 </nav>
 <section class="error-page">
 	<div>
-		<h1>{status}</h1>
-		<h2>{message}</h2>
+		<h1>{$page.status}</h1>
+		<h2>{$page.error.message}</h2>
 	</div>
 </section>
 
@@ -49,10 +35,5 @@
 		margin: 0;
 		color: var(--text-color-alt-3);
 		font-weight: normal;
-	}
-
-	.back-anchor {
-		color: var(--text-color-alt-2);
-		text-decoration: none;
 	}
 </style>

@@ -9,6 +9,7 @@ const config = {
 	preprocess: [
 		preprocess(),
 		mdsvex({
+			extensions: ['.svx'],
 			layout: './src/lib/PostLayout.svelte'
 		}),
 	],
@@ -17,26 +18,7 @@ const config = {
 
 	kit: {
 		adapter: staticAdapter({}),
-
-		vite: {
-			build: {
-				target: 'es2020',
-			},
-			// if the user is on replit or gitpod, use a secure websocket
-			// server:
-			// 	process.env.REPL_ID || process.env.GITPOD_WORKSPACE_ID
-			// 		? {
-			// 			hmr: {
-			// 				protocol: 'wss',
-			// 				port: 443,
-			// 			},
-			// 		}
-			// 		: {},
-		},
-
 	},
-
-
 }
 
 export default config

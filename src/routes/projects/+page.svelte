@@ -1,14 +1,9 @@
-<script lang="ts" context="module">
-	export const prerender = true
-</script>
-
 <script lang="ts">
 	import BackAnchor from '$lib/BackAnchor.svelte'
 	import Project from '$lib/Project.svelte'
 	import { onMount } from 'svelte'
-	import projects from './projects.json'
+	import projects from '../projects.json'
 
-	let projectsEl: HTMLDivElement
 	// set the --project-height on page load so it doesn't jump around later
 	onMount(() => {
 		document.documentElement.style.setProperty('--project-height', `${window.innerHeight}px`)
@@ -22,7 +17,7 @@
 	<h1>Projects</h1>
 	<hr />
 </div>
-<div class="projects" bind:this={projectsEl}>
+<div class="projects">
 	{#each projects as project, i}
 		<Project
 			name={project.name}
