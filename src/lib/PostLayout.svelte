@@ -11,6 +11,10 @@
 	export let published = ''
 </script>
 
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
+
 <div class="article-container">
 	<nav>
 		<BackAnchor href="/blog" />
