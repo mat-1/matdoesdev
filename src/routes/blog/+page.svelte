@@ -8,6 +8,7 @@
 </script>
 
 <svelte:head>
+	<title>matdoesdev blog</title>
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/blog.rss" />
 </svelte:head>
 
