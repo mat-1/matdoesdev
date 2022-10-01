@@ -1,12 +1,21 @@
 [
 	{
+		"name": "Azalea",
+		"href": "https://github.com/mat-1/azalea",
+		"source": "https://github.com/mat-1/azalea",
+		"languages": [
+			"rust"
+		],
+		"description": "Collection of Rust crates primarily for creating Minecraft bots."
+	},
+	{
 		"name": "msdsmchr",
 		"href": "https://h.matdoes.dev/",
 		"source": "https://github.com/mat-1/msdsmchr",
 		"languages": [
 			"rust"
 		],
-		"description": "A fast Minecraft head API."
+		"description": "Fast Minecraft head API."
 	},
 	{
 		"name": "matdoesdev",
