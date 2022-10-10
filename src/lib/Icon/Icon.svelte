@@ -8,7 +8,7 @@
 		width: 1em;
 		opacity: 0.5;
 		transition: opacity 200ms;
-		display: inline-block;
+		display: block;
 	}
 	.icon :global(img) {
 		display: block;
