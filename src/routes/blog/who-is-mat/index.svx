@@ -30,4 +30,4 @@ The backend for this website was written by me in pure [Python](https://www.pyth
 The frontend was made with [VanillaJS](http://vanilla-js.com)
 
 **How can I contact you?**
-You can contact me through Discord (mat#1592).
+You can contact me through Matrix (@mat:matdoes.dev).
