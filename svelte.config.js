@@ -10,7 +10,7 @@ const config = {
 		preprocess(),
 		mdsvex({
 			extensions: ['.svx'],
-			layout: './src/lib/PostLayout.svelte'
+			layout: './src/lib/PostLayout.svelte',
 		}),
 	],
 
@@ -18,6 +18,9 @@ const config = {
 
 	kit: {
 		adapter: staticAdapter({}),
+		prerender: {
+			entries: ['*', '/blog/minecraft-scanning/minecraft-server-background.png'],
+		},
 	},
 }
 
