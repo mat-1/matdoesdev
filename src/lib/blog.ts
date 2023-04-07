@@ -102,7 +102,7 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 
 	return {
 		title: metadata.title,
-		published: new Date(metadata.published).toString(),
+		published: new Date(metadata.published).toISOString(),
 		html,
 		css,
 		slug,
