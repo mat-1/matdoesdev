@@ -1,8 +1,9 @@
 <script lang="ts">
-	import PostLayout from '$lib/PostLayout.svelte'
-
 	export let data
-	const { page } = data
+	const { page, slug } = data
 </script>
+
+<!-- make sveltekit crawl to the json api -->
+<div style="display:none"><a href="{slug}.json">JSON API</a></div>
 
 <svelte:component this={page} />

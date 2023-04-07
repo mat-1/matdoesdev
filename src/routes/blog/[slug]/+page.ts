@@ -2,7 +2,7 @@ import type { Load } from '@sveltejs/kit'
 
 export const prerender = true
 
-export const load: Load = async ({ fetch, params }) => {
+export const load: Load = async ({ params }) => {
 	const { slug } = params
 	if (!slug) throw new Error('No slug')
 
@@ -10,5 +10,6 @@ export const load: Load = async ({ fetch, params }) => {
 
 	return {
 		page: page.default,
+		slug,
 	}
 }
