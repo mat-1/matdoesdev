@@ -2,7 +2,7 @@
 	import BackAnchor from '$lib/BackAnchor.svelte'
 	import Project from '$lib/Project.svelte'
 	import { onMount } from 'svelte'
-	import projects from '../projects.json'
+	import projects from '../_projects.json'
 
 	// set the --project-height on page load so it doesn't jump around later
 	onMount(() => {
