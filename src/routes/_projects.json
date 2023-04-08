@@ -3,157 +3,124 @@
 		"name": "Azalea",
 		"href": "https://github.com/mat-1/azalea",
 		"source": "https://github.com/mat-1/azalea",
-		"languages": [
-			"rust"
-		],
+		"languages": ["rust"],
 		"description": "Collection of Rust crates primarily for creating Minecraft bots."
+	},
+	{
+		"name": "mat's server scanner",
+		"href": "/blog/minecraft-scanning",
+		"languages": ["rust", "python", "typescript", "svelte"],
+		"description": "Scanning the internet for Minecraft servers for fun."
 	},
 	{
 		"name": "msdsmchr",
 		"href": "https://h.matdoes.dev/",
 		"source": "https://github.com/mat-1/msdsmchr",
-		"languages": [
-			"rust"
-		],
+		"languages": ["rust"],
 		"description": "Fast Minecraft head API."
 	},
 	{
 		"name": "matdoesdev",
 		"href": "https://matdoes.dev",
 		"source": "https://github.com/mat-1/matdoesdev-svelte",
-		"languages": [
-			"svelte"
-		],
+		"languages": ["svelte"],
 		"description": "My portfolio."
 	},
 	{
 		"name": "i.matdoes.dev",
 		"href": "https://i.matdoes.dev",
 		"source": "https://github.com/mat-1/rust-image-host",
-		"languages": [
-			"rust"
-		],
+		"languages": ["rust"],
 		"description": "Simple image host."
 	},
 	{
 		"name": "Web Utils",
 		"href": "https://u.matdoes.dev",
 		"source": "https://github.com/mat-1/web-utils",
-		"languages": [
-			"svelte",
-			"typescript"
-		],
+		"languages": ["svelte", "typescript"],
 		"description": "Utilities for software developers."
 	},
 	{
 		"name": "mat's rss reader",
 		"href": "https://rss.matdoes.dev",
-		"languages": [
-			"svelte",
-			"typescript"
-		],
+		"languages": ["svelte", "typescript"],
 		"description": "Simple RSS reader."
 	},
 	{
 		"name": "Metasearch",
 		"href": "https://s.matdoes.dev",
 		"source": "https://github.com/mat-1/metasearch",
-		"languages": [
-			"typescript"
-		],
+		"languages": ["typescript"],
 		"description": "Simple metasearch engine."
 	},
 	{
 		"name": "SnooSlash",
 		"href": "https://www.youtube.com/channel/UCz5bLto2bC9fSC5N429WDnw",
 		"source": "https://github.com/mat-1/snooslash/",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Reddit TTS video generator."
 	},
 	{
 		"name": "DreamSMP Tracker",
 		"source": "https://github.com/mat-1/dreamsmp",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Tracks when DreamSMP members play and livestream."
 	},
 	{
 		"name": "Wynn Lea Moe",
 		"href": "https://wynnleamoe.matdoes.dev",
-		"languages": [
-			"javascript"
-		],
+		"languages": ["javascript"],
 		"description": "Parody of sky.lea.moe that shows Wynncraft stats instead of SkyBlock stats."
 	},
 	{
 		"name": "Forum Sweats",
 		"source": "https://github.com/mat-1/forum-sweats/",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "A Discord bot with many useful and unique features."
 	},
 	{
 		"name": "Minecraft Assets",
 		"href": "https://mcassets.matdoes.dev",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "A user-friendly interface for the assets of all Minecraft versions."
 	},
 	{
 		"name": "SkyBlock Stats",
 		"href": "https://skyblock.matdoes.dev/",
 		"source": "https://github.com/skyblockstats/skyblock-stats",
-		"languages": [
-			"typescript",
-			"svelte"
-		],
+		"languages": ["typescript", "svelte"],
 		"description": "Check your Hypixel SkyBlock stats, see leaderboards, mayors, auction prices, and way more."
 	},
 	{
 		"name": "SkyBlock API",
 		"href": "https://github.com/skyblockstats/skyblock-api",
 		"source": "https://github.com/skyblockstats/skyblock-api",
-		"languages": [
-			"typescript"
-		],
+		"languages": ["typescript"],
 		"description": "A better wrapper for the official SkyBlock API."
 	},
 	{
 		"name": "Super Duper Simple Pinger",
 		"href": "https://ping.matdoes.dev/",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Send an HTTP request to your repls every few minutes to keep them alive."
 	},
 	{
 		"name": "The Stonk Exchange",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "A stock market simulator with a twist. Instead of investing in real companies, you invest in your fellow server members."
 	},
 	{
 		"name": "Domain Hack Finder",
 		"href": "https://replit.com/talk/share/Domain-Hack-Finder/15778",
 		"source": "https://replit.com/@mat1/domain-hack-finder",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Find domain hacks for any word or phrase."
 	},
 	{
 		"name": "Colors",
 		"href": "https://colors.matdoes.dev/",
 		"source": "https://replit.com/@mat1/colors",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Find the best colors."
 	},
 	{
@@ -166,58 +133,44 @@
 		"name": "4bit",
 		"href": "https://web.archive.org/web/20190502100718/https://4bitbot.tk/",
 		"archived": true,
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Fun utility bot for Discord."
 	},
 	{
 		"name": "Repl Talk API",
 		"href": "https://pypi.org/project/repltalk/",
 		"source": "https://github.com/mat-1/repl-talk-api",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "API wrapper for Repl Talk."
 	},
 	{
 		"name": "Old i.matdoes.dev",
 		"source": "https://github.com/mat-1/i.matdoes.dev",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "A simple image host."
 	},
 	{
 		"name": "Repl Talk Bot",
 		"href": "https://replit.com/talk/share/Repl-Talk-Discord-Bot/5599",
 		"archived": true,
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Discord bot that automatically sends posts from Repl Talk into the #repl-talk channel in the Replit Discord."
 	},
 	{
 		"name": "Old matdoesdev",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "My portfolio."
 	},
 	{
 		"name": "Replit Dark Theme",
 		"href": "https://darktheme.matdoes.dev/themes",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "A customizable dark theme for Replit."
 	},
 	{
 		"name": "Hytale Discord Webhook",
 		"href": "https://hytale.matdoes.dev",
-		"languages": [
-			"python"
-		],
+		"languages": ["python"],
 		"description": "Automatically send Hytale blog posts to your Discord server with only one click."
 	}
 ]
