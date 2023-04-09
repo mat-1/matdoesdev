@@ -1,6 +1,6 @@
 ---
 title: This website now supports Gemini
-published: 2023-04-09T01:04:33.000Z
+published: 2023-04-09T20:57:56.000Z
 ---
 
 Gemini is a protocol similar to HTTP, in that it's used for transmitting (mostly) text in (usually) a markup language. However, one of the primary goals of Gemini is simplicity. Requests are always a single TLS/TCP connection with the route, and a correct response looks like `20 text/gemini\n\rhello world\n`. Additionally, Gemini uses a language called "Gemtext" as its markup language. It's kind of like Markdown, but even simpler. Every line can only contain a single type of data, so for example you can't have links in the middle of text. Read [the Gemini spec](https://gemini.circumlunar.space/docs/specification.gmi) if you're interested.
