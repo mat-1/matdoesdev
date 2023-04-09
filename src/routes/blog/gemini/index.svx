@@ -1,0 +1,90 @@
+---
+title: This website now supports Gemini
+published: 2023-04-09T01:04:33.000Z
+---
+
+Gemini is a protocol similar to HTTP, in that it's used for transmitting (mostly) text in (usually) a markup language. However, one of the primary goals of Gemini is simplicity. Requests are always a single TLS/TCP connection with the route, and a correct response looks like `20 text/gemini\n\rhello world\n`. Additionally, Gemini uses a language called "Gemtext" as its markup language. It's kind of like Markdown, but even simpler. Every line can only contain a single type of data, so for example you can't have links in the middle of text. Read [the Gemini spec](https://gemini.circumlunar.space/docs/specification.gmi) if you're interested.
+
+## Translating HTML to Gemtext
+
+Anyways, so I decided to make my website support the Gemini protocol for fun. The plan is to make it translate the HTML on my blog into Gemtext, which shouldn't be _too_ hard considering that HTML is generated from mostly markdown.
+
+[Here's an example of a typical blog post I write, mostly markdown and some HTML.](https://github.com/mat-1/matdoesdev/blob/main/src/routes/blog/minecraft-scanning/index.svx)
+
+At first, I tried using the [html_parser Rust crate](https://github.com/mathiversen/html-parser) to read the HTML and flatten it out. However, I soon ran into [issue #22: Incorrectly trimming whitespaces for text nodes](https://github.com/mathiversen/html-parser/issues/22). This made text be squished with links, and while technically I could've added workarounds by having it add spaces there I figured it'd be better to avoid issues with that in the future by just using a different crate. I looked at other HTML parsing crates and decided on [tl](https://github.com/y21/tl), which does not suffer from the same issue as html_parser.
+
+If you remember from earlier, though, Gemini does not support inline links! I considered other options like putting every link at the end of the post, but I decided to make it dump the links at the end of every paragraph so they're easy to find while you're reading.
+To make images work, I had to make my crawler download them into a directory so the Gemini server could serve them easily. The actual Gemtext for them is straightforward though.
+
+## TLS
+
+To actually serve the Gemini site (capsule, technically), I initially thought I was going to use [Agate](https://github.com/mbrubeck/agate), but I decided it would be more fun to make my own server (and it'd make it easier to integrate with the crawler). The only thing I was kind of worried about implementing was TLS. I started by copy-pasting from the Rustls examples on their docs, but I wasn't sure how to make the self-signing work. I took a look at how Agate was doing it, and they're also using Rustls but through [tokio_rustls](https://docs.rs/tokio-rustls), and using a crate called [rcgen](https://docs.rs/rcgen/latest/rcgen) for generating the certificates.
+
+My code for that ended up looking kinda like this:
+
+```rs
+use rcgen::{Certificate, CertificateParams, DnType};
+use tokio_rustls::rustls;
+
+let mut cert_params = CertificateParams::new(vec![HOSTNAME.to_string()]);
+cert_params
+    .distinguished_name
+    .push(DnType::CommonName, HOSTNAME);
+
+let cert = Certificate::from_params(cert_params).unwrap();
+
+let public_key = new_cert.serialize_der().unwrap();
+let private_key = new_cert.serialize_private_key_der();
+
+let cert = rustls::Certificate(public_key);
+let private_key = rustls::PrivateKey(private_key);
+```
+
+After I set it up to wrap the TCP connection with TLS, it worked! At least, it worked on [Lagrange](https://gmi.skyjake.fi/lagrange/), my client of choice. I thought this would be the end of getting my server implementation to work, so I deployed it to a VPS, opened the port on IPv4 and IPv6, and added the A and AAAA records to Cloudflare.
+
+(spoiler: it was not the end of getting my server implementation to work)
+
+## Making it work everywhere
+
+I realized it may be a good idea to test on more clients, just to make sure it all works properly. The second client I tried was [Castor](https://git.sr.ht/~julienxx/castor). When I tried loading my capsule on Castor, it didn't load. I went looking for solutions, and stumbled upon a "[Gemini server torture test](https://github.com/michael-lazar/gemini-diagnostics)", which basically does a bunch of crazy requests to servers and makes sure it responds to all of them correctly. When I first ran it, my server was failing most tests. I looked at the failing tests that looked most suspicious, and decided to implement TLS `close_notify` first, since not implementing it was a violation of the spec I'd initially overlooked. Fortunately implementing it was very easy, just [a single line change](https://github.com/mat-1/matdoesdev-protocols/commit/46b225158e055571f0b212b36079eb74d336fe07). This fixed the capsule on Castor.
+
+I then tried another client, for mobile this time, called [Buran](https://f-droid.org/packages/corewala.gemini.buran/). It did not load my capsule :sob:. I tried more clients, and the majority seemed to be failing as well. I implemented more fixes, some of which were [in the torture test](https://github.com/mat-1/matdoesdev-protocols/commit/e24d5407f8143b706bf43ebeed9528a44babe3e7#diff-1ff98315bc539e9db4f570cc2e6d95a12d4527647ac9e2ff170c314736a1c715L242), and some [which weren't](https://github.com/mat-1/matdoesdev-protocols/commit/1ca83ae4d87f030ab08ce519cb338775526ebf03). This made the websites accessible when I was hosting locally, but not when it was deployed to my server.
+
+I wasn't sure how this was possible, and I considered the possibility of perhaps my server not supporting TLS 1.2 properly (I knew it supported 1.3 since the torture test tests for that). I found a random [Gemini client Python library](https://github.com/cbrews/ignition) that failed to send requests to my server and modified it to always use TLS 1.3, but this did not resolve it either.
+
+I added more logging to my server, and noticed that the clients weren't even opening a TCP connection. Maybe it's a DNS issue? DNS seemed to be working fine, but I noticed running `print(socket.getaddrinfo('matdoes.dev', 1965))` from Python always puts the IPv6 first. Maybe it's an issue with IPv6 then? The torture test has a check for IPv6 though...
+I removed the AAAA DNS record and waited a few minutes, and this actually worked!? I didn't want to keep my site IPv4-only though, so I kept trying to track down the source of the issue. Maybe I had to put the IPv6 in expanded form when I pasted it into the DNS records?? (this did not work, of course).
+
+After a bit of searching, I found a discussion on [Tokio's Axum web framework](https://github.com/tokio-rs/axum/discussions/834) that seemed relevant.
+
+> The following results in an Axum which is available on port 3000 via IPv4 only. How can I make it available on IPv6, also?
+> `let addr = SocketAddr::from(([0, 0, 0, 0], 3000));`
+
+> Try with:
+> `let addr = ":::3000".parse().unwrap();`
+
+Was this actually the solution? I was under the impression 0.0.0.0 would work for both IPv4 and IPv6. I replaced `0.0.0.0` with `::` in my code, and this actually made it work everywhere! :tada: (I later replaced it with `[::]`, just in case, though I don't think it was actually necessary).
+
+## Caddy issues
+
+This is completely unrelated to Gemini, but I wanted to mention it anyways. Originally, my website was hosted on Cloudflare Pages, since it's just a static site. However if I wanted to make other ports accessible, I'd have to make it not be proxied by Cloudflare. I decided to just move it to the server I was already hosting my [Matrix](https://matrix.org) and Mastodon (technically [Pleroma](https://pleroma.social)) instances on so I wouldn't have to buy a new server.
+
+I copied [a script](https://gist.github.com/mat-1/5cdfc9dff74d98ac1ce8b290d2f057c5) I wrote a while ago that automatically watches for changes on GitHub and runs a shell command when there's a commit. I know it's kind of cursed and I should be using a webhook or whatever but this works good enough. So anyways I made it put the build output in `/home/ubuntu/matdoesdev/build` and told Caddy to have a file-server route on `matdoes.dev` with that directory as the root.
+
+I tried to reload Caddy, but it was taking an unusually long amount of time and eventually timed out. I enabled debug logs but didn't see anything too suspicious. I then tried to completely restart Caddy, but this made the Matrix and Pleroma instance on the server inaccessible ... After waiting about ten minutes, the issue resolved itself and the other routes were accessible again.
+
+The other routes. i.e., not the route I was trying to add. This time, though, I was actually getting an error. When I tried to access the domain, I saw an error in the log that said something about not having enough permissions to read the directory. I modified the permissions on the directory and all the files in it to be readable, writable, and executable by every user, but this somehow did not resolve the issue.
+
+I found [a post](https://caddy.community/t/reverse-proxy-static-file-serving-results-in-403-forbidden-for-static-files/15465) on the Caddy forums that appeared to be about someone having the same issue as me.
+
+The first answer:
+
+> the caddy user still has to have execution access for every parent folder in the path to traverse/reach the file.
+
+Why??? I don't want to give the Caddy user permission to access every parent folder. I ended up just making a `/www` directory and having it copy the build output to there, and I did not come across any more significant issues.
+
+## Other stuff
+
+Maybe I'll support for more protocols to my website in the future? I saw lots of talk about Gopher while I was looking around the Geminispace, and maybe it'd be cool to also make the website be accessible from Telnet or SSH or something.
+
+[Here's the code for my crawler/translator/Gemini server](https://github.com/mat-1/matdoesdev-protocols), it's not particularly great but it works.

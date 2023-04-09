@@ -1,10 +1,10 @@
 import type { RequestHandler } from '@sveltejs/kit'
-import { getPosts, type BlogPostPreview } from '../blog.json/+server'
+import type { BlogPostPreview } from '../blog.json/+server'
 
 export const prerender = true
 
-export const GET: RequestHandler = async () => {
-	const posts = await getPosts()
+export const GET: RequestHandler = async ({ fetch }) => {
+	const posts = (await fetch('/blog.json').then((r) => r.json())) as BlogPostPreview[]
 	function item(post: BlogPostPreview) {
 		return `
 <item>

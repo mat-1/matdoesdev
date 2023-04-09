@@ -1,6 +1,8 @@
 import { getPost, listBlogPostSlugs } from '$lib/blog'
 import { json, type RequestHandler } from '@sveltejs/kit'
 
+export const prerender = true
+
 export interface BlogPostPreview {
 	title: string
 	published: string
@@ -30,7 +32,7 @@ function cutOffAtLine(text: string, line: number) {
 	return text
 }
 
-export async function getPosts() {
+async function getPosts() {
 	const existingPosts: string[] = await listBlogPostSlugs()
 
 	const posts = (
