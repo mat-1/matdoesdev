@@ -1,13 +1,13 @@
 ---
 title: Why did r_admincraft join my Minecraft server?
-published: 2023-05-26T22:41:01.757Z
+published: 2023-05-29T02:48:09.000Z
 ---
 
 r_admincraft is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
 
 # Are you affiliated with r/admincraft?
 
-Nope, I just like [non-maliciously](https://www.reddit.com/r/Minecraft/comments/ywmivf/mat_the_secret_hero/) [trolling](https://www.reddit.com/r/admincraft/comments/ywy6r8/server_checker_bot_joined_my_server/) [r/admincraft](https://www.reddit.com/r/admincraft/) [users](https://www.reddit.com/r/Minecraft/comments/y0fx4r/mat_the_server_scanning_bot/) and I named it that before deciding to do this project anyways.
+Nope, I just like [non-maliciously](https://www.reddit.com/r/Minecraft/comments/ywmivf/mat_the_secret_hero/) [trolling](https://www.reddit.com/r/admincraft/comments/ywy6r8/server_checker_bot_joined_my_server/) [r/admincraft](https://www.reddit.com/r/admincraft/) [users](https://www.reddit.com/r/Minecraft/comments/y0fx4r/mat_the_server_scanning_bot/) and I named the account that before deciding to do this project anyways.
 
 # How should I secure my server?
 
