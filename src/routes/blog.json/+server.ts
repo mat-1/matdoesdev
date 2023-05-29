@@ -14,18 +14,26 @@ export interface BlogPostPreview {
 function cutOffAtLine(text: string, line: number) {
 	let row = 0
 	let column = 0
+
+	let inHtmlTag = false
+
 	for (let i = 0; i < text.length; i++) {
+		if (text[i] === '<') {
+			inHtmlTag = true
+		} else if (text[i] === '>') {
+			inHtmlTag = false
+		}
 		if (text[i] === '\n') {
 			row++
 			column = 0
 		} else {
 			column++
 		}
-		if (column > 128) {
+		if (column > 128 && !inHtmlTag) {
 			row++
 			column = 0
 		}
-		if (row >= line) {
+		if (row >= line && !inHtmlTag) {
 			return text.slice(0, i) + '...'
 		}
 	}
