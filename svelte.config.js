@@ -19,7 +19,18 @@ const config = {
 	kit: {
 		adapter: staticAdapter({}),
 		prerender: {
-			entries: ['*', '/minecraft-scanning/minecraft-server-background.png'],
+			entries: [
+				'*',
+				'/minecraft-scanning/minecraft-server-background.png',
+				// redirect /blog/* to /*
+				'/blog/matdoes-dev-markdown',
+				'/blog/minecraft-server-warner',
+				'/blog/minecraft-scanning',
+				'/blog/the-story-of-reportscammers',
+				'/blog/uncovering-the-discord-twitch-bots',
+				'/blog/what-are-domain-hacks',
+				'/blog/who-is-mat',
+			],
 		},
 	},
 }
