@@ -9,7 +9,7 @@ Gemini is a protocol similar to HTTP, in that it's used for transmitting (mostly
 
 Anyways, so I decided to make my website support the Gemini protocol for fun. The plan is to make it translate the HTML on my blog into Gemtext, which shouldn't be _too_ hard considering that HTML is generated from mostly markdown.
 
-[Here's an example of a typical blog post I write, mostly markdown and some HTML.](https://github.com/mat-1/matdoesdev/blob/main/src/routes/blog/minecraft-scanning/index.svx)
+[Here's an example of a typical blog post I write, mostly markdown and some HTML.](https://github.com/mat-1/matdoesdev/blob/main/src/routes/minecraft-scanning/index.svx)
 
 At first, I tried using the [html_parser Rust crate](https://github.com/mathiversen/html-parser) to read the HTML and flatten it out. However, I soon ran into [issue #22: Incorrectly trimming whitespaces for text nodes](https://github.com/mathiversen/html-parser/issues/22). This made text be squished with links, and while technically I could've added workarounds by having it add spaces there I figured it'd be better to avoid issues with that in the future by just using a different crate. I looked at other HTML parsing crates and decided on [tl](https://github.com/y21/tl), which does not suffer from the same issue as html_parser.
 

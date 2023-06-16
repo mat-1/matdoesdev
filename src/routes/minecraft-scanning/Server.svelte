@@ -58,7 +58,7 @@
 		top: 0.25em;
 	}
 	.minecraft-server {
-		background-image: url(/blog/minecraft-scanning/minecraft-server-background.png);
+		background-image: url(/minecraft-scanning/minecraft-server-background.png);
 		height: 5em;
 		font-family: Minecraft;
 		font-size: 16px;

@@ -19,7 +19,7 @@ const config = {
 	kit: {
 		adapter: staticAdapter({}),
 		prerender: {
-			entries: ['*', '/blog/minecraft-scanning/minecraft-server-background.png'],
+			entries: ['*', '/minecraft-scanning/minecraft-server-background.png'],
 		},
 	},
 }

@@ -6,7 +6,7 @@
 	const postHtml = `${post.html}<sty` + `le>${post.css}</style>`
 </script>
 
-<a href="/blog/{post.slug}" class="preview-anchor">
+<a href="/{post.slug}" class="preview-anchor">
 	<article>
 		<div class="article-header">
 			<h2>{post.title}</h2>

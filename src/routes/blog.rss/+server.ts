@@ -9,7 +9,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
 		return `
 <item>
 	<title>${post.title}</title>
-	<link>https://matdoes.dev/blog/${post.slug}</link>
+	<link>https://matdoes.dev/${post.slug}</link>
 	<pubDate>${post.published}</pubDate>
 </item>
 `

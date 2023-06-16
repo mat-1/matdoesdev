@@ -8,7 +8,7 @@
 	},
 	{
 		"name": "mat's server scanner",
-		"href": "/blog/minecraft-scanning",
+		"href": "/minecraft-scanning",
 		"languages": ["rust", "python", "typescript", "svelte"],
 		"description": "Scanning the internet for Minecraft servers for fun."
 	},
