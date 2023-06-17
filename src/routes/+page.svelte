@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte'
 	import GitHubIcon from '$lib/Icon/GitHub.svelte'
 	import MatrixIcon from '$lib/Icon/Matrix.svelte'
+	import KofiIcon from '$lib/Icon/Kofi.svelte'
 	import ButtonRow from '$lib/ButtonRow.svelte'
 	import IconButtonRow from '$lib/IconButtonRow.svelte'
 
@@ -28,6 +29,7 @@
 		<IconButtonRow>
 			<a href="//github.com/mat-1"><GitHubIcon /></a>
 			<a href="//matrix.to/#/@mat:matdoes.dev"><MatrixIcon /></a>
+			<a href="//ko-fi.com/matdoesdev"><KofiIcon /></a>
 		</IconButtonRow>
 
 		<p>I'm mat, I do full-stack software development.</p>
