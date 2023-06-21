@@ -26,6 +26,6 @@ No. You should still secure your server though since there are several griefing/
 
 My Matrix is [@mat:matdoes.dev](https://matrix.to/#/@mat:matdoes.dev) (preferred), but you might be able to find me on other social medias.
 
-# Donate
+# How can I help?
 
 This project costs money to run, so if it helped you please consider donating at [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
