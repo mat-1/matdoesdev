@@ -22,6 +22,7 @@ function cutOffAtLine(text: string, line: number) {
 			inHtmlTag = true
 		} else if (text[i] === '>') {
 			inHtmlTag = false
+			continue
 		}
 		if (text[i] === '\n') {
 			row++
