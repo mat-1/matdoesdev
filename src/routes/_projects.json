@@ -1,5 +1,12 @@
 [
 	{
+		"name": "mat's packet debugger",
+		"href": "https://packet.matdoes.dev",
+		"source": "https://github.com/mat-1/minecraft-packet-debugger",
+		"languages": ["typescript", "svelte"],
+		"description": "Website for conveniently decoding Minecraft protocol packets"
+	},
+	{
 		"name": "Azalea",
 		"href": "https://github.com/mat-1/azalea",
 		"source": "https://github.com/mat-1/azalea",
