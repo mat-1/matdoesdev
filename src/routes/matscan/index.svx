@@ -3,16 +3,18 @@ title: Why did "matscan" join my Minecraft server? (FAQ)
 published: 2023-05-29T02:48:09.000Z
 ---
 
-matscan (formerly r_admincraft) is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
+matscan is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
 
 # How should I secure my server?
 
-It should've told you in its long chat message (though some servers might cut it off):
+It should've told you in its long chat message but some servers might cut it off:
 
 - If the server was meant to be private then enable a whitelist.
 - If the server is offline-mode then enable online-mode in the server.properties or install a plugin such as [AuthMe](https://dev.bukkit.org/projects/authme-reloaded).
 - If the server has an exposed BungeeCord backend, firewall it, install [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or switch to [Velocity](https://papermc.io/software/velocity).
 - Enable backups or install a plugin like [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+
+If you've done all of the above, then you're probably fine.
 
 # How did you find my server?
 
@@ -21,6 +23,10 @@ I scan the internet for Minecraft servers, basically sending a packet to every I
 # Is your data public?
 
 No. You should still secure your server though since there are several griefing/harassment groups that use their own server scanners.
+
+# Why did Herobrine try to join right before matscan?
+
+matscan will try to join with the username Herobrine first, so if the server is offline-mode then it can demonstrate that people can join with any username. It may also use the username of a historical player if the server is offline-mode but has a whitelist.
 
 # How can I contact you?
 
