@@ -17,7 +17,9 @@ const config = {
 	extensions: ['.svelte', '.svx'],
 
 	kit: {
-		adapter: staticAdapter({}),
+		adapter: staticAdapter({
+			precompress: true,
+		}),
 		prerender: {
 			entries: [
 				'*',
