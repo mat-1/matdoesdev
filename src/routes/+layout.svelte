@@ -15,7 +15,10 @@
 			previousPathname = currentPathName
 		currentPathName = data.pathname
 
-		if (currentPathName.startsWith(previousPathname))
+		// fly right if we're going forward, left if we're going back
+		if (previousPathname === '/')
+			flyDirection = 1
+		else if (previousPathname === '/blog' && currentPathName !== '/')
 			flyDirection = 1
 		else
 			flyDirection = -1
