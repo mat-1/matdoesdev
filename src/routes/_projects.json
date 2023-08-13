@@ -1,5 +1,12 @@
 [
 	{
+		"name": "matscan",
+		"href": "https://github.com/mat-1/matscan",
+		"source": "https://github.com/mat-1/matscan",
+		"languages": ["rust"],
+		"description": "Silly Minecraft server scanner with a custom TCP stack."
+	},
+	{
 		"name": "mat's packet debugger",
 		"href": "https://packet.matdoes.dev",
 		"source": "https://github.com/mat-1/minecraft-packet-debugger",
