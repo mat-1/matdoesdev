@@ -6,10 +6,24 @@
 	export let data: LayoutData
 
 	export const copyrightYear = new Date().getFullYear()
+
+	let previousPathname = data.pathname
+	let currentPathName = data.pathname
+	let flyDirection = 1 // 1 is right, -1 is left
+	$: {
+		if (previousPathname !== currentPathName)
+			previousPathname = currentPathName
+		currentPathName = data.pathname
+
+		if (currentPathName.startsWith(previousPathname))
+			flyDirection = 1
+		else
+			flyDirection = -1
+	}
 </script>
 
 {#key data.pathname}
-	<div id="page" in:fly={{ x: -5, duration: 200, delay: 200 }} out:fly={{ x: 5, duration: 200 }}>
+	<div id="page" in:fly={{ x: -5 * flyDirection, duration: 200, delay: 200 }} out:fly={{ x: 5 * flyDirection, duration: 200 }}>
 		<main>
 			<slot />
 		</main>
