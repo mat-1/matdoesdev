@@ -1,8 +1,5 @@
 <script lang="ts">
 	import BackAnchor from '$lib/BackAnchor.svelte'
-	import { page } from '$app/stores'
-	
-	const message = $page.error?.message
 </script>
 
 <nav>
@@ -10,10 +7,8 @@
 </nav>
 <section class="error-page">
 	<div>
-		<h1>{$page.status}</h1>
-		{#if message}
-			<h2>{message}</h2>
-		{/if}
+		<h1>404</h1>
+		<h2>Not found</h2>
 	</div>
 </section>
 

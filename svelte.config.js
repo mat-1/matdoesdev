@@ -19,10 +19,12 @@ const config = {
 	kit: {
 		adapter: staticAdapter({
 			precompress: true,
+			fallback: 'fallback.html',
 		}),
 		prerender: {
 			entries: [
 				'*',
+				'/404',
 				'/minecraft-scanning/minecraft-server-background.png',
 				// redirect /blog/* to /*
 				'/blog/matdoes-dev-markdown',
