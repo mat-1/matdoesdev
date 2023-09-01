@@ -10,6 +10,7 @@
 <svelte:head>
 	<title>matdoesdev blog</title>
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/blog.rss" />
+	<link rel="alternate" type="application/atom+xml" title="Atom" href="/blog.atom" />
 </svelte:head>
 
 <div>
