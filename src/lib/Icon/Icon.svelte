@@ -1,4 +1,8 @@
-<span class="icon">
+<script lang="ts">
+	export const alt: string | undefined = undefined
+</script>
+
+<span class="icon" aria-label={alt}>
 	<slot />
 </span>
 

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import GitHubIcon from '$lib/Icon/GitHub.svelte'
-	import Icon from './Icon/Icon.svelte'
+	import JavaScriptIcon from './Icon/JavaScript.svelte'
+	import PythonIcon from './Icon/Python.svelte'
+	import RustIcon from './Icon/Rust.svelte'
+	import SvelteIcon from './Icon/Svelte.svelte'
+	import TypeScriptIcon from './Icon/TypeScript.svelte'
 	import IconButtonRow from './IconButtonRow.svelte'
 
 	export let name: string
@@ -44,19 +48,19 @@
 				</a>
 			{/if}
 			{#if languages.includes('python')}
-				<Icon><img src="/icons/python.svg" alt="Python" /></Icon>
+				<PythonIcon/>
 			{/if}
 			{#if languages.includes('svelte')}
-				<Icon><img src="/icons/svelte.svg" alt="Svelte" /></Icon>
+				<SvelteIcon/>
 			{/if}
 			{#if languages.includes('rust')}
-				<Icon><img src="/icons/rust.svg" alt="Rust" /></Icon>
+				<RustIcon/>
 			{/if}
 			{#if languages.includes('typescript')}
-				<Icon><img src="/icons/typescript.svg" alt="TypeScript" /></Icon>
+				<TypeScriptIcon/>
 			{/if}
 			{#if languages.includes('javascript')}
-				<Icon><img src="/icons/javascript.svg" alt="JavaScript" /></Icon>
+				<JavaScriptIcon/>
 			{/if}
 		</IconButtonRow>
 		<p class="project-description"><slot /></p>
