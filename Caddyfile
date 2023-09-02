@@ -1,16 +1,16 @@
 matdoes.dev:443 http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion:8181 {
 	# block chrome but not chromium-based browsers
-        @chrome {
-                header_regexp chrome User-Agent Chrome\/[0-9./]+\s(Mobile\s)?Safari\/[0-9./]+$
-        }
-        @notchrome {
-                header User-Agent *Googlebot/*
-        }
-        root @notchrome /www
-        respond @chrome "This site is best viewed with Firefox (or literally any browser that isn't Chrome)." 403
-        root * /www
+	@chrome {
+		header_regexp chrome User-Agent Chrome\/[0-9./]+\s(Mobile\s)?Safari\/[0-9./]+$
+	}
+	@notchrome {
+		header User-Agent *Googlebot/*
+	}
+	root @notchrome /www
+	respond @chrome "This site is best viewed with Firefox (or literally any browser that isn't Chrome)." 403
+	root * /www
 
-        file_server {
+	file_server {
 		precompressed br gzip
 	}
 
@@ -27,37 +27,53 @@ matdoes.dev:443 http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.
 	rewrite @json {path}.json
 
 	# don't require .html
-        try_files {path} {path}.html
+	try_files {path} {path}.html
 
 	# allow requests from anywhere
-        header Access-Control-Allow-Origin "*"
+	header Access-Control-Allow-Origin "*"
 
 	# advertise onion site in headers
 	@website host matdoes.dev
 	header @website Onion-Location http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion{path}
 
-        log {
-                output stdout
-        }
+	log {
+		output stdout
+	}
 
 	# fediverse webfinger support
-        handle /.well-known/host-meta {
+	handle /.well-known/host-meta {
 		redir https://f.matdoes.dev{uri}
 	}
 	handle /.well-known/webfinger {
-                redir https://f.matdoes.dev{uri}
-        }
+		redir https://f.matdoes.dev{uri}
+	}
 	# matrix support
-        handle /.well-known/matrix/* {
-                redir https://matrix.matdoes.dev{uri}
-        }
+	handle /.well-known/matrix/* {
+		redir https://matrix.matdoes.dev{uri}
+	}
 
 	handle_errors {
-		@404 {
+		@shouldBe404 {
 			expression {http.error.status_code} == 404
+			not random_paths 0.05
 		}
-		rewrite @404 /404.html
-		file_server
+		@shouldBe451 {
+			expression {http.error.status_code} == 404
+			random_paths 0.05
+		}
+
+		vars is451 false
+		vars @shouldBe451 is451 true
+		@is451 `{vars.is451} == true`
+		@isNot451 `{vars.is451} == false`
+
+		rewrite @is451 /451.html
+		file_server @is451 {
+			status 451
+		}
+	
+		rewrite @shouldBe404 /404.html
+		file_server @isNot451
 	}
 }
 
@@ -88,43 +104,43 @@ matrix.matdoes.dev {
 			header_up Host media.discordapp.net
 		}
 	}
-        handle {
-                reverse_proxy 127.0.0.1:81
-        }
+	handle {
+		reverse_proxy 127.0.0.1:81
+	}
 }
 matrix.matdoes.dev:8448 {
-        handle /_matrix/media/*/download/matdoes.dev/discord_* {
-                header Access-Control-Allow-Origin *
-                # Remove path prefix
-                uri path_regexp ^/_matrix/media/.+/download/matdoes\.dev/discord_ /
-                # The mxc patterns use | instead of /, so replace it first turning it into attachments/1234/5678/filename.png
-                uri replace "%7C" /
-                reverse_proxy {
-                        # reverse_proxy automatically includes the uri, so no {uri} at the end
-                        to https://cdn.discordapp.com
-                        # Caddy doesn't set the Host header automatically when reverse proxying
-                        # (because usually reverse proxies are local and don't care about Host headers)
-                        header_up Host cdn.discordapp.com
-                }
-        }
-        # Do the same for thumbnails, but redirect to media.discordapp.net (which is Discord's thumbnailing server, and happens to use similar width/height params as Matrix)
-        # Alternatively, you can point this at cdn.discordapp.com too. Clients shouldn't mind even if they get a bigger image than they asked for.
-        handle /_matrix/media/*/thumbnail/matdoes.dev/discord_* {
-                header Access-Control-Allow-Origin *
-                uri path_regexp ^/_matrix/media/.+/thumbnail/matdoes\.dev/discord_ /
-                uri replace "%7C" /
-                reverse_proxy {
-                        to https://media.discordapp.net
-                        header_up Host media.discordapp.net
-                }
-        }
+	handle /_matrix/media/*/download/matdoes.dev/discord_* {
+		header Access-Control-Allow-Origin *
+		# Remove path prefix
+		uri path_regexp ^/_matrix/media/.+/download/matdoes\.dev/discord_ /
+		# The mxc patterns use | instead of /, so replace it first turning it into attachments/1234/5678/filename.png
+		uri replace "%7C" /
+		reverse_proxy {
+			# reverse_proxy automatically includes the uri, so no {uri} at the end
+			to https://cdn.discordapp.com
+			# Caddy doesn't set the Host header automatically when reverse proxying
+			# (because usually reverse proxies are local and don't care about Host headers)
+			header_up Host cdn.discordapp.com
+		}
+	}
+	# Do the same for thumbnails, but redirect to media.discordapp.net (which is Discord's thumbnailing server, and happens to use similar width/height params as Matrix)
+	# Alternatively, you can point this at cdn.discordapp.com too. Clients shouldn't mind even if they get a bigger image than they asked for.
+	handle /_matrix/media/*/thumbnail/matdoes.dev/discord_* {
+		header Access-Control-Allow-Origin *
+		uri path_regexp ^/_matrix/media/.+/thumbnail/matdoes\.dev/discord_ /
+		uri replace "%7C" /
+		reverse_proxy {
+			to https://media.discordapp.net
+			header_up Host media.discordapp.net
+		}
+	}
 	handle {
 		reverse_proxy 127.0.0.1:8449
 	}
 }
 
 stats.matrix.matdoes.dev {
-        reverse_proxy 127.0.0.1:81
+	reverse_proxy 127.0.0.1:81
 }
 
 fedi.matdoes.dev {
@@ -134,16 +150,16 @@ fedi.matdoes.dev {
 }
 
 f.matdoes.dev {
-        @chrome {
-                header_regexp chrome User-Agent Chrome\/[0-9./]+\s(Mobile\s)?Safari\/[0-9./]+$
-        }
-        @notchrome {
-                header User-Agent *Googlebot/*
-        }
+	@chrome {
+		header_regexp chrome User-Agent Chrome\/[0-9./]+\s(Mobile\s)?Safari\/[0-9./]+$
+	}
+	@notchrome {
+		header User-Agent *Googlebot/*
+	}
 
-        reverse_proxy @notchrome 127.0.0.1:4000
-        respond @chrome "This site is best viewed with Firefox (or literally any browser that isn't Chrome)." 403
-        reverse_proxy 127.0.0.1:4000
+	reverse_proxy @notchrome 127.0.0.1:4000
+	respond @chrome "This site is best viewed with Firefox (or literally any browser that isn't Chrome)." 403
+	reverse_proxy 127.0.0.1:4000
 }
 
 mail.matdoes.dev {
