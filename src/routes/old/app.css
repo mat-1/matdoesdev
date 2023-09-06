@@ -3,8 +3,14 @@ body {
 	background-image: url('/old/background.gif');
 	color: #fff;
 
-	font-family: 'comic sans ms', 'Comic Sans MS', 'Comic Sans', cursive;
+	font-family: 'comic sans ms', cursive;
 	overflow: auto;
+}
+
+@font-face {
+	font-family: 'comic sans ms';
+	font-style: normal;
+	src: url(/old/comicsans.ttf) format('ttf');
 }
 
 a {
