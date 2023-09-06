@@ -8,7 +8,7 @@
 <section class="error-page">
 	<div>
 		<h1>451</h1>
-		<h2>Unavailable For Legal Reasons</h2>
+		<a href="/old"><h2>Unavailable For Legal Reasons</h2></a>
 	</div>
 </section>
 
@@ -33,5 +33,9 @@
 		margin: 0;
 		color: var(--text-color-alt-3);
 		font-weight: normal;
+	}
+
+	a {
+		text-decoration: none;
 	}
 </style>

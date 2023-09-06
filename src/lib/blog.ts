@@ -92,7 +92,7 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 		])
 	)
 
-	// HACK: i'm probably comitting a felony by putting this here
+	// HACK: i'm probably committing a felony by putting this here
 	// but i couldn't come up with a better solution
 	const html = /^[\w\W]*?<\/div>\s*([\w\W]+)<\/article>[\w\W]*?$/.exec(renderHtml)?.[1] ?? ''
 

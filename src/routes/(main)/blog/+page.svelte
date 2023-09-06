@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BackAnchor from '$lib/BackAnchor.svelte'
 	import PostPreview from '$lib/PostPreview.svelte'
-	import type { BlogPostPreview } from '../blog.json/+server'
+	import type { BlogPostPreview } from '../../blog.json/+server'
 
 	export let data
 	export let posts: BlogPostPreview[] = data.posts

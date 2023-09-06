@@ -1,0 +1,12 @@
+body {
+	background-color: #000;
+	background-image: url('/old/background.gif');
+	color: #fff;
+
+	font-family: 'comic sans ms';
+	overflow: auto;
+}
+
+a {
+	color: #fff;
+}
