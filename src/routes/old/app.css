@@ -3,7 +3,7 @@ body {
 	background-image: url('/old/background.gif');
 	color: #fff;
 
-	font-family: 'comic sans ms';
+	font-family: 'comic sans ms', 'Comic Sans MS', 'Comic Sans', cursive;
 	overflow: auto;
 }
 
