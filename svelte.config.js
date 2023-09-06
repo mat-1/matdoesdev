@@ -29,6 +29,7 @@ const config = {
 				'/old',
 				'/minecraft-scanning/minecraft-server-background.png',
 				'/old/background.gif',
+				'/old/comicsans.ttf',
 				// redirect /blog/* to /*
 				'/blog/matdoes-dev-markdown',
 				'/blog/minecraft-server-warner',
