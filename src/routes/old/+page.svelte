@@ -91,6 +91,11 @@
             </div>
         </td>
     </tr>
+    <tr>
+        <td>
+            <img src="https://counter.matdoes.dev" alt="visitor counter" id="counter"/>
+        </td>
+    </tr>
 </table>
 
 <style>
@@ -120,5 +125,10 @@
     }
     .contact {
         padding-right: 10px
+    }
+
+    #counter {
+        margin: 0 auto;
+        display: block;
     }
 </style>
