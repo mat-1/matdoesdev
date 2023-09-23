@@ -12,6 +12,8 @@
     import kofi from './buttons/kofi.gif'
     import vscode from './buttons/vscode.gif'
     import hetzner from './buttons/hetzner.gif'
+    import anythingbutchrome from './buttons/anythingbutchrome.gif'
+    import tor from './buttons/tor.gif'
 
 	import type { BlogPostPreview } from "../blog.json/+server.js"
 
@@ -47,6 +49,8 @@
                     <a href="https://ko-fi.com/matdoesdev"><img src={kofi} alt="kofi" /></a>
                     <a href="https://code.visualstudio.com/"><img src={vscode} alt="vscode" /></a>
                     <a href="https://www.hetzner.com/"><img src={hetzner} alt="hetzner" /></a>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/"><img src={anythingbutchrome} alt="anythingbutchrome" /></a>
+                    <a href="https://www.torproject.org/"><img src={tor} alt="tor" /></a>
                 </div>
             </div>
         </td>
