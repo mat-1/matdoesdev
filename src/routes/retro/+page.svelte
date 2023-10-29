@@ -4,6 +4,7 @@
 	import links from './links.gif'
 	import projects from '../_projects.json'
 
+	import matdoesdev from './buttons/matdoesdev.png'
 	import adryd from './buttons/adryd.png'
 	import notnite from './buttons/notnite.gif'
 	import archbtw from './buttons/archbtw.png'
@@ -43,6 +44,7 @@
 				</div>
 				<br />
 				<div>
+					<a href="https://matdoes.dev/"><img src={matdoesdev} alt="matdoesdev" /></a>
 					<a href="https://adryd.com/"><img src={adryd} alt="adryd" /></a>
 					<a href="https://notnite.com/"><img src={notnite} alt="notnite" /></a>
 					<a href="https://archlinux.org/"><img src={archbtw} alt="archbtw" /></a>
