@@ -1,6 +1,6 @@
 body {
 	background-color: #000;
-	background-image: url('/old/background.gif');
+	background-image: url('/retro/background.gif');
 	color: #fff;
 
 	font-family: 'Comic Sans MS', cursive;
@@ -9,7 +9,7 @@ body {
 
 @font-face {
 	font-family: 'Comic Sans MS';
-	src: url(/old/comicsans.ttf) format('truetype');
+	src: url(/retro/comicsans.ttf) format('truetype');
 }
 
 a {

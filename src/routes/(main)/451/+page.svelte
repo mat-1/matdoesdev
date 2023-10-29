@@ -8,7 +8,7 @@
 <section class="error-page">
 	<div>
 		<h1>451</h1>
-		<a href="/old"><h2>Unavailable For Legal Reasons</h2></a>
+		<a href="/retro"><h2>Unavailable For Legal Reasons</h2></a>
 	</div>
 </section>
 

@@ -26,10 +26,10 @@ const config = {
 				'*',
 				'/404',
 				'/451',
-				'/old',
+				'/retro',
 				'/minecraft-scanning/minecraft-server-background.png',
-				'/old/background.gif',
-				'/old/comicsans.ttf',
+				'/retro/background.gif',
+				'/retro/comicsans.ttf',
 				// redirect /blog/* to /*
 				'/blog/matdoes-dev-markdown',
 				'/blog/minecraft-server-warner',
