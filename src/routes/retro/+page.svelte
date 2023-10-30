@@ -18,6 +18,7 @@
 	import tor from './buttons/tor.gif'
 	import ublockorigin from './buttons/ublockorigin.png'
 	import fightforprivacy from './buttons/fightforprivacy.gif'
+	import netscape from './buttons/netscape.gif'
 
 	import type { BlogPostPreview } from '../blog.json/+server.js'
 
@@ -63,6 +64,9 @@
 					<a href="https://www.torproject.org/"><img src={tor} alt="tor" /></a>
 					<a href="https://ublockorigin.com/"><img src={ublockorigin} alt="ublock origin" /></a>
 					<a href="https://www.eff.org/"><img src={fightforprivacy} alt="fight for privacy" /></a>
+					<a href="https://netscape-browser.en.softonic.com/"
+						><img src={netscape} alt="netscape" /></a
+					>
 				</div>
 			</div>
 		</td>
