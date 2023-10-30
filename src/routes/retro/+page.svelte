@@ -7,6 +7,7 @@
 	import matdoesdev from './buttons/matdoesdev.png'
 	import adryd from './buttons/adryd.png'
 	import notnite from './buttons/notnite.gif'
+	import shrecknt from './buttons/shwecky.png'
 	import archbtw from './buttons/archbtw.png'
 	import getFirefox from './buttons/getfirefox.gif'
 	import github from './buttons/github.gif'
@@ -47,6 +48,7 @@
 					<a href="https://matdoes.dev/"><img src={matdoesdev} alt="matdoesdev" /></a>
 					<a href="https://adryd.com/"><img src={adryd} alt="adryd" /></a>
 					<a href="https://notnite.com/"><img src={notnite} alt="notnite" /></a>
+					<a href="https://shrecked.dev/"><img src={shrecknt} alt="shrecknt" /></a>
 					<a href="https://archlinux.org/"><img src={archbtw} alt="archbtw" /></a>
 					<a href="https://www.mozilla.org/en-US/firefox/new/"
 						><img src={getFirefox} alt="getFirefox" /></a
