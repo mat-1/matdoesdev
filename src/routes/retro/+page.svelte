@@ -64,7 +64,7 @@
 					<a href="https://www.torproject.org/"><img src={tor} alt="tor" /></a>
 					<a href="https://ublockorigin.com/"><img src={ublockorigin} alt="ublock origin" /></a>
 					<a href="https://www.eff.org/"><img src={fightforprivacy} alt="fight for privacy" /></a>
-					<a href="https://netscape-browser.en.softonic.com/"
+					<a href="https://archive.org/details/netscape-9-0-beta-1-netscape-navigator-9.0b1"
 						><img src={netscape} alt="netscape" /></a
 					>
 				</div>
