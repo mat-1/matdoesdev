@@ -10,6 +10,7 @@
 	import shrecknt from './buttons/shwecky.png'
 	import goldenstack from './buttons/goldenstack.png'
 	import kibtytown from './buttons/kibtytown.gif'
+	import honbra from './buttons/honbra.png'
 
 	import archbtw from './buttons/archbtw.png'
 	import getFirefox from './buttons/getfirefox.gif'
@@ -55,6 +56,7 @@
 					<a href="https://shrecked.dev/"><img src={shrecknt} alt="shrecknt" /></a>
 					<a href="https://goldenstack.github.io/"><img src={goldenstack} alt="goldenstack" /></a>
 					<a href="https://www.kibty.town/"><img src={kibtytown} alt="kibty.town" /></a>
+					<a href="https://honbra.com/"><img src={honbra} alt="honbra" /></a>
 					<a href="https://archlinux.org/"><img src={archbtw} alt="archbtw" /></a>
 					<a href="https://www.mozilla.org/en-US/firefox/new/"
 						><img src={getFirefox} alt="getFirefox" /></a
