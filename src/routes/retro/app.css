@@ -15,3 +15,8 @@ body {
 a {
 	color: #fff;
 }
+
+img {
+	/* very old browsers add borders to images */
+	border: none;
+}
