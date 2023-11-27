@@ -12,13 +12,22 @@ body {
 	src: url(/retro/comicsans.ttf) format('truetype');
 }
 
-a {
+a,
+/* these are necessary for ie5 */
+a:link,
+a:visited,
+a:hover,
+a:active {
 	color: #ffffff;
 }
 
 img {
 	/* very old browsers add borders to images */
 	border: none;
+}
+
+:global(h2) {
+	margin: 0;
 }
 
 *,

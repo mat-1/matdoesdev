@@ -120,10 +120,6 @@
 		overflow-y: scroll;
 	}
 
-	:global(h2) {
-		margin: 0;
-	}
-
 	#main-table {
 		width: 100%;
 	}
