@@ -122,6 +122,8 @@
 	}
 	.sidebar-list h2 {
 		margin: 0;
+		display: inline-block;
+		height: initial;
 	}
 
 	#main-table {
