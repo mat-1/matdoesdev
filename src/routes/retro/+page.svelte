@@ -119,9 +119,9 @@
 		height: 400px;
 		overflow-y: scroll;
 	}
-	.sidebar-list h2 {
+
+	:global(h2) {
 		margin: 0;
-		overflow: hidden;
 	}
 
 	#main-table {
