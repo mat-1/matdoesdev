@@ -118,12 +118,10 @@
 		text-align: right;
 		height: 400px;
 		overflow-y: scroll;
-		display: table;
 	}
 	.sidebar-list h2 {
 		margin: 0;
-		display: inline-block;
-		height: initial;
+		overflow: hidden;
 	}
 
 	#main-table {
