@@ -20,3 +20,9 @@ img {
 	/* very old browsers add borders to images */
 	border: none;
 }
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}

@@ -66,7 +66,9 @@
 		</td>
 		<td>
 			<div class="sidebar-list">
-				<h2>BLOG POSTS</h2>
+				<div>
+					<h2>BLOG POSTS</h2>
+				</div>
 				{#each posts as post}
 					<div><a href={post.slug}>{post.title}</a></div>
 				{/each}
@@ -108,7 +110,7 @@
 	</tr>
 	<tr>
 		<td>
-			<img src="http://counter.matdoes.dev" alt="visitor counter" id="counter" />
+			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 		</td>
 	</tr>
 </table>
