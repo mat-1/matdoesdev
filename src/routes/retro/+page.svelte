@@ -66,9 +66,7 @@
 		</td>
 		<td>
 			<div class="sidebar-list">
-				<div>
-					<h2>BLOG POSTS</h2>
-				</div>
+				<h2>BLOG POSTS</h2>
 				{#each posts as post}
 					<div><a href={post.slug}>{post.title}</a></div>
 				{/each}
@@ -123,6 +121,7 @@
 	}
 	.sidebar-list h2 {
 		margin: 0;
+		display: table;
 	}
 
 	#main-table {
