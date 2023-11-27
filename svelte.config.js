@@ -40,6 +40,9 @@ const config = {
 				'/blog/who-is-mat',
 			],
 		},
+		paths: {
+			relative: false,
+		},
 	},
 }
 
