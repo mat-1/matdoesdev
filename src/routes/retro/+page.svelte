@@ -5,13 +5,10 @@
 	import projects from '../_projects.json'
 
 	import type { BlogPostPreview } from '../blog.json/+server.js'
-	import MusicPlayer from './MusicPlayer.svelte'
 
 	export let data
 	export let posts: BlogPostPreview[] = data.posts
 </script>
-
-<MusicPlayer />
 
 <table id="main-table">
 	<tr>
@@ -124,6 +121,7 @@
 		text-align: right;
 		height: 400px;
 		overflow-y: scroll;
+		padding-right: 10px;
 	}
 
 	#main-table {
