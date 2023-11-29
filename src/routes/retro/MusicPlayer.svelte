@@ -20,7 +20,7 @@
 	}
 
 	const SONGS = [
-		'C418 - Thunderbird',
+		'C418 - Biome Party',
 		'Garoad - Every Day Is Night',
 		'Peppsen - Blueprint',
 		'Epic Mountain - Stellar Engines',
