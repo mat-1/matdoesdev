@@ -5,10 +5,13 @@
 	import projects from '../_projects.json'
 
 	import type { BlogPostPreview } from '../blog.json/+server.js'
+	import MusicPlayer from './MusicPlayer.svelte'
 
 	export let data
 	export let posts: BlogPostPreview[] = data.posts
 </script>
+
+<MusicPlayer />
 
 <table id="main-table">
 	<tr>
@@ -30,36 +33,38 @@
 				</div>
 				<br />
 				<div>
-					<a href="//matdoes.dev/"><img src="/buttons/matdoesdev.png" alt="matdoesdev" /></a>
-					<a href="//adryd.com/"><img src="/buttons/adryd.png" alt="adryd" /></a>
-					<a href="//notnite.com/"><img src="/buttons/notnite.gif" alt="notnite" /></a>
-					<a href="//shrecked.dev/"><img src="/buttons/shwecky.png" alt="shrecknt" /></a>
+					<a href="//matdoes.dev/"><img src="/retro/buttons/matdoesdev.png" alt="matdoesdev" /></a>
+					<a href="//adryd.com/"><img src="/retro/buttons/adryd.png" alt="adryd" /></a>
+					<a href="//notnite.com/"><img src="/retro/buttons/notnite.gif" alt="notnite" /></a>
+					<a href="//shrecked.dev/"><img src="/retro/buttons/shwecky.png" alt="shrecknt" /></a>
 					<a href="//goldenstack.github.io/"
-						><img src="/buttons/goldenstack.png" alt="goldenstack" /></a
+						><img src="/retro/buttons/goldenstack.png" alt="goldenstack" /></a
 					>
-					<a href="//www.kibty.town/"><img src="/buttons/kibtytown.gif" alt="kibty.town" /></a>
-					<a href="//honbra.com/"><img src="/buttons/honbra.png" alt="honbra" /></a>
-					<a href="//archlinux.org/"><img src="/buttons/archbtw.png" alt="archbtw" /></a>
+					<a href="//www.kibty.town/"><img src="/retro/buttons/kibtytown.gif" alt="kibty.town" /></a
+					>
+					<a href="//honbra.com/"><img src="/retro/buttons/honbra.png" alt="honbra" /></a>
+					<a href="//archlinux.org/"><img src="/retro/buttons/archbtw.png" alt="archbtw" /></a>
 					<a href="//www.mozilla.org/en-US/firefox/new/"
-						><img src="/buttons/getfirefox.gif" alt="getfirefox" /></a
+						><img src="/retro/buttons/getfirefox.gif" alt="getfirefox" /></a
 					>
-					<a href="//github.com/mat-1"><img src="/buttons/github.gif" alt="github" /></a>
-					<a href="//ko-fi.com/matdoesdev"><img src="/buttons/kofi.gif" alt="kofi" /></a>
-					<a href="//code.visualstudio.com/"><img src="/buttons/vscode.gif" alt="vscode" /></a>
-					<a href="//www.hetzner.com/"><img src="/buttons/hetzner.gif" alt="hetzner" /></a>
+					<a href="//github.com/mat-1"><img src="/retro/buttons/github.gif" alt="github" /></a>
+					<a href="//ko-fi.com/matdoesdev"><img src="/retro/buttons/kofi.gif" alt="kofi" /></a>
+					<a href="//code.visualstudio.com/"><img src="/retro/buttons/vscode.gif" alt="vscode" /></a
+					>
+					<a href="//www.hetzner.com/"><img src="/retro/buttons/hetzner.gif" alt="hetzner" /></a>
 					<a href="//www.mozilla.org/en-US/firefox/new/"
-						><img src="/buttons/anythingbutchrome.gif" alt="anythingbutchrome" /></a
+						><img src="/retro/buttons/anythingbutchrome.gif" alt="anythingbutchrome" /></a
 					>
-					<a href="//www.torproject.org/"><img src="/buttons/tor.gif" alt="tor" /></a>
+					<a href="//www.torproject.org/"><img src="/retro/buttons/tor.gif" alt="tor" /></a>
 					<a href="//ublockorigin.com/"
-						><img src="/buttons/ublockorigin.png" alt="ublock origin" /></a
+						><img src="/retro/buttons/ublockorigin.png" alt="ublock origin" /></a
 					>
 					<a href="//www.eff.org/"
-						><img src="/buttons/fightforprivacy.gif" alt="fight for privacy" /></a
+						><img src="/retro/buttons/fightforprivacy.gif" alt="fight for privacy" /></a
 					>
 					<a
 						href="//ftp.nluug.nl/netscape/netscape9/en-US/9.0/windows/win32/netscape-navigator-9.0.0.6.exe"
-						><img src="/buttons/netscape.gif" alt="netscape" /></a
+						><img src="/retro/buttons/netscape.gif" alt="netscape" /></a
 					>
 				</div>
 			</div>
@@ -111,6 +116,7 @@
 			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 		</td>
 	</tr>
+	<tr><p class="last-updated">Page last updated: November 28, 2023</p></tr>
 </table>
 
 <style>
@@ -129,6 +135,14 @@
 		max-width: 600px;
 	}
 
+	h1 {
+		background: linear-gradient(0deg, #aaa, #fff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		filter: drop-shadow(2px 2px #333);
+	}
+
 	#sections {
 		width: 100%;
 	}
@@ -142,5 +156,12 @@
 	#counter {
 		margin: 0 auto;
 		display: block;
+	}
+
+	.last-updated {
+		font-style: italic;
+		color: #888;
+		text-align: right;
+		font-family: monospace;
 	}
 </style>
