@@ -4,7 +4,6 @@
 	import Pause from './icons/Pause.svelte'
 	import Play from './icons/Play.svelte'
 	import { browser } from '$app/environment'
-	import { onMount } from 'svelte'
 
 	let musicPlayerEl: HTMLAudioElement | undefined = undefined
 
@@ -19,7 +18,6 @@
 			musicPlayerEl.pause()
 		}
 	}
-	$: console.log(playing)
 
 	const SONGS = [
 		'C418 - Thunderbird',
@@ -67,7 +65,7 @@
 
 <audio bind:this={musicPlayerEl} on:ended={nextSong} />
 
-<table class="music-player">
+<table class="music-player" style={musicPlayerEl ? '' : 'display: none'}>
 	<tr>
 		<td>
 			<button on:click={prevSong}>
