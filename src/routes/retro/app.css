@@ -3,7 +3,7 @@ body {
 	background-image: url('/retro/background.gif');
 	color: #fff;
 
-	font-family: 'Comic Sans MS', cursive;
+	font-family: 'Comic Sans MS', cursive !important;
 	overflow: auto;
 }
 
@@ -18,7 +18,7 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-	color: #ffffff;
+	color: #ffffff !important;
 }
 
 img {
@@ -26,7 +26,7 @@ img {
 	border: none;
 }
 
-:global(h2) {
+h2 {
 	margin: 0;
 }
 
@@ -34,4 +34,8 @@ img {
 *:before,
 *:after {
 	box-sizing: border-box;
+}
+
+#main-title:after {
+	content: ' :3';
 }

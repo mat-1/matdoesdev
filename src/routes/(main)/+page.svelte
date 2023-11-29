@@ -23,8 +23,8 @@
 <Head />
 
 <div class="section-container">
-	<section>
-		<h1 bind:this={titleEl}>matdoesdev</h1>
+	<section id="main-index-page-section">
+		<h1 bind:this={titleEl} id="main-title">matdoesdev</h1>
 
 		<IconButtonRow>
 			<a href="//github.com/mat-1"><GitHubIcon /></a>
