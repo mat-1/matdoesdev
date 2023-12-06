@@ -24,7 +24,7 @@
 		'Garoad - Every Day Is Night',
 		'Peppsen - Blueprint',
 		'Epic Mountain - Stellar Engines',
-		"Toby Fox - A CYBER'S WORLD",
+		"Toby Fox - A CYBER'S WORLD?",
 		'Toby Fox - Faint Glow',
 		'Toby Fox - My Castle Town',
 	]
@@ -47,7 +47,7 @@
 	let currentSong_: string | null = null
 	$: if (musicPlayerEl) {
 		if (currentSong_ !== currentSong) {
-			const newSrc = `/retro/music/${currentSong}.mp3`
+			const newSrc = `/retro/music/${currentSong.replace(/\?/g, '')}.mp3`
 			musicPlayerEl.src = newSrc
 			musicPlayerEl.load()
 			currentSong_ = currentSong
