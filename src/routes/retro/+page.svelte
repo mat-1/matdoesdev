@@ -62,6 +62,9 @@
 						href="//ftp.nluug.nl/netscape/netscape9/en-US/9.0/windows/win32/netscape-navigator-9.0.0.6.exe"
 						><img src="/retro/buttons/netscape.gif" alt="netscape" /></a
 					>
+					<a href="//archive.org"
+						><img src="/retro/buttons/internet-archive.png" alt="internet archive" /></a
+					>
 				</div>
 			</div>
 		</td>
