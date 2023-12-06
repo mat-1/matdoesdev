@@ -29,34 +29,33 @@
 					this is my personal web site on the world wide web.
 				</div>
 				<br />
-				<div>
-					<a href="//matdoes.dev/"><img src="/retro/buttons/matdoesdev.png" alt="matdoesdev" /></a>
-					<a href="//adryd.com/"><img src="/retro/buttons/adryd.png" alt="adryd" /></a>
-					<a href="//notnite.com/"><img src="/retro/buttons/notnite.gif" alt="notnite" /></a>
-					<a href="//shrecked.dev/"><img src="/retro/buttons/shwecky.png" alt="shrecknt" /></a>
-					<a href="//goldenstack.github.io/"
+				<div class="buttons">
+					<a href="//matdoes.dev"><img src="/retro/buttons/matdoesdev.png" alt="matdoesdev" /></a>
+					<a href="//adryd.com"><img src="/retro/buttons/adryd.png" alt="adryd" /></a>
+					<a href="//notnite.com"><img src="/retro/buttons/notnite.gif" alt="notnite" /></a>
+					<a href="//shrecked.dev"><img src="/retro/buttons/shwecky.png" alt="shrecknt" /></a>
+					<a href="//goldenstack.github.io"
 						><img src="/retro/buttons/goldenstack.png" alt="goldenstack" /></a
 					>
-					<a href="//www.kibty.town/"><img src="/retro/buttons/kibtytown.gif" alt="kibty.town" /></a
-					>
-					<a href="//honbra.com/"><img src="/retro/buttons/honbra.png" alt="honbra" /></a>
-					<a href="//archlinux.org/"><img src="/retro/buttons/archbtw.png" alt="archbtw" /></a>
-					<a href="//www.mozilla.org/en-US/firefox/new/"
+					<a href="//www.kibty.town"><img src="/retro/buttons/kibtytown.gif" alt="kibty.town" /></a>
+					<a href="//honbra.com"><img src="/retro/buttons/honbra.png" alt="honbra" /></a>
+					<a href="//ssi.fyi"><img src="/retro/buttons/ssi.png" alt="server scanning inc" /></a>
+					<a href="//archlinux.org"><img src="/retro/buttons/archbtw.png" alt="archbtw" /></a>
+					<a href="//www.mozilla.org/en-US/firefox/new"
 						><img src="/retro/buttons/getfirefox.gif" alt="getfirefox" /></a
 					>
 					<a href="//github.com/mat-1"><img src="/retro/buttons/github.gif" alt="github" /></a>
 					<a href="//ko-fi.com/matdoesdev"><img src="/retro/buttons/kofi.gif" alt="kofi" /></a>
-					<a href="//code.visualstudio.com/"><img src="/retro/buttons/vscode.gif" alt="vscode" /></a
-					>
-					<a href="//www.hetzner.com/"><img src="/retro/buttons/hetzner.gif" alt="hetzner" /></a>
-					<a href="//www.mozilla.org/en-US/firefox/new/"
+					<a href="//code.visualstudio.com"><img src="/retro/buttons/vscode.gif" alt="vscode" /></a>
+					<a href="//www.hetzner.com"><img src="/retro/buttons/hetzner.gif" alt="hetzner" /></a>
+					<a href="//www.mozilla.org/en-US/firefox/new"
 						><img src="/retro/buttons/anythingbutchrome.gif" alt="anythingbutchrome" /></a
 					>
-					<a href="//www.torproject.org/"><img src="/retro/buttons/tor.gif" alt="tor" /></a>
-					<a href="//ublockorigin.com/"
+					<a href="//www.torproject.org"><img src="/retro/buttons/tor.gif" alt="tor" /></a>
+					<a href="//ublockorigin.com"
 						><img src="/retro/buttons/ublockorigin.png" alt="ublock origin" /></a
 					>
-					<a href="//www.eff.org/"
+					<a href="//www.eff.org"
 						><img src="/retro/buttons/fightforprivacy.gif" alt="fight for privacy" /></a
 					>
 					<a
@@ -113,7 +112,7 @@
 			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 		</td>
 	</tr>
-	<tr><p class="last-updated">Page last updated: November 28, 2023</p></tr>
+	<tr><p class="last-updated">Page last updated: December 6, 2023</p></tr>
 </table>
 
 <style>
@@ -159,7 +158,11 @@
 	.last-updated {
 		font-style: italic;
 		color: #888;
-		text-align: right;
+		text-align: center;
 		font-family: monospace;
+	}
+
+	.buttons img {
+		image-rendering: crisp-edges;
 	}
 </style>
