@@ -39,7 +39,7 @@
 					>
 					<a href="//www.kibty.town"><img src="/retro/buttons/kibtytown.gif" alt="kibty.town" /></a>
 					<a href="//honbra.com"><img src="/retro/buttons/honbra.png" alt="honbra" /></a>
-					<a href="//ssi.fyi"><img src="/retro/buttons/ssi.png" alt="server scanning inc" /></a>
+					<a href="//ssi.fyi"><img src="/retro/buttons/ssi.gif" alt="server scanning inc" /></a>
 					<a href="//archlinux.org"><img src="/retro/buttons/archbtw.png" alt="archbtw" /></a>
 					<a href="//www.mozilla.org/en-US/firefox/new"
 						><img src="/retro/buttons/getfirefox.gif" alt="getfirefox" /></a
