@@ -142,6 +142,7 @@
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		filter: drop-shadow(2px 2px #333);
+		text-align: center;
 	}
 
 	#sections {
