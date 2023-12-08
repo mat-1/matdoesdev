@@ -31,7 +31,7 @@
 				</div>
 				<br />
 				<div class="buttons">
-					<Button href="//matdoes.dev" src="matdoesdev.gif" alt="matdoesdev" />
+					<Button href="//matdoes.dev" src="mat.png" alt="matdoesdev" />
 					<Button href="//adryd.com" src="adryd.png" alt="adryd" />
 					<Button href="//notnite.com" src="notnite.gif" alt="notnite" />
 					<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
