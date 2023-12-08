@@ -19,6 +19,13 @@
 	})
 </script>
 
-<body bgcolor="#000000" background="/retro/background.gif" text="#ffffff">
+<body
+	bgcolor="#000000"
+	background="/retro/background.gif"
+	text="#ffffff"
+	link="#ffffff"
+	alink="#ffffff"
+	vlink="#ffffff"
+>
 	<slot />
 </body>
