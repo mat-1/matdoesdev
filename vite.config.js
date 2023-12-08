@@ -35,7 +35,7 @@ function pngToGifForRetro() {
 
 			const handles = files.map(async (publicFilePath) => {
 				const newFilePath = publicFilePath.replace(/\.png$/, '.gif')
-				console.log(publicFilePath, ' -> ', newFilePath)
+				console.log(publicFilePath, '->', newFilePath)
 
 				// if it already exists, skip
 				if (
