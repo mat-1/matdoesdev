@@ -124,6 +124,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		/* reset styles from default stylesheet */
+		box-shadow: none;
+	}
+
+	button:hover {
+		background-color: transparent;
 	}
 
 	.song-name-container {

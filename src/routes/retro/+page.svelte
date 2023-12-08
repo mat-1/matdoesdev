@@ -116,7 +116,7 @@
 			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 		</td>
 	</tr>
-	<tr><p class="last-updated">Page last updated: December 6, 2023</p></tr>
+	<tr><td><p class="last-updated">Page last updated: December 8, 2023</p></td></tr>
 </table>
 
 <style>
