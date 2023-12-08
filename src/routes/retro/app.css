@@ -1,7 +1,6 @@
 body {
-	background-color: #000;
-	background-image: url('/retro/background.gif');
-	color: #fff;
+	background: #000000 url(/retro/background.gif);
+	color: #ffffff;
 
 	font-family: 'Comic Sans MS', cursive !important;
 	overflow: auto;

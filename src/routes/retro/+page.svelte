@@ -5,6 +5,7 @@
 	import projects from '../_projects.json'
 
 	import type { BlogPostPreview } from '../blog.json/+server.js'
+	import Button from './Button.svelte'
 
 	export let data
 	export let posts: BlogPostPreview[] = data.posts
@@ -16,11 +17,11 @@
 			<div id="welcome">
 				<table>
 					<tr>
-						<td><img src={sparkles} alt="sparkles" /></td>
+						<td><img src={sparkles} alt="sparkles" width="100" height="100" /></td>
 						<td>
 							<h1>welcome to mat's site!!!</h1>
 						</td>
-						<td><img src={sparkles} alt="sparkles" /></td>
+						<td><img src={sparkles} alt="sparkles" width="100" height="100" /></td>
 					</tr>
 				</table>
 				<div>
@@ -30,42 +31,39 @@
 				</div>
 				<br />
 				<div class="buttons">
-					<a href="//matdoes.dev"><img src="/retro/buttons/matdoesdev.png" alt="matdoesdev" /></a>
-					<a href="//adryd.com"><img src="/retro/buttons/adryd.png" alt="adryd" /></a>
-					<a href="//notnite.com"><img src="/retro/buttons/notnite.gif" alt="notnite" /></a>
-					<a href="//shrecked.dev"><img src="/retro/buttons/shwecky.png" alt="shrecknt" /></a>
-					<a href="//goldenstack.github.io"
-						><img src="/retro/buttons/goldenstack.png" alt="goldenstack" /></a
-					>
-					<a href="//www.kibty.town"><img src="/retro/buttons/kibtytown.gif" alt="kibty.town" /></a>
-					<a href="//honbra.com"><img src="/retro/buttons/honbra.png" alt="honbra" /></a>
-					<a href="//ssi.fyi"><img src="/retro/buttons/ssi.gif" alt="server scanning inc" /></a>
-					<a href="//cbax.dev"><img src="/retro/buttons/cbax.gif" alt="cbax" /></a>
-					<a href="//archlinux.org"><img src="/retro/buttons/archbtw.png" alt="archbtw" /></a>
-					<a href="//www.mozilla.org/en-US/firefox/new"
-						><img src="/retro/buttons/getfirefox.gif" alt="getfirefox" /></a
-					>
-					<a href="//github.com/mat-1"><img src="/retro/buttons/github.gif" alt="github" /></a>
-					<a href="//ko-fi.com/matdoesdev"><img src="/retro/buttons/kofi.gif" alt="kofi" /></a>
-					<a href="//code.visualstudio.com"><img src="/retro/buttons/vscode.gif" alt="vscode" /></a>
-					<a href="//www.hetzner.com"><img src="/retro/buttons/hetzner.gif" alt="hetzner" /></a>
-					<a href="//www.mozilla.org/en-US/firefox/new"
-						><img src="/retro/buttons/anythingbutchrome.gif" alt="anythingbutchrome" /></a
-					>
-					<a href="//www.torproject.org"><img src="/retro/buttons/tor.gif" alt="tor" /></a>
-					<a href="//ublockorigin.com"
-						><img src="/retro/buttons/ublockorigin.png" alt="ublock origin" /></a
-					>
-					<a href="//www.eff.org"
-						><img src="/retro/buttons/fightforprivacy.gif" alt="fight for privacy" /></a
-					>
-					<a
+					<Button href="//matdoes.dev" src="matdoesdev.png" alt="matdoesdev" />
+					<Button href="//adryd.com" src="adryd.png" alt="adryd" />
+					<Button href="//notnite.com" src="notnite.gif" alt="notnite" />
+					<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
+					<Button href="//goldenstack.github.io" src="goldenstack.png" alt="goldenstack" />
+					<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
+					<Button href="//honbra.com" src="honbra.png" alt="honbra" />
+					<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
+					<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
+					<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
+					<Button
+						href="//www.mozilla.org/en-US/firefox/new"
+						src="getfirefox.gif"
+						alt="getfirefox"
+					/>
+					<Button href="//github.com/mat-1" src="github.gif" alt="github" />
+					<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
+					<Button href="//code.visualstudio.com" src="vscode.gif" alt="vscode" />
+					<Button href="//www.hetzner.com" src="hetzner.gif" alt="hetzner" />
+					<Button
+						href="//www.mozilla.org/en-US/firefox/new"
+						src="anythingbutchrome.gif"
+						alt="anythingbutchrome"
+					/>
+					<Button href="//www.torproject.org" src="tor.gif" alt="tor" />
+					<Button href="//ublockorigin.com" src="ublockorigin.png" alt="ublock origin" />
+					<Button href="//www.eff.org" src="fightforprivacy.gif" alt="fight for privacy" />
+					<Button
 						href="//ftp.nluug.nl/netscape/netscape9/en-US/9.0/windows/win32/netscape-navigator-9.0.0.6.exe"
-						><img src="/retro/buttons/netscape.gif" alt="netscape" /></a
-					>
-					<a href="//archive.org"
-						><img src="/retro/buttons/internet-archive.png" alt="internet archive" /></a
-					>
+						src="netscape.gif"
+						alt="netscape"
+					/>
+					<Button href="//archive.org" src="internet-archive.png" alt="internet archive" />
 				</div>
 			</div>
 		</td>
@@ -83,7 +81,7 @@
 			<table id="sections">
 				<tr>
 					<td class="section contact">
-						<div><img src={contact} alt="contact" /></div>
+						<div><img src={contact} alt="contact" width="200" height="40" /></div>
 						<p>
 							my preferred method of contact is <a href="https://matrix.to/#/@mat:matdoes.dev"
 								>matrix</a
@@ -92,7 +90,7 @@
 						</p>
 					</td>
 					<td class="section links">
-						<div><img src={links} alt="links" /></div>
+						<div><img src={links} alt="links" width="200" height="40" />/></div>
 						<p>
 							i have a github at <a href="https://github.com/mat-1">github.com/mat-1</a>, and you
 							can give me money through ko-fi at

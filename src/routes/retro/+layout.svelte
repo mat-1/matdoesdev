@@ -19,4 +19,6 @@
 	})
 </script>
 
-<slot />
+<body bgcolor="#000000" background="/retro/background.gif" text="#ffffff">
+	<slot />
+</body>
