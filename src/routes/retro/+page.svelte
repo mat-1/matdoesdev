@@ -31,7 +31,7 @@
 				</div>
 				<br />
 				<div class="buttons">
-					<Button href="//matdoes.dev" src="matdoesdev.png" alt="matdoesdev" />
+					<Button href="//matdoes.dev/retro" src="matdoesdev.png" alt="matdoesdev" />
 					<Button href="//adryd.com" src="adryd.png" alt="adryd" />
 					<Button href="//notnite.com" src="notnite.gif" alt="notnite" />
 					<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
@@ -90,7 +90,7 @@
 						</p>
 					</td>
 					<td class="section links">
-						<div><img src={links} alt="links" width="200" height="40" />/></div>
+						<div><img src={links} alt="links" width="200" height="40" /></div>
 						<p>
 							i have a github at <a href="https://github.com/mat-1">github.com/mat-1</a>, and you
 							can give me money through ko-fi at

@@ -39,6 +39,7 @@ const config = {
 				'/blog/what-are-domain-hacks',
 				'/blog/who-is-mat',
 			],
+			handleHttpError: 'warn',
 		},
 		paths: {
 			relative: false,
