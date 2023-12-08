@@ -24,47 +24,59 @@
 						<td><img src={sparkles} alt="sparkles" width="100" height="100" /></td>
 					</tr>
 				</table>
-				<div>
-					hi, thanks for stopping by. i am mat, i make things on the internet.
-					<br />
-					this is my personal web site on the world wide web.
-				</div>
+				<table>
+					<tr>
+						<td>
+							<div>
+								hi, thanks for stopping by. i am mat, i make things on the internet.
+								<br />
+								this is my personal web site on the world wide web.
+							</div>
+						</td>
+					</tr>
+				</table>
 				<br />
-				<div class="buttons">
-					<Button href="//matdoes.dev" src="mat.png" alt="matdoesdev" />
-					<Button href="//adryd.com" src="adryd.png" alt="adryd" />
-					<Button href="//notnite.com" src="notnite.gif" alt="notnite" />
-					<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
-					<Button href="//goldenstack.github.io" src="goldenstack.png" alt="goldenstack" />
-					<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
-					<Button href="//honbra.com" src="honbra.png" alt="honbra" />
-					<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
-					<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
-					<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
-					<Button
-						href="//www.mozilla.org/en-US/firefox/new"
-						src="getfirefox.gif"
-						alt="getfirefox"
-					/>
-					<Button href="//github.com/mat-1" src="github.gif" alt="github" />
-					<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
-					<Button href="//code.visualstudio.com" src="vscode.gif" alt="vscode" />
-					<Button href="//www.hetzner.com" src="hetzner.gif" alt="hetzner" />
-					<Button
-						href="//www.mozilla.org/en-US/firefox/new"
-						src="anythingbutchrome.gif"
-						alt="anythingbutchrome"
-					/>
-					<Button href="//www.torproject.org" src="tor.gif" alt="tor" />
-					<Button href="//ublockorigin.com" src="ublockorigin.png" alt="ublock origin" />
-					<Button href="//www.eff.org" src="fightforprivacy.gif" alt="fight for privacy" />
-					<Button
-						href="//ftp.nluug.nl/netscape/netscape9/en-US/9.0/windows/win32/netscape-navigator-9.0.0.6.exe"
-						src="netscape.gif"
-						alt="netscape"
-					/>
-					<Button href="//archive.org" src="internet-archive.png" alt="internet archive" />
-				</div>
+				<table width="600">
+					<tr>
+						<td>
+							<div class="buttons">
+								<Button href="//matdoes.dev" src="mat.png" alt="matdoesdev" />
+								<Button href="//adryd.com" src="adryd.png" alt="adryd" />
+								<Button href="//notnite.com" src="notnite.gif" alt="notnite" />
+								<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
+								<Button href="//goldenstack.github.io" src="goldenstack.png" alt="goldenstack" />
+								<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
+								<Button href="//honbra.com" src="honbra.png" alt="honbra" />
+								<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
+								<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
+								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
+								<Button
+									href="//www.mozilla.org/en-US/firefox/new"
+									src="getfirefox.gif"
+									alt="getfirefox"
+								/>
+								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
+								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
+								<Button href="//code.visualstudio.com" src="vscode.gif" alt="vscode" />
+								<Button href="//www.hetzner.com" src="hetzner.gif" alt="hetzner" />
+								<Button
+									href="//www.mozilla.org/en-US/firefox/new"
+									src="anythingbutchrome.gif"
+									alt="anythingbutchrome"
+								/>
+								<Button href="//www.torproject.org" src="tor.gif" alt="tor" />
+								<Button href="//ublockorigin.com" src="ublockorigin.png" alt="ublock origin" />
+								<Button href="//www.eff.org" src="fightforprivacy.gif" alt="fight for privacy" />
+								<Button
+									href="//ftp.nluug.nl/netscape/netscape9/en-US/9.0/windows/win32/netscape-navigator-9.0.0.6.exe"
+									src="netscape.gif"
+									alt="netscape"
+								/>
+								<Button href="//archive.org" src="internet-archive.png" alt="internet archive" />
+							</div>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</td>
 		<td>
@@ -81,21 +93,33 @@
 			<table id="sections">
 				<tr>
 					<td class="section contact">
-						<div><img src={contact} alt="contact" width="200" height="40" /></div>
-						<p>
-							my preferred method of contact is <a href="https://matrix.to/#/@mat:matdoes.dev"
-								>matrix</a
-							>, but you can also email me (i have a catch-all on this domain). i'm also on
-							<a href="https://f.matdoes.dev/mat">the fediverse</a>.
-						</p>
+						<table width="300">
+							<tr>
+								<td>
+									<div><img src={contact} alt="contact" width="200" height="40" /></div>
+									<p>
+										my preferred method of contact is <a href="https://matrix.to/#/@mat:matdoes.dev"
+											>matrix</a
+										>, but you can also email me (i have a catch-all on this domain). i'm also on
+										<a href="https://f.matdoes.dev/mat">the fediverse</a>.
+									</p>
+								</td>
+							</tr>
+						</table>
 					</td>
 					<td class="section links">
-						<div><img src={links} alt="links" width="200" height="40" /></div>
-						<p>
-							i have a github at <a href="https://github.com/mat-1">github.com/mat-1</a>, and you
-							can give me money through ko-fi at
-							<a href="https://ko-fi.com/matdoesdev">ko-fi.com/matdoesdev</a>.
-						</p>
+						<table width="300">
+							<tr>
+								<td>
+									<div><img src={links} alt="links" width="200" height="40" /></div>
+									<p>
+										i have a github at <a href="https://github.com/mat-1">github.com/mat-1</a>, and
+										you can give me money through ko-fi at
+										<a href="https://ko-fi.com/matdoesdev">ko-fi.com/matdoesdev</a>.
+									</p>
+								</td>
+							</tr>
+						</table>
 					</td>
 				</tr>
 			</table>
