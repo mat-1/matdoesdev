@@ -375,7 +375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@img/sharp-linux-x64@npm:0.33.0":
+"@img/sharp-linux-x64@npm:0.33.0, @img/sharp-linux-x64@npm:^0.33.0":
   version: 0.33.0
   resolution: "@img/sharp-linux-x64@npm:0.33.0"
   dependencies:
@@ -383,6 +383,7 @@ __metadata:
   dependenciesMeta:
     "@img/sharp-libvips-linux-x64":
       optional: true
+  checksum: 59453908bea1b3b36e1fc1c649a82e668fc1726b42653c1395319c5c1f0fa92564f245acdcde8d32d6cf99a72bc85d9763bc6e36fc2cf822074645742e26844f
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -634,22 +635,6 @@ __metadata:
     rollup:
       optional: true
   checksum: 18a1f5a9afa993a76663cc2102169cd546786b39a3e92bdc8a2a0b408b509d070a02b20970a30daa9d5d0b1b591b5e7734add84b3aaf263178aef5a26cfab2cf
-  languageName: node
-  linkType: hard
-
-"@rollup/pluginutils@npm:^5.0.5":
-  version: 5.1.0
-  resolution: "@rollup/pluginutils@npm:5.1.0"
-  dependencies:
-    "@types/estree": "npm:^1.0.0"
-    estree-walker: "npm:^2.0.2"
-    picomatch: "npm:^2.3.1"
-  peerDependencies:
-    rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  checksum: c7bed15711f942d6fdd3470fef4105b73991f99a478605e13d41888963330a6f9e32be37e6ddb13f012bc7673ff5e54f06f59fd47109436c1c513986a8a7612d
   languageName: node
   linkType: hard
 
@@ -1115,13 +1100,6 @@ __metadata:
     json-schema-traverse: "npm:^0.4.1"
     uri-js: "npm:^4.2.2"
   checksum: 41e23642cbe545889245b9d2a45854ebba51cda6c778ebced9649420d9205f2efb39cb43dbc41e358409223b1ea43303ae4839db682c848b891e4811da1a5a71
-  languageName: node
-  linkType: hard
-
-"ansi-colors@npm:^4.1.3":
-  version: 4.1.3
-  resolution: "ansi-colors@npm:4.1.3"
-  checksum: ec87a2f59902f74e61eada7f6e6fe20094a628dab765cfdbd03c3477599368768cffccdb5d3bb19a1b6c99126783a143b1fee31aab729b31ffe5836c7e5e28b9
   languageName: node
   linkType: hard
 
@@ -2184,15 +2162,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"imagetools-core@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "imagetools-core@npm:6.0.3"
-  dependencies:
-    sharp: "npm:^0.33.0"
-  checksum: 9fb66b018e7bbb6ead5e37f6504f29a29471000999c4588e8298baf006d2139419098933c475224253785593f6567a086c49abe4088b89d90c3fe58f8da376bf
-  languageName: node
-  linkType: hard
-
 "import-fresh@npm:^3.2.1":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
@@ -2572,6 +2541,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "matdoesdev@workspace:."
   dependencies:
+    "@img/sharp-linux-x64": "npm:^0.33.0"
     "@lukeed/uuid": "npm:^2.0.1"
     "@sveltejs/adapter-node": "npm:1.3.1"
     "@sveltejs/adapter-static": "npm:^2.0.3"
@@ -2597,8 +2567,6 @@ __metadata:
     tslib: "npm:^2.6.2"
     typescript: "npm:^5.3.3"
     vite: "npm:5.0.6"
-    vite-imagetools: "npm:^6.2.7"
-    vite-plugin-image-optimizer: "npm:^1.1.7"
   languageName: unknown
   linkType: soft
 
@@ -3028,13 +2996,6 @@ __metadata:
   version: 4.0.0
   resolution: "path-type@npm:4.0.0"
   checksum: 666f6973f332f27581371efaf303fd6c272cc43c2057b37aa99e3643158c7e4b2626549555d88626e99ea9e046f82f32e41bbde5f1508547e9a11b149b52387c
-  languageName: node
-  linkType: hard
-
-"pathe@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "pathe@npm:1.1.1"
-  checksum: 3ae5a0529c3415d91c3ac9133f52cffea54a0dd46892fe059f4b80faf36fd207957d4594bdc87043b65d0761b1e5728f81f46bafff3b5302da4e2e48889b8c0e
   languageName: node
   linkType: hard
 
@@ -3925,28 +3886,6 @@ __metadata:
     "@types/unist": "npm:^2.0.0"
     unist-util-stringify-position: "npm:^2.0.0"
   checksum: ce50d90e0e5dc8f995f39602dd2404f1756388a54209c983d259b17c15e6f262a53546977a638065bc487d0657799fa96f4c1ba6b2915d9724a4968e9c7ff1c8
-  languageName: node
-  linkType: hard
-
-"vite-imagetools@npm:^6.2.7":
-  version: 6.2.7
-  resolution: "vite-imagetools@npm:6.2.7"
-  dependencies:
-    "@rollup/pluginutils": "npm:^5.0.5"
-    imagetools-core: "npm:^6.0.3"
-  checksum: f92121ea10c221d349a2dc4a255c21ae74d084ae17d8ea9c8b1f1440406574a535c976ceb57ff704534db735ea2baa29e6c08cd11a49839a209fe2574ff809b2
-  languageName: node
-  linkType: hard
-
-"vite-plugin-image-optimizer@npm:^1.1.7":
-  version: 1.1.7
-  resolution: "vite-plugin-image-optimizer@npm:1.1.7"
-  dependencies:
-    ansi-colors: "npm:^4.1.3"
-    pathe: "npm:^1.1.1"
-  peerDependencies:
-    vite: ">=3"
-  checksum: 2dd00beac75fad91c9e7dd862cb93c5666311db0d5b4caf23f1d8583010e502d1bd30123404b01d050fd58a42ed76234fd44f6716c3460b196b2557619af332c
   languageName: node
   linkType: hard
 
