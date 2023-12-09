@@ -49,6 +49,7 @@
 								<Button href="//honbra.com" src="honbra.png" alt="honbra" />
 								<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
 								<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
+								<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 								<Button
 									href="//www.mozilla.org/en-US/firefox/new"
@@ -187,9 +188,5 @@
 		color: #888;
 		text-align: center;
 		font-family: monospace;
-	}
-
-	.buttons img {
-		image-rendering: crisp-edges;
 	}
 </style>
