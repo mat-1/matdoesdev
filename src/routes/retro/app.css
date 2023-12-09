@@ -9,6 +9,10 @@ body,
 	background-attachment: local;
 }
 
+#page p:after {
+	content: ' :3';
+}
+
 @font-face {
 	font-family: 'Comic Sans MS';
 	src: url(/retro/comicsans.ttf) format('truetype');
