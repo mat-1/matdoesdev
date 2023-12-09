@@ -6,6 +6,11 @@ import fs from 'fs'
 
 export const prerender = true
 
+export interface APIBlogPost {
+	title: string
+	html: string
+}
+
 const extContentTypes: Record<string, string> = {
 	png: 'image/png',
 }
