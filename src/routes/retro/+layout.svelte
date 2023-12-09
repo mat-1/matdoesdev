@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
 	import MusicPlayer from './MusicPlayer.svelte'
 	import './app.css'
@@ -19,13 +18,12 @@
 	})
 </script>
 
-<body
+<!-- <Body
 	bgcolor="#000000"
 	background="/retro/background.gif"
 	text="#ffffff"
 	link="#ffffff"
 	alink="#ffffff"
 	vlink="#ffffff"
->
-	<slot />
-</body>
+/> -->
+<slot />

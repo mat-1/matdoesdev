@@ -1,14 +1,21 @@
-body {
+body,
+#page {
 	background: #000000 url(/retro/background.gif);
 	color: #ffffff;
 
 	font-family: 'Comic Sans MS', cursive !important;
 	overflow: auto;
+
+	background-attachment: local;
 }
 
 @font-face {
 	font-family: 'Comic Sans MS';
 	src: url(/retro/comicsans.ttf) format('truetype');
+}
+
+:root {
+	--background-color-alt: rgba(255, 255, 255, 0.05) !important;
 }
 
 a,
@@ -36,5 +43,9 @@ h2 {
 }
 
 #main-title:after {
-	content: ' :3';
+	content: 'silly edition';
+	display: block;
+	font-size: 1rem;
+	opacity: 0.5;
+	margin-top: -0.5em;
 }

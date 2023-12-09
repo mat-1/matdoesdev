@@ -11,22 +11,22 @@
 	let currentPathName = data.pathname
 	let flyDirection = 1 // 1 is right, -1 is left
 	$: {
-		if (previousPathname !== currentPathName)
-			previousPathname = currentPathName
+		if (previousPathname !== currentPathName) previousPathname = currentPathName
 		currentPathName = data.pathname
 
 		// fly right if we're going forward, left if we're going back
-		if (previousPathname === '/')
-			flyDirection = 1
-		else if (previousPathname === '/blog' && currentPathName !== '/')
-			flyDirection = 1
-		else
-			flyDirection = -1
+		if (previousPathname === '/') flyDirection = 1
+		else if (previousPathname === '/blog' && currentPathName !== '/') flyDirection = 1
+		else flyDirection = -1
 	}
 </script>
 
 {#key data.pathname}
-	<div id="page" in:fly={{ x: -5 * flyDirection, duration: 200, delay: 200 }} out:fly={{ x: 5 * flyDirection, duration: 200 }}>
+	<div
+		id="page"
+		in:fly={{ x: -5 * flyDirection, duration: 200, delay: 200 }}
+		out:fly={{ x: 5 * flyDirection, duration: 200 }}
+	>
 		<main>
 			<slot />
 		</main>
