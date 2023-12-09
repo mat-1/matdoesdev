@@ -8,7 +8,7 @@ export const load: Load = async ({ params }) => {
 
 	let page
 	try {
-		page = await import(`../../${slug}/index.svx`)
+		page = await import(`../../(blog)/${slug}/index.svx`)
 	} catch (e) {
 		throw error(404, 'Not found')
 	}

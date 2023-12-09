@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 
-export const postsDir = 'src/routes' as const
+export const postsDir = 'src/routes/(blog)' as const
 
 export async function listBlogPostSlugs(): Promise<string[]> {
 	await fs.promises.readdir(postsDir)
@@ -55,7 +55,7 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 
 	const url = new URL(`protocol://-/${slug}`)
 
-	const { default: post, metadata } = await import(`../routes/${slug}/index.svx`)
+	const { default: post, metadata } = await import(`../routes/(blog)/${slug}/index.svx`)
 
 	const result: {
 		title: string
