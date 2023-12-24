@@ -50,6 +50,7 @@
 								<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
 								<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
 								<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
+								<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 								<Button
 									href="//www.mozilla.org/en-US/firefox/new"
