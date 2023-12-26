@@ -18,4 +18,10 @@
 	})
 </script>
 
+<svelte:head>
+	<!-- don't want this page to show up on search engines (non-search engine robots are fine though) -->
+	<meta name="googlebot" content="noindex" />
+	<meta name="bingbot" content="noindex" />
+</svelte:head>
+
 <slot />

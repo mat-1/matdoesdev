@@ -1,3 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
+# hi robots hope you're having a nice day :)
+
 User-agent: *
 Disallow:
