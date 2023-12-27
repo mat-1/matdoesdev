@@ -76,6 +76,7 @@
 								/>
 								<Button href="//archive.org" src="internet-archive.png" alt="internet archive" />
 								<Button href="//thunderbird.net" src="thunderbird.gif" alt="thunderbird" />
+								<Button href="//matrix.org" src="matrix.png" alt="matrix" />
 							</div>
 						</td>
 					</tr>
