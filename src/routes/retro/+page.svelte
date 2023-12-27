@@ -42,7 +42,7 @@
 							<div class="buttons">
 								<Button href="//matdoes.dev" src="mat.png" alt="matdoesdev" />
 								<Button href="//adryd.com" src="adryd.png" alt="adryd" />
-								<Button href="//notnite.com" src="notnite.gif" alt="notnite" />
+								<Button href="//notnite.com" src="notnite.png" alt="notnite" />
 								<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
 								<Button href="//goldenstack.github.io" src="goldenstack.png" alt="goldenstack" />
 								<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
@@ -75,6 +75,7 @@
 									alt="netscape"
 								/>
 								<Button href="//archive.org" src="internet-archive.png" alt="internet archive" />
+								<Button href="//thunderbird.net" src="thunderbird.gif" alt="thunderbird" />
 							</div>
 						</td>
 					</tr>
