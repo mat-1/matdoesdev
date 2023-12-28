@@ -9,7 +9,8 @@ body,
 	background-attachment: local;
 }
 
-#page p:after {
+#page p:after,
+#page li:after {
 	content: ' :3';
 }
 
