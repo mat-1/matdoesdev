@@ -164,6 +164,8 @@
 
 	h1 {
 		background: linear-gradient(0deg, #aaa, #fff);
+		/* fallback */
+		background-color: #fff;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
