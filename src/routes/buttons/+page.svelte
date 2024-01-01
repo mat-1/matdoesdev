@@ -100,7 +100,10 @@
 						.map((text) => text.length)
 					score = Math.min(...textIndexLengths)
 				} else if (sortValue === 'popularity') {
-					score = 1 / data.button_backlinks[buttonIndex].length
+					const backlinks = new Set(
+						data.button_backlinks[buttonIndex].map((i) => data.pages[i].split('/')[0])
+					)
+					score = 1 / backlinks.size
 				} else if (sortValue === 'random') {
 					score = Math.random()
 				} else {
