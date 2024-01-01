@@ -188,7 +188,7 @@
 {:else if selectedPageIndex !== null}
 	<h1>
 		{$selectedPageName}
-		<a href="https://{data.pages[selectedPageIndex]}">
+		<a href="https://{data.pages[selectedPageIndex]}" target="_blank">
 			<ExternalLinkIcon />
 		</a>
 	</h1>

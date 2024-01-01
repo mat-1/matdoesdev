@@ -12,7 +12,7 @@
 
 <div>
 	<a href="/buttons#{data.pages[pageIndex]}">{cutOff(data.pages[pageIndex], 32)}</a>
-	<a href="https://{data.pages[pageIndex]}">
+	<a href="https://{data.pages[pageIndex]}" target="_blank">
 		<ExternalLinkIcon />
 	</a>
 </div>
