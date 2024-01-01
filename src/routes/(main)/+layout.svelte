@@ -32,7 +32,7 @@
 		</main>
 
 		<footer>
-			<p>&copy; {copyrightYear} matdoesdev</p>
+			<p>&copy; {copyrightYear} mat</p>
 		</footer>
 	</div>
 {/key}
