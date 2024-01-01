@@ -7,7 +7,7 @@ export default {
 	plugins: [sveltekit(), pngToGifForRetro()],
 
 	build: {
-		target: 'es2020',
+		target: 'es2022',
 	},
 
 	base: '',
