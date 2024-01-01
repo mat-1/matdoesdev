@@ -38,6 +38,7 @@
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "1.27.7",
 		"@types/js-yaml": "^4.0.9",
+		"cbor-x": "^1.5.6",
 		"cookie": "^0.6.0",
 		"html-minifier": "^4.0.0",
 		"patch-package": "^8.0.0",

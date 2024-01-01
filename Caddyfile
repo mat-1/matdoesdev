@@ -1,25 +1,25 @@
 (https_redirect) {
-        @do_https_redirect {
-                not header_regexp veryoldbrowser User-Agent Navigator|MSIE|Mosaic
-                protocol http
-        }
-        redir @do_https_redirect https://{host}{uri}
+	@do_https_redirect {
+		not header_regexp veryoldbrowser User-Agent Navigator|MSIE|Mosaic|Kindle
+		protocol http
+	}
+	redir @do_https_redirect https://{host}{uri}
 }
 
 (gif_redirect) {
-        @do_not_gif_redirect {
-                not header_regexp oldweb_today Origin http://localhost:10001
+	@do_not_gif_redirect {
+		not header_regexp oldweb_today Origin http://localhost:10001
 		not header_regexp oldweb_today Origin oldweb.today
-                not header_regexp veryveryoldbrowser User-Agent Navigator|MSIE|NCSA_Mosaic
-        }
-        vars not_gif_redirect false
-        vars @do_not_gif_redirect not_gif_redirect true
-        @do_gif_redirect {
-                expression `{vars.not_gif_redirect} == false`
-                path_regexp ^/retro/.*\.png$
-        }
+		not header_regexp veryveryoldbrowser User-Agent Navigator|MSIE|NCSA_Mosaic
+	}
+	vars not_gif_redirect false
+	vars @do_not_gif_redirect not_gif_redirect true
+	@do_gif_redirect {
+		expression `{vars.not_gif_redirect} == false`
+		path_regexp ^/retro/.*\.png$
+	}
 
-        uri @do_gif_redirect path_regexp \.png$ .gif
+	uri @do_gif_redirect path_regexp \.png$ .gif
 }
 
 matdoes.dev:80 matdoes.dev:443 http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion {
@@ -33,21 +33,21 @@ matdoes.dev:80 matdoes.dev:443 http://matctazmu565vivubva3p3bulaneangiff47xmnezz
 	# block chrome but not chromium-based browsers
 	@chrome {
 		header_regexp chrome User-Agent Chrome\/[0-9./]+\s(Mobile\s)?Safari\/[0-9./]+$
-                not header User-Agent *Googlebot/*
-                not path /dot_git/*
+		not header_regexp not_chrome User-Agent Googlebot/|eightyeightthirtyone
+		not path /dot_git/*
 	}
-	respond @chrome "This site is best viewed with Firefox (or literally any browser that isn't Chrome).
+	respond @chrome "This site is best viewed with Firefox (or any browser that isn't Chrome).
 		
 If you're unable to use Firefox, you can also access this website via SSH, Gemini, Gopher, Finger, Telnet, and some others." 403
-	root * /www
 
 	# easter egg that makes old browsers show the retro page
 	@retro_redirect {
 		path /
-                header_regexp oldbrowser User-Agent PaleMoon|Trident|MSIE|Netscape|Navigator
-        }
+		header_regexp oldbrowser User-Agent PaleMoon|Trident|MSIE|Netscape|Navigator
+	}
 	redir @retro_redirect /retro 302
 
+	root * /www
 	file_server {
 		precompressed br gzip
 	}
@@ -93,6 +93,18 @@ If you're unable to use Firefox, you can also access this website via SSH, Gemin
 	# .git easter egg
 	uri /.git/* replace .git dot_git 1
 
+	route /buttons/88x31.* {
+		uri strip_prefix /buttons
+		file_server {
+			root /opt/x227f
+		}
+	}
+	handle_path /buttons/i/* {
+		try_files {path} {path}.png {path}.gif {path}.jpg {path}.webp {path}.avif {path}.bmp
+		root * /opt/x227f/buttons
+		file_server
+	}
+
 	handle_errors {
 		@should_be_404 {
 			expression {http.error.status_code} == 404
@@ -112,12 +124,11 @@ If you're unable to use Firefox, you can also access this website via SSH, Gemin
 		file_server @is_451 {
 			status 451
 		}
-	
+
 		rewrite @should_be_404 /404.html
 		file_server @is_not_451
 	}
 }
-
 
 (matrix_media_proxy) {
 	handle /_matrix/media/*/download/matdoes.dev/discord_* {
@@ -181,7 +192,10 @@ f.matdoes.dev {
 	reverse_proxy 127.0.0.1:4000
 }
 git.matdoes.dev {
-        reverse_proxy 127.0.0.1:3000
+	reverse_proxy 127.0.0.1:3000
+}
+s.matdoes.dev {
+	reverse_proxy 127.0.0.1:28019
 }
 
 mail.matdoes.dev {
@@ -207,4 +221,8 @@ hetzner.matdoes.dev {
 		Server "i forgor"
 	}
 	respond "uwu" 402
+}
+
+xmpp.matdoes.dev {
+	respond ""
 }
