@@ -2,7 +2,6 @@
 	import { page } from '$app/stores'
 	import { writable } from 'svelte/store'
 	import './app.css'
-	import { buttonIndexFromHash, pageIndexFromName } from './88x31'
 
 	$: selectedPage = $page.url.pathname.split('/').pop()
 
