@@ -138,6 +138,24 @@
 			selectedPageName.set(null)
 		}
 	})
+
+	let cutOffButtonEntries = 1000
+	let isCurrentlyAdding = false
+	$: {
+		buttonEntries
+		cutOffButtonEntries = Math.min(buttonEntries.length, 1000)
+		requestAnimationFrame(() => addMore(false))
+	}
+	function addMore(force: boolean) {
+		if (isCurrentlyAdding && !force) return
+		if (cutOffButtonEntries < buttonEntries.length) {
+			isCurrentlyAdding = true
+			cutOffButtonEntries = Math.min(buttonEntries.length, cutOffButtonEntries + 100)
+			requestAnimationFrame(() => addMore(true))
+		} else {
+			isCurrentlyAdding = false
+		}
+	}
 </script>
 
 {#if selectedButtonIndex !== null}
@@ -201,7 +219,7 @@
 	<p><b>{buttonEntries.length.toLocaleString()}</b> buttons</p>
 
 	<div class="compact-button-grid" bind:this={buttonsEl}>
-		{#each buttonEntries as [index, buttonHash] (buttonHash)}
+		{#each buttonEntries.slice(0, cutOffButtonEntries) as [index, buttonHash] (buttonHash)}
 			<div class="button-container" id={buttonHash} bind:this={refs[index]}>
 				{#if visibleButtons.has(buttonHash)}
 					<a href="/buttons#{buttonHash}">

@@ -32,7 +32,6 @@
 			href="/buttons/degrees{$selectedPageName ? `#${$selectedPageName}` : ''}"
 			class:selected={selectedPage === 'degrees'}>Degrees of separation</a
 		>
-		<!-- <a href="/buttons/stats" class:selected={selectedPage === 'stats'}>Stats</a> -->
 	</nav>
 	<nav class="source">
 		<a href="https://github.com/mat-1/x227f">Source</a>
