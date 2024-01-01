@@ -163,22 +163,28 @@
 		<img src={buttonUrlFromIndex(selectedButtonIndex)} alt="Button" class="button" />
 	</h1>
 
-	<p>Links to ({data.button_links[selectedButtonIndex].length}):</p>
-	<ul>
-		{#each data.button_links[selectedButtonIndex] as pageIndex, i}
-			<li>
-				<ExternalLink {pageIndex} />
-			</li>
-		{/each}
-	</ul>
-	<p>Linked from ({data.button_backlinks[selectedButtonIndex].length}):</p>
-	<ul>
-		{#each data.button_backlinks[selectedButtonIndex] as pageIndex, i}
-			<li>
-				<ExternalLink {pageIndex} />
-			</li>
-		{/each}
-	</ul>
+	<div class="section-list">
+		<section>
+			<p>Links to ({data.button_links[selectedButtonIndex].length}):</p>
+			<ul>
+				{#each data.button_links[selectedButtonIndex] as pageIndex, i}
+					<li>
+						<ExternalLink {pageIndex} />
+					</li>
+				{/each}
+			</ul>
+		</section>
+		<section>
+			<p>Linked from ({data.button_backlinks[selectedButtonIndex].length}):</p>
+			<ul>
+				{#each data.button_backlinks[selectedButtonIndex] as pageIndex, i}
+					<li>
+						<ExternalLink {pageIndex} />
+					</li>
+				{/each}
+			</ul>
+		</section>
+	</div>
 {:else if selectedPageIndex !== null}
 	<h1>
 		{$selectedPageName}
@@ -252,5 +258,10 @@
 
 	.hidden {
 		display: none;
+	}
+
+	.section-list {
+		display: flex;
+		gap: 1rem;
 	}
 </style>
