@@ -11,7 +11,7 @@
 	function createIdleTimeout() {
 		return setTimeout(() => {
 			idleModeEnabled = true
-		}, 60000)
+		}, 600)
 	}
 
 	let idleTimeout = createIdleTimeout()
@@ -48,21 +48,23 @@
 
 		if (x > maxX) {
 			xVel *= -1
-			x += xVel
+			while (x > maxX) x -= Math.abs(xVel)
 			hitWall()
-		} else if (x < minX) {
+		}
+		if (x < minX) {
 			xVel *= -1
-			x += xVel
+			while (x < minX) x += Math.abs(xVel)
 			hitWall()
 		}
 
 		if (y > maxY) {
 			yVel *= -1
-			y += yVel
+			while (y > maxY) y -= Math.abs(yVel)
 			hitWall()
-		} else if (y < minY) {
+		}
+		if (y < minY) {
 			yVel *= -1
-			y += yVel
+			while (y < minY) y += Math.abs(yVel)
 			hitWall()
 		}
 
