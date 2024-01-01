@@ -50,6 +50,7 @@
 
 	onDestroy(() => {
 		refs.forEach((ref) => {
+			if (ref === null) return
 			observer.unobserve(ref)
 		})
 		buttonContainerObserver.disconnect()
@@ -64,7 +65,12 @@
 
 	function updateSearch() {
 		const value = $searchQuery
-		const sortValue = $sort
+		let sortValue = $sort
+
+		if (value === '' && sortValue === 'relevance') {
+			// relevance doesn't make sense if there's no query
+			sortValue = 'popularity'
+		}
 
 		const newMatchingTextIndexes = new Set<number>()
 		if (value !== '') {
@@ -85,19 +91,14 @@
 				// lower score is better
 				let score: number
 				if (sortValue === 'relevance') {
-					if (value === '') {
-						// relevance search doesn't make sense if there's no query
-						score = 0
-					} else {
-						// shortest text index
-						const textIndexLengths = textIndexes
-							.map((textIndex) => data.texts[textIndex])
-							.filter((text) => {
-								return text.toLowerCase().includes(value.toLowerCase())
-							})
-							.map((text) => text.length)
-						score = Math.min(...textIndexLengths)
-					}
+					// shortest text index
+					const textIndexLengths = textIndexes
+						.map((textIndex) => data.texts[textIndex])
+						.filter((text) => {
+							return text.toLowerCase().includes(value.toLowerCase())
+						})
+						.map((text) => text.length)
+					score = Math.min(...textIndexLengths)
 				} else if (sortValue === 'popularity') {
 					score = 1 / data.button_backlinks[buttonIndex].length
 				} else if (sortValue === 'random') {
