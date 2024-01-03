@@ -1,5 +1,26 @@
 [
 	{
+		"name": "metasearch2",
+		"href": "https://s.matdoes.dev",
+		"source": "https://github.com/mat-1/metasearch2",
+		"languages": ["rust"],
+		"description": "Cute and efficient metasearch engine."
+	},
+	{
+		"name": "≿",
+		"href": "https://github.com/mat-1/x227f",
+		"source": "https://github.com/mat-1/x227f",
+		"languages": ["rust", "typescript", "svelte"],
+		"description": "Web crawler for 88x31 buttons."
+	},
+	{
+		"name": "matdoesdev-protocols",
+		"href": "https://github.com/mat-1/matdoesdev-protocols",
+		"source": "https://github.com/mat-1/matdoesdev-protocols",
+		"languages": ["rust"],
+		"description": "New implementations of several internet protocols for the sole purpose of making this website viewable through them."
+	},
+	{
 		"name": "matscan",
 		"href": "https://github.com/mat-1/matscan",
 		"source": "https://github.com/mat-1/matscan",
@@ -62,10 +83,10 @@
 	},
 	{
 		"name": "Metasearch",
-		"href": "https://s.matdoes.dev",
 		"source": "https://github.com/mat-1/metasearch",
 		"languages": ["typescript"],
-		"description": "Simple metasearch engine."
+		"description": "Simple metasearch engine.",
+		"archived": true
 	},
 	{
 		"name": "SnooSlash",
