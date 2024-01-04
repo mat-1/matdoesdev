@@ -11,7 +11,7 @@
 	function createIdleTimeout() {
 		return setTimeout(() => {
 			idleModeEnabled = true
-		}, 600)
+		}, 60000)
 	}
 
 	let idleTimeout = createIdleTimeout()

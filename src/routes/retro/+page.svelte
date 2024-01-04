@@ -52,11 +52,6 @@
 								<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
 								<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
-								<Button
-									href="//www.mozilla.org/en-US/firefox/new"
-									src="getfirefox.gif"
-									alt="getfirefox"
-								/>
 								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
 								<Button href="//code.visualstudio.com" src="vscode.gif" alt="vscode" />
@@ -75,7 +70,16 @@
 									alt="netscape"
 								/>
 								<Button href="//archive.org" src="internet-archive.png" alt="internet archive" />
-								<Button href="//thunderbird.net" src="thunderbird.gif" alt="thunderbird" />
+								<Button
+									href="//thunderbird.net"
+									src="thunderbird.gif"
+									alt="thunderbird: free your inbox"
+								/>
+								<Button
+									href="//www.mozilla.org/en-US/firefox/new"
+									src="firefox.gif"
+									alt="tested on firefox"
+								/>
 								<Button href="//matrix.org" src="matrix.png" alt="matrix" />
 							</div>
 						</td>
