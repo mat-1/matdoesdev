@@ -63,6 +63,16 @@
 	searchQuery.subscribe(updateSearch)
 	sort.subscribe(updateSearch)
 
+	function popularityScore(buttonIndex: number): number {
+		const backlinks = new Set(
+			data.button_backlinks[buttonIndex].map((i) => data.pages[i].split('/')[0])
+		)
+		const backlinksSecondLevelDomains = new Set(
+			Array.from(backlinks).map((backlink) => backlink.split('/')[0].split('.').slice(-2).join('.'))
+		)
+		return backlinksSecondLevelDomains.size + backlinks.size / 100
+	}
+
 	function updateSearch() {
 		const value = $searchQuery
 		let sortValue = $sort
@@ -88,7 +98,7 @@
 		for (let buttonIndex = 0; buttonIndex < data.button_names.length; buttonIndex++) {
 			const textIndexes = data.button_names[buttonIndex]
 			if (value === '' || textIndexes.some((textIndex) => matchingTextIndexes.has(textIndex))) {
-				// lower score is better
+				// higher score is better
 				let score: number
 				if (sortValue === 'relevance') {
 					// shortest text index
@@ -98,12 +108,10 @@
 							return text.toLowerCase().includes(value.toLowerCase())
 						})
 						.map((text) => text.length)
-					score = Math.min(...textIndexLengths)
+					// popularity is tiebreaker
+					score = 1 / Math.min(...textIndexLengths) + popularityScore(buttonIndex) / 10000
 				} else if (sortValue === 'popularity') {
-					const backlinks = new Set(
-						data.button_backlinks[buttonIndex].map((i) => data.pages[i].split('/')[0])
-					)
-					score = 1 / backlinks.size
+					score = popularityScore(buttonIndex)
 				} else if (sortValue === 'random') {
 					score = Math.random()
 				} else {
@@ -113,7 +121,7 @@
 			}
 		}
 		const newButtonEntries = newButtonEntriesWithScore
-			.sort((a, b) => a[0] - b[0])
+			.sort((a, b) => b[0] - a[0])
 			.map((entry) => entry[1])
 		buttonEntries = newButtonEntries
 	}
