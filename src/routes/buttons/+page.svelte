@@ -6,6 +6,8 @@
 	import ButtonLink from './ButtonLink.svelte'
 	import ExternalLinkIcon from './ExternalLinkIcon.svelte'
 	import ExternalLink from './ExternalLink.svelte'
+	import type { UIEventHandler } from 'svelte/elements'
+	import { browser } from '$app/environment'
 
 	let searchQuery = writable('')
 	let sort = writable('relevance')
@@ -151,24 +153,42 @@
 		}
 	})
 
-	let cutOffButtonEntries = 1000
+	let cutOffButtonEntries = 500
 	let isCurrentlyAdding = false
 	$: {
 		buttonEntries
-		cutOffButtonEntries = Math.min(buttonEntries.length, 1000)
-		requestAnimationFrame(() => addMore(false))
+		cutOffButtonEntries = Math.min(buttonEntries.length, 500)
 	}
+
+	function shouldAddMore() {
+		return scrollY + window.innerHeight > document.body.scrollHeight - 100
+	}
+
 	function addMore(force: boolean) {
 		if (isCurrentlyAdding && !force) return
 		if (cutOffButtonEntries < buttonEntries.length) {
 			isCurrentlyAdding = true
-			cutOffButtonEntries = Math.min(buttonEntries.length, cutOffButtonEntries + 100)
-			requestAnimationFrame(() => addMore(true))
+			cutOffButtonEntries = Math.min(buttonEntries.length, cutOffButtonEntries + 500)
+			requestAnimationFrame(() => {
+				if (shouldAddMore()) addMore(true)
+				else isCurrentlyAdding = false
+			})
 		} else {
 			isCurrentlyAdding = false
 		}
 	}
+
+	let scrollY: number
+	$: {
+		if (browser && scrollY) {
+			if (shouldAddMore()) {
+				addMore(false)
+			}
+		}
+	}
 </script>
+
+<svelte:window bind:scrollY />
 
 {#if selectedButtonIndex !== null}
 	<h1>
