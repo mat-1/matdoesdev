@@ -169,12 +169,17 @@
 	h1 {
 		background: linear-gradient(0deg, #aaa, #fff);
 		/* fallback */
-		background-color: #fff;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		filter: drop-shadow(2px 2px #333);
 		text-align: center;
+	}
+
+	@supports (-webkit-background-clip: text) {
+		h1 {
+			background-color: #fff;
+		}
 	}
 
 	#sections {
