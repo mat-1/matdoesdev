@@ -21,7 +21,7 @@ export const GET: RequestHandler = async ({ params }) => {
 	if (!postSlug) throw new Error('No slug')
 	if (!assetName) throw new Error('No asset')
 
-	if (!(await doesAssetExist(postSlug, assetName))) throw error(404, 'Not found')
+	if (!(await doesAssetExist(postSlug, assetName))) error(404, 'Not found');
 
 	const file = await fs.promises.readFile(path.join(postsDir, postSlug, assetName))
 
