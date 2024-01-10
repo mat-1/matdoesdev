@@ -24,7 +24,7 @@ export async function listBlogPostSlugs(): Promise<string[]> {
 	)
 }
 
-interface BlogPost {
+export interface BlogPost {
 	title: string
 	published: string
 	html: string
