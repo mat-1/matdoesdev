@@ -1,0 +1,15 @@
+---
+title: Making a metasearch engine
+published: 2024-01-10T05:10:43.000Z
+---
+
+- define a (web) metasearch engine (vs normal web search engine)
+- why they're useful (higher quality results, completeness, customization, custom answer engines, privacy - since it's proxied (so your user agent, ip, google account, etc aren't forwarded on each request) and might be used by many users (which provides benefits similar to a vpn, harder for the search engine to identify you))
+- existing metasearch engines (kagi, searxng, my own)
+- history of my metasearch engine (why i made it, wrote initially in nodejs, heavily inspired by searx, recently rewrote in rust)
+- what engines i chose and why (+ what engines i didn't choose)
+- scraping (write individual notes about each engine)
+- problems to watch out for (google blocks hetzner ipv6, google blocks you after a while if you're on a default user agent, google captchas you if you search too much especially if you're using many search operators, keep connections alive and use compression)
+- ranking (normalizing urls and then merging with the algorithm from searx)
+- instant answers (mention instant answers implemented by metasearch 1 and 2, also mention duckduckgo)
+- rendering the results page (you can use whatever framework you like, for metasearch2 i didn't use a framework to reduce dependencies and for the chunked response)
