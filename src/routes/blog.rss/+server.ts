@@ -1,16 +1,27 @@
 import type { RequestHandler } from '@sveltejs/kit'
-import type { BlogPostPreview } from '../blog.json/+server'
+import { getPostsUntrimmed } from '../blog.json/preview'
+import type { BlogPost } from '$lib/blog'
 
 export const prerender = true
 
 export const GET: RequestHandler = async ({ fetch }) => {
-	const posts = (await fetch('/blog.json').then((r) => r.json())) as BlogPostPreview[]
-	function item(post: BlogPostPreview) {
+	const posts = await getPostsUntrimmed()
+	function item(post: BlogPost) {
+		const escapedPostHtml = post.html
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
 		return `
 <item>
 	<title>${post.title}</title>
 	<link>https://matdoes.dev/${post.slug}</link>
 	<pubDate>${post.published}</pubDate>
+	<description>
+${escapedPostHtml}
+&lt;style&gt;
+${post.css}
+&lt;/style&gt;
+</description>
 </item>
 `
 	}

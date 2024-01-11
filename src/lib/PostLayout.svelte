@@ -19,12 +19,11 @@
 	<nav>
 		<BackAnchor href="/blog" />
 	</nav>
+	<div class="article-header">
+		<h1>{title}</h1>
+		<time>{new Date(published).toLocaleDateString()}</time>
+	</div>
 	<article>
-		<div class="article-header">
-			<h1>{title}</h1>
-			<time>{new Date(published).toLocaleDateString()}</time>
-		</div>
-
 		<slot />
 	</article>
 </div>
@@ -56,6 +55,7 @@
 	}
 	h1 {
 		margin-bottom: 0;
+		font-size: 1.5em;
 	}
 	.article-header {
 		margin-bottom: 1em;

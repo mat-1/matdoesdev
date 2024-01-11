@@ -15,7 +15,7 @@ export const GET: RequestHandler = async ({ params }) => {
 
 	const post = await getPost(slug)
 
-	if (post === null) throw error(404, 'Not found')
+	if (post === null) error(404, 'Not found');
 
 	return json({
 		title: post.title,
