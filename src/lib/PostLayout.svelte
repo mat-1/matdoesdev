@@ -30,7 +30,7 @@
 
 <style>
 	article :global(img) {
-		max-width: 30rem;
+		max-width: 100%;
 		max-height: 20rem;
 		margin: 1em auto;
 		display: block;

@@ -76,3 +76,20 @@ hr {
 img {
 	max-height: 100%;
 }
+
+pre {
+	white-space: pre-wrap;
+}
+.token.keyword {
+	color: #ff8f40;
+}
+.token.function,
+.token.builtin {
+	color: #ffb454;
+}
+.token.number {
+	color: #d2a6ff;
+}
+.token.string {
+	color: #aad94c;
+}
