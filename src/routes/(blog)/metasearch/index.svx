@@ -1,15 +1,126 @@
 ---
 title: Making a metasearch engine
-published: 2024-01-10T05:10:43.000Z
+published: 2024-01-14T09:54:36.000Z
 ---
 
-- define a (web) metasearch engine (vs normal web search engine)
-- why they're useful (higher quality results, completeness, customization, custom answer engines, privacy - since it's proxied (so your user agent, ip, google account, etc aren't forwarded on each request) and might be used by many users (which provides benefits similar to a vpn, harder for the search engine to identify you))
-- existing metasearch engines (kagi, searxng, my own)
-- history of my metasearch engine (why i made it, wrote initially in nodejs, heavily inspired by searx, recently rewrote in rust)
-- what engines i chose and why (+ what engines i didn't choose)
-- scraping (write individual notes about each engine)
-- problems to watch out for (google blocks hetzner ipv6, google blocks you after a while if you're on a default user agent, google captchas you if you search too much especially if you're using many search operators, keep connections alive and use compression)
-- ranking (normalizing urls and then merging with the algorithm from searx)
-- instant answers (mention instant answers implemented by metasearch 1 and 2, also mention duckduckgo)
-- rendering the results page (you can use whatever framework you like, for metasearch2 i didn't use a framework to reduce dependencies and for the chunked response)
+In 2020, tired of every search engine seemingly having suboptimal results and missing the instant answers I wanted, I decided to make a search engine for myself.
+I knew making a general-purpose web search engine from scratch by myself was infeasible, so instead I opted to make a meta-search engine, which aggregates results from other web search engines.
+First I tried forking [Searx](https://github.com/searx/searx), but it was slow and the old Python codebase was annoying to work with.
+So instead of forking an existing project, I made my own (but with several ideas borrowed from Searx) in NodeJS which I called simply "[metasearch](https://github.com/mat-1/metasearch)" (very unique name).
+I used it as my primary search engine for over a year, but it was slow (mostly due to it being hosted on Replit and being written in JS) and brittle to the point where at the time of writing the only working search engine left is Bing.
+
+A few weeks ago I decided to rewrite metasearch as (brace for it) _[metasearch2](https://github.com/mat-1/metasearch2)_ (my project names only continue to get more original).
+In this rewrite I implemented several of the things I wish I would've done when writing my first metasearch engine, including writing it in a blazingly fast 🚀🚀🚀 language.
+There's a hosted demo at [s.matdoes.dev](https://s.matdoes.dev), but I'd much rather you [host it yourself](https://github.com/mat-1/metasearch2) so I don't start getting captcha'd and ratelimited.
+This blog post will explain what you should know if you want to make a metasearch engine for yourself.
+
+![The search results for 'metasearch' on my metasearch engine](metasearch2-results.png)
+
+## Other (meta)search engines
+
+First, some prior art.
+The metasearch engine most people know is probably Searx (now [SearxNG](https://github.com/searxng/searxng)), which is open source, written in Python, and supports a very large number of engines.
+It was the biggest inspiration for my metasearch engine. The main things I took from it were how result engines are shown in the search page and its ranking algorithm.
+However, as mentioned previously, it's slow and not as hackable as their readme would like you to think.
+The (probably) second most well-known metasearch engine is [Kagi](https://kagi.com/), which [sources its results](https://help.kagi.com/kagi/search-details/search-sources.html) from its own crawler, Google, Yandex, Mojeek, Marginalia Search, and Brave (I'll talk about these search engines later).
+One interesting feature Kagi has that users seem to appreciate is the ability to [raise/lower rankings](https://kagi.com/stats) for chosen domains.
+I haven't used Kagi much, but the reasons I don't use it is because it's paid (I can't afford to pay $10/month for a search engine) and because I can't customize it as much as I can customize my own code.
+There's also been some other metasearch engines in the past like [Dogpile](https://www.dogpile.com/) and [metacrawler](https://www.metacrawler.com/) (both still exist, surprisingly) but they're not worth talking about.
+
+![The search results for 'metasearch' on a random SearxNG instance](searxng-results.png)
+
+Also, of course, there's my metasearch engine.
+Instead of just listing what engines I use, I'll tell my opinion of every search engine that I think is interesting.
+I haven't used some of these in years, so if you think their quality has changed in that time, let me know.
+
+- [Google](https://www.google.com): Some people deny it, but from my experience it still tends to have the best results out of any other normal search engine. However, they do make themselves somewhat annoying to scrape without using their (paid) API.
+- [Google's API](https://developers.google.com/custom-search/v1/overview): It's paid, and its results appear to be worse sometimes, for some reason. You can see its results by searching on [Startpage](https://www.startpage.com/en) (which sources exclusively from Google's API). However, you won't have to worry about getting captcha'd if you use this.
+- [Bing](https://www.bing.com): Bing's results are worse than Microsoft pretends, but it's certainly a search engine that exists. It's decent when combined with other search engines.
+- DuckDuckGo/Yahoo/Ecosia/Swisscows/You.com: They just use Bing. Don't use these for your metasearch engine.
+- [DuckDuckGo noscript](https://html.duckduckgo.com/html): Definitely don't use this. I don't know why, but when you disable JavaScript on DuckDuckGo you get shown a different search experience with significantly worse results. If you know why this is, please let me know.
+- [Brave](https://search.brave.com): I may not like their browser or CEO, but I do like Brave Search. They used to mix their own crawler results with Google, but not anymore. Its results are on-par with Google.
+- [Neeva](https://en.wikipedia.org/wiki/Neeva): It doesn't exist anymore, but i wanted to acknowledge it since I used it for my old metasearch engine. I liked its results, but I'm guessing they had issues becoming profitable and then they did weird NFT and AI stuff and died.
+- [Marginalia](https://search.marginalia.nu): It's an [open source](https://github.com/MarginaliaSearch/MarginaliaSearch) search engine that focuses on discovering small sites. Because of this, it's mostly only good at discovering new sites and not so much for actually getting good results. I do use it as a source for my metasearch engine because it's fast enough and I think it's cute, but I heavily downweigh its results since they're almost never actually what you're looking for.
+- [Yandex](https://yandex.com): I haven't used Yandex much. Its results are probably decent? It captchas you too frequently though and it's not very fast.
+- [Gigablast](https://en.wikipedia.org/wiki/Gigablast): Rest in peace. It's [open source](https://github.com/gigablast/open-source-search-engine), which is cool, but its results sucked. Also the privacy.sh thing they advertised looked sketchy to me.
+- [Mojeek](https://www.mojeek.com): I'm glad that it exists, but its results aren't very good. Also it appears to be down at the time of writing, hopefully it's not going the way of Gigablast.
+- [Metaphor](https://search.metaphor.systems): I found this one very recently, its results are impressive but it's slow and the way they advertise it makes me think it'll stop existing within a couple years.
+
+## Scraping
+
+If you didn't figure it out already, the engines I use for my metasearch engine are Google, Bing, Brave, and Marginalia.
+Some of these have APIs, but I chose not to use them due to pricing, worse results, and increased complexity due to requiring API keys.
+Scraping the sites is relatively easy.
+In my NodeJS implementation I used [Cheerio](https://www.npmjs.com/package/cheerio) for parsing the HTML, and in my Rust implementation I used [Scraper](https://docs.rs/scraper/latest/scraper).
+They're both very nice.
+The most annoying part of scraping is just figuring out what selectors to use, but it's not too bad.
+To provide an example, here's the CSS selectors I use for Google:
+
+- Search result container: `div.g > div, div.xpd > div:first-child` (Search results are usually in `.g`, but not always. Other results, including ads, are in `.xpd`, but the `:first-child` filters out the advertisements since ads never have a div as their first element)
+- Title: `h3`
+- Link: `a[href]` (For some search engines you have to get the text instead of the href, and for Bing you have to get the href and then base64 decode a parameter since it's a tracking URL. Google used to put a tracking URL on their `a` tags too, but it seems to have mostly been removed, except on the links for featured snippets).
+- Description: `div[data-sncf], div[style='-webkit-line-clamp:2']` (I don't like this at all, but Google is inconsistent with how descriptions are done in their HTML so both selectors are necessary to reliably get it).
+
+Note how I avoid using class names that look randomly generated, only using `g` and `xpd` (whatever they stand for) since I've noticed those never change, while the other random class names do change every time Google updates their website.
+You can check [my source code](https://github.com/mat-1/metasearch2/tree/b9ace5a34f1b0cc1079b21a6064849896cd3bdff/src/engines/search) and [SearxNG's](https://github.com/searxng/searxng/tree/master/searx/engines) if you need help figuring out what selectors to use, but you should always check your target site's HTML in devtools.
+
+![Firefox devtools open, showing the HTML for the Google result for 'metasearch'](google-result-html.png)
+
+Some websites make themselves annoying to scrape in ways that aren't just making their HTML ugly, though. Google is the major culprit here. Google appears to always captcha requests coming from a Hetzner IPv6, Google will block your requests after a while if you're using your HTTP client library's default user agent, and Google captchas you if you make too many queries, especially ones with many operators.
+A couple other things you should watch out for that you might not notice are that you should make sure your TCP connections are kept alive by your HTTP client library (usually done by reusing the same Client variable), and making sure compression is enabled (which can sometimes save hundreds of milliseconds on certain search engines).
+
+## Ranking
+
+The algorithm I use for ranking is nearly identical to the one Searx uses, and it's surprisingly effective for how simple it is.
+
+```py
+def result_score(result):
+    weight = 1.0
+
+    for result_engine in result['engines']:
+        if hasattr(engines[result_engine], 'weight'):
+            weight *= float(engines[result_engine].weight)
+
+    occurences = len(result['positions'])
+
+    return sum((occurences * weight) / position for position in result['positions'])
+```
+
+Note that the position is 1-indexed, otherwise you get results with infinite score, lol.
+The only change I made was to not multiply by occurences at the end (and instead just summing weight/position for each engine with the result).
+I never actually noticed I had this difference until writing this, but I don't believe it made the rankings worse.
+Also keep in mind that you may want to slightly normalize the URLs, for example converting them to always be HTTPS and removing trailing slashes, so the results from different engines can merge more nicely.
+
+## Instant answers
+
+Instant answers are the widgets that show up when you search things like math expressions or "what's my ip".
+I think Google calls them just "answers", but that can get confusing.
+In my old metasearch, I had [a lot of unique ones](https://github.com/mat-1/metasearch/tree/main/src/engines/answers) for things like pinging Minecraft servers and generating lorem ipsum text.
+In my rewrite I didn't implement as many since I don't have as much of a need for them anymore, but I still did implement [a few](https://github.com/mat-1/metasearch2/tree/master/src/engines/answer) (and I haven't finished adding all the ones I want yet).
+My favorite engine I implemented in my rewrite is the calculator, which is powered by a very neat Rust crate I found called [fend](https://github.com/printfn/fend).
+This makes it able to calculate big math expressions and do things like unit conversions.
+I did have to add a check to make it avoid triggering on queries that probably weren't meant to be calculated, though.
+I also added some checks to support queries like `ord('a')` and `chr(97)` (I wasn't able to add a custom function to fend to support `chr`, so it has a [very big regex](https://github.com/mat-1/metasearch2/blob/b9ace5a34f1b0cc1079b21a6064849896cd3bdff/src/engines/answer/calc.rs#L130) instead :3).
+I imagine you already have ideas for instant answers you could add.
+If you want more inspiration, a good source with over a thousand instant answers is [DuckDuckHack](https://web.archive.org/web/20200121071559/https://duck.co/ia) (which DDG unfortunately killed).
+
+![Searching for 'ord('a') + 3' on metasearch2, the result is '0x64 = 100'](metasearch2-calc.png)
+
+Another thing I chose to do is to use Google's featured snippets and display them similarly to instant answers.
+Also, I made it so if a StackExchange, GitHub, or docs.rs link is near the top of the results, then they get scraped and shown on the sidebar (only on desktop though, it takes up too much space on mobile).
+
+## Rendering results
+
+This part is mostly easy, since search engines usually don't have any complex styling.
+You can use whatever web/templating framework you like, but ideally it should be one that can return the response in chunks (so the header HTML is sent immediately, and later the HTML for the search results is sent) since it makes it feel faster for the user.
+I chose not to use any templating framework for metasearch2 (since simplicity was one of my goals), and instead just made it build up the HTML by hand.
+This also made it very easy to add chunking, and I took advantage of this by having it show the user real-time progress updates of the search engines that are being requested.
+
+![The live progress display I have on metasearch2](metasearch2-progress-display.png)
+
+## Your turn
+
+There's several things I intentionally omitted for the sake of simplicity in my metasearch engine.
+This includes pagination, the ability to search for images, reverse-image search, some type of authentication or ratelimiting to prevent abuse (I might have to do this eventually, hopefully not), adding more search/answer engines, and adding a way to configure it easily.
+I gave the CC0 license (public domain) to [metasearch2](https://github.com/mat-1/metasearch2) so you can do absolutely whatever you want with it (attribution isn't required, but it is appreciated).
+Have fun.
