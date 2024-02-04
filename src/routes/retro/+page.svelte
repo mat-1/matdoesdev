@@ -81,6 +81,7 @@
 									alt="tested on firefox"
 								/>
 								<Button href="//matrix.org" src="matrix.png" alt="matrix" />
+								<Button href="//caddyserver.com/" src="caddy.png" alt="caddy" />
 							</div>
 						</td>
 					</tr>
