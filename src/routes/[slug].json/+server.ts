@@ -5,6 +5,7 @@ export const prerender = true
 
 export interface APIBlogPost {
 	title: string
+	subtitle: string | undefined
 	published: string
 	html: string
 }
@@ -15,10 +16,11 @@ export const GET: RequestHandler = async ({ params }) => {
 
 	const post = await getPost(slug)
 
-	if (post === null) error(404, 'Not found');
+	if (post === null) error(404, 'Not found')
 
 	return json({
 		title: post.title,
+		subtitle: post.subtitle,
 		published: post.published,
 		html: post.html,
 	})

@@ -26,6 +26,7 @@ export async function listBlogPostSlugs(): Promise<string[]> {
 
 export interface BlogPost {
 	title: string
+	subtitle: string | undefined
 	published: string
 	html: string
 	css: string
@@ -59,12 +60,13 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 
 	const result: {
 		title: string
+		subtitle: string | undefined
 		head: string
 		css: Set<{
 			map: null
 			code: string
 		}>
-	} = { title: '', head: '', css: new Set() }
+	} = { title: '', subtitle: undefined, head: '', css: new Set() }
 
 	const renderHtml = post.$$render(
 		result,
@@ -102,6 +104,7 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 
 	return {
 		title: metadata.title,
+		subtitle: metadata.subtitle || undefined,
 		published: new Date(metadata.published).toISOString(),
 		html,
 		css,

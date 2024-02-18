@@ -2,6 +2,7 @@ import { listBlogPostSlugs, type BlogPost, getPost } from '$lib/blog'
 
 export interface BlogPostPreview {
 	title: string
+	subtitle: string | undefined
 	published: string
 	html: string
 	css: string
@@ -60,6 +61,7 @@ export async function getPosts() {
 	return posts.map((p) => ({
 		title: p.title,
 		published: p.published,
+		subtitle: p.subtitle,
 		// HACK: remove images, i WILL parse html with regex and you won't stop me
 		html: cutOffAtLine(p.html.replace(/<(img|iframe).+?\/?>|<\/?(img|iframe)>/g, ''), 6),
 		css: p.css,
