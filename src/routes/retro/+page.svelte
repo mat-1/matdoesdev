@@ -44,7 +44,7 @@
 								<Button href="//adryd.com" src="adryd.png" alt="adryd" />
 								<Button href="//notnite.com" src="notnite.png" alt="notnite" />
 								<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
-								<Button href="//goldenstack.github.io" src="goldenstack.png" alt="goldenstack" />
+								<Button href="//goldenstack.net" src="goldenstack.png" alt="goldenstack" />
 								<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
 								<Button href="//honbra.com" src="honbra.png" alt="honbra" />
 								<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
