@@ -7,6 +7,7 @@ hidden: true
 
 <script>
 	import UserSearch from './UserSearch.svelte'
+	import BarChart from './BarChart.svelte'
 </script>
 
 I've recently been engaging in some tomfoolery to acquire a list of 51 million Minecraft: Java Edition player UUIDs (out of ~61 million total existing UUIDs).
@@ -108,12 +109,13 @@ At some point in this process I coincidentally met another UUID harvester named 
 ![yuno: I have 55m mojang uuids](yuno-55m.png)
 
 I learned Yuno is in [the same group](https://solo.to/fanclub) as Northernside, and after we talked a bit he told me he'd also obtained his list from scraping, stuffing usernames from data breaches, and generating usernames.
-He's also where the 61 million estimate at the beginning of this blog post comes from; he got it by extrapolating using Hypixel's lifetime player counter.
+He's also where the 61 million estimate at the beginning of this blog post comes from; he got it by extrapolating with Hypixel's lifetime player count.
 
 ## Epilogue
 
 To help me reach 50,000,000 UUIDs, Northernside and [Semisol](https://semisol.dev) (who had scraped for Hypixel players a few years ago) also donated their lists to me.
-TODO: mention current number of uuids i have, link to archive.org, say i'll keep brute forcing and making more dumps, etc
+At the time of writing, I have a total of 51,569,249 UUIDs.
+I've published all the UUIDs (and usernames, and Mojang API responses) I have at [archive.org/details/minecraft-uuids-2024-02-22](https://archive.org/details/minecraft-uuids-2024-02-22).
 
 If you'd like to check if you're in the dataset (you probably are), here's a convenient widget for searching usernames in my database:
 <UserSearch />
@@ -136,3 +138,97 @@ It could also be used for making user lookup websites like NameMC, or maybe doin
 Making archives of user-generated content will usually be controversial since it makes it harder for users to delete their data.
 However, I believe the harm here is minimal since my dataset doesn't have very much (UUIDs, usernames, skins) and there's other ways of obtaining people's old names anyways (like NameMC, <a href="https://laby.net">laby.net</a>, etc).
 </p>
+
+## Stats
+
+Here's some random miscellaneous stats about usernames that I think are interesting:
+
+**Length distribution**:
+<BarChart data={[
+[1, 4],
+[2, 332],
+[3, 50543],
+[4, 586300],
+[5, 1955634],
+[6, 4800891],
+[7, 6673174],
+[8, 7461203],
+[9, 6921332],
+[10, 6125814],
+[11, 4959496],
+[12, 4045519],
+[13, 2942492],
+[14, 2174031],
+[15, 1839781],
+[16, 1032702],
+[19, 1, '<a href="https://namemc.com/profile/UltramegaCHICKEN123.1">1</a>'],
+]} />
+
+<br />
+<br />
+
+<span><strong><a href="https://matdoes.dev/minecraft-uuids/api/words.txt">Most common words</a></strong> (split by underscores and camelCase):</span>
+
+```
+1. the
+2. mr
+3. xx
+4. king
+5. mc
+6. man
+7. gamer
+8. yt
+9. big
+10. its
+```
+
+<span><strong><a href="https://matdoes.dev/minecraft-uuids/api/suffixes.txt">Most common suffixes</a></strong> (numbers and underscores at the ends of names):</span>
+
+```
+1. _
+2. 1
+3. 2
+4. 123
+5. 3
+6. 7
+7. 0
+8. 12
+9. 69
+10. 11
+```
+
+<span>The <strong>most common years</strong> out of the suffixes seem to be:</span>
+
+```
+1. 2004
+2. 2003
+3. 2010
+4. 2002
+5. 2005
+6. 2012
+7. 2001
+8. 2006
+9. 2007
+10. 2011
+```
+
+<span><strong><a href="https://matdoes.dev/minecraft-uuids/api/desired.txt">Most desired names</a></strong> (most common names when the suffixes are removed):</span>
+
+```
+1. alex
+2. shadow
+3. max
+4. jack
+5. chris
+6. daniel
+7. david
+8. nick
+9. ghost
+10. leo
+```
+
+<style>
+	pre {
+		margin-top: 0;
+	}
+</style>
