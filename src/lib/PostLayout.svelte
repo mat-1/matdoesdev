@@ -8,6 +8,8 @@
 
 <script>
 	export let title = 'Untitled'
+	/** @type {string | undefined} */
+	export let subtitle = undefined
 	export let published = ''
 </script>
 
@@ -21,6 +23,9 @@
 	</nav>
 	<div class="article-header">
 		<h1>{title}</h1>
+		{#if subtitle}
+			<p class="subtitle">{subtitle}</p>
+		{/if}
 		<time>{new Date(published).toLocaleDateString()}</time>
 	</div>
 	<article>
@@ -56,6 +61,9 @@
 	h1 {
 		margin-bottom: 0;
 		font-size: 1.5em;
+	}
+	.subtitle {
+		margin: 0;
 	}
 	.article-header {
 		margin-bottom: 1em;

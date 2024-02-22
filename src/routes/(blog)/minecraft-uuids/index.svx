@@ -1,0 +1,234 @@
+---
+title: How to Make a List of Nearly Every Minecraft Player
+subtitle: in three easy steps!!!
+published: 2024-02-15T05:33:50.000Z
+hidden: true
+---
+
+<script>
+	import UserSearch from './UserSearch.svelte'
+	import BarChart from './BarChart.svelte'
+</script>
+
+I've recently been engaging in some tomfoolery to acquire a list of 51 million Minecraft: Java Edition player UUIDs (out of ~61 million total existing UUIDs).
+This blog post will explain exactly what I did to make this list.
+
+## Abusing the Mojang API with IPv6
+
+Mojang has an internal API (documented by the community at [wiki.vg](https://wiki.vg/Mojang_API)) which the game uses to convert player usernames to UUIDs and to obtain information about player UUIDs. Mojang also allows anyone to use the API for their own purposes, but with ratelimits (about 10 requests per IP per second).
+The most obvious way of circumventing the ratelimits is obtaining proxies, but proxies tend to be slow and obtaining many high-quality proxies is costly.
+
+![wiki.vg uuid to profile and skin/cape](wiki-vg-uuid-endpoint.png)
+
+One solution to this problem is IPv6.
+Most server hosts will provide you with a `/64` subnet (2^64 addresses), so by using a random IPv6 address for each request you can sidestep the ratelimits.
+There's an open-source project on GitHub called [freebind](https://github.com/blechschmidt/freebind) that describes itself as an "IPv6 address rate limiting evasion tool" which lets you conveniently enable the `IP_FREEBIND` socket option and randomize the bind address for every socket opened by a program.
+`freebind` is great and worked as advertised, but after some testing I noticed that the Mojang API was returning a significant amount of `429 Too Many Requests` even though I was using 18 quintillion different IPs.
+As it turns out, the Mojang API has some per-subnet ratelimiting for IPv6.
+
+I'm not the first person to do this, and after asking around a bit I was informed that you can use Hurricane Electric's tunnel broker service to get a `/48` (2^80 addresses) for free. Hurricane Electric has a bunch of [silly](https://math.he.net) [things](http://man.he.net) on their website, but the silly thing I'm using here is [tunnelbroker.net](https://www.tunnelbroker.net).
+After signing up I created my tunnel, assigned it a `/48`, and used their route2 example configuration to add it to my server.
+
+![Hurricane Electric's example configuration page showing some IP commands](hurricane-electric-example-configurations.png)
+
+This all worked fine, and I was able to hit the Mojang API at approximately 400 requests per second.
+However this is quite slow when you consider the fact that there's millions of accounts and many more possible username combinations.
+The first optimization I did was getting rid of `freebind` and Rewriting it in Rust™ instead, using raw socket syscalls and a custom [Hyper](https://github.com/hyperium/hyper) connector.
+Basically all my custom connector does is create an `AF_INET6` socket, set `IPV6_FREEBIND` on it, `bind` to a random IPv6 address in our subnet, and `connect` to the destination IP.
+At the time there wasn't any significant speedup, but it did help with an optimization later.
+The second "optimization" I did was moving the server and the tunnel IPv6 closer together geographically and to the US, where it got significantly better ping so I could do more concurrent requests at a time.
+I also realized that the Mojang API supports HTTP/2 which allows you to make multiple requests at the same time per stream, so I modified my code to reuse the same HTTP client for every chunk of 10 requests.
+This helped significantly, making it approximately 6 times faster.
+Finally, to speed up username lookups, I made my code use [Mojang's bulk username lookup endpoint](https://wiki.vg/Mojang_API#Usernames_to_UUIDs) which allows you to find the UUIDs of 10 usernames per request.
+Now I'm able to do about 8,000 UUID lookups per second on average (and 80,000 username lookups per second), so it's time to start actually making use of that speed.
+
+## Scraping for UUIDs
+
+I already had a few small UUID lists in my hands. I'd previously made a [Minecraft server scanner](/minecraft-scanning) that logged every player on every server, so by gathering up those UUIDs and usernames and feeding them into my program I got a list of about 5 million UUIDs.
+Next, I knew about [a Hypixel Forums post](https://hypixel.net/threads/mc-player-uuid-list-7-000-000.4706530) with 7 million UUIDs that they'd gotten from crawling friends returned by the API, so I checked all of those.
+Later, I also found [a deleted post on the forums](https://cc.bingj.com/cache.aspx?q=https%3A%2F%2Fhypixel.net%2Fthreads%2Fas-a-protest-of-the-removal-of-the-frind-api-endpoint-here-is-a-list-of-14-4-million-uuids.5250499&d=4777679011533760&mkt=en-US&setlang=en-US&w=SSIrjMLjrpp8o12PURw9qGbIUq9ru3XX) with 14.4 million UUIDs, but luckily it was archived by Bing's cache and the download link was still active.
+
+![A screenshot of a post on the Hypixel Forums: I disagree with the removal of the friend endpoint in the API. As a protest, here are 14,419,374 uuids gathered with it. This data was gathered last year. It is alphabetically sorted.](hypixel-forums-deleted-post.png)
+
+I then made my Mojang API ratelimit evasion tool into a public API for my friends and I to use, and I made it save all valid UUID and username lookups into a SQLite database.
+It's hard to estimate how many new UUIDs I got from people using my API, but it's at least a few thousand.
+
+At this point I had 11.1 million UUIDs, but that wasn't enough.
+There's a website called [NameMC](https://namemc.com) which allows you to conveniently look up players and see some basic information about them.
+It also happens to have a wildcard search for usernames, so for example searching `abc*` you can see every player whose username starts with `abc`.
+NameMC's existed for a long time, so I figured scraping NameMC's database by abusing wildcards would be a good way to get a lot of UUIDs.
+There were a few things that made this harder though:
+
+1. Wildcard queries must have at least 3 characters
+2. Wildcard searches are limited to 1,000 results
+3. Cloudflare's "under attack" mode is permanently enabled, so there's a captcha every few minutes
+4. There's a ratelimit for searching
+
+To work around the first two issues I made a program that finds every possible username by searching like `aaa*`, `aab*`, etc, and adding an extra character if the result returned more than 1,000 usernames.
+For Cloudflare captchas, I knew they aren't particularly complex and are solvable with free web scraping libraries.
+The first library I tried was [undetected-chromedriver](https://github.com/ultrafunkamsterdam/undetected-chromedriver), but it turns out Cloudflare started being able to [detect it](https://github.com/ultrafunkamsterdam/undetected-chromedriver/issues/1704).
+I then looked into [puppeteer-stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth), but they were [detected too](https://github.com/berstend/puppeteer-extra/issues/867).
+Fortunately, one of the issues on undetected-chromedriver stated that a package named [DrissionPage](https://pypi.org/project/DrissionPage/) still worked for clicking Cloudflare captchas.
+The documentation for DrissionPage was all written in Chinese, but by looking at the examples and some Google Translate I eventually got it working.
+
+![A grid of 8 Chrome windows showing a Cloudflare captcha page, with the captchas all being clicked simultaneously](namemc-captcha-clicking.png)
+
+Now, there's the issue of ratelimits.
+Of course I could use IPv6 once more, but due to the fact that they were Chrome windows on my computer as opposed to basic HTTP requests done by a server, this would be trickier.
+I toyed with the idea of using proxies, but after some testing with NameMC I discovered that they check the `X-Forwarded-For` header for ratelimiting, so by randomizing the value of that header I'd never get ratelimited.
+
+![Another grid of 8 Chrome windows, this time showing some wildcard searches](namemc-wildcard-scraping.png)
+
+Scraping NameMC took a couple days, and I'm well-aware it's possible to do this faster but I didn't mind waiting.
+When I finished scraping NameMC and checking all of their usernames, I had 31.4 million UUIDs.
+Later I also learned that there's another way of scraping their database by passing in negative offsets to their [minecraft-names page](https://namemc.com/minecraft-names?offset=-10&sort=desc) but I don't think it would've been much faster anyways.
+
+## Username stuffing
+
+At this point I have pretty much every player who's played multiplayer at least a few times, so it didn't seem like there were many more ways to get new players.
+I posted my data on [archive.org](https://archive.org/details/minecraft-uuids-2024-02-02) and told some friends about it, including [Northernside](https://northernsi.de).
+Northern is somewhat well-known for [messing with Mojang](https://www.youtube.com/watch?v=fGULXMoBw6g&t=195s), and as it turns out he'd also been collecting Minecraft UUIDs and currently had 32.8 million of them.
+
+![me telling Northernside about my archive.org post, and him replying: thats fun, i got about 32.8 mil rn](northernside-32m.png)
+
+He told me he'd also scraped NameMC, and was getting new UUIDs by checking usernames from data breaches and making slight variations to existing usernames.
+Inspired by Northern's shenanigans, I also began to download some data breaches from questionable sources and stuffing their usernames into the Mojang API.
+I got many million more from this, but eventually after checking billions of usernames I started to run out of large data breaches to try.
+One dump I was interested in trying but couldn't due to its size was the [Reddit archives by Pushshift](https://the-eye.eu/redarcs/), but luckily my friend [cbax](https://cbax.dev) was able to download it and provide me with all the usernames of everyone who's ever posted on Reddit.
+
+Now, I had to try some more creative methods of brute-forcing usernames.
+My friend [Overlord](https://github.com/GreenScripter) volunteered to make an AI model to generate names based on my dataset, and checking the several hundred million names he provided resulted in about a million new ones.
+I also did some basic brute-forcing, like checking every possible permutation of characters up to 6 characters and checking a-z for 7 characters (every permutation of 7 characters takes 2 weeks to check with my speed so I haven't finished those yet).
+In addition, I also did some slightly more complex brute-forcing like getting the top 1,000 most common numbers and adding them to the end of every name in the database, and also making a Minecraft-specific dictionary by splitting words in names and then checking permutations of those.
+
+One fun brute-force I did involved obtaining a list of every .com, .net, .org, and .dev domain.
+ICANN has a website called [CZDS](https://czds.icann.org/home) where you can get a list of every domain by just making an account and [requesting access](https://xkcd.com/2894).
+Checking all of these did result in a few hundred thousand more UUIDs, which I found amusing.
+
+At some point in this process I coincidentally met another UUID harvester named Yuno, after he joined a Discord server about Hypixel SkyBlock programming and claimed to have 55 million UUIDs.
+![yuno: I have 55m mojang uuids](yuno-55m.png)
+
+I learned Yuno is in [the same group](https://solo.to/fanclub) as Northernside, and after we talked a bit he told me he'd also obtained his list from scraping, stuffing usernames from data breaches, and generating usernames.
+He's also where the 61 million estimate at the beginning of this blog post comes from; he got it by extrapolating with Hypixel's lifetime player count.
+
+## Epilogue
+
+To help me reach 50,000,000 UUIDs, Northernside and [Semisol](https://semisol.dev) (who had scraped for Hypixel players a few years ago) also donated their lists to me.
+At the time of writing, I have a total of 51,569,249 UUIDs.
+I've published all the UUIDs (and usernames, and Mojang API responses) I have at [archive.org/details/minecraft-uuids-2024-02-22](https://archive.org/details/minecraft-uuids-2024-02-22).
+
+If you'd like to check if you're in the dataset (you probably are), here's a convenient widget for searching usernames in my database:
+<UserSearch />
+
+## FAQ
+
+<div><b>Why?</b></div>
+<p>
+The voices
+</p>
+
+<div><b>What could the data be useful for?</b></div>
+<p>
+The data will probably be useless to you, but you could use it to reduce the number of requests you have to do to the Mojang API.
+It could also be used for making user lookup websites like NameMC, or maybe doing something like training AI on usernames or skins or something.
+</p>
+
+<div><b>How could the data be abused?</b></div>
+<p>
+Making archives of user-generated content will usually be controversial since it makes it harder for users to delete their data.
+However, I believe the harm here is minimal since my dataset doesn't have very much (UUIDs, usernames, skins) and there's other ways of obtaining people's old names anyways (like NameMC, <a href="https://laby.net">laby.net</a>, etc).
+</p>
+
+## Stats
+
+Here's some random miscellaneous stats about usernames that I think are interesting:
+
+**Length distribution**:
+<BarChart data={[
+[1, 4],
+[2, 332],
+[3, 50543],
+[4, 586300],
+[5, 1955634],
+[6, 4800891],
+[7, 6673174],
+[8, 7461203],
+[9, 6921332],
+[10, 6125814],
+[11, 4959496],
+[12, 4045519],
+[13, 2942492],
+[14, 2174031],
+[15, 1839781],
+[16, 1032702],
+[19, 1, '<a href="https://namemc.com/profile/UltramegaCHICKEN123.1">1</a>'],
+]} />
+
+<br />
+<br />
+
+<span><strong><a href="https://matdoes.dev/minecraft-uuids/api/words.txt">Most common words</a></strong> (split by underscores and camelCase):</span>
+
+```
+1. the
+2. mr
+3. xx
+4. king
+5. mc
+6. man
+7. gamer
+8. yt
+9. big
+10. its
+```
+
+<span><strong><a href="https://matdoes.dev/minecraft-uuids/api/suffixes.txt">Most common suffixes</a></strong> (numbers and underscores at the ends of names):</span>
+
+```
+1. _
+2. 1
+3. 2
+4. 123
+5. 3
+6. 7
+7. 0
+8. 12
+9. 69
+10. 11
+```
+
+<span>The <strong>most common years</strong> out of the suffixes seem to be:</span>
+
+```
+1. 2004
+2. 2003
+3. 2010
+4. 2002
+5. 2005
+6. 2012
+7. 2001
+8. 2006
+9. 2007
+10. 2011
+```
+
+<span><strong><a href="https://matdoes.dev/minecraft-uuids/api/desired.txt">Most desired names</a></strong> (most common names when the suffixes are removed):</span>
+
+```
+1. alex
+2. shadow
+3. max
+4. jack
+5. chris
+6. daniel
+7. david
+8. nick
+9. ghost
+10. leo
+```
+
+<style>
+	pre {
+		margin-top: 0;
+	}
+</style>

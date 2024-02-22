@@ -59,6 +59,7 @@ p {
 
 a {
 	color: var(--accent-color);
+	fill: var(--accent-color);
 }
 
 .center {
