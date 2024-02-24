@@ -51,6 +51,7 @@
 								<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
 								<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
 								<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />
+								<Button href="//actuallyruben.nl" src="actuallyruben.gif" alt="actuallyruben" />
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
@@ -147,7 +148,7 @@
 			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 		</td>
 	</tr>
-	<tr><td><p class="last-updated">Page last updated: December 8, 2023</p></td></tr>
+	<tr><td><p class="last-updated">Page last updated: February 24, 2024</p></td></tr>
 </table>
 
 <style>
