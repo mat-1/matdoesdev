@@ -52,6 +52,7 @@
 								<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
 								<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />
 								<Button href="//actuallyruben.nl" src="actuallyruben.gif" alt="actuallyruben" />
+								<Button href="//jamie.rs" src="jamie.png" alt="jamie" />
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
