@@ -107,98 +107,100 @@
 	<tr>
 		<td valign="top" class="left-sidebar-container" width="200">
 			<table class="left-sidebar" width="210" cellspacing="0">
-				<tr>
-					<td class="website-status-container">
-						<h3>Website status</h3>
-						<div class="website-status-value">
-							<table>
-								<tr>
-									<td>probably</td>
-									<td><span class="status-up">Up!</span></td>
-								</tr>
-							</table>
-						</div>
-					</td>
-				</tr>
-				<tr class="spacing"></tr>
-				<tr>
-					<td class="current-time-cst-container">
-						<h3>Current time for me</h3>
-						<div class="current-time-cst-value">{currentTimeInCst}</div>
-						<div class="current-time-cst-info">(CST)</div>
-					</td>
-				</tr>
-				<tr class="spacing"></tr>
-				<tr>
-					<td class="active-minecraft-servers-container">
-						<h3>Active Minecraft servers</h3>
-						<div class="active-minecraft-servers-value">
-							<a
-								href="https://grafana.scanner.matdoes.dev/d/MVK-dYM4z/scanner-stats?orgId=1&refresh=1m"
-							>
-								{status.active_minecraft_servers.toLocaleString()}
-							</a>
-						</div>
-					</td>
-				</tr>
-				<tr class="spacing"></tr>
-				<tr>
-					<td class="days-since-last-complaint-container">
-						<h3>Days since last complaint</h3>
-						<div class="days-since-last-complaint-value">
-							{daysSinceLastComplaint.toString().padStart(3, '0')}
-						</div>
-						<div class="time-ago">({hoursSinceLastComplaint} hours ago)</div>
-					</td>
-				</tr>
-				<tr class="spacing"></tr>
-				<tr>
-					<td class="neko-status-container">
-						<div class="neko-status-title-container">
-							<h3>Neko status</h3>
-							<div
-								id="oneko"
-								aria-hidden="true"
-								style="background-image: url(/retro/oneko.gif)"
-								bind:this={nekoEl}
-							></div>
-						</div>
-						<div class="neko-status-value">
-							<span class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}"
-								>{nekoSpriteIdsToNames[nekoSpriteName]}</span
-							>
-						</div>
-					</td>
-				</tr>
-				<tr class="spacing"></tr>
-				<tr>
-					<td class="minecraft-uuids-scraped-container">
-						<h3>Minecraft UUIDs scraped</h3>
-						<div class="minecraft-uuids-scraped-value">
-							<a href="https://mowojang.matdoes.dev">
-								{status.minecraft_uuids_scraped.toLocaleString()}
-							</a>
-						</div>
-					</td>
-				</tr>
-				<tr class="spacing"></tr>
-				<tr>
-					<td class="buttons-scraped-container">
-						<h3>88x31s scraped</h3>
-						<div class="buttons-scraped-value">
-							<a href="/buttons">{status.buttons_scraped.toLocaleString()}</a>
-						</div>
-					</td>
-				</tr>
-				<tr class="spacing"></tr>
-				<tr>
-					<td class="data-last-updated">
-						<h3>Data last updated</h3>
-						<div class="data-last-updated-date">
-							{browser ? `${timeAgo(lastUpdatedAt)} ago` : lastUpdatedAt.toISOString()}
-						</div>
-					</td>
-				</tr>
+				<tbody>
+					<tr>
+						<td class="website-status-container">
+							<h3>Website status</h3>
+							<div class="website-status-value">
+								<table>
+									<tr>
+										<td>probably</td>
+										<td><span class="status-up">Up!</span></td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+					<tr class="spacing hidden-if-noscript"></tr>
+					<tr class="hidden-if-noscript">
+						<td class="current-time-cst-container">
+							<h3>Current time for me</h3>
+							<div class="current-time-cst-value">{currentTimeInCst}</div>
+							<div class="current-time-cst-info">(CST)</div>
+						</td>
+					</tr>
+					<tr class="spacing"></tr>
+					<tr>
+						<td class="active-minecraft-servers-container">
+							<h3>Active Minecraft servers</h3>
+							<div class="active-minecraft-servers-value">
+								<a
+									href="https://grafana.scanner.matdoes.dev/d/MVK-dYM4z/scanner-stats?orgId=1&refresh=1m"
+								>
+									{status.active_minecraft_servers.toLocaleString()}
+								</a>
+							</div>
+						</td>
+					</tr>
+					<tr class="spacing"></tr>
+					<tr>
+						<td class="days-since-last-complaint-container">
+							<h3>Days since last complaint</h3>
+							<div class="days-since-last-complaint-value">
+								{daysSinceLastComplaint.toString().padStart(3, '0')}
+							</div>
+							<div class="time-ago">({hoursSinceLastComplaint} hours ago)</div>
+						</td>
+					</tr>
+					<tr class="spacing hidden-if-noscript"></tr>
+					<tr>
+						<td class="neko-status-container hidden-if-noscript">
+							<div class="neko-status-title-container">
+								<h3>Neko status</h3>
+								<div
+									id="oneko"
+									aria-hidden="true"
+									style="background-image: url(/retro/oneko.gif)"
+									bind:this={nekoEl}
+								></div>
+							</div>
+							<div class="neko-status-value">
+								<span class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}"
+									>{nekoSpriteIdsToNames[nekoSpriteName]}</span
+								>
+							</div>
+						</td>
+					</tr>
+					<tr class="spacing"></tr>
+					<tr>
+						<td class="minecraft-uuids-scraped-container">
+							<h3>Minecraft UUIDs scraped</h3>
+							<div class="minecraft-uuids-scraped-value">
+								<a href="https://mowojang.matdoes.dev">
+									{status.minecraft_uuids_scraped.toLocaleString()}
+								</a>
+							</div>
+						</td>
+					</tr>
+					<tr class="spacing"></tr>
+					<tr>
+						<td class="buttons-scraped-container">
+							<h3>88x31s scraped</h3>
+							<div class="buttons-scraped-value">
+								<a href="/buttons">{status.buttons_scraped.toLocaleString()}</a>
+							</div>
+						</td>
+					</tr>
+					<tr class="spacing"></tr>
+					<tr>
+						<td class="data-last-updated">
+							<h3>Data last updated</h3>
+							<div class="data-last-updated-date">
+								{browser ? `${timeAgo(lastUpdatedAt)} ago` : lastUpdatedAt.toISOString()}
+							</div>
+						</td>
+					</tr>
+				</tbody>
 			</table>
 		</td>
 		<td valign="top">
@@ -342,6 +344,14 @@
 	<tr><td><p class="last-updated">Page last updated: March 19, 2024</p></td></tr>
 </table>
 
+<noscript>
+	<style>
+		.hidden-if-noscript {
+			display: none;
+		}
+	</style>
+</noscript>
+
 <style>
 	.right-sidebar {
 		text-align: right;
@@ -407,7 +417,7 @@
 	.left-sidebar-container {
 		width: 210px;
 	}
-	.left-sidebar > tr > td {
+	.left-sidebar > tbody > tr > td {
 		background-color: #000;
 		border: 2px solid #222;
 		border-radius: 8px;
