@@ -3,7 +3,7 @@ body {
 	color: #cdd6f4;
 	/* serif is chosen intentionally as it makes the website look worse */
 	font-family: serif;
-	margin: 0.5rem;
+	padding: 0.5rem;
 }
 
 input,
