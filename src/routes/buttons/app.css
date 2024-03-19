@@ -28,4 +28,5 @@ a {
 	width: 88px;
 	height: 31px;
 	image-rendering: pixelated;
+	padding: 0;
 }
