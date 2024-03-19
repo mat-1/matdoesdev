@@ -4,16 +4,204 @@
 	import links from './links.gif'
 	import projects from '../_projects.json'
 
+	import { initNeko } from './oneko'
+
 	import type { BlogPostPreview } from '../blog.json/+server.js'
 	import Button from './Button.svelte'
+	import { browser } from '$app/environment'
+	import { onMount } from 'svelte'
 
 	export let data
 	export let posts: BlogPostPreview[] = data.posts
+	export let status = data.status
+
+	const lastComplaintAt = new Date(status.last_complaint_at)
+	const hoursSinceLastComplaint = Math.floor(
+		(Date.now() - lastComplaintAt.getTime()) / 1000 / 60 / 60
+	)
+	const daysSinceLastComplaint = Math.floor(hoursSinceLastComplaint / 24)
+
+	const lastUpdatedAt = new Date(status.last_updated_at)
+
+	function timeAgo(date: Date) {
+		const seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000)
+		let interval = seconds / 31536000
+		if (interval > 1) return Math.floor(interval) + ' years'
+		interval = seconds / 2592000
+		if (interval > 1) return Math.floor(interval) + ' months'
+		interval = seconds / 86400
+		if (interval > 1) return Math.floor(interval) + ' days'
+		interval = seconds / 3600
+		if (interval > 1) return Math.floor(interval) + ' hours'
+		interval = seconds / 60
+		if (interval > 1) return Math.floor(interval) + ' minutes'
+		return Math.floor(seconds) + ' seconds'
+	}
+
+	function getCurrentTimeInCst(): string {
+		return new Date().toLocaleString('en-US', {
+			timeZone: 'America/Chicago',
+			hour: 'numeric',
+			minute: 'numeric',
+			second: 'numeric',
+			hour12: true,
+		})
+	}
+
+	let currentTimeInCst = getCurrentTimeInCst()
+	let nekoEl: HTMLDivElement
+	let nekoSpriteName: keyof typeof nekoSpriteIdsToNames = 'idle'
+	onMount(() => {
+		const startFollowingMouse = initNeko(nekoEl, (spriteName) => {
+			nekoSpriteName = spriteName as any
+		})
+		nekoEl.onclick = startFollowingMouse
+
+		const interval = setInterval(() => {
+			currentTimeInCst = getCurrentTimeInCst()
+		}, 1000)
+		return () => clearInterval(interval)
+	})
+
+	const nekoSpriteIdsToNames = {
+		idle: 'Idle',
+		alert: 'Alert',
+		scratchSelf: 'Idle',
+		scratchWallN: 'Idle',
+		scratchWallS: 'Idle',
+		scratchWallE: 'Idle',
+		scratchWallW: 'Idle',
+		tired: 'Tired',
+		sleeping: 'Sleeping',
+		N: 'Chasing',
+		NE: 'Chasing',
+		E: 'Chasing',
+		SE: 'Chasing',
+		S: 'Chasing',
+		SW: 'Chasing',
+		W: 'Chasing',
+		NW: 'Chasing',
+	}
+	const nekoSpriteIdsToStatuses = {
+		idle: 'idle',
+		alert: 'down',
+		scratchSelf: 'idle',
+		scratchWallN: 'idle',
+		scratchWallS: 'idle',
+		scratchWallE: 'idle',
+		scratchWallW: 'idle',
+		tired: 'idle',
+		sleeping: 'idle',
+		N: 'up',
+		NE: 'up',
+		E: 'up',
+		SE: 'up',
+		S: 'up',
+		SW: 'up',
+		W: 'up',
+		NW: 'up',
+	}
 </script>
 
 <table id="main-table">
 	<tr>
-		<td>
+		<td valign="top" class="left-sidebar-container" width="200">
+			<table class="left-sidebar" width="200" cellspacing="0">
+				<tr>
+					<td class="website-status-container">
+						<h3>Website status</h3>
+						<div class="website-status-value">
+							<table>
+								<tr>
+									<td>probably</td>
+									<td><span class="status-up">Up!</span></td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+				<tr class="spacing"></tr>
+				<tr>
+					<td class="current-time-cst-container">
+						<h3>Current time for me</h3>
+						<div class="current-time-cst-value">{currentTimeInCst}</div>
+						<div class="current-time-cst-info">(CST)</div>
+					</td>
+				</tr>
+				<tr class="spacing"></tr>
+				<tr>
+					<td class="active-minecraft-servers-container">
+						<h3>Active Minecraft servers</h3>
+						<div class="active-minecraft-servers-value">
+							<a
+								href="https://grafana.scanner.matdoes.dev/d/MVK-dYM4z/scanner-stats?orgId=1&refresh=1m"
+							>
+								{status.active_minecraft_servers.toLocaleString()}
+							</a>
+						</div>
+					</td>
+				</tr>
+				<tr class="spacing"></tr>
+				<tr>
+					<td class="days-since-last-complaint-container">
+						<h3>Days since last complaint</h3>
+						<div class="days-since-last-complaint-value">
+							{daysSinceLastComplaint.toString().padStart(3, '0')}
+						</div>
+						<div class="time-ago">({hoursSinceLastComplaint} hours ago)</div>
+					</td>
+				</tr>
+				<tr class="spacing"></tr>
+				<tr>
+					<td class="neko-status-container">
+						<div class="neko-status-title-container">
+							<h3>Neko status</h3>
+							<div
+								id="oneko"
+								aria-hidden="true"
+								style="background-image: url(/retro/oneko.gif)"
+								bind:this={nekoEl}
+							></div>
+						</div>
+						<div class="neko-status-value">
+							<span class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}"
+								>{nekoSpriteIdsToNames[nekoSpriteName]}</span
+							>
+						</div>
+					</td>
+				</tr>
+				<tr class="spacing"></tr>
+				<tr>
+					<td class="minecraft-uuids-scraped-container">
+						<h3>Minecraft UUIDs scraped</h3>
+						<div class="minecraft-uuids-scraped-value">
+							<a href="https://mowojang.matdoes.dev">
+								{status.minecraft_uuids_scraped.toLocaleString()}
+							</a>
+						</div>
+					</td>
+				</tr>
+				<tr class="spacing"></tr>
+				<tr>
+					<td class="buttons-scraped-container">
+						<h3>88x31s scraped</h3>
+						<div class="buttons-scraped-value">
+							<a href="/buttons">{status.buttons_scraped.toLocaleString()}</a>
+						</div>
+					</td>
+				</tr>
+				<tr class="spacing"></tr>
+				<tr>
+					<td class="data-last-updated">
+						<h3>Data last updated</h3>
+						<div class="data-last-updated-date">
+							{browser ? `${timeAgo(lastUpdatedAt)} ago` : lastUpdatedAt.toISOString()}
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td valign="top">
 			<div id="welcome">
 				<table>
 					<tr>
@@ -88,55 +276,50 @@
 						</td>
 					</tr>
 				</table>
+
+				<table id="sections">
+					<tr>
+						<td class="section contact">
+							<table width="300">
+								<tr>
+									<td>
+										<div><img src={contact} alt="contact" width="200" height="40" /></div>
+										<p>
+											my preferred method of contact is <a
+												href="https://matrix.to/#/@mat:matdoes.dev">matrix</a
+											>, but you can also email me (i have a catch-all on this domain). i'm also on
+											<a href="https://f.matdoes.dev/mat">the fediverse</a>.
+										</p>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td class="section links">
+							<table width="300">
+								<tr>
+									<td>
+										<div><img src={links} alt="links" width="200" height="40" /></div>
+										<p>
+											i have a github at <a href="https://github.com/mat-1">github.com/mat-1</a>,
+											and you can give me money through ko-fi at
+											<a href="https://ko-fi.com/matdoesdev">ko-fi.com/matdoesdev</a>.
+										</p>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</td>
-		<td>
-			<div class="sidebar-list">
+		<td valign="top">
+			<div class="right-sidebar">
 				<h2>BLOG POSTS</h2>
 				{#each posts as post}
 					<div><a href={post.slug}>{post.title}</a></div>
 				{/each}
 			</div>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<table id="sections">
-				<tr>
-					<td class="section contact">
-						<table width="300">
-							<tr>
-								<td>
-									<div><img src={contact} alt="contact" width="200" height="40" /></div>
-									<p>
-										my preferred method of contact is <a href="https://matrix.to/#/@mat:matdoes.dev"
-											>matrix</a
-										>, but you can also email me (i have a catch-all on this domain). i'm also on
-										<a href="https://f.matdoes.dev/mat">the fediverse</a>.
-									</p>
-								</td>
-							</tr>
-						</table>
-					</td>
-					<td class="section links">
-						<table width="300">
-							<tr>
-								<td>
-									<div><img src={links} alt="links" width="200" height="40" /></div>
-									<p>
-										i have a github at <a href="https://github.com/mat-1">github.com/mat-1</a>, and
-										you can give me money through ko-fi at
-										<a href="https://ko-fi.com/matdoesdev">ko-fi.com/matdoesdev</a>.
-									</p>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</td>
-		<td>
-			<div class="sidebar-list">
+			<div class="right-sidebar">
 				<h2>PROJECTS</h2>
 				{#each projects as project}
 					<div><a href={project.href}>{project.name}</a></div>
@@ -145,19 +328,25 @@
 		</td>
 	</tr>
 	<tr>
+		<td></td>
+		<td> </td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
 		<td>
 			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 		</td>
 	</tr>
-	<tr><td><p class="last-updated">Page last updated: February 24, 2024</p></td></tr>
+	<tr><td><p class="last-updated">Page last updated: March 19, 2024</p></td></tr>
 </table>
 
 <style>
-	.sidebar-list {
+	.right-sidebar {
 		text-align: right;
 		height: 400px;
 		overflow-y: scroll;
-		padding-right: 10px;
 	}
 
 	#main-table {
@@ -167,6 +356,7 @@
 	#welcome {
 		margin: 0 auto;
 		max-width: 600px;
+		height: 100%;
 	}
 
 	h1 {
@@ -187,6 +377,8 @@
 
 	#sections {
 		width: 100%;
+		table-layout: fixed;
+		margin-top: 8em;
 	}
 	.section p {
 		max-width: 300px;
@@ -205,5 +397,129 @@
 		color: #888;
 		text-align: center;
 		font-family: monospace;
+	}
+
+	.left-sidebar {
+		width: 200px;
+		text-align: center;
+	}
+	.left-sidebar-container {
+		width: 200px;
+	}
+	.left-sidebar > tr > td {
+		background-color: #000;
+		border: 2px solid #222;
+		border-radius: 8px;
+		padding: 0.25em;
+	}
+	.days-since-last-complaint-container {
+		text-align: center;
+	}
+	.left-sidebar h3 {
+		margin-top: 0;
+		margin-bottom: 0.2em;
+	}
+	.days-since-last-complaint-value {
+		font-family: 'Courier New', Courier, monospace;
+		color: #11151c;
+		background: #bfbdb6;
+		width: fit-content;
+		margin: 0 auto;
+		padding: 0 0.15em;
+		border: 1px solid #000;
+		border-radius: 4px;
+		font-size: 1.5em;
+		vertical-align: 4px;
+		text-shadow: 2px 2px 0 #999;
+	}
+
+	.left-sidebar .spacing {
+		height: 12px;
+	}
+	.days-since-last-complaint-container .time-ago {
+		color: #999;
+		font-size: 0.8em;
+	}
+
+	.data-last-updated {
+		font-family: monospace;
+	}
+	.data-last-updated-date {
+		color: #eee;
+	}
+
+	.current-time-cst-container {
+		text-align: center;
+	}
+	.current-time-cst-value {
+		color: #aad94c;
+	}
+	.current-time-cst-info {
+		color: #acb6bf8c;
+	}
+
+	.website-status-container {
+		text-align: center;
+	}
+	.website-status-value {
+		color: #555;
+		vertical-align: middle;
+	}
+
+	.status-up,
+	.status-idle,
+	.status-down {
+		font-size: 1.5em;
+		font-family: 'Press Start 2P';
+		margin-left: 0.1em;
+	}
+	.status-up {
+		color: #0f0;
+		text-shadow:
+			0 0 2px #0f0,
+			0 0 2px #0f0,
+			0 0 2px #0f0,
+			0 0 2px #0f0;
+	}
+	.status-idle {
+		color: #ff0;
+		text-shadow:
+			0 0 2px #ff0,
+			0 0 2px #ff0,
+			0 0 2px #ff0,
+			0 0 2px #ff0;
+	}
+	.status-down {
+		color: #f00;
+		text-shadow:
+			0 0 2px #f00,
+			0 0 2px #f00,
+			0 0 2px #f00,
+			0 0 2px #f00;
+	}
+
+	.neko-status-title-container h3 {
+		display: inline-block;
+	}
+	#oneko {
+		display: inline-block;
+	}
+
+	.left-sidebar a {
+		/* don't make the links obviously clickable */
+		text-decoration: none;
+		color: inherit !important;
+	}
+
+	.active-minecraft-servers-value,
+	.minecraft-uuids-scraped-value,
+	.buttons-scraped-value {
+		border: 2px solid #333;
+		background-color: #111;
+		border-radius: 8px;
+		max-width: fit-content;
+		margin: 0 auto;
+		padding: 1px;
+		color: #d2a6ff;
 	}
 </style>

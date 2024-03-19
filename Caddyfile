@@ -1,6 +1,6 @@
 (https_redirect) {
 	@do_https_redirect {
-		not header_regexp veryoldbrowser User-Agent Navigator|MSIE|Mosaic|Kindle
+		not header_regexp veryoldbrowser User-Agent Navigator|MSIE|Mosaic|Kindle|^curl|NintendoBrowser/
 		protocol http
 	}
 	redir @do_https_redirect https://{host}{uri}
@@ -22,7 +22,8 @@
 	uri @do_gif_redirect path_regexp \.png$ .gif
 }
 
-matdoes.dev:80 matdoes.dev:443 http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion {
+# this is necessary for http:// to work on old browsers
+http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion {
 	import https_redirect
 	import gif_redirect
 
@@ -36,9 +37,9 @@ matdoes.dev:80 matdoes.dev:443 http://matctazmu565vivubva3p3bulaneangiff47xmnezz
 		not header_regexp not_chrome User-Agent Googlebot/|eightyeightthirtyone
 		not path /dot_git/*
 	}
-	respond @chrome "This site is best viewed with Firefox (or any browser that isn't Chrome).
+	# respond @chrome "This site is best viewed with Firefox (or any browser that isn't Chrome).
 		
-If you're unable to use Firefox, you can also access this website via SSH, Gemini, Gopher, Finger, Telnet, and some others." 403
+#If you're unable to use Firefox, you can also access this website via SSH, Gemini, Gopher, Finger, Telnet, and some others." 403
 
 	# easter egg that makes old browsers show the retro page
 	@retro_redirect {
@@ -99,10 +100,30 @@ If you're unable to use Firefox, you can also access this website via SSH, Gemin
 			root /opt/x227f
 		}
 	}
+	route /buttons/stats.json {
+                uri strip_prefix /buttons
+                file_server {
+                        root /opt/x227f
+                }
+        }
 	handle_path /buttons/i/* {
 		try_files {path} {path}.png {path}.gif {path}.jpg {path}.webp {path}.avif {path}.bmp
 		root * /opt/x227f/buttons
 		file_server
+	}
+	handle_path /minecraft-uuids/api/* {
+		rewrite * {path}.gz
+		file_server {
+			root /opt/minecraft-uuids-api
+		}
+		header Content-Type text/plain
+		header Content-Encoding gzip
+	}
+
+	route /status.json {
+		reverse_proxy 127.0.0.1:9247 {
+			rewrite /
+		}
 	}
 
 	handle_errors {
@@ -127,6 +148,33 @@ If you're unable to use Firefox, you can also access this website via SSH, Gemin
 
 		rewrite @should_be_404 /404.html
 		file_server @is_not_451
+	}
+}
+
+staging.matdoes.dev {
+        root * /www-staging
+        file_server {
+                precompressed br gzip
+        }
+
+        # redirect to .json if the user requested application/json
+        @json {
+                header Accept application/json
+                not path *.json
+        }
+        @json_index {
+                header Accept application/json
+                path /
+        }
+        rewrite @json_index /.json
+        rewrite @json {path}.json
+
+        # don't require .html
+        try_files {path} {path}.html
+
+	handle /robots.txt {
+		respond "User-agent: *
+Disallow: /"
 	}
 }
 
@@ -157,20 +205,19 @@ If you're unable to use Firefox, you can also access this website via SSH, Gemin
 		}
 	}
 }
-matrix.matdoes.dev {
-	import matrix_media_proxy
-
-	handle {
+matrix.matdoes.dev, matrix.matdoes.dev:8448 {
+	handle /.well-known/matrix/server {
+		header content-type application/json
+		respond "{\"m.server\":\"matrix.matdoes.dev\"}"
+	}
+	handle /.well-known/matrix/client {
 		reverse_proxy 127.0.0.1:81
 	}
-}
-matrix.matdoes.dev:8448 {
-	import matrix_media_proxy
-
 	handle {
-		reverse_proxy 127.0.0.1:8449
+		reverse_proxy 127.0.0.1:6167
 	}
 }
+
 
 stats.matrix.matdoes.dev {
 	reverse_proxy 127.0.0.1:81
@@ -201,6 +248,24 @@ s.matdoes.dev {
 mail.matdoes.dev {
 	respond "mat's mail server :)"
 }
+
+jmap.matdoes.dev {
+        log {
+                output stdout
+        }
+
+	header Access-Control-Allow-Origin "*"
+	header Access-Control-Allow-Methods "*"
+	header Access-Control-Allow-Headers "*"
+
+	reverse_proxy https://localhost:8080 {
+		transport http {
+	                tls
+			tls_insecure_skip_verify
+		}
+	}
+}
+
 matdoes.dev:3 {
 	header {
 		colon3 :3
@@ -211,6 +276,11 @@ matdoes.dev:3 {
 	respond ":3
 "
 }
+
+meowww.matdoes.dev {
+	reverse_proxy 127.0.0.1:11351
+}
+
 hetzner.matdoes.dev {
 	redir https://matdoes.dev{uri}
 }

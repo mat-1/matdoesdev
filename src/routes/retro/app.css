@@ -18,6 +18,10 @@ body,
 	font-family: 'Comic Sans MS';
 	src: url(/retro/comicsans.ttf) format('truetype');
 }
+@font-face {
+	font-family: 'Press Start 2P';
+	src: url(/retro/pressstart2p.ttf) format('truetype');
+}
 
 :root {
 	--background-color-alt: rgba(255, 255, 255, 0.05) !important;
@@ -45,6 +49,16 @@ h2 {
 *:before,
 *:after {
 	box-sizing: border-box;
+}
+
+#oneko {
+	width: 32px;
+	height: 32px;
+	image-rendering: pixelated;
+	z-index: 2147483647;
+	position: absolute;
+
+	cursor: pointer;
 }
 
 #main-title:after {
