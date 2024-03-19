@@ -5,7 +5,8 @@
 
 	export let data: LayoutData
 
-	export const copyrightYear = new Date().getFullYear()
+	// + 1 because i live in the future
+	export const copyrightYear = new Date().getFullYear() + 1
 
 	let previousPathname = data.pathname
 	let currentPathName = data.pathname
