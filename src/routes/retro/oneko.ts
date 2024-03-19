@@ -79,6 +79,11 @@ export function initNeko(nekoEl: HTMLDivElement, updateSpriteCallback: (name: st
 	}
 
 	function startFollowingMouse() {
+		nekoPosX = nekoEl.offsetLeft - window.scrollX + 16
+		nekoPosY = nekoEl.offsetTop - window.scrollY + 16
+		mousePosX = nekoPosX
+		mousePosY = nekoPosY
+
 		nekoEl.style.position = 'fixed'
 		nekoEl.style.pointerEvents = 'none'
 		nekoEl.style.left = `${nekoPosX - 16}px`
