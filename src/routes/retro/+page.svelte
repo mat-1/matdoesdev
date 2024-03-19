@@ -106,7 +106,7 @@
 <table id="main-table">
 	<tr>
 		<td valign="top" class="left-sidebar-container" width="200">
-			<table class="left-sidebar" width="200" cellspacing="0">
+			<table class="left-sidebar" width="210" cellspacing="0">
 				<tr>
 					<td class="website-status-container">
 						<h3>Website status</h3>
@@ -400,11 +400,12 @@
 	}
 
 	.left-sidebar {
-		width: 200px;
+		/* 210px so "Sleeping" fits */
+		width: 210px;
 		text-align: center;
 	}
 	.left-sidebar-container {
-		width: 200px;
+		width: 210px;
 	}
 	.left-sidebar > tr > td {
 		background-color: #000;

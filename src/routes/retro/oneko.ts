@@ -89,6 +89,9 @@ export function initNeko(nekoEl: HTMLDivElement, updateSpriteCallback: (name: st
 			mousePosX = event.clientX
 			mousePosY = event.clientY
 		})
+
+		// move to body so it persists on page changes
+		document.body.appendChild(nekoEl)
 	}
 
 	function init() {

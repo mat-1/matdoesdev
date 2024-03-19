@@ -38,9 +38,9 @@
 {/key}
 
 <style>
-	:global(body) {
+	/* :global(body) {
 		overflow: hidden;
-	}
+	} */
 	#page {
 		height: 100%;
 		display: flex;
