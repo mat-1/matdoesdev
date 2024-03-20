@@ -11,4 +11,4 @@
 	})
 </script>
 
-<img {src} {alt} />
+<img loading="lazy" {src} {alt} />

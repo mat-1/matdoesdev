@@ -57,8 +57,10 @@ h2 {
 	image-rendering: pixelated;
 	z-index: 2147483647;
 	position: absolute;
-
 	cursor: pointer;
+
+	/* default idle sprite */
+	background-position: -96px -96px;
 }
 
 #main-title:after {
