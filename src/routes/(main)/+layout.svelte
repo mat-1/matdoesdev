@@ -28,9 +28,9 @@
 	let stopGravity: (() => void) | null = null
 
 	async function onPathChange() {
-		// if we switched paths more than 10 times in the past 5 seconds, import $lib/gravity.js
+		// if we switched paths more than 10 times in the past 10 seconds, import $lib/gravity.js
 		pathChangeTimestamps.push(Date.now())
-		while (pathChangeTimestamps[0] < Date.now() - 5000) pathChangeTimestamps.shift()
+		while (pathChangeTimestamps[0] < Date.now() - 10000) pathChangeTimestamps.shift()
 		console.log(pathChangeTimestamps)
 		if (pathChangeTimestamps.length >= 10) {
 			const { initGravity } = await import('$lib/gravity')
