@@ -32,7 +32,7 @@
 		pathChangeTimestamps.push(Date.now())
 		while (pathChangeTimestamps[0] < Date.now() - 5000) pathChangeTimestamps.shift()
 		console.log(pathChangeTimestamps)
-		if (pathChangeTimestamps.length >= 1) {
+		if (pathChangeTimestamps.length >= 10) {
 			const { initGravity } = await import('$lib/gravity')
 			// wait 200ms for the animation to finish
 			await new Promise((resolve) => setTimeout(resolve, 200))
