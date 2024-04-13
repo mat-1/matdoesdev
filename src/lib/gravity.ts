@@ -20,7 +20,22 @@ export function initGravity(): () => void {
 			isStatic: true,
 		}
 	)
-	Composite.add(engine.world, [floorBody])
+	const rightWallBody = Bodies.rectangle(
+		window.innerWidth + 50,
+		window.innerHeight / 2,
+		100,
+		window.innerHeight,
+		{
+			isStatic: true,
+		}
+	)
+	const leftWallBody = Bodies.rectangle(-50, window.innerHeight / 2, 100, window.innerHeight, {
+		isStatic: true,
+	})
+	const ceilingBody = Bodies.rectangle(window.innerWidth / 2, -50, window.innerWidth, 100, {
+		isStatic: true,
+	})
+	Composite.add(engine.world, [floorBody, rightWallBody, leftWallBody, ceilingBody])
 
 	const trackedElements = new Map<HTMLElement, Matter.Body>()
 
