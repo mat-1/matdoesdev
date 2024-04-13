@@ -14,6 +14,7 @@
 		const titleContent = titleEl.textContent ?? ''
 		titleEl.textContent = ''
 		for (let i = 0; i <= titleContent.length; i++) {
+			if (!titleEl) return
 			titleEl.textContent = titleContent.slice(0, i + 1)
 			await new Promise((r) => setTimeout(r, delays[i]))
 		}
