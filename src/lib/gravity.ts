@@ -8,6 +8,8 @@ export function initGravity(): () => void {
 
 	console.log('gravity enabled')
 
+	document.body.style.overflow = 'hidden'
+
 	// create an engine
 	const engine = Engine.create({ enableSleeping: true })
 
