@@ -1,10 +1,44 @@
-import { browser } from '$app/environment'
 import Matter from 'matter-js'
+import music from './oneshot-my-burden-is-light.mp3'
+import explosionSFX from './nuclear-bomb-sound-effect.mp3'
+import explosionImage from './explosion.gif'
 
 const GRAVITY_QUERY_SELECTOR = 'p, h1, h2, .button, .icon'
 
+let started = false
+
 export function initGravity(): () => void {
 	const { Engine, Bodies, Composite, Runner, Mouse, MouseConstraint } = Matter
+
+	if (!started) {
+		started = true
+
+		// play explosion gif
+		const explosionEl = document.createElement('img')
+		explosionEl.src = explosionImage
+		explosionEl.style.position = 'fixed'
+		explosionEl.style.left = '0'
+		explosionEl.style.top = '0'
+		explosionEl.style.width = '100%'
+		explosionEl.style.height = '100%'
+		explosionEl.style.zIndex = '1000000'
+		document.body.appendChild(explosionEl)
+		// remove after 1.7 seconds
+		explosionEl.onload = () => {
+			setTimeout(() => {
+				document.body.removeChild(explosionEl)
+			}, 1700)
+		}
+
+		const explosionAudio = new Audio(explosionSFX)
+		explosionAudio.volume = 0.5
+		explosionAudio.play()
+
+		const musicAudio = new Audio(music)
+		musicAudio.volume = 0.1
+		musicAudio.loop = true
+		musicAudio.play()
+	}
 
 	console.log('gravity enabled')
 
