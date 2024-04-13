@@ -1,6 +1,7 @@
 (https_redirect) {
 	@do_https_redirect {
 		not header_regexp veryoldbrowser User-Agent Navigator|MSIE|Mosaic|Kindle|^curl|NintendoBrowser/
+		not host *.onion *.*.onion
 		protocol http
 	}
 	redir @do_https_redirect https://{host}{uri}
@@ -205,7 +206,7 @@ Disallow: /"
 		}
 	}
 }
-matrix.matdoes.dev, matrix.matdoes.dev:8448 {
+matrix.matdoes.dev matrix.matdoes.dev:8448 {
 	handle /.well-known/matrix/server {
 		header content-type application/json
 		respond "{\"m.server\":\"matrix.matdoes.dev\"}"
@@ -229,7 +230,7 @@ fedi.matdoes.dev {
 	}
 }
 
-f.matdoes.dev {
+f.matdoes.dev media.f.matdoes.dev cache.f.matdoes.dev {
 	@chrome {
 		header_regexp chrome User-Agent Chrome\/[0-9./]+\s(Mobile\s)?Safari\/[0-9./]+$
 		not header User-Agent *Googlebot/*
@@ -241,7 +242,9 @@ f.matdoes.dev {
 git.matdoes.dev {
 	reverse_proxy 127.0.0.1:3000
 }
-s.matdoes.dev {
+http://s.matdoes.dev https://s.matdoes.dev {
+	import https_redirect
+
 	reverse_proxy 127.0.0.1:28019
 }
 
@@ -295,4 +298,20 @@ hetzner.matdoes.dev {
 
 xmpp.matdoes.dev {
 	respond ""
+}
+
+mcassets.matdoes.dev {
+	reverse_proxy 127.0.0.1:10573
+}
+
+www.www.matdoes.dev {
+	header {
+                Content-Type text/html
+                Server "meow"
+        }
+	respond "<meta http-equiv=\"refresh\" content=\"15;url=https://matdoes.dev\">nyaaaaaaaaaaaaaaaaaaa" 200
+}
+
+www.matdoes.dev {
+	redir https://matdoes.dev{uri}
 }

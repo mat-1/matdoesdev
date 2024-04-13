@@ -19,6 +19,12 @@
 	--text-font: 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
 html,
 body,
 #page {
