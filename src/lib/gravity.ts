@@ -13,9 +13,9 @@ export function initGravity(): () => void {
 
 	const floorBody = Bodies.rectangle(
 		window.innerWidth / 2,
-		window.innerHeight - 5,
+		window.innerHeight + 50,
 		window.innerWidth,
-		10,
+		100,
 		{
 			isStatic: true,
 		}
