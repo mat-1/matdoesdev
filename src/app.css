@@ -100,3 +100,24 @@ pre {
 .token.string {
 	color: #aad94c;
 }
+
+body.light-theme,
+body.extra-light-theme {
+	--background-color: #fff;
+	--background-color-transparent: #fff0;
+	--background-color-alt: #f7f7f7;
+	--background-color-alt-2: #eee;
+	--background-color-alt-3: #ddd;
+
+	--text-color: #000;
+	--text-color-alt: #333;
+	--text-color-alt-2: #666;
+	--text-color-alt-3: #999;
+}
+body.extra-light-theme {
+	filter: brightness(1) opacity(0.1);
+}
+body.extra-dark-theme {
+	background-color: #000;
+	filter: brightness(0.1);
+}

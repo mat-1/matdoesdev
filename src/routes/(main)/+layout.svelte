@@ -3,6 +3,7 @@
 	import { fly } from 'svelte/transition'
 	import type { LayoutData } from '../$types'
 	import { browser } from '$app/environment'
+	import { writable } from 'svelte/store'
 
 	export let data: LayoutData
 
@@ -49,6 +50,24 @@
 				}
 			}
 		}
+	}
+
+	if (browser) {
+		const initialTheme = localStorage.getItem('theme') ?? 'dark'
+		let globalTheme = writable(initialTheme)
+		window.addEventListener('storage', (e) => {
+			if (e.key === 'theme' && e.newValue) {
+				globalTheme.set(e.newValue)
+			}
+		})
+		let lastGlobalTheme = initialTheme
+		globalTheme.subscribe((theme) => {
+			document.body.classList.remove(`${lastGlobalTheme}-theme`)
+			if (theme !== 'dark') {
+				document.body.classList.add(`${theme}-theme`)
+			}
+			lastGlobalTheme = theme
+		})
 	}
 </script>
 
