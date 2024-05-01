@@ -23,7 +23,7 @@ function pngToGifForRetro() {
 		enforce: 'post',
 		apply: 'build',
 		closeBundle: async () => {
-			const baseDirectory = 'build/retro'
+			const baseDirectory = '.svelte-kit/output/client/retro'
 
 			const allFiles = await fs.promises.readdir(baseDirectory, {
 				recursive: true,
