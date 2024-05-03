@@ -275,6 +275,8 @@
 								/>
 								<Button href="//matrix.org" src="matrix.png" alt="matrix" />
 								<Button href="//caddyserver.com/" src="caddy.png" alt="caddy" />
+								<Button href="//sipacid.com/" src="sipacid.gif" alt="sipacid" />
+								<Button href="//damcraft.de/" src="dam.gif" alt="dam" />
 							</div>
 						</td>
 					</tr>
