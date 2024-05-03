@@ -244,6 +244,8 @@
 								<Button href="//actuallyruben.nl" src="actuallyruben.gif" alt="actuallyruben" />
 								<Button href="//jamie.rs" src="jamie.png" alt="jamie" />
 								<Button href="//jamsharp.net" src="jamsharp.png" alt="jamsharp" />
+								<Button href="//sipacid.com/" src="sipacid.gif" alt="sipacid" />
+								<Button href="//damcraft.de/" src="dam.gif" alt="dam" />
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
@@ -275,8 +277,6 @@
 								/>
 								<Button href="//matrix.org" src="matrix.png" alt="matrix" />
 								<Button href="//caddyserver.com/" src="caddy.png" alt="caddy" />
-								<Button href="//sipacid.com/" src="sipacid.gif" alt="sipacid" />
-								<Button href="//damcraft.de/" src="dam.gif" alt="dam" />
 							</div>
 						</td>
 					</tr>
