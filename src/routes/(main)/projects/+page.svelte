@@ -25,7 +25,7 @@
 	}
 </script>
 
-<svelte:body on:scroll={onScroll} />
+<!-- <svelte:body on:scroll={onScroll} /> -->
 
 <div class="projects-header">
 	<nav>
