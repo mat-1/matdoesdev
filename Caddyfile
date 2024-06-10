@@ -306,9 +306,9 @@ mcassets.matdoes.dev {
 
 www.www.matdoes.dev {
 	header {
-                Content-Type text/html
-                Server "meow"
-        }
+		Content-Type text/html
+		Server "meow"
+	}
 	respond "<meta http-equiv=\"refresh\" content=\"15;url=https://matdoes.dev\">nyaaaaaaaaaaaaaaaaaaa" 200
 }
 
