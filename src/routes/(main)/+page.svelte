@@ -42,8 +42,6 @@
 			sandcatUrls.push(`https://matdoes.dev/sandcats/${i}.jpg`)
 		}
 
-		let lowestSandcatPosition = 0
-
 		const sandcatContainerEl = document.createElement('div')
 		sandcatContainerEl.style.position = 'fixed'
 		sandcatContainerEl.style.top = '0'
@@ -110,6 +108,9 @@
 		const copyrightEl = document.getElementsByClassName('copyright')[0]
 		if (defaultCopyrightText === undefined) defaultCopyrightText = copyrightEl.textContent as string
 		let copyrightText = defaultCopyrightText
+
+		const titleEl = document.getElementsByTagName('title')[0]
+		titleEl.textContent = content
 
 		if (/^(sand|samd)?(cat|cta|car)(doesdev)?$/.test(content)) {
 			sentence1 = 'meow meow, mew meow meow mrrp meow nyaa :3'
