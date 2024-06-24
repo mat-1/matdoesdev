@@ -19,15 +19,21 @@
 		}
 	}
 
-	const SONGS = [
-		'C418 - Biome Party',
-		'Garoad - Every Day Is Night',
-		'Peppsen - Blueprint',
-		'Epic Mountain - Stellar Engines',
-		"Toby Fox - A CYBER'S WORLD?",
-		'Toby Fox - Faint Glow',
-		'Toby Fox - My Castle Town',
-	]
+	const SONGS = `2 Mello - Mirror Temple (Mirror Magic Mix)
+C418 - Biome Party
+Epic Mountain - Stellar Engine
+Garoad - Every Day is Night
+Garoad - Good For Health, Bad For Education
+Garoad - Heart Of The City
+HOME - 17
+Ian Taylor - Autumn Voyage
+Kupla - Noir
+Kuraine - Summit (No More Running Mix)
+Makeup and Vanity Set - Search the Night
+Peppsen - Blueprint
+Peppsen - Split
+Toby Fox - A CYBER'S WORLD_
+VØJ - Moonlit`.split('\n')
 	function shuffleArray(array: any[]) {
 		for (var i = array.length - 1; i > 0; i--) {
 			var j = Math.floor(Math.random() * (i + 1))
