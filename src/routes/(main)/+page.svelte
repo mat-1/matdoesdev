@@ -36,7 +36,10 @@
 	let sentence2 = defaultSentence2
 	let defaultCopyrightText: string | undefined = undefined
 
+	let sandcatModeEnabled = false
 	async function startSandcatMode() {
+		if (sandcatModeEnabled) return
+		sandcatModeEnabled = true
 		const sandcatUrls = []
 		for (let i = 1; i <= 254; i++) {
 			sandcatUrls.push(`https://matdoes.dev/sandcats/${i}.jpg`)
