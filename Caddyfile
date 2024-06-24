@@ -140,6 +140,10 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 		header Content-Type text/plain
 		header Content-Encoding gzip
 	}
+	route /sandcats/* {
+		root * /opt/sandcats
+		file_server
+	}
 
 	handle_path /shwecky {
 		reverse_proxy https://shrecked.dev {
