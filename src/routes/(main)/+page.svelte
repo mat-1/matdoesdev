@@ -143,6 +143,7 @@
 <svelte:head>
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/blog.rss" />
 	<link rel="alternate" type="application/atom+xml" title="Atom" href="/blog.atom" />
+	<meta name="ICBM" content="39.0175416, -77.4659481" />
 </svelte:head>
 
 <Head />
