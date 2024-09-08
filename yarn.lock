@@ -2681,7 +2681,7 @@ __metadata:
 
 "mdsvex@patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch":
   version: 0.12.3
-  resolution: "mdsvex@patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch::version=0.12.3&hash=764118"
+  resolution: "mdsvex@patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch::version=0.12.3&hash=3468a8"
   dependencies:
     "@types/unist": "npm:^2.0.3"
     prism-svelte: "npm:^0.4.7"
@@ -2689,7 +2689,7 @@ __metadata:
     vfile-message: "npm:^2.0.4"
   peerDependencies:
     svelte: ^3.56.0 || ^4.0.0 || ^5.0.0-next.120
-  checksum: 10c0/54bb07d19f423958c8917f99a8d8c68539dcaa92cd433e0ddc8df4e973a452f917131d95430780aca44381e8c8e661f176f45cc7fbe7ef212021de4e5d9d5098
+  checksum: 10c0/db07e051c5d5633668544f88b4cb8827d9085c80d95d55d6574f8ed7feff5301ef6b886adaa4f871f542dc38167bb0323de8cbdb1572bc3d729bb7754a1dc5d6
   languageName: node
   linkType: hard
 
