@@ -1,0 +1,30 @@
+diff --git a/dist/main.cjs b/dist/main.cjs
+index b62811839cec4195e00e32bbedc3ae737f93e558..c7405c089034edb708ebf46028c9fbd62fc7dbf5 100644
+--- a/dist/main.cjs
++++ b/dist/main.cjs
+@@ -6423,6 +6423,10 @@ function parse$6(value, settings) {
+ 
+         namedEntity = type === name$1 ? decodeEntity(characters) : false;
+ 
++        // QUICKFIX https://github.com/pngwn/MDsveX/issues/296
++        if (namedEntity == '<') namedEntity = '&lt;';
++        if (namedEntity == '>') namedEntity = '&gt;';
++
+         if (namedEntity) {
+           entityCharacters = characters;
+           entity = namedEntity;
+diff --git a/dist/main.mjs b/dist/main.mjs
+index eff3198639f55dd9f1dec8909a79aa04994c87f3..03aa401ba6ce32c20432c11314a3ff50d3f37e25 100644
+--- a/dist/main.mjs
++++ b/dist/main.mjs
+@@ -6402,6 +6402,11 @@ function parse$6(value, settings) {
+ 
+         namedEntity = type === name$1 ? decodeEntity(characters) : false;
+ 
++        // QUICKFIX https://github.com/pngwn/MDsveX/issues/296
++        if (namedEntity == '<') namedEntity = '&lt;';
++        if (namedEntity == '>') namedEntity = '&gt;';
++
+         if (namedEntity) {
+           entityCharacters = characters;
+           entity = namedEntity;

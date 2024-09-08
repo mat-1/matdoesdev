@@ -25,7 +25,7 @@ I got jealous of how everyone in the server had their own scanner and I cheated 
 
 I already had a VPS on Oracle Cloud, which gives you a free "forever" powerful server, so I ran the masscan fork on it. There were several issues. First, it took several hours to scan as opposed to the 5 minutes I was led to believe it would take. Second, it was missing most servers which I expected to be there. Third, when I searched for my honeypot in the results, there were several servers that looked like they had the same MOTD as my honeypot but had different IP addresses.
 
-For the first issue, I learned that the "millions of packets per second" advertised by masscan only applies to dedicated machines that weren't virtualized. I also tried installing PF_RING, but that doesn't work on virtualized machines either. Oh well, several hours isn't *that* bad but it wasn't what I had hoped for.
+For the first issue, I learned that the "millions of packets per second" advertised by masscan only applies to dedicated machines that weren't virtualized. I also tried installing PF_RING, but that doesn't work on virtualized machines either. Oh well, several hours isn't <i>that</i> bad but it wasn't what I had hoped for.
 
 The second issue was a much bigger deal: Oracle Cloud was dropping packets. When I scanned at lower rates, I got less dropped servers, but also I didn't want to scan at lower rates. I found I could get Oracle to drop less packets by making the firewall rules stateless, but the amount of dropped packets continued to be unacceptable. I'd have to switch to a different host.
 
@@ -51,7 +51,6 @@ So remember that underground potato farm I made on LiveOverflow's server? I coul
 
 I also decided to make the bot bridge in-game chat to a channel in the Discord, so we could easily talk to players on the server. For a while, my bot was the only bot on the server. A bit later, my friend [SushiPython](https://sushipython.us) set up his own bot that stayed near the servers spawn-point to monitor events near the server's spawn, so if someone attempted to grief we would know who it was. For a while these were the only bots, but after LiveOverflow leaked the IP several times many more players started joining and making their own bots. First, it was uptime_check; every 5 minutes they joined and sent "chat test". Then, it was EmmaIsSad, who made a bot that joined after uptime_check joined and sent "cat test &lt;3". This became a meme. There were also a few other people who made bots that linked chat to their own servers, and bots that added custom commands to chat. Funnily enough one of these people was Shrecknt, the person who mentioned LiveOverflow in TheMisterEpic's Discord and made me want to check on it and basically the reason I ended up doing all this.
 
-
 ## Honeypots
 
 ![Screenshot of a Discord channel showing several pingers](honeypot.jpg)
@@ -65,6 +64,7 @@ I also gave the source code for my honeypot to some friends, and they modified i
 ## Conclusion
 
 There were some other fun things that happened, such as:
+
 - Me realizing that [Docker Minecraft Server](https://github.com/itzg/docker-minecraft-server) has "minecraft" as the default [RCON](https://wiki.vg/RCON) password (though I only found a few hundred servers with the port open with that password)
 - Me making a Minecraft server for exploring servers in my database by entering doors in an infinite hallway.
 - SushiPython and I confusing a lot of random Minecrafters by joining their servers.
