@@ -8,7 +8,12 @@
 	export let data: LayoutData
 
 	// + 1 because i live in the future
-	export const copyrightYear = new Date().getFullYear() + 1
+	export let copyrightYear = new Date().getFullYear() + 1
+
+	function clickCopyrightYear() {
+		copyrightYear += 1
+		localStorage.setItem('copyrightYear', String(copyrightYear))
+	}
 
 	let previousPathname = data.pathname
 	let currentPathName = data.pathname
@@ -67,6 +72,10 @@
 			}
 			lastGlobalTheme = theme
 		})
+
+		// update copyright year from local storage
+		const storedCopyrightYear = localStorage.getItem('copyrightYear')
+		if (storedCopyrightYear) copyrightYear = Number(storedCopyrightYear)
 	}
 </script>
 
@@ -81,7 +90,15 @@
 		</main>
 
 		<footer>
-			<p class="copyright">&copy; {copyrightYear} mat</p>
+			<p class="copyright">
+				&copy; <span
+					class="copyrightYear"
+					on:click={clickCopyrightYear}
+					on:keydown={clickCopyrightYear}
+					role="button"
+					tabindex="0">{copyrightYear}</span
+				> mat
+			</p>
 		</footer>
 	</div>
 {/key}
@@ -109,5 +126,10 @@
 		text-align: center;
 		flex: 0 0;
 		color: var(--text-color-alt-3);
+	}
+
+	.copyrightYear {
+		cursor: pointer;
+		user-select: none;
 	}
 </style>
