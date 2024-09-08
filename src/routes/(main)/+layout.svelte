@@ -32,7 +32,6 @@
 		// if we switched paths more than 10 times in the past 10 seconds, import $lib/gravity.js
 		pathChangeTimestamps.push(Date.now())
 		while (pathChangeTimestamps[0] < Date.now() - 10000) pathChangeTimestamps.shift()
-		console.log(pathChangeTimestamps)
 		if (pathChangeTimestamps.length >= 10) {
 			const { initGravity } = await import('$lib/gravity')
 			// wait 200ms for the animation to finish
