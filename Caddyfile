@@ -2,6 +2,14 @@
 #     --with github.com/mat-1/matdoesdev-caddy
 
 
+{
+	log default {
+		output file /var/log/caddy/caddy.log
+		format json
+		include http.log.access
+	}
+}
+
 (https_redirect) {
 	@do_https_redirect {
 		not header_regexp veryoldbrowser User-Agent Navigator|MSIE|Mosaic|Kindle|^curl|NintendoBrowser/
@@ -85,6 +93,10 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 	handle {
 		rewrite /.txt /index.txt
 	}
+	handle {
+		rewrite /index.html /index.htm
+		header /index.html Server nginx
+	}
 
 	# don't require .html
 	try_files {path} {path}.html
@@ -97,7 +109,7 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 	header @website Onion-Location http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion{path}
 
 	log {
-		output stdout
+		output file /var/log/caddy/matdoes.dev.log
 	}
 
 	# fediverse webfinger support
@@ -141,8 +153,16 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 		header Content-Encoding gzip
 	}
 	route /sandcats/* {
-		root * /opt/sandcats
-		file_server
+		uri strip_prefix /sandcats
+		file_server {
+			root /opt/sandcats
+		}
+	}
+	route /retro/music/* {
+		uri strip_prefix /retro/music
+		file_server {
+			root /opt/music
+		}
 	}
 
 	handle_path /shwecky {
@@ -186,6 +206,7 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 }
 
 staging.matdoes.dev {
+	log
 	root * /www-staging
 	file_server {
 		precompressed br gzip
@@ -240,6 +261,9 @@ Disallow: /"
 	}
 }
 matrix.matdoes.dev matrix.matdoes.dev:8448 {
+	log {
+		output file /var/log/caddy/matrix.matdoes.dev.log
+	}
 	handle /.well-known/matrix/server {
 		header content-type application/json
 		respond "{\"m.server\":\"matrix.matdoes.dev\"}"
@@ -253,16 +277,21 @@ matrix.matdoes.dev matrix.matdoes.dev:8448 {
 }
 
 stats.matrix.matdoes.dev {
+	log
 	reverse_proxy 127.0.0.1:81
 }
 
 fedi.matdoes.dev {
+	log
 	handle * {
 		redir https://f.matdoes.dev{uri}
 	}
 }
 
 f.matdoes.dev media.f.matdoes.dev cache.f.matdoes.dev {
+	log {
+		output file /var/log/caddy/f.matdoes.dev.log
+	}
 	@chrome {
 		header_regexp chrome User-Agent Chrome\/[0-9./]+\s(Mobile\s)?Safari\/[0-9./]+$
 		not header User-Agent *Googlebot/*
@@ -272,23 +301,28 @@ f.matdoes.dev media.f.matdoes.dev cache.f.matdoes.dev {
 	reverse_proxy 127.0.0.1:4000
 }
 git.matdoes.dev {
+	log
 	reverse_proxy 127.0.0.1:3000
 }
 http://s.matdoes.dev https://s.matdoes.dev {
 	import https_redirect
+	log
 
 	reverse_proxy 127.0.0.1:28019
 }
 
 staging.s.matdoes.dev {
+	log
 	reverse_proxy 127.0.0.1:28020
 }
 
 mail.matdoes.dev {
+	log
 	respond "mat's mail server :)"
 }
 
 matdoes.dev. {
+	log
 	# tls /home/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/matdoes.dev/matdoes.dev.crt /home/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/matdoes.dev/matdoes.dev.key
 
 	respond "meow"
@@ -296,22 +330,24 @@ matdoes.dev. {
 
 jmap.matdoes.dev {
 	log {
-		output stdout
+		output file /var/log/caddy/jmap.matdoes.dev.log
 	}
 
 	header Access-Control-Allow-Origin "*"
 	header Access-Control-Allow-Methods "*"
 	header Access-Control-Allow-Headers "*"
 
-	reverse_proxy https://localhost:8080 {
-		transport http {
-			tls
-			tls_insecure_skip_verify
-		}
-	}
+#	reverse_proxy https://localhost:8080 {
+#		transport http {
+#			tls
+#			tls_insecure_skip_verify
+#		}
+#	}
+	reverse_proxy http://localhost:8080
 }
 
 matdoes.dev:3 {
+	log
 	header {
 		colon3 :3
 		Content-Type :3
@@ -323,14 +359,17 @@ matdoes.dev:3 {
 }
 
 meowww.matdoes.dev {
+	log
 	reverse_proxy 127.0.0.1:11351
 }
 
 hetzner.matdoes.dev {
+	log
 	redir https://matdoes.dev{uri}
 }
 
 5.161.205.195 {
+	log
 	header {
 		Content-Type text/html
 		Server "i forgor"
@@ -339,10 +378,12 @@ hetzner.matdoes.dev {
 }
 
 mcassets.matdoes.dev {
+	log
 	reverse_proxy 127.0.0.1:10573
 }
 
 www.www.matdoes.dev {
+	log
 	header {
 		Content-Type text/html
 		Server "meow"
@@ -351,9 +392,17 @@ www.www.matdoes.dev {
 }
 
 www.matdoes.dev {
+	log
 	redir https://matdoes.dev{uri}
 }
 
 seized.matdoes.dev {
-	reverse_proxy 127.0.0.1:11270
+	log
+	handle /b/* {
+		reverse_proxy 127.0.0.1:11270
+	}
+	handle /banners.json {
+		reverse_proxy 127.0.0.1:11270
+	}
+	reverse_proxy 127.0.0.1:3962
 }
