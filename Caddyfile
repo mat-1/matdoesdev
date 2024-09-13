@@ -90,13 +90,11 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 	rewrite @txt_index /.txt
 	rewrite @txt {path}.txt
 	# rewrite /.txt to /index.txt
-	handle {
-		rewrite /.txt /index.txt
-	}
-	handle {
-		rewrite /index.html /index.htm
-		header /index.html Server nginx
-	}
+	rewrite /.txt /index.txt
+
+	# make /index.html show different page
+	rewrite /index.html /index.htm
+	header /index.html Server nginx
 
 	# don't require .html
 	try_files {path} {path}.html
