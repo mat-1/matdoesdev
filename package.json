@@ -19,8 +19,8 @@
 		"@types/html-minifier": "^4.0.5",
 		"@types/matter-js": "^0.19.7",
 		"@types/turndown": "^5.0.5",
-		"@typescript-eslint/eslint-plugin": "^8.4.0",
-		"@typescript-eslint/parser": "^8.4.0",
+		"@typescript-eslint/eslint-plugin": "^8.5.0",
+		"@typescript-eslint/parser": "^8.5.0",
 		"eslint": "^9.10.0",
 		"eslint-config-prettier": "^9.1.0",
 		"mdsvex": "patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch",
@@ -31,7 +31,7 @@
 		"svelte-check": "^4.0.1",
 		"svelte-preprocess": "^6.0.2",
 		"tslib": "^2.7.0",
-		"typescript": "^5.5.4"
+		"typescript": "^5.6.2"
 	},
 	"type": "module",
 	"dependencies": {
@@ -52,5 +52,5 @@
 	"engines": {
 		"node": ">=16"
 	},
-	"packageManager": "yarn@4.1.1"
+	"packageManager": "yarn@4.4.1"
 }
