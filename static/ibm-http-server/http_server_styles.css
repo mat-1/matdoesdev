@@ -1,0 +1,47 @@
+/* Provided for use only by developers of IBM products */
+/* 5648-F10 (C) Copyright International Business Machines Corp. 2005 */
+/* All Rights Reserved */
+/* US Government Users Restricted Rights - Use, duplication or disclosure */
+/* restricted by GSA ADP Schedule Contract with IBM Corp. */
+
+
+A      {color: #363636; 
+        font-family: Verdana, Helvetica, Arial, sans-serif; 
+        font-size: .75em;
+        font-weight: 900;
+        }
+
+A:link {color: #363636; 
+        font-family: Verdana, Helvetica, Arial, sans-serif; 
+        font-size: .75em
+        font-weight: 900;
+        }
+        
+A:active{color: #363636; 
+        font-family: Verdana, Helvetica, Arial, sans-serif; 
+        font-size: .75em
+        font-weight: 900;
+        }
+
+
+A:hover { color: #FF6600;
+        }
+
+.descriptive_text  {
+        font-family: Verdana, Helvetica, Arial, sans-serif;
+        font-size: .7em;
+        font-style: italic;
+        color: #777777;
+        font-weight: 900;
+        line-spacing: 2em;
+        }
+		
+.foreground{
+background-image:url(/ibm-http-server/foreground.gif);
+background-repeat:no-repeat;
+text-align:center;
+background-position:center;
+width:639px;
+height:252px;
+}
+        
