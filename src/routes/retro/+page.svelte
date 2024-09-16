@@ -354,7 +354,7 @@
 			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 		</td>
 	</tr>
-	<tr><td><p class="last-updated">Page last updated: March 19, 2024</p></td></tr>
+	<tr><td><p class="last-updated">Page last updated: September 15, 2024</p></td></tr>
 </table>
 
 <noscript>
