@@ -281,7 +281,7 @@
 								<Button href="//matrix.org" src="matrix.png" alt="matrix" />
 								<Button href="//caddyserver.com" src="caddy.png" alt="caddy" />
 								<Button href="//display-a.sand.cat" src="sandcat.png" alt="display a sand cat" />
-								<Button href="//makea.fish" src="makeafish.png" alt="make a fish" />
+								<Button href="http://makea.fish" src="makeafish.png" alt="make a fish" />
 								<Button
 									href="//seized.matdoes.dev"
 									src="seized.gif"
