@@ -125,7 +125,12 @@
 					<tr class="hidden-if-noscript">
 						<td class="current-time-cst-container">
 							<h3>Current time for me</h3>
-							<div class="current-time-cst-value">{currentTimeInCst}</div>
+							<div class="current-time-cst-value">
+								{currentTimeInCst}
+								{#if currentTimeInCst.startsWith('11:11:')}
+									<a href="http://makea.fish">🐟</a>
+								{/if}
+							</div>
 							<div class="current-time-cst-info">(CST)</div>
 						</td>
 					</tr>
