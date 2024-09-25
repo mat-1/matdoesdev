@@ -256,6 +256,11 @@
 								<Button href="//aubrey.rs" src="aubrey.png" alt="aubrey" />
 								<Button href="//haylinmoore.com/" src="haylin.png" alt="haylin moore" />
 								<Button href="//ezri.pet/" src="ezri.png" alt="ezri" />
+								<Button
+									href="//thomasricci.dev/"
+									src="rudrecciah.png"
+									alt="thomas ricci aka rudrecciah"
+								/>
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
