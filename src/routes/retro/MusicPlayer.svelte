@@ -32,7 +32,7 @@ Kuraine - Summit (No More Running Mix)
 Makeup and Vanity Set - Search the Night
 Peppsen - Blueprint
 Peppsen - Split
-Toby Fox - A CYBER'S WORLD_
+Toby Fox - A CYBER'S WORLD?
 VØJ - Moonlit`.split('\n')
 	function shuffleArray(array: any[]) {
 		for (var i = array.length - 1; i > 0; i--) {
