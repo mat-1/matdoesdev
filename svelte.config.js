@@ -27,6 +27,7 @@ const config = {
 				'/404',
 				'/451',
 				'/retro',
+				'/neko',
 				'/minecraft-scanning/minecraft-server-background.png',
 				// redirect /blog/* to /*
 				'/blog/matdoes-dev-markdown',
