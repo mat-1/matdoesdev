@@ -4,6 +4,7 @@
 	import type { LayoutData } from '../$types'
 	import { browser } from '$app/environment'
 	import { writable } from 'svelte/store'
+	import { onMount } from 'svelte'
 
 	export let data: LayoutData
 
@@ -56,6 +57,7 @@
 		}
 	}
 
+	const pageRendered = writable(false)
 	if (browser) {
 		const initialTheme = localStorage.getItem('theme') ?? 'dark'
 		let globalTheme = writable(initialTheme)
@@ -76,6 +78,24 @@
 		// update copyright year from local storage
 		const storedCopyrightYear = localStorage.getItem('copyrightYear')
 		if (storedCopyrightYear) copyrightYear = Number(storedCopyrightYear)
+
+		// neko persistence
+		const persistNeko = localStorage.getItem('neko-persist')
+		if (persistNeko === 'true') {
+			;(async () => {
+				const { pageRendered: nekoPageRendered } = await import('../neko/oneko')
+				import('../neko/oneko.css')
+
+				//  our neko script needs to know when the page is rendered, which may or may not have already happened
+				nekoPageRendered.set($pageRendered)
+				pageRendered.subscribe((v) => {
+					nekoPageRendered.set(v)
+				})
+			})()
+		}
+		onMount(() => {
+			$pageRendered = true
+		})
 	}
 </script>
 

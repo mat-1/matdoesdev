@@ -4,9 +4,10 @@
 	import links from './links.gif'
 	import projects from '../_projects.json'
 
-	import { initNeko } from './oneko'
+	import { initNeko, pageRendered, loadedNekoCount } from '../neko/oneko'
+	import '../neko/oneko.css'
 
-	import type { BlogPostPreview } from '../blog.json/+server.js'
+	import type { BlogPostPreview } from '../blog.json/preview'
 	import Button from './Button.svelte'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
@@ -101,6 +102,12 @@
 		W: 'up',
 		NW: 'up',
 	}
+
+	onMount(() => {
+		$pageRendered = true
+	})
+
+	$: nekoStatusClickable = $loadedNekoCount >= 2
 </script>
 
 <table id="main-table">
@@ -163,16 +170,22 @@
 							<div class="neko-status-title-container">
 								<h3>Neko status</h3>
 								<div
-									id="oneko"
+									class="oneko"
 									aria-hidden="true"
 									style="background-image: url(/retro/oneko.gif)"
 									bind:this={nekoEl}
 								></div>
 							</div>
 							<div class="neko-status-value">
-								<span class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}"
-									>{nekoSpriteIdsToNames[nekoSpriteName]}</span
-								>
+								{#if nekoStatusClickable}
+									<a class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}" href="/neko">
+										{nekoSpriteIdsToNames[nekoSpriteName]}
+									</a>
+								{:else}
+									<span class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}">
+										{nekoSpriteIdsToNames[nekoSpriteName]}
+									</span>
+								{/if}
 							</div>
 						</td>
 					</tr>
@@ -537,7 +550,7 @@
 	.neko-status-title-container h3 {
 		display: inline-block;
 	}
-	#oneko {
+	.oneko {
 		display: inline-block;
 	}
 

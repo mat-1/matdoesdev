@@ -51,18 +51,6 @@ h2 {
 	box-sizing: border-box;
 }
 
-#oneko {
-	width: 32px;
-	height: 32px;
-	image-rendering: pixelated;
-	z-index: 2147483647;
-	position: absolute;
-	cursor: pointer;
-
-	/* default idle sprite */
-	background-position: -96px -96px;
-}
-
 #main-title:after {
 	content: 'silly edition';
 	display: block;
