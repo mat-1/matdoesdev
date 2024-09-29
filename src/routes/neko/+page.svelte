@@ -95,10 +95,8 @@
 
 <svelte:head>
 	<title>cat config page</title>
-	<meta
-		name="description"
-		content="meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow :3"
-	/>
+	<meta name="description" content="meow :3" />
+	<meta name="theme-color" content="#ffffff" />
 </svelte:head>
 
 <svelte:body on:mousemove={dragWindow} on:mouseup={stopDragWindow} />
