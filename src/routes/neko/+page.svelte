@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './oneko.css'
+	import '$lib/98/98.css'
 
 	import {
 		BASE_SPRITESHEET_URL,
@@ -51,6 +52,40 @@
 	onMount(() => {
 		$pageRendered = true
 	})
+
+	let windowHidden = false
+	function closeWindow() {
+		windowHidden = true
+	}
+
+	let startMouseX = 0
+	let startMouseY = 0
+	let initialX = 0
+	let initialY = 0
+	let offsetX = 0
+	let offsetY = 0
+
+	let mouseDown = false
+
+	function startDragWindow(e: MouseEvent) {
+		if (mouseDown) return
+		startMouseX = e.clientX
+		startMouseY = e.clientY
+		initialX += offsetX
+		initialY += offsetY
+		offsetX = e.clientX - startMouseX
+		offsetY = e.clientY - startMouseY
+
+		mouseDown = true
+	}
+	function stopDragWindow(e: MouseEvent) {
+		mouseDown = false
+	}
+	function dragWindow(e: MouseEvent) {
+		if (!mouseDown) return
+		offsetX = e.clientX - startMouseX
+		offsetY = e.clientY - startMouseY
+	}
 </script>
 
 <svelte:head>
@@ -61,71 +96,89 @@
 	/>
 </svelte:head>
 
-<h1>cat config page</h1>
+<svelte:body on:mousemove={dragWindow} on:mouseup={stopDragWindow} />
 
-<noscript>
-	this page depends on js, sorry :(
+<div
+	class="window"
+	class:window-hidden={windowHidden}
+	style="left: {initialX + offsetX}px; top: {initialY + offsetY}px"
+>
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
+	<div class="title-bar" on:mousedown={startDragWindow}>
+		<div class="title-bar-text">cat config page</div>
+		<div class="title-bar-controls">
+			<button aria-label="Minimize" on:click={closeWindow}></button>
+			<button aria-label="Maximize"></button>
+			<button aria-label="Close" on:click={closeWindow}></button>
+		</div>
+	</div>
 
-	<style>
-		main {
-			display: none;
-		}
-	</style>
-</noscript>
+	<noscript>
+		this page depends on js, sorry :(
 
-<main>
-	<section>
-		<button on:click={() => initNeko()()}>summon neko</button>
-		<!-- you intentionally cannot despawn nekos without disabling persistence and reloading -->
-	</section>
+		<style>
+			main {
+				display: none;
+			}
+		</style>
+	</noscript>
 
-	<section>
-		<label>
-			<div>
-				acceleration:
-				<input
-					class="neko-config-text-input"
-					type="text"
-					bind:value={accel}
-					on:input={updateFromAccelStr}
-				/>
-			</div>
+	<main class="window-body">
+		<section>
+			<button on:click={() => initNeko()()}>summon neko</button>
+			<!-- you intentionally cannot despawn nekos without disabling persistence and reloading -->
+		</section>
+
+		<section>
+			<label for="neko-config-acceleration">acceleration:</label>
+			<input
+				class="neko-config-text-input"
+				id="neko-config-acceleration"
+				type="text"
+				bind:value={accelStr}
+				on:input={updateFromAccelStr}
+			/>
 			<input type="range" min="0" max="25" bind:value={accel} />
-		</label>
-	</section>
+		</section>
 
-	<section>
-		<label>
-			<!-- idea for slipperiness yoinked from goldenstack -->
-			<!-- https://github.com/GoldenStack/icey-oneko -->
-			<div>
-				slipperiness:
-				<input
-					class="neko-config-text-input"
-					type="text"
-					bind:value={slipperiness}
-					on:input={updateFromSlipperinessStr}
-				/>%
-			</div>
+		<section>
+			<label for="neko-config-slipperiness">slipperiness:</label>
+			<input
+				class="neko-config-text-input"
+				id="neko-config-slipperiness"
+				type="text"
+				bind:value={slipperinessStr}
+				on:input={updateFromSlipperinessStr}
+			/>%
 			<input type="range" min="0" max="95" bind:value={slipperiness} />
-		</label>
-	</section>
+		</section>
 
-	<section>
-		<label>
-			<div>
-				persist nekos on reload:
-				<input type="checkbox" bind:checked={persistOnReload} />
-			</div>
-		</label>
-	</section>
+		<section>
+			<input type="checkbox" bind:checked={persistOnReload} id="neko-config-persist-on-reload" />
+			<label for="neko-config-persist-on-reload"> persist nekos on reload</label>
+		</section>
 
-	<!--
+		<section>
+			<details>
+				<summary>credits</summary>
+				<ul>
+					<li>
+						neko by <a href="https://en.wikipedia.org/wiki/Neko_(software)">various developers</a>
+					</li>
+					<li>original oneko.js by <a href="https://github.com/adryd325/oneko.js">adryd</a></li>
+					<li>
+						slipperiness by <a href="https://github.com/GoldenStack/icey-oneko">goldenstack</a>
+					</li>
+				</ul>
+			</details>
+		</section>
+
+		<!--
 	unfinished for now because a lot of the existing spritesheets change the
 	sprite coordinates and animations as well so that'd also need to be
 	configurable and i haven't decided how to make that work
 	-->
-	<!-- <section>
+		<!-- <section>
 		<div>spritesheets:</div>
 		<div class="neko-spritesheets">
 			{#each $spritesheetUrls as spritesheetUrl, i}
@@ -146,9 +199,20 @@
 			{/each}
 		</div>
 	</section> -->
-</main>
+	</main>
+</div>
 
 <style>
+	:global(html) {
+		height: 100%;
+	}
+	:global(body) {
+		background-image: url('/bliss-hd.jpg');
+		background-attachment: fixed;
+		background-size: cover;
+		height: 100%;
+	}
+
 	section {
 		margin-bottom: 1em;
 		display: block;
@@ -174,4 +238,17 @@
 	.neko-spritesheet-add-btn {
 		float: right;
 	} */
+
+	ul {
+		margin: 0;
+	}
+
+	.window {
+		width: fit-content;
+		position: relative;
+		user-select: none;
+	}
+	.window-hidden {
+		display: none;
+	}
 </style>
