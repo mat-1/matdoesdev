@@ -229,19 +229,13 @@ export function initNeko(
 			// fix the position and velocity in case it hits a wall
 			if (nekoState.mouseX < 0) {
 				nekoState.mouseX = 0
-				nekoState.velX = 0
-			}
-			if (nekoState.mouseX > window.innerWidth) {
+			} else if (nekoState.mouseX > window.innerWidth) {
 				nekoState.mouseX = window.innerWidth
-				nekoState.velX = 0
 			}
 			if (nekoState.mouseY < 0) {
 				nekoState.mouseY = 0
-				nekoState.velY = 0
-			}
-			if (nekoState.mouseY > window.innerHeight) {
+			} else if (nekoState.mouseY > window.innerHeight) {
 				nekoState.mouseY = window.innerHeight
-				nekoState.velY = 0
 			}
 		}
 
@@ -412,8 +406,22 @@ export function initNeko(
 		nekoState.x -= nekoState.velX * nekoState.speedMultiplier
 		nekoState.y -= nekoState.velY * nekoState.speedMultiplier
 
-		nekoState.x = Math.min(Math.max(16, nekoState.x), window.innerWidth - 16)
-		nekoState.y = Math.min(Math.max(16, nekoState.y), window.innerHeight - 16)
+		const maxX = window.innerWidth - 16
+		const maxY = window.innerHeight - 16
+		if (nekoState.x < 16) {
+			nekoState.x = 16
+			nekoState.velX = 0
+		} else if (nekoState.x > maxX) {
+			nekoState.x = maxX
+			nekoState.velX = 0
+		}
+		if (nekoState.y < 16) {
+			nekoState.y = 16
+			nekoState.velY = 0
+		} else if (nekoState.y > maxY) {
+			nekoState.y = maxY
+			nekoState.velY = 0
+		}
 
 		nekoEl.style.left = `${nekoState.x - 16}px`
 		nekoEl.style.top = `${nekoState.y - 16}px`
