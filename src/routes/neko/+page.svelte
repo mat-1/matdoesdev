@@ -57,6 +57,11 @@
 	function closeWindow() {
 		windowHidden = true
 	}
+	let windowMaximized = false
+	function toggleMaximizeWindow() {
+		windowMaximized = !windowMaximized
+		offsetX = offsetY = initialX = initialY = 0
+	}
 
 	let startMouseX = 0
 	let startMouseY = 0
@@ -68,7 +73,7 @@
 	let mouseDown = false
 
 	function startDragWindow(e: MouseEvent) {
-		if (mouseDown) return
+		if (mouseDown || windowMaximized) return
 		startMouseX = e.clientX
 		startMouseY = e.clientY
 		initialX += offsetX
@@ -101,6 +106,7 @@
 <div
 	class="window"
 	class:window-hidden={windowHidden}
+	class:window-maximized={windowMaximized}
 	style="left: {initialX + offsetX}px; top: {initialY + offsetY}px"
 >
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -108,7 +114,7 @@
 		<div class="title-bar-text">cat config page</div>
 		<div class="title-bar-controls">
 			<button aria-label="Minimize" on:click={closeWindow}></button>
-			<button aria-label="Maximize"></button>
+			<button aria-label="Maximize" on:click={toggleMaximizeWindow}></button>
 			<button aria-label="Close" on:click={closeWindow}></button>
 		</div>
 	</div>
@@ -169,6 +175,9 @@
 					<li>
 						slipperiness by <a href="https://github.com/GoldenStack/icey-oneko">goldenstack</a>
 					</li>
+					<li>
+						98.css by <a href="https://jdan.github.io/98.css/">jdan</a>
+					</li>
 				</ul>
 			</details>
 		</section>
@@ -213,6 +222,16 @@
 		height: 100%;
 	}
 
+	:global(.music-player) {
+		border-collapse: unset;
+	}
+	:global(.music-player .song-name) {
+		color: #fff;
+	}
+	:global(.music-player td button) {
+		min-width: fit-content;
+	}
+
 	section {
 		margin-bottom: 1em;
 		display: block;
@@ -250,5 +269,13 @@
 	}
 	.window-hidden {
 		display: none;
+	}
+	.window-maximized {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
 	}
 </style>
