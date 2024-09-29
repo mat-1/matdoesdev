@@ -73,7 +73,7 @@
 	let mouseDown = false
 
 	function startDragWindow(e: MouseEvent) {
-		if (mouseDown || windowMaximized) return
+		if (mouseDown || windowMaximized || e.button !== 0) return
 		startMouseX = e.clientX
 		startMouseY = e.clientY
 		initialX += offsetX
@@ -94,7 +94,7 @@
 </script>
 
 <svelte:head>
-	<title>cat config page</title>
+	<title>cat config</title>
 	<meta name="description" content="meow :3" />
 	<meta name="theme-color" content="#ffffff" />
 </svelte:head>
