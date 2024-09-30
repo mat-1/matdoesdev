@@ -489,6 +489,9 @@ if (browser) {
 				initNeko(undefined, undefined, state)
 			}
 
+			// wait a few hundred ms before we start saving just to make sure we don't write an empty list
+			await new Promise((resolve) => setTimeout(resolve, 500))
+
 			setInterval(() => {
 				// update localstorage
 				localStorage.setItem(LOCALSTORAGE_NAMES.nekoStates, JSON.stringify(nekoConfig.nekoStates))
