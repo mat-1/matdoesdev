@@ -239,9 +239,14 @@ export function initNeko(
 			}
 		}
 
-		if (exactMousePosX !== undefined) nekoState.mouseX = exactMousePosX + randomMouseOffsetX
-		if (exactMousePosY !== undefined) nekoState.mouseY = exactMousePosY + randomMouseOffsetY
-		clampMousePos()
+		function setMousePos(x: number, y: number) {
+			nekoState.mouseX = x + randomMouseOffsetX
+			nekoState.mouseY = y + randomMouseOffsetY
+			clampMousePos()
+		}
+
+		if (exactMousePosX !== undefined && exactMousePosY !== undefined)
+			setMousePos(exactMousePosX, exactMousePosY)
 
 		nekoEl.style.position = 'fixed'
 		nekoEl.style.pointerEvents = 'none'
@@ -249,10 +254,12 @@ export function initNeko(
 		nekoEl.style.top = `${nekoState.y - 16}px`
 		nekoEl.style.zIndex = Number.MAX_VALUE.toString()
 
-		document.addEventListener('mousemove', function (event) {
-			nekoState.mouseX = event.clientX + randomMouseOffsetX
-			nekoState.mouseY = event.clientY + randomMouseOffsetY
-			clampMousePos()
+		document.addEventListener('mousemove', function (ev) {
+			setMousePos(ev.clientX, ev.clientY)
+		})
+		// mobile support
+		document.addEventListener('touchmove', function (ev) {
+			setMousePos(ev.touches[0].clientX, ev.touches[0].clientY)
 		})
 
 		// move to body so it persists on page changes
@@ -458,9 +465,13 @@ declare global {
 export let pageRendered = writable(false)
 
 if (browser) {
-	document.addEventListener('mousemove', function (event) {
-		exactMousePosX = event.clientX
-		exactMousePosY = event.clientY
+	document.addEventListener('mousemove', function (ev) {
+		exactMousePosX = ev.clientX
+		exactMousePosY = ev.clientY
+	})
+	document.addEventListener('touchmove', function (ev) {
+		exactMousePosX = ev.touches[0].clientX
+		exactMousePosY = ev.touches[0].clientY
 	})
 
 	// persist on reload
