@@ -121,3 +121,8 @@ body.extra-dark-theme {
 	background-color: #000;
 	filter: brightness(0.1);
 }
+
+body.sandcat-mode {
+	--background-color: transparent;
+	--background-color-alt: #0006;
+}

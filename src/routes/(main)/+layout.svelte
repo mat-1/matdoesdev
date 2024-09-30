@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../../app.css'
 	import { fly } from 'svelte/transition'
-	import type { LayoutData } from '../$types'
+	import type { LayoutData } from './$types'
 	import { browser } from '$app/environment'
 	import { writable } from 'svelte/store'
 	import { onMount } from 'svelte'
@@ -130,9 +130,11 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: stretch;
-		overflow-x: hidden;
 		overflow-wrap: break-word;
 		position: relative;
+	}
+	:global(body) {
+		overflow-x: hidden;
 	}
 
 	main {

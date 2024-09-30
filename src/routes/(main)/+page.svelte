@@ -105,6 +105,8 @@
 		sandcatContainerEl.style.lineHeight = '0'
 		document.body.appendChild(sandcatContainerEl)
 
+		document.body.classList.add('sandcat-mode')
+
 		let mustWait = true
 
 		;(async () => {
