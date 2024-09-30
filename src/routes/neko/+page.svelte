@@ -65,8 +65,8 @@
 
 	let startMouseX = 0
 	let startMouseY = 0
-	let initialX = 0
-	let initialY = 0
+	let initialX = 16
+	let initialY = 16
 	let offsetX = 0
 	let offsetY = 0
 
@@ -109,7 +109,7 @@
 >
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="title-bar" on:mousedown={startDragWindow}>
-		<div class="title-bar-text">cat config page</div>
+		<div class="title-bar-text">cat config</div>
 		<div class="title-bar-controls">
 			<button aria-label="Minimize" on:click={closeWindow}></button>
 			<button aria-label="Maximize" on:click={toggleMaximizeWindow}></button>
@@ -218,6 +218,7 @@
 		background-attachment: fixed;
 		background-size: cover;
 		height: 100%;
+		margin: 0;
 	}
 
 	:global(.music-player) {

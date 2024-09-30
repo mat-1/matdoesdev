@@ -359,9 +359,13 @@ export function initNeko(
 		const distance = Math.sqrt(diffX ** 2 + diffY ** 2)
 		const speed = Math.sqrt(nekoState.velX ** 2 + nekoState.velY ** 2)
 
+		const calculatedFollowDistance = Math.max(
+			nekoState.speedMultiplier * nekoConfig.accelMultiplier,
+			nekoFollowDistance
+		)
+
 		if (
-			distance <
-				Math.max(nekoState.speedMultiplier * nekoConfig.accelMultiplier, nekoFollowDistance) &&
+			distance < calculatedFollowDistance &&
 			speed <= nekoState.speedMultiplier * nekoConfig.accelMultiplier * 2
 		) {
 			nekoState.velX = 0
@@ -391,8 +395,10 @@ export function initNeko(
 		nekoState.velX *= nekoConfig.slipperiness
 		nekoState.velY *= nekoConfig.slipperiness
 
-		nekoState.velX += accelX * nekoConfig.accelMultiplier
-		nekoState.velY += accelY * nekoConfig.accelMultiplier
+		if (distance > calculatedFollowDistance || Math.sign(accelX) != Math.sign(nekoState.velX))
+			nekoState.velX += accelX * nekoConfig.accelMultiplier
+		if (distance > calculatedFollowDistance || Math.sign(accelY) != Math.sign(nekoState.velY))
+			nekoState.velY += accelY * nekoConfig.accelMultiplier
 
 		let direction: string
 
