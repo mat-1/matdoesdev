@@ -279,7 +279,7 @@
 		<option value="random">Random</option>
 	</select>
 
-	{#if buttonEntries.length === 0}
+	{#if buttonEntries.length == 0 && data.pages.length === 0}
 		<div class="loading-indicator">
 			<LoadingDots />
 		</div>
