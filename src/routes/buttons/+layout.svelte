@@ -27,7 +27,8 @@
 
 <header>
 	<nav>
-		<a href="/buttons" class:selected={selectedPage === 'buttons'}>Buttons</a>
+		<!-- the # is necessary to make onhashchange work -->
+		<a href="/buttons#" class:selected={selectedPage === 'buttons'}>Buttons</a>
 		<!-- <a href="/buttons/sites" class:selected={selectedPage === 'sites'}>Sites</a> -->
 		<a
 			href="/buttons/degrees{$selectedPageName ? `#${$selectedPageName}` : ''}"

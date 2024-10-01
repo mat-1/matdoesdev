@@ -1,13 +1,19 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte'
-	import { buttonIndexFromHash, buttonUrlFromIndex, data, pageIndexFromName } from './88x31'
+	import {
+		buttonIndexFromHash,
+		buttonUrlFromIndex,
+		data,
+		downloadData,
+		pageIndexFromName,
+	} from './88x31'
 	import { writable } from 'svelte/store'
 	import { page } from '$app/stores'
 	import ButtonLink from './ButtonLink.svelte'
 	import ExternalLinkIcon from './ExternalLinkIcon.svelte'
 	import ExternalLink from './ExternalLink.svelte'
-	import type { UIEventHandler } from 'svelte/elements'
 	import { browser } from '$app/environment'
+	import LoadingDots from '$lib/LoadingDots.svelte'
 
 	let searchQuery = writable('')
 	let sort = writable('relevance')
@@ -40,7 +46,16 @@
 	})
 
 	let refs: HTMLDivElement[] = []
-	onMount(() => {
+	let buttonEntries: [number, string][] = []
+
+	onMount(async () => {
+		await downloadData()
+		if (!data) throw new Error("data should've been downloaded")
+		buttonEntries = [...data.buttons.entries()]
+
+		updateSearch()
+		updateFromHash()
+
 		buttonContainerObserver.observe(buttonsEl, {
 			childList: true,
 		})
@@ -60,12 +75,12 @@
 
 	let matchingTextIndexes = new Set<number>()
 
-	let buttonEntries: [number, string][] = [...data.buttons.entries()]
-
 	searchQuery.subscribe(updateSearch)
 	sort.subscribe(updateSearch)
 
 	function popularityScore(buttonIndex: number): number {
+		if (!data) return 0
+
 		const backlinks = new Set(
 			data.button_backlinks[buttonIndex].map((i) => data.pages[i].split('/')[0])
 		)
@@ -76,6 +91,8 @@
 	}
 
 	function updateSearch() {
+		if (!data) return 0
+
 		const value = $searchQuery
 		let sortValue = $sort
 
@@ -134,24 +151,32 @@
 	let selectedPageName = writable<string | null>(null)
 	$: selectedPageIndex = $selectedPageName === null ? null : pageIndexFromName($selectedPageName)
 
-	page.subscribe(async (page) => {
-		// this is to work around a sveltekit bug that makes it click the hash twice, which clicks the wrong link the second time
-		await new Promise((r) => requestAnimationFrame(r))
+	function updateFromHash() {
+		const hash = location.hash.slice(1)
+		console.log('updateFromHash', hash)
 
-		// hash
-		const hash = page.url.hash.slice(1)
 		// if the hash has a . then it's a page name
 		if (hash === '') {
-			selectedButtonHash.set(null)
-			selectedPageName.set(null)
+			$selectedButtonHash = null
+			$selectedPageName = null
 		} else if (hash.includes('.')) {
-			selectedButtonHash.set(null)
-			selectedPageName.set(hash)
+			$selectedButtonHash = null
+			$selectedPageName = null // force selectedPageIndex to be recalculated
+			$selectedPageName = hash
 		} else {
-			selectedButtonHash.set(hash)
-			selectedPageName.set(null)
+			$selectedButtonHash = null // force selectedButtonIndex to be recalculated
+			$selectedButtonHash = hash
+			$selectedPageName = null
 		}
-	})
+	}
+
+	// page.subscribe(async (page) => {
+	// 	// this is to work around a sveltekit bug that makes it click the hash twice, which clicks the wrong link the second time
+	// 	await new Promise((r) => requestAnimationFrame(r))
+	// 	// set
+
+	// 	updateFromHash()
+	// })
 
 	let cutOffButtonEntries = 500
 	let isCurrentlyAdding = false
@@ -188,7 +213,7 @@
 	}
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY on:hashchange={updateFromHash} />
 
 {#if selectedButtonIndex !== null}
 	<h1>
@@ -254,7 +279,13 @@
 		<option value="random">Random</option>
 	</select>
 
-	<p><b>{buttonEntries.length.toLocaleString()}</b> buttons</p>
+	{#if buttonEntries.length === 0}
+		<div class="loading-indicator">
+			<LoadingDots />
+		</div>
+	{:else}
+		<p><b>{buttonEntries.length.toLocaleString()}</b> buttons</p>
+	{/if}
 
 	<div class="compact-button-grid" bind:this={buttonsEl}>
 		{#each buttonEntries.slice(0, cutOffButtonEntries) as [index, buttonHash] (buttonHash)}
@@ -295,5 +326,10 @@
 	.section-list {
 		display: flex;
 		gap: 1rem;
+	}
+
+	.loading-indicator {
+		fill: #fff;
+		margin-top: 1em;
 	}
 </style>

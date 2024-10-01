@@ -19,9 +19,27 @@ interface Data {
 	backlink_buttons: number[][]
 }
 
-const res = await fetch('https://matdoes.dev/buttons/88x31.cbor')
-const buffer = await res.arrayBuffer()
-export const data: Data = decode(new Uint8Array(buffer))
+export let data: Data = {
+	pages: [],
+	buttons: [],
+	texts: [],
+	button_file_exts: [],
+	button_names: [],
+	button_links: [],
+	button_backlinks: [],
+	links: [],
+	link_buttons: [],
+	link_button_alts: [],
+	link_button_titles: [],
+	backlinks: [],
+	backlink_buttons: [],
+}
+
+export async function downloadData() {
+	const res = await fetch('https://matdoes.dev/buttons/88x31.cbor')
+	const buffer = await res.arrayBuffer()
+	data = decode(new Uint8Array(buffer))
+}
 
 export function buttonUrlFromIndex(index: number) {
 	const hash = buttonHashFromIndex(index)
@@ -54,6 +72,7 @@ function binarySearch<T>(arr: T[], key: T): number | null {
 }
 
 export function pageIndexFromName(name: string): number | null {
+	console.log('pageIndexFromName', name, binarySearch(data.pages, name))
 	return binarySearch(data.pages, name)
 }
 
