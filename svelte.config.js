@@ -35,6 +35,8 @@ const config = {
 				'/blog/uncovering-the-discord-twitch-bots',
 				'/blog/what-are-domain-hacks',
 				'/blog/who-is-mat',
+				// sometimes /retro doesn't get prerendered if this isn't included
+				'/retro',
 			],
 			handleHttpError: 'warn',
 		},
