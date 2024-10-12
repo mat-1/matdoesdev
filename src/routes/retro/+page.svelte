@@ -275,6 +275,7 @@
 									alt="thomas ricci aka rudrecciah"
 								/>
 								<Button href="//zptr.cc" src="yui.gif" alt="yui aka zeroptr" />
+								<Button href="//ednamode.xyz" src="edna.png" alt="edna" />
 								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
