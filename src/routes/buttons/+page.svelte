@@ -8,7 +8,6 @@
 		pageIndexFromName,
 	} from './88x31'
 	import { writable } from 'svelte/store'
-	import { page } from '$app/stores'
 	import ButtonLink from './ButtonLink.svelte'
 	import ExternalLinkIcon from './ExternalLinkIcon.svelte'
 	import ExternalLink from './ExternalLink.svelte'

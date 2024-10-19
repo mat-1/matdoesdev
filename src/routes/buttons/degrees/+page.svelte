@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { writable } from 'svelte/store'
-	import { pageIndexFromName, data } from '../88x31'
+	import { pageIndexFromName, data, downloadData } from '../88x31'
 	import ButtonLink from '../ButtonLink.svelte'
 	import { onMount } from 'svelte'
 	import { page } from '$app/stores'
@@ -99,21 +99,25 @@
 		localStorage.setItem('88x31-degrees-targetPage', $targetPage)
 	}
 
-	onMount(() => {
-		return page.subscribe(async (page) => {
-			const hash = decodeURIComponent(page.url.hash.slice(1))
-			let [origin, target] = hash.split('→')
+	onMount(async () => {
+		await downloadData()
 
-			if (origin === undefined) origin = ''
-			if (target === undefined) target = ''
-
-			if (origin === '') origin = localStorage.getItem('88x31-degrees-originPage') ?? ''
-			if (target === '') target = localStorage.getItem('88x31-degrees-targetPage') ?? ''
-
-			if (origin !== '' && $originPage !== origin) originPage.set(origin)
-			if (target !== '' && $targetPage !== target) targetPage.set(target)
-		})
+		updateFromHash()
 	})
+
+	function updateFromHash() {
+		const hash = decodeURIComponent(location.hash.slice(1))
+		let [origin, target] = hash.split('→')
+
+		if (origin === undefined) origin = ''
+		if (target === undefined) target = ''
+
+		if (origin === '') origin = localStorage.getItem('88x31-degrees-originPage') ?? ''
+		if (target === '') target = localStorage.getItem('88x31-degrees-targetPage') ?? ''
+
+		if (origin !== '' && $originPage !== origin) originPage.set(origin)
+		if (target !== '' && $targetPage !== target) targetPage.set(target)
+	}
 
 	originPage.subscribe(calculatePath)
 	targetPage.subscribe(calculatePath)
@@ -125,6 +129,8 @@
 		history.replaceState(null, '', `#${$originPage}→${$targetPage}`)
 	}
 </script>
+
+<svelte:window on:hashchange={updateFromHash} />
 
 <input
 	type="text"
