@@ -24,9 +24,15 @@ function pngToGifForRetro() {
 			// const baseDirectory = '.svelte-kit/output/client/retro'
 			const baseDirectory = 'build/retro'
 
-			const allFiles = await fs.promises.readdir(baseDirectory, {
-				recursive: true,
-			})
+			let allFiles
+			try {
+				allFiles = await fs.promises.readdir(baseDirectory, {
+					recursive: true,
+				})
+			} catch {
+				console.warn(`Warning: Couldn't read ${baseDirectory} so gifs weren't generated`)
+				return
+			}
 
 			const files = allFiles
 				.filter((file) => file.endsWith('.png'))
