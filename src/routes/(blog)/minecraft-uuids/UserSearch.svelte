@@ -98,7 +98,7 @@
 		}
 	}
 
-	let currentSearch: Promise<void> | null = null
+	let currentSearch: Promise<void> | null = $state(null)
 	query.subscribe(async (value) => {
 		if (value === '') {
 			searchResults.set([])

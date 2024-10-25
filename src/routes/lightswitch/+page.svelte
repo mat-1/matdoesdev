@@ -11,7 +11,7 @@
 	let globalTheme = writable(browser ? localStorage.getItem('theme') ?? 'dark' : 'dark')
 	let isLightSwitchOn = writable($globalTheme === 'light' || $globalTheme === 'extra-light')
 
-	let mounted = false
+	let mounted = $state(false)
 
 	onMount(() => {
 		window.addEventListener('storage', (e) => {
@@ -54,7 +54,7 @@
 
 <main>
 	{#if mounted}
-		<button on:click={() => ($isLightSwitchOn = !$isLightSwitchOn)}>
+		<button onclick={() => ($isLightSwitchOn = !$isLightSwitchOn)}>
 			<img
 				src={$isLightSwitchOn ? lightSwitchOnImage : lightSwitchOffImage}
 				alt="Light switch on"

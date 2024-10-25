@@ -3,8 +3,12 @@
 	import PostPreview from '$lib/PostPreview.svelte'
 	import type { BlogPostPreview } from '../../blog.json/+server'
 
-	export let data
-	export let posts: BlogPostPreview[] = data.posts
+	interface Props {
+		data: any;
+		posts?: BlogPostPreview[];
+	}
+
+	let { data, posts = data.posts }: Props = $props();
 </script>
 
 <svelte:head>

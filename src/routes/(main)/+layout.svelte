@@ -1,34 +1,30 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import '../../app.css'
 	import { fly } from 'svelte/transition'
 	import type { LayoutData } from './$types'
 	import { browser } from '$app/environment'
 	import { writable } from 'svelte/store'
 	import { onMount } from 'svelte'
+	
+	interface Props {
+		data: LayoutData;
+		// + 1 because i live in the future
+		copyrightYear?: any;
+		children?: import('svelte').Snippet;
+	}
 
-	export let data: LayoutData
-
-	// + 1 because i live in the future
-	export let copyrightYear = new Date().getFullYear() + 1
+	let { data, copyrightYear = $bindable(new Date().getFullYear() + 1), children }: Props = $props();
 
 	function clickCopyrightYear() {
 		copyrightYear += 1
 		localStorage.setItem('copyrightYear', String(copyrightYear))
 	}
 
-	let previousPathname = data.pathname
-	let currentPathName = data.pathname
-	let flyDirection = 1 // 1 is right, -1 is left
-	$: if (browser) {
-		if (previousPathname !== currentPathName) previousPathname = currentPathName
-		currentPathName = data.pathname
-
-		// fly right if we're going forward, left if we're going back
-		if (previousPathname === '/') flyDirection = 1
-		else if (previousPathname === '/blog' && currentPathName !== '/') flyDirection = 1
-		else flyDirection = -1
-		onPathChange()
-	}
+	let previousPathname = $state(data.pathname)
+	let currentPathName = $state(data.pathname)
+	let flyDirection = $state(1) // 1 is right, -1 is left
 
 	let pathChangeTimestamps: number[] = []
 
@@ -97,6 +93,18 @@
 			$pageRendered = true
 		})
 	}
+	run(() => {
+		if (browser) {
+			if (previousPathname !== currentPathName) previousPathname = currentPathName
+			currentPathName = data.pathname
+
+			// fly right if we're going forward, left if we're going back
+			if (previousPathname === '/') flyDirection = 1
+			else if (previousPathname === '/blog' && currentPathName !== '/') flyDirection = 1
+			else flyDirection = -1
+			onPathChange()
+		}
+	});
 </script>
 
 {#key data.pathname}
@@ -106,15 +114,15 @@
 		out:fly={{ x: 5 * flyDirection, duration: 200 }}
 	>
 		<main>
-			<slot />
+			{@render children?.()}
 		</main>
 
 		<footer>
 			<p class="copyright">
 				&copy; <span
 					class="copyrightYear"
-					on:click={clickCopyrightYear}
-					on:keydown={clickCopyrightYear}
+					onclick={clickCopyrightYear}
+					onkeydown={clickCopyrightYear}
 					role="button"
 					tabindex="0">{copyrightYear}</span
 				> mat

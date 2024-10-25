@@ -5,19 +5,10 @@
 	import Play from './icons/Play.svelte'
 	import { browser } from '$app/environment'
 
-	let musicPlayerEl: HTMLAudioElement | undefined = undefined
+	let musicPlayerEl: HTMLAudioElement | undefined = $state(undefined)
 
-	let playing = false
-	let volume = 50
-
-	$: if (musicPlayerEl) musicPlayerEl.volume = volume / 100
-	$: if (musicPlayerEl) {
-		if (playing) {
-			musicPlayerEl.play()
-		} else {
-			musicPlayerEl.pause()
-		}
-	}
+	let playing = $state(false)
+	let volume = $state(50)
 
 	const SONGS = `2 Mello - Mirror Temple (Mirror Magic Mix)
 C418 - Biome Party
@@ -44,21 +35,32 @@ VØJ - Moonlit`.split('\n')
 	}
 	if (browser) shuffleArray(SONGS)
 
-	let currentSongIndex = 0
-	let currentSong: string
-	$: {
-		currentSong = SONGS[currentSongIndex]
-	}
+	let currentSongIndex = $state(0)
+	let currentSong = $derived(SONGS[currentSongIndex])
 
-	let currentSong_: string | null = null
-	$: if (musicPlayerEl) {
-		if (currentSong_ !== currentSong) {
-			const newSrc = `/retro/music/${currentSong.replace(/\?/g, '')}.mp3`
-			musicPlayerEl.src = newSrc
-			musicPlayerEl.load()
-			currentSong_ = currentSong
+	let currentSong_: string | null = $state(null)
+
+	$effect(() => {
+		if (musicPlayerEl) {
+			musicPlayerEl.volume = volume / 100
 		}
-	}
+	})
+	$effect(() => {
+		if (musicPlayerEl) {
+			if (playing) musicPlayerEl.play()
+			else musicPlayerEl.pause()
+		}
+	})
+	$effect(() => {
+		if (musicPlayerEl) {
+			if (currentSong_ !== currentSong) {
+				const newSrc = `/retro/music/${currentSong.replace(/\?/g, '')}.mp3`
+				musicPlayerEl.src = newSrc
+				musicPlayerEl.load()
+				currentSong_ = currentSong
+			}
+		}
+	})
 
 	function nextSong() {
 		currentSongIndex = (currentSongIndex + 1) % SONGS.length
@@ -69,38 +71,40 @@ VØJ - Moonlit`.split('\n')
 	}
 </script>
 
-<audio bind:this={musicPlayerEl} on:ended={nextSong} />
+<audio bind:this={musicPlayerEl} onended={nextSong}></audio>
 
 <table class="music-player" style={musicPlayerEl ? '' : 'display: none'}>
-	<tr>
-		<td>
-			<button on:click={prevSong}>
-				<Backward />
-			</button>
-		</td>
-		<td>
-			<button on:click={() => (playing = !playing)}>
-				{#if playing}
-					<Pause />
-				{:else}
-					<Play />
-				{/if}
-			</button>
-		</td>
-		<td>
-			<button on:click={nextSong}>
-				<Forward />
-			</button>
-		</td>
-		<td>
-			<span class="song-name-container">
-				<span class="song-name">Now playing: {playing ? currentSong : 'Nothing'}</span>
-			</span>
-		</td>
-		<td>
-			<input type="range" min="0" max="100" class="volume-slider" bind:value={volume} />
-		</td>
-	</tr>
+	<tbody>
+		<tr>
+			<td>
+				<button onclick={prevSong}>
+					<Backward />
+				</button>
+			</td>
+			<td>
+				<button onclick={() => (playing = !playing)}>
+					{#if playing}
+						<Pause />
+					{:else}
+						<Play />
+					{/if}
+				</button>
+			</td>
+			<td>
+				<button onclick={nextSong}>
+					<Forward />
+				</button>
+			</td>
+			<td>
+				<span class="song-name-container">
+					<span class="song-name">Now playing: {playing ? currentSong : 'Nothing'}</span>
+				</span>
+			</td>
+			<td>
+				<input type="range" min="0" max="100" class="volume-slider" bind:value={volume} />
+			</td>
+		</tr>
+	</tbody>
 </table>
 
 <style>

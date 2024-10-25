@@ -2,9 +2,9 @@
 	import { browser } from '$app/environment'
 	import BackAnchor from '$lib/BackAnchor.svelte'
 
-	let el: HTMLDivElement
+	let el: HTMLDivElement = $state()
 
-	let idleModeEnabled = false
+	let idleModeEnabled = $state(false)
 
 	// if there's no mouse move or key presses for 5 seconds, enable idle mode
 
@@ -23,8 +23,8 @@
 
 	let x = 0
 	let y = 0
-	let xVel = 2
-	let yVel = 2
+	let xVel = $state(2)
+	let yVel = $state(2)
 	let hue: null | number = null
 	function animate() {
 		requestAnimationFrame(animate)
@@ -73,17 +73,17 @@
 	if (browser) animate()
 </script>
 
-<svelte:window on:mousemove={resetIdleTimeout} on:keydown={resetIdleTimeout} />
+<svelte:window onmousemove={resetIdleTimeout} onkeydown={resetIdleTimeout} />
 
 <nav>
 	<BackAnchor href="/" />
 </nav>
 <section class="error-page">
-	<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
 	<div
 		bind:this={el}
 		class:bouncing={idleModeEnabled}
-		on:mousedown={() => {
+		onmousedown={() => {
 			if (idleModeEnabled) {
 				if (Math.random() < 0.5) {
 					xVel *= -1.2

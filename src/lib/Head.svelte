@@ -1,8 +1,12 @@
 <script lang="ts">
 	import atkinsonHyperlegible from '$lib/fonts/atkinson-hyperlegible/latin.woff2'
 
-	export let title = 'matdoesdev'
-	export let description = ''
+	interface Props {
+		title?: string
+		description?: string
+	}
+
+	let { title = 'matdoesdev', description = '' }: Props = $props()
 </script>
 
 <svelte:head>

@@ -111,277 +111,307 @@
 </script>
 
 <table id="main-table">
-	<tr>
-		<td valign="top" class="left-sidebar-container" width="200">
-			<table class="left-sidebar" width="210" cellspacing="0">
-				<tbody>
-					<tr>
-						<td class="website-status-container">
-							<h3>Website status</h3>
-							<div class="website-status-value">
-								<table>
-									<tr>
-										<td>probably</td>
-										<td><span class="status-up">Up!</span></td>
-									</tr>
-								</table>
-							</div>
-						</td>
-					</tr>
-					<tr class="spacing hidden-if-noscript"></tr>
-					<tr class="hidden-if-noscript">
-						<td class="current-time-cst-container">
-							<h3>Current time for me</h3>
-							<div class="current-time-cst-value">
-								{currentTimeInCst}
-								{#if currentTimeInCst.startsWith('11:11:')}
-									<a href="http://makea.fish">🐟</a>
-								{/if}
-							</div>
-							<div class="current-time-cst-info">(CST)</div>
-						</td>
-					</tr>
-					<tr class="spacing"></tr>
-					<tr>
-						<td class="active-minecraft-servers-container">
-							<h3>Active Minecraft servers</h3>
-							<div class="active-minecraft-servers-value">
-								<a
-									href="https://grafana.scanner.matdoes.dev/d/MVK-dYM4z/scanner-stats?orgId=1&refresh=1m"
-								>
-									{status.active_minecraft_servers.toLocaleString()}
-								</a>
-							</div>
-						</td>
-					</tr>
-					<tr class="spacing"></tr>
-					<tr>
-						<td class="days-since-last-complaint-container">
-							<h3>Days since last complaint</h3>
-							<div class="days-since-last-complaint-value">
-								{daysSinceLastComplaint.toString().padStart(3, '0')}
-							</div>
-							<div class="time-ago">({hoursSinceLastComplaint} hours ago)</div>
-						</td>
-					</tr>
-					<tr class="spacing hidden-if-noscript"></tr>
-					<tr>
-						<td class="neko-status-container hidden-if-noscript">
-							<div class="neko-status-title-container">
-								<h3>Neko status</h3>
-								<div
-									class="oneko"
-									aria-hidden="true"
-									style="background-image: url(/retro/oneko.gif)"
-									bind:this={nekoEl}
-								></div>
-							</div>
-							<div class="neko-status-value">
-								{#if nekoStatusClickable}
-									<a class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}" href="/neko">
-										{nekoSpriteIdsToNames[nekoSpriteName]}
+	<tbody>
+		<tr>
+			<td valign="top" class="left-sidebar-container" width="200">
+				<table class="left-sidebar" width="210" cellspacing="0">
+					<tbody>
+						<tr>
+							<td class="website-status-container">
+								<h3>Website status</h3>
+								<div class="website-status-value">
+									<table>
+										<tbody>
+											<tr>
+												<td>probably</td>
+												<td><span class="status-up">Up!</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr class="spacing hidden-if-noscript"></tr>
+						<tr class="hidden-if-noscript">
+							<td class="current-time-cst-container">
+								<h3>Current time for me</h3>
+								<div class="current-time-cst-value">
+									{currentTimeInCst}
+									{#if currentTimeInCst.startsWith('11:11:')}
+										<a href="http://makea.fish">🐟</a>
+									{/if}
+								</div>
+								<div class="current-time-cst-info">(CST)</div>
+							</td>
+						</tr>
+						<tr class="spacing"></tr>
+						<tr>
+							<td class="active-minecraft-servers-container">
+								<h3>Active Minecraft servers</h3>
+								<div class="active-minecraft-servers-value">
+									<a
+										href="https://grafana.scanner.matdoes.dev/d/MVK-dYM4z/scanner-stats?orgId=1&refresh=1m"
+									>
+										{status.active_minecraft_servers.toLocaleString()}
 									</a>
-								{:else}
-									<span class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}">
-										{nekoSpriteIdsToNames[nekoSpriteName]}
-									</span>
-								{/if}
-							</div>
-						</td>
-					</tr>
-					<tr class="spacing"></tr>
-					<tr>
-						<td class="minecraft-uuids-scraped-container">
-							<h3>Minecraft UUIDs scraped</h3>
-							<div class="minecraft-uuids-scraped-value">
-								<a href="https://mowojang.matdoes.dev">
-									{status.minecraft_uuids_scraped.toLocaleString()}
-								</a>
-							</div>
-						</td>
-					</tr>
-					<tr class="spacing"></tr>
-					<tr>
-						<td class="buttons-scraped-container">
-							<h3>88x31s scraped</h3>
-							<div class="buttons-scraped-value">
-								<a href="/buttons">{status.buttons_scraped.toLocaleString()}</a>
-							</div>
-						</td>
-					</tr>
-					<tr class="spacing"></tr>
-					<tr>
-						<td class="data-last-updated">
-							<h3>Data last updated</h3>
-							<div class="data-last-updated-date">
-								{browser ? `${timeAgo(lastUpdatedAt)} ago` : lastUpdatedAt.toISOString()}
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</td>
-		<td valign="top">
-			<div id="welcome">
-				<table>
-					<tr>
-						<td><img src={sparkles} alt="sparkles" width="100" height="100" /></td>
-						<td>
-							<h1>welcome to mat's site!!!</h1>
-						</td>
-						<td><img src={sparkles} alt="sparkles" width="100" height="100" /></td>
-					</tr>
+								</div>
+							</td>
+						</tr>
+						<tr class="spacing"></tr>
+						<tr>
+							<td class="days-since-last-complaint-container">
+								<h3>Days since last complaint</h3>
+								<div class="days-since-last-complaint-value">
+									{daysSinceLastComplaint.toString().padStart(3, '0')}
+								</div>
+								<div class="time-ago">({hoursSinceLastComplaint} hours ago)</div>
+							</td>
+						</tr>
+						<tr class="spacing hidden-if-noscript"></tr>
+						<tr>
+							<td class="neko-status-container hidden-if-noscript">
+								<div class="neko-status-title-container">
+									<h3>Neko status</h3>
+									<div
+										class="oneko"
+										aria-hidden="true"
+										style="background-image: url(/retro/oneko.gif)"
+										bind:this={nekoEl}
+									></div>
+								</div>
+								<div class="neko-status-value">
+									{#if nekoStatusClickable}
+										<a class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}" href="/neko">
+											{nekoSpriteIdsToNames[nekoSpriteName]}
+										</a>
+									{:else}
+										<span class="status-{nekoSpriteIdsToStatuses[nekoSpriteName]}">
+											{nekoSpriteIdsToNames[nekoSpriteName]}
+										</span>
+									{/if}
+								</div>
+							</td>
+						</tr>
+						<tr class="spacing"></tr>
+						<tr>
+							<td class="minecraft-uuids-scraped-container">
+								<h3>Minecraft UUIDs scraped</h3>
+								<div class="minecraft-uuids-scraped-value">
+									<a href="https://mowojang.matdoes.dev">
+										{status.minecraft_uuids_scraped.toLocaleString()}
+									</a>
+								</div>
+							</td>
+						</tr>
+						<tr class="spacing"></tr>
+						<tr>
+							<td class="buttons-scraped-container">
+								<h3>88x31s scraped</h3>
+								<div class="buttons-scraped-value">
+									<a href="/buttons">{status.buttons_scraped.toLocaleString()}</a>
+								</div>
+							</td>
+						</tr>
+						<tr class="spacing"></tr>
+						<tr>
+							<td class="data-last-updated">
+								<h3>Data last updated</h3>
+								<div class="data-last-updated-date">
+									{browser ? `${timeAgo(lastUpdatedAt)} ago` : lastUpdatedAt.toISOString()}
+								</div>
+							</td>
+						</tr>
+					</tbody>
 				</table>
-				<table>
-					<tr>
-						<td>
-							<div>
-								hi, thanks for stopping by. i am mat, i make things on the internet.
-								<br />
-								this is my personal web site on the world wide web.
-							</div>
-						</td>
-					</tr>
-				</table>
-				<br />
-				<table width="600">
-					<tr>
-						<td>
-							<div class="buttons">
-								<Button href="//matdoes.dev" src="mat.png" alt="matdoesdev" />
-								<Button href="//adryd.com" src="adryd.png" alt="adryd" />
-								<Button href="//notnite.com" src="notnite.png" alt="notnite" />
-								<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
-								<Button href="//goldenstack.net" src="goldenstack.png" alt="goldenstack" />
-								<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
-								<Button href="//honbra.com" src="honbra.png" alt="honbra" />
-								<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
-								<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
-								<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
-								<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />
-								<Button href="//actuallyruben.nl" src="actuallyruben.gif" alt="actuallyruben" />
-								<Button href="//jamie.rs" src="jamie.png" alt="jamie" />
-								<Button href="//jamsharp.net" src="jamsharp.png" alt="jamsharp" />
-								<Button href="//sipacid.com" src="sipacid.gif" alt="sipacid" />
-								<Button href="//damcraft.de" src="dam.gif" alt="dam" />
-								<Button href="//mudkip.dev" src="mudkip.png" alt="mudkip" />
-								<Button href="//lily.pet" src="lily.png" alt="lily" />
-								<Button href="//aubrey.rs" src="aubrey.png" alt="aubrey" />
-								<Button href="//haylinmoore.com/" src="haylin.png" alt="haylin moore" />
-								<Button href="//ezri.pet/" src="ezri.png" alt="ezri" />
-								<Button
-									href="//thomasricci.dev"
-									src="rudrecciah.png"
-									alt="thomas ricci aka rudrecciah"
-								/>
-								<Button href="//zptr.cc" src="yui.gif" alt="yui aka zeroptr" />
-								<Button href="//ednamode.xyz" src="edna.png" alt="edna" />
-								<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
-								<Button href="//github.com/mat-1" src="github.gif" alt="github" />
-								<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
-								<Button href="//code.visualstudio.com" src="vscode.gif" alt="vscode" />
-								<Button href="//www.hetzner.com" src="hetzner.gif" alt="hetzner" />
-								<Button
-									href="//www.mozilla.org/en-US/firefox/new"
-									src="anythingbutchrome.gif"
-									alt="anythingbutchrome"
-								/>
-								<Button href="//www.torproject.org" src="tor.gif" alt="tor" />
-								<Button href="//ublockorigin.com" src="ublockorigin.png" alt="ublock origin" />
-								<Button href="//www.eff.org" src="fightforprivacy.gif" alt="fight for privacy" />
-								<Button
-									href="//ftp.nluug.nl/netscape/netscape9/en-US/9.0/windows/win32/netscape-navigator-9.0.0.6.exe"
-									src="netscape.gif"
-									alt="netscape"
-								/>
-								<Button href="//archive.org" src="internet-archive.png" alt="internet archive" />
-								<Button
-									href="//thunderbird.net"
-									src="thunderbird.gif"
-									alt="thunderbird: free your inbox"
-								/>
-								<Button
-									href="//www.mozilla.org/en-US/firefox/new"
-									src="firefox.gif"
-									alt="tested on firefox"
-								/>
-								<Button href="//matrix.org" src="matrix.png" alt="matrix" />
-								<Button href="//caddyserver.com" src="caddy.png" alt="caddy" />
-								<Button href="//display-a.sand.cat" src="sandcat.png" alt="display a sand cat" />
-								<Button href="http://makea.fish" src="makeafish.png" alt="make a fish" />
-								<Button
-									href="//seized.matdoes.dev"
-									src="seized.gif"
-									alt="this 88x31 has been seized"
-								/>
-							</div>
-						</td>
-					</tr>
-				</table>
+			</td>
+			<td valign="top">
+				<div id="welcome">
+					<table>
+						<tbody>
+							<tr>
+								<td><img src={sparkles} alt="sparkles" width="100" height="100" /></td>
+								<td>
+									<h1>welcome to mat's site!!!</h1>
+								</td>
+								<td><img src={sparkles} alt="sparkles" width="100" height="100" /></td>
+							</tr>
+						</tbody>
+					</table>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<div>
+										hi, thanks for stopping by. i am mat, i make things on the internet.
+										<br />
+										this is my personal web site on the world wide web.
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<table width="600">
+						<tbody>
+							<tr>
+								<td>
+									<div class="buttons">
+										<Button href="//matdoes.dev" src="mat.png" alt="matdoesdev" />
+										<Button href="//adryd.com" src="adryd.png" alt="adryd" />
+										<Button href="//notnite.com" src="notnite.png" alt="notnite" />
+										<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
+										<Button href="//goldenstack.net" src="goldenstack.png" alt="goldenstack" />
+										<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
+										<Button href="//honbra.com" src="honbra.png" alt="honbra" />
+										<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
+										<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
+										<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
+										<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />
+										<Button href="//actuallyruben.nl" src="actuallyruben.gif" alt="actuallyruben" />
+										<Button href="//jamie.rs" src="jamie.png" alt="jamie" />
+										<Button href="//jamsharp.net" src="jamsharp.png" alt="jamsharp" />
+										<Button href="//sipacid.com" src="sipacid.gif" alt="sipacid" />
+										<Button href="//damcraft.de" src="dam.gif" alt="dam" />
+										<Button href="//mudkip.dev" src="mudkip.png" alt="mudkip" />
+										<Button href="//lily.pet" src="lily.png" alt="lily" />
+										<Button href="//aubrey.rs" src="aubrey.png" alt="aubrey" />
+										<Button href="//haylinmoore.com/" src="haylin.png" alt="haylin moore" />
+										<Button href="//ezri.pet/" src="ezri.png" alt="ezri" />
+										<Button
+											href="//thomasricci.dev"
+											src="rudrecciah.png"
+											alt="thomas ricci aka rudrecciah"
+										/>
+										<Button href="//zptr.cc" src="yui.gif" alt="yui aka zeroptr" />
+										<Button href="//ednamode.xyz" src="edna.png" alt="edna" />
+										<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
+										<Button href="//github.com/mat-1" src="github.gif" alt="github" />
+										<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
+										<Button href="//code.visualstudio.com" src="vscode.gif" alt="vscode" />
+										<Button href="//www.hetzner.com" src="hetzner.gif" alt="hetzner" />
+										<Button
+											href="//www.mozilla.org/en-US/firefox/new"
+											src="anythingbutchrome.gif"
+											alt="anythingbutchrome"
+										/>
+										<Button href="//www.torproject.org" src="tor.gif" alt="tor" />
+										<Button href="//ublockorigin.com" src="ublockorigin.png" alt="ublock origin" />
+										<Button
+											href="//www.eff.org"
+											src="fightforprivacy.gif"
+											alt="fight for privacy"
+										/>
+										<Button
+											href="//ftp.nluug.nl/netscape/netscape9/en-US/9.0/windows/win32/netscape-navigator-9.0.0.6.exe"
+											src="netscape.gif"
+											alt="netscape"
+										/>
+										<Button
+											href="//archive.org"
+											src="internet-archive.png"
+											alt="internet archive"
+										/>
+										<Button
+											href="//thunderbird.net"
+											src="thunderbird.gif"
+											alt="thunderbird: free your inbox"
+										/>
+										<Button
+											href="//www.mozilla.org/en-US/firefox/new"
+											src="firefox.gif"
+											alt="tested on firefox"
+										/>
+										<Button href="//matrix.org" src="matrix.png" alt="matrix" />
+										<Button href="//caddyserver.com" src="caddy.png" alt="caddy" />
+										<Button
+											href="//display-a.sand.cat"
+											src="sandcat.png"
+											alt="display a sand cat"
+										/>
+										<Button href="http://makea.fish" src="makeafish.png" alt="make a fish" />
+										<Button
+											href="//seized.matdoes.dev"
+											src="seized.gif"
+											alt="this 88x31 has been seized"
+										/>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 
-				<table id="sections">
-					<tr>
-						<td class="section contact">
-							<table width="300">
-								<tr>
-									<td>
-										<div><img src={contact} alt="contact" width="200" height="40" /></div>
-										<p>
-											my preferred method of contact is <a
-												href="https://matrix.to/#/@mat:matdoes.dev">matrix</a
-											>, but you can also email me (i have a catch-all on this domain). i'm also on
-											<a href="https://f.matdoes.dev/mat">the fediverse</a>.
-										</p>
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td class="section links">
-							<table width="300">
-								<tr>
-									<td>
-										<div><img src={links} alt="links" width="200" height="40" /></div>
-										<p>
-											i have a github at <a href="https://github.com/mat-1">github.com/mat-1</a>,
-											and you can give me money through ko-fi at
-											<a href="https://ko-fi.com/matdoesdev">ko-fi.com/matdoesdev</a>.
-										</p>
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</td>
-		<td valign="top">
-			<div class="right-sidebar">
-				<h2>BLOG POSTS</h2>
-				{#each posts as post}
-					<div><a href={post.slug}>{post.title}</a></div>
-				{/each}
-			</div>
-			<div class="right-sidebar">
-				<h2>PROJECTS</h2>
-				{#each projects as project}
-					<div><a href={project.href}>{project.name}</a></div>
-				{/each}
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td> </td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>
-			<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
-		</td>
-	</tr>
-	<tr><td><p class="last-updated">Page last updated: September 15, 2024</p></td></tr>
+					<table id="sections">
+						<tbody>
+							<tr>
+								<td class="section contact">
+									<table width="300">
+										<tbody>
+											<tr>
+												<td>
+													<div><img src={contact} alt="contact" width="200" height="40" /></div>
+													<p>
+														my preferred method of contact is <a
+															href="https://matrix.to/#/@mat:matdoes.dev">matrix</a
+														>, but you can also email me (i have a catch-all on this domain). i'm
+														also on
+														<a href="https://f.matdoes.dev/mat">the fediverse</a>.
+													</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+								<td class="section links">
+									<table width="300">
+										<tbody>
+											<tr>
+												<td>
+													<div><img src={links} alt="links" width="200" height="40" /></div>
+													<p>
+														i have a github at <a href="https://github.com/mat-1"
+															>github.com/mat-1</a
+														>, and you can give me money through ko-fi at
+														<a href="https://ko-fi.com/matdoesdev">ko-fi.com/matdoesdev</a>.
+													</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+			<td valign="top">
+				<div class="right-sidebar">
+					<h2>BLOG POSTS</h2>
+					{#each posts as post}
+						<div><a href={post.slug}>{post.title}</a></div>
+					{/each}
+				</div>
+				<div class="right-sidebar">
+					<h2>PROJECTS</h2>
+					{#each projects as project}
+						<div><a href={project.href}>{project.name}</a></div>
+					{/each}
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td> </td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
+			</td>
+		</tr>
+		<tr><td><p class="last-updated">Page last updated: September 15, 2024</p></td></tr>
+	</tbody>
 </table>
 
 <noscript>

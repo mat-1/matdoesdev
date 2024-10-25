@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let data: [string, number, string?][]
+	interface Props {
+		data: [string, number, string?][];
+	}
+
+	let { data }: Props = $props();
 
 	let max = Math.max(...data.map((d) => d[1]))
 

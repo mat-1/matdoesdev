@@ -1,9 +1,14 @@
 <script lang="ts">
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 	export const alt: string | undefined = undefined
 </script>
 
 <span class="icon" aria-label={alt}>
-	<slot />
+	{@render children?.()}
 </span>
 
 <style>

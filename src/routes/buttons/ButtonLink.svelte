@@ -3,8 +3,12 @@
 	import ExternalLink from './ExternalLink.svelte'
 	import ExternalLinkIcon from './ExternalLinkIcon.svelte'
 
-	export let pageIndex: number
-	export let buttonIndex: number
+	interface Props {
+		pageIndex: number;
+		buttonIndex: number;
+	}
+
+	let { pageIndex, buttonIndex }: Props = $props();
 </script>
 
 <div class="button-with-link-container">

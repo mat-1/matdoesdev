@@ -3,7 +3,8 @@
 	import { writable } from 'svelte/store'
 	import './app.css'
 
-	$: selectedPage = $page.url.pathname.split('/').pop()
+	let { children } = $props()
+	let selectedPage = $derived($page.url.pathname.split('/').pop())
 
 	let selectedButtonHash = writable<string | null>(null)
 	let selectedPageName = writable<string | null>(null)
@@ -41,7 +42,7 @@
 </header>
 
 <main>
-	<slot />
+	{@render children?.()}
 </main>
 
 <style>

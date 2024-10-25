@@ -3,9 +3,9 @@
 	import { fade, fly } from 'svelte/transition'
 	import LoadingDots from '$lib/LoadingDots.svelte'
 
-	let servers: any[] | undefined
-	let index = 0
-	let loading = false
+	let servers: any[] | undefined = $state()
+	let index = $state(0)
+	let loading = $state(false)
 
 	async function fetchServers(): Promise<void> {
 		if (loading) return
@@ -30,7 +30,7 @@
 	}
 </script>
 
-<button on:click={nextServer}>
+<button onclick={nextServer}>
 	{#if servers}Next{:else}Show{/if}
 </button>
 <div class="random-servers">

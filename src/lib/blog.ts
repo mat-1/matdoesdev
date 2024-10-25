@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs'
+import { render } from 'svelte/server'
 
 export const postsDir = 'src/routes/(blog)' as const
 
@@ -68,18 +69,16 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 		}>
 	} = { title: '', subtitle: undefined, head: '', css: new Set() }
 
-	const renderHtml = post.$$render(
-		result,
-		{},
-		{},
-		{},
-		new Map([
+	const renderHtml = render(post, {
+		props: result,
+		context: new Map([
 			[
 				'__svelte__',
 				{
 					page: {
-						// HACK: this is necessary so the hack with images works
-						// probably a war crime :)
+						// this is necessary so the page.subscribe calls in
+						// img.svelte don't error for calling page.subscribe
+						// outside of a component
 						subscribe: (r: any) => {
 							r({ url })
 						},
@@ -91,12 +90,13 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 					},
 				},
 			],
-		])
-	)
+		]),
+	})
+	// console.log('renderHtml', renderHtml)
 
 	// HACK: i'm probably committing a felony by putting this here
 	// but i couldn't come up with a better solution
-	const html = /^[\w\W]*?<\/div>\s*([\w\W]+)<\/article>[\w\W]*?$/.exec(renderHtml)?.[1] ?? ''
+	const html = /^[\w\W]*?<\/div>\s*([\w\W]+)<\/article>[\w\W]*?$/.exec(renderHtml.body)?.[1] ?? ''
 
 	const css = Array.from(result.css)
 		.map((css) => css.code)

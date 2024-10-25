@@ -18,7 +18,11 @@
 		onlineMode: undefined | boolean
 	}
 
-	export let data: ServerData
+	interface Props {
+		data: ServerData;
+	}
+
+	let { data }: Props = $props();
 
 	let displayIp = data.port !== 25565 ? `${data.host}:${data.port}` : data.host
 </script>

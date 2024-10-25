@@ -2,7 +2,11 @@
 	import { data } from './88x31'
 	import ExternalLinkIcon from './ExternalLinkIcon.svelte'
 
-	export let pageIndex: number
+	interface Props {
+		pageIndex: number;
+	}
+
+	let { pageIndex }: Props = $props();
 
 	function cutOff(str: string, length: number) {
 		if (str.length <= length) return str

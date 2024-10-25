@@ -7,27 +7,41 @@
 	import TypeScriptIcon from './Icon/TypeScript.svelte'
 	import IconButtonRow from './IconButtonRow.svelte'
 
-	export let name: string
-	export let nextName: string | undefined
-	export let href: string | undefined = undefined
-	export let languages: string[] = []
 
-	/** A link to where the code is hosted. */
-	export let source: string | undefined = undefined
+	
 
-	export let archived = false
+	interface Props {
+		name: string;
+		nextName: string | undefined;
+		href?: string | undefined;
+		languages?: string[];
+		/** A link to where the code is hosted. */
+		source?: string | undefined;
+		archived?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		name,
+		nextName,
+		href = undefined,
+		languages = [],
+		source = undefined,
+		archived = false,
+		children
+	}: Props = $props();
 
 	function nameToId(name: string): string {
 		return name.toLowerCase().replace(/\s+/g, '-')
 	}
 
-	$: id = nameToId(name)
-	$: nextId = nextName ? nameToId(nextName) : undefined
+	let id = $derived(nameToId(name))
+	let nextId = $derived(nextName ? nameToId(nextName) : undefined)
 </script>
 
 <div class="project-container" {id}>
 	<div class="project-background-container">
-		<div class="project-background" />
+		<div class="project-background"></div>
 	</div>
 	<div class="project">
 		{#if href}
@@ -63,7 +77,7 @@
 				<JavaScriptIcon/>
 			{/if}
 		</IconButtonRow>
-		<p class="project-description"><slot /></p>
+		<p class="project-description">{@render children?.()}</p>
 	</div>
 	{#if nextId}
 		<a class="next-anchor" href="#{nextId}">↓ Next</a>

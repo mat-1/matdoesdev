@@ -8,10 +8,10 @@
 	let originPage = writable('')
 	let targetPage = writable('')
 
-	let originPageId: number | null
-	let targetPageId: number | null
+	let originPageId: number | null = $state()
+	let targetPageId: number | null = $state()
 
-	let pageAndButtonIndexes: [number, number][] | null = []
+	let pageAndButtonIndexes: [number, number][] | null = $state([])
 
 	function calculatePath() {
 		originPageId = pageIndexFromName($originPage)
@@ -130,7 +130,7 @@
 	}
 </script>
 
-<svelte:window on:hashchange={updateFromHash} />
+<svelte:window onhashchange={updateFromHash} />
 
 <input
 	type="text"

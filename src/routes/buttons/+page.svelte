@@ -17,21 +17,22 @@
 	let searchQuery = writable('')
 	let sort = writable('relevance')
 
-	let visibleButtons = new Set<string>()
+	let visibleButtons = writable(new Set<string>())
 
 	const observer = new IntersectionObserver((entries) => {
+		const newVisibleButtons = new Set($visibleButtons)
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				visibleButtons.add(entry.target.id)
+				newVisibleButtons.add(entry.target.id)
 			} else {
-				visibleButtons.delete(entry.target.id)
+				newVisibleButtons.delete(entry.target.id)
 			}
 		})
 
-		visibleButtons = visibleButtons
+		$visibleButtons = newVisibleButtons
 	})
 
-	let buttonsEl: HTMLDivElement
+	let buttonsEl: HTMLDivElement | undefined = $state(undefined)
 
 	// when a new button is added, observe it
 	const buttonContainerObserver = new MutationObserver((mutations) => {
@@ -44,16 +45,18 @@
 		})
 	})
 
-	let refs: HTMLDivElement[] = []
-	let buttonEntries: [number, string][] = []
+	let refs: HTMLDivElement[] = $state([])
+	let buttonEntries: [number, string][] = $state([])
 
 	onMount(async () => {
 		await downloadData()
 		if (!data) throw new Error("data should've been downloaded")
 		buttonEntries = [...data.buttons.entries()]
 
-		updateSearch()
+		updateSearch($searchQuery, $sort)
 		updateFromHash()
+
+		if (!buttonsEl) throw new Error('buttonsEl should be set by now')
 
 		buttonContainerObserver.observe(buttonsEl, {
 			childList: true,
@@ -74,8 +77,9 @@
 
 	let matchingTextIndexes = new Set<number>()
 
-	searchQuery.subscribe(updateSearch)
-	sort.subscribe(updateSearch)
+	$effect(() => {
+		updateSearch($searchQuery, $sort)
+	})
 
 	function popularityScore(buttonIndex: number): number {
 		if (!data) return 0
@@ -89,21 +93,18 @@
 		return backlinksSecondLevelDomains.size + backlinks.size / 100
 	}
 
-	function updateSearch() {
-		if (!data) return 0
+	function updateSearch(query: string, sortValue: string) {
+		if (!data || query === undefined || sortValue === undefined) return 0
 
-		const value = $searchQuery
-		let sortValue = $sort
-
-		if (value === '' && sortValue === 'relevance') {
+		if (query === '' && sortValue === 'relevance') {
 			// relevance doesn't make sense if there's no query
 			sortValue = 'popularity'
 		}
 
 		const newMatchingTextIndexes = new Set<number>()
-		if (value !== '') {
+		if (query !== '') {
 			for (let textIndex = 0; textIndex < data.texts.length; textIndex++) {
-				if (data.texts[textIndex].toLowerCase().includes(value.toLowerCase())) {
+				if (data.texts[textIndex].toLowerCase().includes(query.toLowerCase())) {
 					newMatchingTextIndexes.add(textIndex)
 				}
 			}
@@ -115,7 +116,7 @@
 
 		for (let buttonIndex = 0; buttonIndex < data.button_names.length; buttonIndex++) {
 			const textIndexes = data.button_names[buttonIndex]
-			if (value === '' || textIndexes.some((textIndex) => matchingTextIndexes.has(textIndex))) {
+			if (query === '' || textIndexes.some((textIndex) => matchingTextIndexes.has(textIndex))) {
 				// higher score is better
 				let score: number
 				if (sortValue === 'relevance') {
@@ -123,7 +124,7 @@
 					const textIndexLengths = textIndexes
 						.map((textIndex) => data.texts[textIndex])
 						.filter((text) => {
-							return text.toLowerCase().includes(value.toLowerCase())
+							return text.toLowerCase().includes(query.toLowerCase())
 						})
 						.map((text) => text.length)
 					// popularity is tiebreaker
@@ -145,14 +146,16 @@
 	}
 
 	let selectedButtonHash = writable<string | null>(null)
-	$: selectedButtonIndex =
+	let selectedButtonIndex = $derived(
 		$selectedButtonHash === null ? null : buttonIndexFromHash($selectedButtonHash)
+	)
 	let selectedPageName = writable<string | null>(null)
-	$: selectedPageIndex = $selectedPageName === null ? null : pageIndexFromName($selectedPageName)
+	let selectedPageIndex = $derived(
+		$selectedPageName === null ? null : pageIndexFromName($selectedPageName)
+	)
 
 	function updateFromHash() {
 		const hash = location.hash.slice(1)
-		console.log('updateFromHash', hash)
 
 		// if the hash has a . then it's a page name
 		if (hash === '') {
@@ -169,20 +172,11 @@
 		}
 	}
 
-	// page.subscribe(async (page) => {
-	// 	// this is to work around a sveltekit bug that makes it click the hash twice, which clicks the wrong link the second time
-	// 	await new Promise((r) => requestAnimationFrame(r))
-	// 	// set
-
-	// 	updateFromHash()
-	// })
-
-	let cutOffButtonEntries = 500
+	let cutOffButtonEntries = $state(500)
 	let isCurrentlyAdding = false
-	$: {
-		buttonEntries
+	$effect(() => {
 		cutOffButtonEntries = Math.min(buttonEntries.length, 500)
-	}
+	})
 
 	function shouldAddMore() {
 		return scrollY + window.innerHeight > document.body.scrollHeight - 100
@@ -202,17 +196,18 @@
 		}
 	}
 
-	let scrollY: number
-	$: {
+	let scrollY: number = $state(0)
+
+	$effect(() => {
 		if (browser && scrollY) {
 			if (shouldAddMore()) {
 				addMore(false)
 			}
 		}
-	}
+	})
 </script>
 
-<svelte:window bind:scrollY on:hashchange={updateFromHash} />
+<svelte:window bind:scrollY onhashchange={updateFromHash} />
 
 {#if selectedButtonIndex !== null}
 	<h1>
@@ -289,7 +284,7 @@
 	<div class="compact-button-grid" bind:this={buttonsEl}>
 		{#each buttonEntries.slice(0, cutOffButtonEntries) as [index, buttonHash] (buttonHash)}
 			<div class="button-container" id={buttonHash} bind:this={refs[index]}>
-				{#if visibleButtons.has(buttonHash)}
+				{#if $visibleButtons.has(buttonHash)}
 					<a href="/buttons#{buttonHash}">
 						<img src={buttonUrlFromIndex(index)} alt="Button" class="button" />
 					</a>

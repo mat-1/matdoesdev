@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
+	import { onMount, mount } from 'svelte'
 	import MusicPlayer from './MusicPlayer.svelte'
 	import './app.css'
+
+	let { children } = $props();
 
 	onMount(() => {
 		let musicPlayerEl = document.getElementById('music-player')
@@ -11,9 +13,9 @@
 			document.body.appendChild(musicPlayerEl)
 		}
 
-		new MusicPlayer({
+		// load the music player here so it persists across page changes
+		mount(MusicPlayer, {
 			target: musicPlayerEl,
-			$$inline: true,
 		})
 	})
 </script>
@@ -24,4 +26,4 @@
 	<meta name="bingbot" content="noindex" />
 </svelte:head>
 
-<slot />
+{@render children?.()}

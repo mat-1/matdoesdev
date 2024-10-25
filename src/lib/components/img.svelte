@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-	export let src: string
-	export let alt: string
+
+	interface Props {
+		src: string
+		alt: string
+	}
+
+	let { src = $bindable(), alt }: Props = $props()
 
 	page.subscribe((p) => {
 		// hack so images work

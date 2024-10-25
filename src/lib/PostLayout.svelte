@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
 	import img from './components/img.svelte'
 	import BackAnchor from '$lib/BackAnchor.svelte'
 
@@ -7,10 +7,22 @@
 </script>
 
 <script>
-	export let title = 'Untitled'
-	/** @type {string | undefined} */
-	export let subtitle = undefined
-	export let published = ''
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [title]
+	 * @property {string | undefined} [subtitle]
+	 * @property {string} [published]
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let {
+		title = 'Untitled',
+		subtitle = undefined,
+		published = '',
+		children
+	} = $props();
 </script>
 
 <svelte:head>
@@ -29,7 +41,7 @@
 		<time>{new Date(published).toLocaleDateString()}</time>
 	</div>
 	<article>
-		<slot />
+		{@render children?.()}
 	</article>
 </div>
 

@@ -8,7 +8,7 @@
 	import IconButtonRow from '$lib/IconButtonRow.svelte'
 	import Topography from '$lib/topography.svg'
 
-	let titleEl: HTMLParagraphElement
+	let titleEl: HTMLParagraphElement = $state()
 
 	onMount(async () => {
 		maybeAddRandomBackground()
@@ -75,15 +75,15 @@
 		"This portfolio contains my blog posts and links to some of the projects I've made."
 
 	let titleClickCount = 0
-	let titleEditable = false
+	let titleEditable = $state(false)
 	function onTitleClicked() {
 		titleClickCount++
 		if (titleClickCount >= 5) {
 			titleEditable = true
 		}
 	}
-	let sentence1 = defaultSentence1
-	let sentence2 = defaultSentence2
+	let sentence1 = $state(defaultSentence1)
+	let sentence2 = $state(defaultSentence2)
 	let defaultCopyrightText: string | undefined = undefined
 
 	let sandcatModeEnabled = false
@@ -202,13 +202,13 @@
 
 <div class="section-container">
 	<section id="main-index-page-section">
-		<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
 		<h1
 			bind:this={titleEl}
 			id="main-title"
-			on:click={onTitleClicked}
+			onclick={onTitleClicked}
 			contenteditable={titleEditable}
-			on:input={onTitleEdited}
+			oninput={onTitleEdited}
 			spellcheck="false"
 		>
 			matdoesdev

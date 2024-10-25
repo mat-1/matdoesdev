@@ -1,7 +1,11 @@
 <script lang="ts">
 	import type { BlogPostPreview } from 'src/routes/blog.json/+server'
 
-	export let post: BlogPostPreview
+	interface Props {
+		post: BlogPostPreview;
+	}
+
+	let { post }: Props = $props();
 	// HACK: we have to do this otherwise sveltekit does a dumb
 	const postHtml = `${post.html}<sty` + `le>${post.css}</style>`
 </script>
@@ -13,7 +17,7 @@
 			<time>{new Date(post.published).toLocaleDateString()}</time>
 		</div>
 
-		<div class="disappearing-text-preview" />
+		<div class="disappearing-text-preview"></div>
 		<div class="preview">
 			{@html postHtml}
 		</div>

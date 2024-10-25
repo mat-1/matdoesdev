@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy'
+
 	import './oneko.css'
 	import '$lib/98/98.css'
 
@@ -11,36 +13,34 @@
 	} from './oneko'
 	import { browser } from '$app/environment'
 	import { onMount } from 'svelte'
+	import type { FormEventHandler } from 'svelte/elements'
 
 	const spritesheetUrls = nekoConfig.spritesheetUrls
-	let accel = nekoConfig.accelMultiplier
-	let slipperiness = nekoConfig.slipperiness * 100
-	let persistOnReload = nekoConfig.persistOnReload
+	let accel = $state(nekoConfig.accelMultiplier)
+	let slipperiness = $state(nekoConfig.slipperiness * 100)
+	let persistOnReload = $state(nekoConfig.persistOnReload)
 
-	$: accelStr = accel.toString()
-	$: slipperinessStr = slipperiness.toString()
-
-	function updateFromAccelStr() {
-		accel = parseInt(accelStr)
+	const updateFromAccelStr: FormEventHandler<HTMLInputElement> = (e) => {
+		accel = parseInt(e.currentTarget.value)
 	}
-	function updateFromSlipperinessStr() {
-		slipperiness = parseInt(slipperinessStr)
+	const updateFromSlipperinessStr: FormEventHandler<HTMLInputElement> = (e) => {
+		slipperiness = parseInt(e.currentTarget.value)
 	}
 
-	$: {
+	run(() => {
 		nekoConfig.accelMultiplier = accel
 		if (browser) localStorage.setItem(LOCALSTORAGE_NAMES.accelMultiplier, JSON.stringify(accel))
-	}
-	$: {
+	})
+	run(() => {
 		nekoConfig.slipperiness = slipperiness * 0.01
 		if (browser)
 			localStorage.setItem(LOCALSTORAGE_NAMES.slipperiness, JSON.stringify(nekoConfig.slipperiness))
-	}
-	$: {
+	})
+	run(() => {
 		nekoConfig.persistOnReload = persistOnReload
 		if (browser)
 			localStorage.setItem(LOCALSTORAGE_NAMES.persistOnReload, JSON.stringify(persistOnReload))
-	}
+	})
 
 	function addSpritesheet() {
 		$spritesheetUrls = [...$spritesheetUrls, BASE_SPRITESHEET_URL]
@@ -53,11 +53,11 @@
 		$pageRendered = true
 	})
 
-	let windowHidden = false
+	let windowHidden = $state(false)
 	function closeWindow() {
 		windowHidden = true
 	}
-	let windowMaximized = false
+	let windowMaximized = $state(false)
 	function toggleMaximizeWindow() {
 		windowMaximized = !windowMaximized
 		offsetX = offsetY = initialX = initialY = 0
@@ -65,10 +65,10 @@
 
 	let startMouseX = 0
 	let startMouseY = 0
-	let initialX = 16
-	let initialY = 16
-	let offsetX = 0
-	let offsetY = 0
+	let initialX = $state(16)
+	let initialY = $state(16)
+	let offsetX = $state(0)
+	let offsetY = $state(0)
 
 	let mouseDown = false
 
@@ -99,7 +99,7 @@
 	<meta name="theme-color" content="#ffffff" />
 </svelte:head>
 
-<svelte:body on:mousemove={dragWindow} on:mouseup={stopDragWindow} />
+<svelte:body onmousemove={dragWindow} onmouseup={stopDragWindow} />
 
 <div
 	class="window"
@@ -107,13 +107,13 @@
 	class:window-maximized={windowMaximized}
 	style="left: {initialX + offsetX}px; top: {initialY + offsetY}px"
 >
-	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div class="title-bar" on:mousedown={startDragWindow}>
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div class="title-bar" onmousedown={startDragWindow}>
 		<div class="title-bar-text">cat config</div>
 		<div class="title-bar-controls">
-			<button aria-label="Minimize" on:click={closeWindow}></button>
-			<button aria-label="Maximize" on:click={toggleMaximizeWindow}></button>
-			<button aria-label="Close" on:click={closeWindow}></button>
+			<button aria-label="Minimize" onclick={closeWindow}></button>
+			<button aria-label="Maximize" onclick={toggleMaximizeWindow}></button>
+			<button aria-label="Close" onclick={closeWindow}></button>
 		</div>
 	</div>
 
@@ -129,7 +129,7 @@
 
 	<main class="window-body">
 		<section>
-			<button on:click={() => initNeko()()}>summon neko</button>
+			<button onclick={() => initNeko()()}>summon neko</button>
 			<!-- you intentionally cannot despawn nekos without disabling persistence and reloading -->
 		</section>
 
@@ -139,8 +139,8 @@
 				class="neko-config-text-input"
 				id="neko-config-acceleration"
 				type="text"
-				bind:value={accelStr}
-				on:input={updateFromAccelStr}
+				value={accel}
+				oninput={updateFromAccelStr}
 			/>
 			<input type="range" min="0" max="25" bind:value={accel} />
 		</section>
@@ -151,8 +151,8 @@
 				class="neko-config-text-input"
 				id="neko-config-slipperiness"
 				type="text"
-				bind:value={slipperinessStr}
-				on:input={updateFromSlipperinessStr}
+				value={slipperiness}
+				oninput={updateFromSlipperinessStr}
 			/>%
 			<input type="range" min="0" max="95" bind:value={slipperiness} />
 		</section>
