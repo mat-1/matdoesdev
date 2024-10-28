@@ -275,7 +275,7 @@
 										<Button href="//mudkip.dev" src="mudkip.png" alt="mudkip" />
 										<Button href="//lily.pet" src="lily.png" alt="lily" />
 										<Button href="//aubrey.rs" src="aubrey.png" alt="aubrey" />
-										<Button href="//haylinmoore.com/" src="haylin.png" alt="haylin moore" />
+										<Button href="//hayl.in" src="haylin.png" alt="haylin moore" />
 										<Button href="//ezri.pet/" src="ezri.png" alt="ezri" />
 										<Button
 											href="//thomasricci.dev"
