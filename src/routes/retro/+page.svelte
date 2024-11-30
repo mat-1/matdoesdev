@@ -256,12 +256,13 @@
 							<tr>
 								<td>
 									<div class="buttons">
+										<!-- friends -->
 										<Button href="//matdoes.dev" src="mat.png" alt="matdoesdev" />
 										<Button href="//adryd.com" src="adryd.png" alt="adryd" />
 										<Button href="//notnite.com" src="notnite.png" alt="notnite" />
 										<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
 										<Button href="//goldenstack.net" src="goldenstack.png" alt="goldenstack" />
-										<Button href="//www.kibty.town" src="kibtytown.gif" alt="kibty.town" />
+										<Button href="//kibty.town" src="kibtytown.gif" alt="kibty.town" />
 										<Button href="//honbra.com" src="honbra.png" alt="honbra" />
 										<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
 										<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
@@ -284,6 +285,8 @@
 										/>
 										<Button href="//zptr.cc" src="yui.gif" alt="yui aka zeroptr" />
 										<Button href="//ednamode.xyz" src="edna.png" alt="edna" />
+										<Button href="//alula.me" src="alula.png" alt="alula" />
+										<!-- other -->
 										<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 										<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 										<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
