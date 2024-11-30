@@ -287,7 +287,6 @@
 										<Button href="//ednamode.xyz" src="edna.png" alt="edna" />
 										<Button href="//alula.me" src="alula.png" alt="alula" />
 										<!-- other -->
-										<Button href="//archlinux.org" src="archbtw.png" alt="archbtw" />
 										<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 										<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
 										<Button href="//code.visualstudio.com" src="vscode.gif" alt="vscode" />
