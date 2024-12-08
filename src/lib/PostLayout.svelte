@@ -7,7 +7,6 @@
 </script>
 
 <script>
-	
 	/**
 	 * @typedef {Object} Props
 	 * @property {string} [title]
@@ -17,12 +16,7 @@
 	 */
 
 	/** @type {Props} */
-	let {
-		title = 'Untitled',
-		subtitle = undefined,
-		published = '',
-		children
-	} = $props();
+	let { title = 'Untitled', subtitle = undefined, published = '', children } = $props()
 </script>
 
 <svelte:head>
@@ -60,16 +54,34 @@
 		margin-bottom: 0.5em;
 		box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
 	}
-	article :global(.warning::before) {
-		content: 'Warning';
-		background: url(/emoji/26a0.svg) no-repeat;
+
+	article :global(.warning::before),
+	article :global(.error::before) {
 		height: 1em;
 		display: block;
 		padding-left: 1.2em;
 		margin-right: 0.2em;
 		margin-bottom: 0.2em;
 		font-weight: bold;
+		line-height: 1;
+
+		content: var(--title);
+		background: var(--image) no-repeat;
 	}
+	article :global(.warning) {
+		--title: 'Warning';
+		--image: url(/emoji/26a0.svg);
+		border: none;
+		border-left: 0.2em solid var(--warning-color);
+	}
+
+	article :global(.error) {
+		--title: 'Error';
+		--image: url(/emoji/1f6ab.svg) no-repeat;
+		border: none;
+		border-left: 0.2em solid var(--error-color);
+	}
+
 	h1 {
 		margin-bottom: 0;
 		font-size: 1.5em;

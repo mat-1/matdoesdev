@@ -94,9 +94,8 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 	})
 	// console.log('renderHtml', renderHtml)
 
-	// HACK: i'm probably committing a felony by putting this here
-	// but i couldn't come up with a better solution
-	const html = /^[\w\W]*?<\/div>\s*([\w\W]+)<\/article>[\w\W]*?$/.exec(renderHtml.body)?.[1] ?? ''
+	// HACK: sveltekit adds garbage around the content, we just want what's in the article tag
+	const html = /<article.*?>([\w\W]+)(?:<!---->)<\/article>/.exec(renderHtml.body)?.[1] ?? ''
 
 	const css = Array.from(result.css)
 		.map((css) => css.code)

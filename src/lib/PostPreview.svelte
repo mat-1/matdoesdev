@@ -1,13 +1,13 @@
 <script lang="ts">
-	import type { BlogPostPreview } from 'src/routes/blog.json/+server'
+	import type { BlogPostPreview } from 'src/routes/blog.json/preview'
 
 	interface Props {
-		post: BlogPostPreview;
+		post: BlogPostPreview
 	}
 
-	let { post }: Props = $props();
+	let { post }: Props = $props()
 	// HACK: we have to do this otherwise sveltekit does a dumb
-	const postHtml = `${post.html}<sty` + `le>${post.css}</style>`
+	const postHtml = post.html + (post.css ? `<sty` + `le>${post.css}</style>` : '')
 </script>
 
 <a href="/{post.slug}" class="preview-anchor">
@@ -34,8 +34,6 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;
-		-webkit-line-clamp: 2; /* number of lines to show */
-		line-clamp: 2;
 		-webkit-box-orient: vertical;
 		height: 5em;
 

@@ -16,6 +16,9 @@
 
 	--accent-color: #0dc7f9;
 
+	--warning-color: #e6b450;
+	--error-color: #d95757;
+
 	--text-font: 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 

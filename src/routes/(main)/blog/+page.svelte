@@ -1,14 +1,14 @@
 <script lang="ts">
 	import BackAnchor from '$lib/BackAnchor.svelte'
 	import PostPreview from '$lib/PostPreview.svelte'
-	import type { BlogPostPreview } from '../../blog.json/+server'
+	import type { BlogPostPreview } from 'src/routes/blog.json/preview'
 
 	interface Props {
-		data: any;
-		posts?: BlogPostPreview[];
+		data: any
+		posts?: BlogPostPreview[]
 	}
 
-	let { data, posts = data.posts }: Props = $props();
+	let { data, posts = data.posts }: Props = $props()
 </script>
 
 <svelte:head>
