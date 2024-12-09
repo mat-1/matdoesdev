@@ -286,6 +286,7 @@
 										<Button href="//zptr.cc" src="zeroptr.png" alt="yui aka zeroptr" />
 										<Button href="//ednamode.xyz" src="edna.png" alt="edna" />
 										<Button href="//alula.me" src="alula.png" alt="alula" />
+										<Button href="//nap.is.being.pet/" src="nap.gif" alt="naphteine" />
 										<!-- other -->
 										<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 										<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
