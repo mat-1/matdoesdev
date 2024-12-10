@@ -6,7 +6,7 @@ export const load: Load = async ({ fetch }) => {
 
 	let qotd = 'Error: Failed to fetch quote of the day'
 	try {
-		qotd = await fetch('https://matdoes.dev/qotd').then((r: Response) => r.text())
+		qotd = await fetch('/qotd').then((r: Response) => r.text())
 		// remove first line since it's just "Quote of the day:"
 		qotd = qotd.split('\n').slice(1).join('\n')
 	} catch (e) {
