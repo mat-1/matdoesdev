@@ -629,6 +629,8 @@
 		border: 1px solid #fffa;
 		padding: 1rem;
 		background: url(/retro/purple4.gif);
+		max-width: 100px;
+		word-wrap: break-word;
 	}
 	.qotd-container h3 {
 		margin: 0;
