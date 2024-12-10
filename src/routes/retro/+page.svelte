@@ -390,20 +390,22 @@
 				<div class="right-sidebar">
 					<h2>BLOG POSTS</h2>
 					{#each posts as post}
-						<div><a href={post.slug}>{post.title}</a></div>
+						<div class="sidebar-list-entry-container"><a href={post.slug}>{post.title}</a></div>
 					{/each}
 				</div>
 				<div class="right-sidebar">
 					<h2>PROJECTS</h2>
 					{#each projects as project}
-						<div><a href={project.href}>{project.name}</a></div>
+						<div class="sidebar-list-entry-container">
+							<a href={project.href}>{project.name}</a>
+						</div>
 					{/each}
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td> </td>
+			<td></td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -413,7 +415,18 @@
 				<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 			</td>
 		</tr>
-		<tr><td><p class="last-updated">Page last updated: September 15, 2024</p></td></tr>
+		<tr><td><p class="last-updated">Page last updated: December 9, 2014</p></td></tr>
+
+		<tr>
+			<td></td>
+			<td></td>
+			<td class="qotd-container">
+				<h3>QUOTE OF THE DAY</h3>
+				<p>
+					&gt; {data.qotd}
+				</p>
+			</td>
+		</tr>
 	</tbody>
 </table>
 
@@ -431,9 +444,13 @@
 		height: 400px;
 		overflow-y: scroll;
 	}
+	.sidebar-list-entry-container {
+		margin: 0.5em 0;
+	}
 
 	#main-table {
 		width: 100%;
+		margin-bottom: 5rem;
 	}
 
 	#welcome {
@@ -605,5 +622,16 @@
 		margin: 0 auto;
 		padding: 1px;
 		color: #d2a6ff;
+	}
+
+	.qotd-container {
+		font-family: serif;
+		border: 1px solid #fffa;
+		padding: 1rem;
+		background: url(/retro/purple4.gif);
+	}
+	.qotd-container h3 {
+		margin: 0;
+		color: #7fd962;
 	}
 </style>
