@@ -423,7 +423,7 @@
 			<td class="qotd-container">
 				<h3>QUOTE OF THE DAY</h3>
 				<p>
-					&gt; {data.qotd}
+					&gt;&nbsp;{data.qotd}
 				</p>
 			</td>
 		</tr>
