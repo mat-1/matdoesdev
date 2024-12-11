@@ -54,7 +54,7 @@ VØJ - Moonlit`.split('\n')
 	$effect(() => {
 		if (musicPlayerEl) {
 			if (currentSong_ !== currentSong) {
-				const newSrc = `/retro/music/${currentSong.replace(/\?/g, '')}.mp3`
+				const newSrc = `https://matdoes.dev/retro/music/${currentSong.replace(/\?/g, '')}.mp3`
 				musicPlayerEl.src = newSrc
 				musicPlayerEl.load()
 				currentSong_ = currentSong
