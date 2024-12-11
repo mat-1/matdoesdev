@@ -64,10 +64,12 @@ VØJ - Moonlit`.split('\n')
 
 	function nextSong() {
 		currentSongIndex = (currentSongIndex + 1) % SONGS.length
+		musicPlayerEl?.play()
 	}
 
 	function prevSong() {
 		currentSongIndex = (currentSongIndex - 1 + SONGS.length) % SONGS.length
+		musicPlayerEl?.play()
 	}
 </script>
 
