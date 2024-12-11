@@ -412,15 +412,19 @@
 		<tr>
 			<td></td>
 			<td>
-				<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
+				<center>
+					<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
+				</center>
 			</td>
 		</tr>
 		<tr><td><p class="last-updated">Page last updated: December 9, 2014</p></td></tr>
-
+	</tbody>
+</table>
+<table id="second-table">
+	<tbody>
 		<tr>
 			<td></td>
-			<td></td>
-			<td class="qotd-container">
+			<td class="qotd-container" width="300px">
 				<h3>QUOTE OF THE DAY</h3>
 				<p>
 					&gt;&nbsp;{data.qotd}
@@ -429,6 +433,7 @@
 		</tr>
 	</tbody>
 </table>
+<div class="bottom"></div>
 
 <noscript>
 	<style>
@@ -443,13 +448,21 @@
 		text-align: right;
 		height: 400px;
 		overflow-y: scroll;
+		float: right;
+		clear: right;
 	}
 	.sidebar-list-entry-container {
 		margin: 0.5em 0;
+		max-width: fit-content;
+		float: right;
+		clear: right;
 	}
 
 	#main-table {
 		width: 100%;
+	}
+
+	.bottom {
 		margin-bottom: 5rem;
 	}
 
@@ -488,7 +501,6 @@
 	}
 
 	#counter {
-		margin: 0 auto;
 		display: block;
 	}
 
@@ -629,11 +641,15 @@
 		border: 1px solid #fffa;
 		padding: 1rem;
 		background: url(/retro/purple4.gif);
-		max-width: 100px;
+		max-width: 300px;
 		word-wrap: break-word;
 	}
 	.qotd-container h3 {
 		margin: 0;
 		color: #7fd962;
+	}
+
+	#second-table {
+		width: 100%;
 	}
 </style>
