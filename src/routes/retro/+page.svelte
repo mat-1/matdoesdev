@@ -289,6 +289,11 @@
 										<Button href="//nap.is.being.pet" src="nap.gif" alt="naphteine" />
 										<Button href="//jordane.day" src="jordan.gif" alt="jordan aka 1sreal" />
 										<Button href="//izzyn.dev" src="izzy.gif" alt="izzyn" />
+										<Button
+											href="//www.pineapplecat.dev"
+											src="pineapplecat.png"
+											alt="pineapple cat"
+										/>
 										<!-- other -->
 										<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 										<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
