@@ -3,19 +3,18 @@
 	import { pageIndexFromName, data, downloadData } from '../88x31'
 	import ButtonLink from '../ButtonLink.svelte'
 	import { onMount } from 'svelte'
-	import { page } from '$app/stores'
 
 	let originPage = writable('')
 	let targetPage = writable('')
 
-	let originPageId: number | null = $state()
-	let targetPageId: number | null = $state()
+	let originPageId = $state<number | null>()
+	let targetPageId = $state<number | null>()
 
 	let pageAndButtonIndexes: [number, number][] | null = $state([])
 
-	function calculatePath() {
-		originPageId = pageIndexFromName($originPage)
-		targetPageId = pageIndexFromName($targetPage)
+	function calculatePath(newOriginPage: string, newTargetPage: string) {
+		originPageId = pageIndexFromName(newOriginPage)
+		targetPageId = pageIndexFromName(newTargetPage)
 
 		if (originPageId === null || targetPageId === null) return
 
@@ -119,8 +118,8 @@
 		if (target !== '' && $targetPage !== target) targetPage.set(target)
 	}
 
-	originPage.subscribe(calculatePath)
-	targetPage.subscribe(calculatePath)
+	originPage.subscribe((newOriginPage) => calculatePath(newOriginPage, $targetPage))
+	targetPage.subscribe((newTargetPage) => calculatePath($originPage, newTargetPage))
 
 	originPage.subscribe(updateHash)
 	targetPage.subscribe(updateHash)
