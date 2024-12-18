@@ -1,0 +1,87 @@
+@font-face {
+	font-family: Pretendard;
+	font-weight: 45 920;
+	font-display: swap;
+	src: url(/static/fonts/PretendardStdVariable.woff2);
+}
+@font-face {
+	font-family: IBM Plex Mono;
+	font-weight: 400;
+	font-display: swap;
+	src: url(/static/fonts/ibmplexmono-regular.woff2) format('woff2');
+}
+@font-face {
+	font-family: IBM Plex Mono;
+	font-weight: 700;
+	font-display: swap;
+	src: url(/static/fonts/ibmplexmono-bold.woff2) format('woff2');
+}
+
+:root {
+	--background-color: #0a0a0a;
+}
+#page {
+	max-width: 100%;
+}
+main {
+	max-width: calc(800px + 2em) !important;
+}
+#page .section-container {
+	flex-direction: row;
+	width: 100%;
+}
+.icon-row .button-row {
+	margin: 1rem 0 1rem 0;
+}
+#main-title {
+	font-weight: 900;
+	font-size: 5rem;
+	width: fit-content;
+	margin: 3rem 0 1rem;
+	text-transform: lowercase;
+}
+#main-title:before {
+	content: "hi, i'm ";
+}
+#main-title:after {
+	content: '!';
+}
+#main-title::first-letter {
+	text-shadow: none;
+}
+#main-index-page-section {
+	max-width: none;
+	width: 100%;
+}
+#main-index-page-section p {
+	font-weight: 500;
+	font-size: 1.125rem;
+}
+.button-row {
+	width: 100% !important;
+	display: block !important;
+}
+.icon-row .button-row {
+	display: flex !important;
+}
+.button {
+	color: #93c5fd;
+	background-color: #3b82f633;
+	border: none;
+	display: block;
+	width: fit-content;
+	padding: 0.16em 0.3em;
+}
+.button:hover {
+	color: #93c5fd;
+	background-color: #91c3fd33;
+}
+p {
+	margin: 0.5em 0 !important;
+}
+footer {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #171717;
+}

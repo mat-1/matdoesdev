@@ -1,0 +1,52 @@
+:root {
+	--background-color: #111;
+}
+#page {
+	max-width: calc(35rem);
+	font-family: monospace;
+	margin: 0 auto;
+}
+#page .section-container {
+	flex-direction: row;
+}
+.icon-row .button-row {
+	margin: 0 0 0.5rem 0;
+}
+#main-title {
+	color: #cb2027;
+	font-weight: 700;
+	font-size: 3rem;
+	width: fit-content;
+	margin: 2rem 0 0.5rem;
+	text-transform: lowercase;
+}
+#main-title::first-letter {
+	text-shadow: none;
+}
+#main-index-page-section {
+	max-width: none;
+}
+#main-index-page-section p {
+	font-weight: 500;
+}
+.button-row {
+	width: 100% !important;
+	display: block !important;
+}
+.icon-row .button-row {
+	display: flex !important;
+}
+.button {
+	color: inherit;
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	display: block;
+	width: fit-content;
+	padding: 0;
+	text-decoration: underline;
+	font-size: inherit;
+}
+p {
+	margin: 0.5em 0 !important;
+}

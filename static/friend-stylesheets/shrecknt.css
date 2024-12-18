@@ -1,0 +1,100 @@
+:root {
+	--background-color: #212121;
+	--text-color: #dcdcdc;
+}
+body {
+	font-size: 1.15rem;
+	line-height: 1.5;
+}
+#page {
+	max-width: 100%;
+	font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Nimbus Sans L', Roboto,
+		'Noto Sans', 'Segoe UI', Arial, Helvetica, 'Helvetica Neue', sans-serif;
+	margin: 0 auto;
+}
+#page .section-container {
+	flex-direction: row;
+}
+#main-title {
+	font-weight: 700;
+	font-size: 3rem;
+	padding-top: 1em;
+}
+#main-title:before {
+	content: '';
+	width: 100%;
+	position: absolute;
+	background: #2b2b2b;
+	height: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: -1;
+	height: 12rem;
+	border-bottom: 1px solid #898ea4;
+}
+#main-title::first-letter {
+	text-shadow: none;
+	text-transform: uppercase;
+}
+#main-title:after {
+	content: "'s Silly Site";
+}
+
+#main-index-page-section {
+	max-width: none;
+}
+#main-index-page-section p {
+	font-weight: 500;
+}
+.icon-row > .button-row {
+	margin-top: 0;
+}
+#main-index-page-section > .button-row {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.button {
+	background-color: transparent;
+	box-shadow: none;
+	margin: 0 0.5rem 1rem 0.5rem;
+	border: 1px solid #898ea4;
+	border-radius: 5px;
+	color: var(--text-color);
+	display: inline-block;
+	padding: 0.1rem 1rem;
+	text-decoration: none;
+	line-height: 2;
+}
+#main-index-page-section p:first-of-type {
+	margin-top: 3em;
+	border-bottom: none;
+	margin-bottom: -2em;
+	border-radius: 5px 5px 0 0;
+}
+#main-index-page-section p:nth-of-type(2) {
+	border-top: none;
+	border-radius: 0 0 5px 5px;
+}
+#main-index-page-section p:first-of-type:before {
+	content: 'About Me';
+	display: block;
+	font-weight: bold;
+	margin-bottom: 0.25em;
+}
+#main-index-page-section p {
+	max-width: 720px;
+	padding: 1em;
+	border: 2px solid #898ea4;
+	background: #2b2b2b;
+}
+
+footer {
+	border-top: 1px solid #898ea4;
+	padding-top: 1em;
+	width: 720px;
+	margin: 3rem auto 0 auto;
+	font-size: 1rem;
+}

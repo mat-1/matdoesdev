@@ -8,7 +8,7 @@
 	import IconButtonRow from '$lib/IconButtonRow.svelte'
 	import Topography from '$lib/topography.svg'
 
-	let titleEl: HTMLParagraphElement = $state()
+	let titleEl: HTMLParagraphElement
 
 	onMount(async () => {
 		maybeAddRandomBackground()
@@ -167,25 +167,46 @@
 		const titleEl = document.getElementsByTagName('title')[0]
 		titleEl.textContent = content
 
-		if (/^(sand|samd)?(cat|cta|car)(doesdev)?$/.test(content)) {
-			sentence1 = 'meow meow, mew meow meow mrrp meow nyaa :3'
-			sentence2 = 'meeeoooww ^-^ purr~ meow meow mrrp meow nya meow nyaaa meow nyaa nyaa :3'
-			copyrightText = defaultCopyrightText.replace('mat', 'mta')
-			startSandcatMode()
-		} else if (/does/.test(content)) {
-			let [name, action] = content.split('does')
-			name = name.trim()
-			action = action.trim()
-			sentence1 = defaultSentence1.replace('mat', name)
-			if (action !== 'dev') {
-				sentence1 = sentence1.replace('full-stack software development', action)
+		const friendStylesheets: Record<string, string> = {
+			adryd: 'adryd.css',
+			ari: 'adryd.css',
+			notnite: 'notnite.css',
+			shrecknt: 'shrecknt.css',
+		}
+
+		let friendStylesheetLinkEl = document.getElementById('friend-stylesheet') as HTMLLinkElement
+		if (content.toLowerCase() in friendStylesheets) {
+			const stylesheetMap = friendStylesheets[content.toLowerCase()]
+			if (!friendStylesheetLinkEl) {
+				friendStylesheetLinkEl = document.createElement('link')
+				friendStylesheetLinkEl.id = 'friend-stylesheet'
+				friendStylesheetLinkEl.rel = 'stylesheet'
+				document.head.appendChild(friendStylesheetLinkEl)
 			}
-			sentence2 = defaultSentence2
-			copyrightText = defaultCopyrightText.replace('mat', name)
+			friendStylesheetLinkEl.href = `/friend-stylesheets/${stylesheetMap}`
 		} else {
-			sentence1 = defaultSentence1
-			sentence2 = defaultSentence2
-			copyrightText = defaultCopyrightText
+			friendStylesheetLinkEl?.remove()
+
+			if (/^(sand|samd)?(cat|cta|car)(doesdev)?$/.test(content)) {
+				sentence1 = 'meow meow, mew meow meow mrrp meow nyaa :3'
+				sentence2 = 'meeeoooww ^-^ purr~ meow meow mrrp meow nya meow nyaaa meow nyaa nyaa :3'
+				copyrightText = defaultCopyrightText.replace('mat', 'mta')
+				startSandcatMode()
+			} else if (/does/.test(content)) {
+				let [name, action] = content.split('does')
+				name = name.trim()
+				action = action.trim()
+				sentence1 = defaultSentence1.replace('mat', name)
+				if (action !== 'dev') {
+					sentence1 = sentence1.replace('full-stack software development', action)
+				}
+				sentence2 = defaultSentence2
+				copyrightText = defaultCopyrightText.replace('mat', name)
+			} else {
+				sentence1 = defaultSentence1
+				sentence2 = defaultSentence2
+				copyrightText = defaultCopyrightText
+			}
 		}
 
 		copyrightEl.textContent = copyrightText
