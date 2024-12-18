@@ -10,6 +10,7 @@ export function load() {
 	img.style.position = 'fixed'
 	img.style.bottom = '0'
 	img.style.right = '0'
+	img.style.maxWidth = '100%'
 	img.style.zIndex = '9999'
 	document.body.appendChild(img)
 }
