@@ -30,22 +30,6 @@
 
 	let stopGravity: (() => void) | null = null
 
-	// stake-ad.png easter egg
-	let showStakeAd = false
-	if (browser) {
-		showStakeAd = getShowStakeAdFromUrl()
-		if (showStakeAd) {
-			;(async () => {
-				const stakeAd = await import('./stake-ad')
-				stakeAd.load()
-			})()
-		}
-	}
-
-	function getShowStakeAdFromUrl() {
-		return new URLSearchParams(location.search).has('stake')
-	}
-
 	async function onPathChange() {
 		// if we switched paths more than 10 times in the past 10 seconds, import $lib/gravity.js
 		pathChangeTimestamps.push(Date.now())
@@ -66,12 +50,6 @@
 					stopGravity?.()
 				}
 			}
-		}
-
-		// add ?stake if necessary
-		if (showStakeAd && !getShowStakeAdFromUrl()) {
-			// this partially breaks back/forward navigation :(
-			history.replaceState(null, '', '?stake')
 		}
 	}
 
