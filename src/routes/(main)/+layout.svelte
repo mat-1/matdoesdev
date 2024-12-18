@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+	import { run } from 'svelte/legacy'
 
 	import '../../app.css'
 	import { fly } from 'svelte/transition'
@@ -7,15 +7,15 @@
 	import { browser } from '$app/environment'
 	import { writable } from 'svelte/store'
 	import { onMount } from 'svelte'
-	
+
 	interface Props {
-		data: LayoutData;
+		data: LayoutData
 		// + 1 because i live in the future
-		copyrightYear?: any;
-		children?: import('svelte').Snippet;
+		copyrightYear?: any
+		children?: import('svelte').Snippet
 	}
 
-	let { data, copyrightYear = $bindable(new Date().getFullYear() + 1), children }: Props = $props();
+	let { data, copyrightYear = $bindable(new Date().getFullYear() + 1), children }: Props = $props()
 
 	function clickCopyrightYear() {
 		copyrightYear += 1
@@ -29,6 +29,22 @@
 	let pathChangeTimestamps: number[] = []
 
 	let stopGravity: (() => void) | null = null
+
+	// stake-ad.png easter egg
+	let showStakeAd = false
+	if (browser) {
+		showStakeAd = getShowStakeAdFromUrl()
+		if (showStakeAd) {
+			;(async () => {
+				const stakeAd = await import('./stake-ad')
+				stakeAd.load()
+			})()
+		}
+	}
+
+	function getShowStakeAdFromUrl() {
+		return new URLSearchParams(location.search).has('stake')
+	}
 
 	async function onPathChange() {
 		// if we switched paths more than 10 times in the past 10 seconds, import $lib/gravity.js
@@ -50,6 +66,12 @@
 					stopGravity?.()
 				}
 			}
+		}
+
+		// add ?stake if necessary
+		if (showStakeAd && !getShowStakeAdFromUrl()) {
+			// this partially breaks back/forward navigation :(
+			history.replaceState(null, '', '?stake')
 		}
 	}
 
@@ -93,7 +115,7 @@
 			$pageRendered = true
 		})
 	}
-	run(() => {
+	$effect(() => {
 		if (browser) {
 			if (previousPathname !== currentPathName) previousPathname = currentPathName
 			currentPathName = data.pathname
@@ -104,7 +126,7 @@
 			else flyDirection = -1
 			onPathChange()
 		}
-	});
+	})
 </script>
 
 {#key data.pathname}
