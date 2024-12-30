@@ -1,5 +1,4 @@
-# xcaddy build \
-#     --with github.com/mat-1/matdoesdev-caddy
+# xcaddy build --with github.com/mat-1/matdoesdev-caddy
 
 
 {
@@ -14,6 +13,7 @@
 	@do_https_redirect {
 		not header_regexp veryoldbrowser User-Agent Navigator|MSIE|Mosaic|Kindle|^curl|NintendoBrowser/
 		not host *.onion *.*.onion
+		not host *.i2p *.*.i2p
 		protocol http
 	}
 	redir @do_https_redirect https://{host}{uri}
@@ -36,7 +36,7 @@
 }
 
 # this is necessary for http:// to work on old browsers
-http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion {
+http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion http://matcta5umrjruf3t5gzspk2fumdsftcdi3o75ka5hi6giwcrpzja.b32.i2p http://mat.i2p {
 	import https_redirect
 	import gif_redirect
 
@@ -90,11 +90,52 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 	rewrite @txt_index /.txt
 	rewrite @txt {path}.txt
 	# rewrite /.txt to /index.txt
-	rewrite /.txt /index.txt
+	handle {
+		rewrite /.txt /index.txt
+	}
 
 	# make /index.html show different page
 	rewrite /index.html /index.htm
-	header /index.html Server nginx
+	header  /index.html Server nginx
+	# i'm sobbing
+	rewrite /index.html/index.html /index.htm/index.htm
+	header  /index.html/index.html Server caddy
+	# apache
+	rewrite /index.html/index.html/index.html /index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html Server Apache
+	# openlitespeed
+	rewrite /index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html Server LiteSpeed
+	# lighttpd
+	rewrite /index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html Server lighttpd
+	# microsoft iis
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html Server Microsoft-IIS
+	# tomcat
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html/index.html Server Apache-Coyote
+	# jetty
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html Server Jetty
+	# aolserver
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html Server AOLserver
+	# cherokee
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html Server Cherokee
+	# ibm http server
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html Server IBM_HTTP_Server
+	# os x server
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html Server OS X Server
+	# raq 3
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	header  /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html Server RaQ 3
+	# last ones don't have a header
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
+	rewrite /index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html/index.html /index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm/index.htm
 
 	# don't require .html
 	try_files {path} {path}.html
@@ -105,6 +146,7 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 	# advertise onion site in headers
 	@website host matdoes.dev
 	header @website Onion-Location http://matctazmu565vivubva3p3bulaneangiff47xmnezzjx2nuinwjoxjyd.onion{path}
+	header @website X-I2P-Location http://matcta5umrjruf3t5gzspk2fumdsftcdi3o75ka5hi6giwcrpzja.b32.i2p{path}
 
 	log {
 		output file /var/log/caddy/matdoes.dev.log
@@ -174,6 +216,9 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 			rewrite /
 		}
 	}
+	route /qotd {
+		reverse_proxy 127.0.0.1:6758
+	}
 
 	handle_errors 400 {
 		respond "🐟"
@@ -200,6 +245,12 @@ http://matdoes.dev https://matdoes.dev http://matctazmu565vivubva3p3bulaneangiff
 
 		rewrite @should_be_404 /404.html
 		file_server @is_not_451
+	}
+
+	@PAT method PAT
+	handle @PAT {
+		respond "meow :3
+"
 	}
 }
 
@@ -266,12 +317,20 @@ matrix.matdoes.dev matrix.matdoes.dev:8448 {
 		header content-type application/json
 		respond "{\"m.server\":\"matrix.matdoes.dev\"}"
 	}
-	handle /.well-known/matrix/client {
-		reverse_proxy 127.0.0.1:81
+	handle /mautrix-discord/* {
+		reverse_proxy 127.0.0.1:6168
 	}
+	handle /irc-media/* {
+		reverse_proxy 127.0.0.1:11111
+	}
+
 	handle {
 		reverse_proxy 127.0.0.1:6167
 	}
+}
+discord-media.matdoes.dev discord-media.matdoes.dev:8448 {
+	# for mautrix-discord direct media access
+	reverse_proxy 127.0.0.1:6168
 }
 
 stats.matrix.matdoes.dev {
@@ -319,12 +378,12 @@ mail.matdoes.dev {
 	respond "mat's mail server :)"
 }
 
-matdoes.dev. {
-	log
+#matdoes.dev. {
+#	log
 	# tls /home/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/matdoes.dev/matdoes.dev.crt /home/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/matdoes.dev/matdoes.dev.key
 
-	respond "meow"
-}
+#	respond "meow"
+#}
 
 jmap.matdoes.dev {
 	log {
