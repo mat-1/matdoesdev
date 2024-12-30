@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Using FTP to upload a site home page to the server</title>
+		<meta
+			name="Copyright"
+			VALUE="Copyright 1998-1999, Cobalt Networks, Inc.  All rights reserved."
+		/>
+	</head>
+
+	<body bgcolor="#FFFFFF" background="/raq3/black_tile8.gif">
+		<img src="/raq3/top_logo_black.gif" width="95" height="36" border="0" /><font color="#000000"
+			>&nbsp;&nbsp;</font
+		><font size="5" color="#FFFFFF" face="HELVETICA, ARIAL"
+			><b>Using FTP to upload a site home page to the server</b></font
+		>
+		<br /><br /><br />
+		<p>As a site administrator, you have the priviledge to publish the site home page.</p>
+
+		<p>
+			Once you have created a home page and you want to post it on the Cobalt server appliance, you
+			can upload it by following the steps listed below.
+		</p>
+
+		<p>
+			Note: Before uploading your home page, make sure its file name is <b>index.html</b>. The
+			uploaded page will appear at http://&lt;your.vanity.domain&gt;/index.html.
+		</p>
+
+		<ol>
+			<li>Launch your FTP application, wait for the FTP prompt.</li>
+			<li>
+				Type <b>open &lt;hostname&gt;</b>, press Return or Enter. (<b>&lt;hostname&gt;</b> stands
+				for the site name or IP address of the site that will host your home page).
+			</li>
+			<li>Type your user name when asked for login name, then press Return or Enter.</li>
+			<li>Type your password when asked for password, then press Return or Enter.</li>
+			<li>
+				Type <b>cd /web</b>, press Return or Enter. This takes you to the directory for your site
+				home page.
+			</li>
+			<li>
+				Type <b>put &lt;path&gt;/index.html</b>, press Return or Enter. This uploads the file.<br />
+				(<b>&lt;path&gt;</b> stands for the directory location of your home page file on your local
+				disk, and index.html should be the actual name of the file containing your Home page.)
+			</li>
+
+			<li>
+				Type <b>quit</b>, then press Return or Enter. This terminates the file transfer session.
+			</li>
+			<li>Done!</li>
+		</ol>
+	</body>
+</html>
