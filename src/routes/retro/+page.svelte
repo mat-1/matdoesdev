@@ -430,12 +430,61 @@
 <table id="second-table">
 	<tbody>
 		<tr>
-			<td></td>
-			<td class="qotd-container" width="300px">
-				<h3>QUOTE OF THE DAY</h3>
-				<p>
-					&gt;&nbsp;{data.qotd}
-				</p>
+			<td class="about-container" rowspan="2">
+				<div class="about">
+					<h2>About this page</h2>
+					<p>
+						meow! If you've found your way to this page, you're automatically cool in my opinion.
+					</p>
+					<p>
+						This page was originally created as an homage to old internet sites, similar to what
+						you'd find on Geocities. It originally even had mostly-full support for old web browsers
+						like NCSA Mosaic and Netscape Navigator (I went as far as to design the page using table
+						layout, avoiding CSS, automatically converting PNGs into GIFs, and disabling the HTTPS
+						redirect for User-Agents that don't handle these "modern" features well). Partial
+						support for old browsers still remains, but as I've expanded this page that support has
+						deteriorated. It's written with Svelte anyways, so it's a bit hard to avoid fancy new
+						web features.
+					</p>
+					<p>
+						You may notice that this is not the main page of my website, and that the main page is
+						much less provocative. I like to treat this page as a much lower-stakes page that I can
+						mess around with and do weird stuff on, since I expect it to have significantly fewer
+						visitors due to not being linked anywhere obvious from my site and blocking search
+						engine crawlers. If you were wondering, the "intended" ways of finding this page are by
+						visiting a 404 page that randomly (5% chance) happens to show a 451 Unavailable For
+						Legal Reasons and clicking the text (which leads here), or by clicking a link on a
+						friend's site that links to this page. Other ways (like reading the source code, or
+						someone directly giving you the link) are valid too.
+					</p>
+					<p>
+						As you may have figured out by now, this website/domain contains within it <i>many</i>
+						hidden and undocumented features (like the existence of this page). Here's a freebie, you
+						can visit the main pages of this website through SSH, like by literally typing in your terminal
+						<code>ssh matdoes.dev</code>. Some of the hidden features were made with the expectation
+						that they'll never be found though (and many I've even forgotten about), so, good luck I
+						guess.
+					</p>
+					<p>
+						Anyways, yap over. Go visit the sites of my friends linked in the 88×31 buttons above,
+						they're all cooler than me.
+					</p>
+				</div>
+			</td>
+			<td width="300px" class="qotd-container">
+				<div class="qotd">
+					<h3>QUOTE OF THE DAY</h3>
+					<p>
+						&gt;&nbsp;{data.qotd}
+					</p>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!--  -->
+			</td><td>
+				<!--  -->
 			</td>
 		</tr>
 	</tbody>
@@ -644,6 +693,9 @@
 	}
 
 	.qotd-container {
+		vertical-align: top;
+	}
+	.qotd {
 		font-family: serif;
 		border: 1px solid #fffa;
 		padding: 1rem;
@@ -651,12 +703,33 @@
 		max-width: 300px;
 		word-wrap: break-word;
 	}
-	.qotd-container h3 {
+	.qotd h3 {
 		margin: 0;
 		color: #7fd962;
 	}
 
 	#second-table {
 		width: 100%;
+	}
+
+	.about {
+		margin-left: 0.5em;
+		padding: 0.5em;
+		display: block;
+		max-width: 650px;
+	}
+	.about h2 {
+		text-align: center;
+		transform: rotate(1deg);
+		text-shadow: 2px 2px 0 #00f;
+	}
+	.about p {
+		text-indent: 2em;
+		font-family: serif;
+		background: #000;
+		line-height: 1.5;
+	}
+	.about p:first-of-type {
+		text-indent: 0;
 	}
 </style>
