@@ -95,7 +95,9 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 	// console.log('renderHtml', renderHtml)
 
 	// HACK: sveltekit adds garbage around the content, we just want what's in the article tag
-	const html = /<article.*?>([\w\W]+)(?:<!---->)<\/article>/.exec(renderHtml.body)?.[1] ?? ''
+	let html = /<article.*?>([\w\W]+)(?:<!---->)<\/article>/.exec(renderHtml.body)?.[1] ?? ''
+	// sveltekit also adds random empty comments like "<!---->", we don't want those
+	html = html.replace(/<!---->/g, '')
 
 	const css = Array.from(result.css)
 		.map((css) => css.code)
