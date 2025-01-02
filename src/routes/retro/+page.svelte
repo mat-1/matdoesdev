@@ -434,7 +434,7 @@
 				<div class="about">
 					<h2>About this page</h2>
 					<p>
-						meow! If you've found your way to this page, you're automatically cool in my opinion.
+						meow.. if you've found your way to this page, you're automatically cool in my opinion.
 					</p>
 					<p>
 						This page was originally created as an homage to old internet sites, similar to what
@@ -448,9 +448,9 @@
 					</p>
 					<p>
 						You may notice that this is not the main page of my website, and that the main page is
-						much less provocative. I like to treat this page as a much lower-stakes page that I can
-						mess around with and do weird stuff on, since I expect it to have significantly fewer
-						visitors due to not being linked anywhere obvious from my site and blocking search
+						much less provocative. I like to treat this page as a much lower-standards page that I
+						can mess around with and do weird stuff on, since I expect it to have significantly
+						fewer visitors due to not being linked anywhere obvious from my site and blocking search
 						engine crawlers. If you were wondering, the "intended" ways of finding this page are by
 						visiting a 404 page that randomly (5% chance) happens to show a 451 Unavailable For
 						Legal Reasons and clicking the text (which leads here), or by clicking a link on a
