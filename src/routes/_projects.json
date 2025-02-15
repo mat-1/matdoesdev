@@ -1,5 +1,11 @@
 [
 	{
+		"name": "Seized banners",
+		"href": "https://seized.matdoes.dev",
+		"languages": ["rust", "typescript", "svelte"],
+		"description": "An archive of every website seizure banner image or page created by government agencies."
+	},
+	{
 		"name": "metasearch2",
 		"href": "https://s.matdoes.dev",
 		"source": "https://github.com/mat-1/metasearch2",
