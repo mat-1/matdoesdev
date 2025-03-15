@@ -431,6 +431,9 @@
 <table id="second-table">
 	<tbody>
 		<tr>
+			<td class="about-container" rowspan="2">
+				<div class="about"></div>
+			</td>
 			<td width="300px" class="qotd-container">
 				<div class="qotd">
 					<h3>QUOTE OF THE DAY</h3>
@@ -678,6 +681,7 @@
 		display: block;
 		max-width: 650px;
 	}
+	/*
 	.about h2 {
 		text-align: center;
 		transform: rotate(1deg);
@@ -692,4 +696,5 @@
 	.about p:first-of-type {
 		text-indent: 0;
 	}
+	*/
 </style>
