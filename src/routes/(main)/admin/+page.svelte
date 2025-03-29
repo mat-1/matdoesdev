@@ -24,10 +24,15 @@
 		return `${hours}h ${minutes}m ${seconds}s`
 	}
 
-	function reboot() {}
 	async function shutdown() {
 		await fetch('/admin/api/shutdown', { method: 'POST' })
 		// shutdown animation
+		document.body.classList.add('shutdown')
+		await new Promise((resolve) => setTimeout(resolve, 3000))
+		location.reload()
+	}
+	async function reboot() {
+		await fetch('/admin/api/reboot', { method: 'POST' })
 		document.body.classList.add('shutdown')
 		await new Promise((resolve) => setTimeout(resolve, 3000))
 		location.reload()
