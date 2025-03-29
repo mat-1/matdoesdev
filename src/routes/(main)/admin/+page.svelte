@@ -96,7 +96,24 @@
 
 <h1>Admin</h1>
 
-<div>
+<noscript>
+	<p>JavaScript is required to view this page.</p>
+	<style>
+		.admin {
+			display: none;
+		}
+	</style>
+</noscript>
+
+{#if uptimeSeconds === undefined}
+	<p>Loading...</p>
+	<style>
+		.admin {
+			display: none;
+		}
+	</style>
+{/if}
+<div class="admin">
 	<section class="container danger-buttons">
 		<button class="danger-button" onclick={reboot}>Reboot</button>
 		<button class="danger-button" onclick={shutdown}>Shut down</button>
