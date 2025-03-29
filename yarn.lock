@@ -2711,7 +2711,7 @@ __metadata:
     eslint-config-prettier: "npm:^10.1.1"
     html-minifier: "npm:^4.0.0"
     matter-js: "npm:^0.20.0"
-    mdsvex: "npm:^0.12.3"
+    mdsvex: "patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch"
     postinstall-postinstall: "npm:^2.1.0"
     prettier: "npm:^3.5.3"
     prettier-plugin-svelte: "npm:^3.3.3"
@@ -2734,7 +2734,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdsvex@npm:^0.12.3":
+"mdsvex@npm:0.12.3":
   version: 0.12.3
   resolution: "mdsvex@npm:0.12.3"
   dependencies:
@@ -2745,6 +2745,20 @@ __metadata:
   peerDependencies:
     svelte: ^3.56.0 || ^4.0.0 || ^5.0.0-next.120
   checksum: 10c0/2821baf521b2e323ea3c3040f6e3ce0305c43d8024b6e406862305458f181823cfde595ed26118a382589b0e2fb88d2742de7b8ffe9b3f61a703adddd88a0e13
+  languageName: node
+  linkType: hard
+
+"mdsvex@patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch":
+  version: 0.12.3
+  resolution: "mdsvex@patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch::version=0.12.3&hash=3468a8"
+  dependencies:
+    "@types/unist": "npm:^2.0.3"
+    prism-svelte: "npm:^0.4.7"
+    prismjs: "npm:^1.17.1"
+    vfile-message: "npm:^2.0.4"
+  peerDependencies:
+    svelte: ^3.56.0 || ^4.0.0 || ^5.0.0-next.120
+  checksum: 10c0/db07e051c5d5633668544f88b4cb8827d9085c80d95d55d6574f8ed7feff5301ef6b886adaa4f871f542dc38167bb0323de8cbdb1572bc3d729bb7754a1dc5d6
   languageName: node
   linkType: hard
 

@@ -23,7 +23,7 @@
 		"@typescript-eslint/parser": "^8.26.1",
 		"eslint": "^9.22.0",
 		"eslint-config-prettier": "^10.1.1",
-		"mdsvex": "^0.12.3",
+		"mdsvex": "patch:mdsvex@npm%3A0.12.3#~/.yarn/patches/mdsvex-npm-0.12.3-11596b7ddc.patch",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
 		"sharp": "^0.33.5",
