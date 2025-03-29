@@ -37,6 +37,8 @@ const config = {
 				'/blog/who-is-mat',
 				// sometimes /retro doesn't get prerendered if this isn't included
 				'/retro',
+				'/wp-admin.php',
+				'/admin',
 			],
 			handleHttpError: 'warn',
 		},
