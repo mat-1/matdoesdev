@@ -5,13 +5,13 @@ published: 2023-05-29T02:48:09.000Z
 
 matscan is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
 
+![one of the messages that may be shown when matscan joins a server](matscan-messages.png)
+
 # How should I secure my server?
 
-It should've told you in its long chat message but some servers might cut it off:
-
-- If the server was meant to be private then enable a whitelist.
-- If the server is offline-mode then enable online-mode in the server.properties or install a plugin such as [AuthMe](https://dev.bukkit.org/projects/authme-reloaded).
-- If the server has an exposed BungeeCord backend, firewall it, install [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or switch to [Velocity](https://papermc.io/software/velocity).
+- If the server was meant to be private, then enable a whitelist.
+- If the server is offline-mode, then enable online-mode in the server.properties or install a plugin such as [AuthMe](https://dev.bukkit.org/projects/authme-reloaded).
+- If the server has an exposed BungeeCord backend, then firewall it, install [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or switch to [Velocity](https://papermc.io/software/velocity).
 - Enable backups or install a plugin like [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
 
 If you've done all of the above, then you're probably fine.
@@ -34,7 +34,7 @@ The bot will exclusively join from the IP address `151.115.73.107`. This page wi
 
 # How can I contact you?
 
-My Matrix is [@mat:matdoes.dev](https://matrix.to/#/@mat:matdoes.dev) (preferred), but you might be able to find me on other social medias.
+You can email me at mat@matdoes.dev, or instant message me on Matrix at [@mat:matdoes.dev](https://matrix.to/#/@mat:matdoes.dev).
 
 # How can I help?
 
