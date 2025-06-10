@@ -1,1 +1,3 @@
-email me at security@matdoes.dev or matrix @mat:matdoes.dev
+For private communications, please email me at mat@matdoes.dev using the public key at /mat.asc
+
+Alternatively, you can message me on Matrix at @mat:matdoes.dev
