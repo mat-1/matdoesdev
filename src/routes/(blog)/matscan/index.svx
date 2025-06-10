@@ -34,7 +34,7 @@ The bot will exclusively join from the IP address `151.115.73.107`. This page wi
 
 # How can I contact you?
 
-You can email me at mat@matdoes.dev (<a href="/mat.asc" rel="external">public key</a>), or instant message me on Matrix at [@mat:matdoes.dev](https://matrix.to/#/@mat:matdoes.dev).
+You can email me at mat@matdoes.dev (<a href="/mat.asc" rel="external">public key</a>).
 
 # How can I help?
 
