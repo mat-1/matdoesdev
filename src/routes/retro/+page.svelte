@@ -272,7 +272,7 @@
 										<Button href="//jamie.rs" src="jamie.png" alt="jamie" />
 										<Button href="//jamsharp.net" src="jamsharp.png" alt="jamsharp" />
 										<Button href="//sipacid.com" src="sipacid.gif" alt="sipacid" />
-										<Button href="//damcraft.de" src="dam.gif" alt="dam" />
+										<Button href="//lina.sh" src="lina.gif" alt="lina" />
 										<Button href="//mudkip.dev" src="mudkip.png" alt="mudkip" />
 										<Button href="//lily.pet" src="lily.png" alt="lily" />
 										<Button href="//aubrey.rs" src="aubrey.png" alt="aubrey" />
