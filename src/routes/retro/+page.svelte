@@ -345,6 +345,7 @@
 											src="seized.gif"
 											alt="this 88x31 has been seized"
 										/>
+										<Button href="//deltarune.com" src="deltarune.png" alt="kris where tf are we" />
 									</div>
 								</td>
 							</tr>
