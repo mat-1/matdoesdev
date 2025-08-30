@@ -37,7 +37,7 @@ No. You should still secure your server though since there are several griefing/
 
 # Why did Herobrine try to join right before matscan?
 
-matscan will try to join with the username Herobrine first, so if the server is offline-mode then it can demonstrate that people can join with any username. It may also use the username of a historical player if the server is offline-mode but has a whitelist.
+matscan will try to join with the username Herobrine first, so if the server is offline-mode then it can demonstrate that people can join with any username. It may also use the username of a player that has been online before if the server is offline-mode but has a whitelist.
 
 # What IP does matscan join from?
 
