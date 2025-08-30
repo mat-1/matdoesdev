@@ -3,18 +3,29 @@ title: Why did "matscan" join my Minecraft server? (FAQ)
 published: 2023-05-29T02:48:09.000Z
 ---
 
+<script lang="ts">
+	import BASE from './base.svelte'
+
+	export let isPreview = false
+</script>
+
+{#if !isPreview}
+
+<BASE lang="en" />
+{/if}
+
 matscan is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
 
 ![one of the messages that may be shown when matscan joins a server](matscan-messages.png)
 
 # How should I secure my server?
 
-- If the server was meant to be private, then enable a whitelist.
-- If the server is offline-mode, then enable online-mode in the server.properties or install a plugin such as [AuthMe](https://dev.bukkit.org/projects/authme-reloaded).
-- If the server has an exposed BungeeCord backend, then firewall it, install [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or switch to [Velocity](https://papermc.io/software/velocity).
-- Enable backups or install a plugin like [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- If the server was meant to be private: Enable a whitelist with `/whitelist on` and `/whitelist add <player>`
+- Enable backups, and maybe additionally install a plugin like [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- If the server is offline-mode: Enable `online-mode` in the `server.properties` or install a plugin such as [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- If the server has an exposed BungeeCord backend: Firewall it, install [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or switch to [Velocity](https://papermc.io/software/velocity).
 
-If you've done all of the above, then you're probably fine.
+If you've done all of the above that apply to you, then you're probably fine.
 
 # How did you find my server?
 
@@ -39,3 +50,5 @@ You can email me at mat@matdoes.dev (<a href="/mat.asc" rel="external">public ke
 # How can I help?
 
 If you appreciate the security work I do, please consider funding my projects at [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
+
+If you'd like to translate this page to more languages, you can also email me at the address above.

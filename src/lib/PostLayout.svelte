@@ -16,28 +16,32 @@
 	 */
 
 	/** @type {Props} */
-	let { title = 'Untitled', subtitle = undefined, published = '', children } = $props()
+	let { title = undefined, subtitle = undefined, published = '', children } = $props()
 </script>
 
 <svelte:head>
 	<title>{title}</title>
 </svelte:head>
 
-<div class="article-container">
-	<nav>
-		<BackAnchor href="/blog" />
-	</nav>
-	<div class="article-header">
-		<h1>{title}</h1>
-		{#if subtitle}
-			<p class="subtitle">{subtitle}</p>
-		{/if}
-		<time>{new Date(published).toLocaleDateString()}</time>
+{#if title}
+	<div class="article-container">
+		<nav>
+			<BackAnchor href="/blog" />
+		</nav>
+		<div class="article-header">
+			<h1>{title}</h1>
+			{#if subtitle}
+				<p class="subtitle">{subtitle}</p>
+			{/if}
+			<time>{new Date(published).toLocaleDateString()}</time>
+		</div>
+		<article>
+			{@render children?.()}
+		</article>
 	</div>
-	<article>
-		{@render children?.()}
-	</article>
-</div>
+{:else}
+	{@render children?.()}
+{/if}
 
 <style>
 	article :global(img) {

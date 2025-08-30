@@ -5,7 +5,6 @@ import fs from 'fs'
 /** @type {import('vite').UserConfig} */
 export default {
 	plugins: [sveltekit(), pngToGifForRetro()],
-
 	build: {
 		target: 'es2022',
 	},

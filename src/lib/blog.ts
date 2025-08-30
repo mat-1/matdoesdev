@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import { render } from 'svelte/server'
 
-export const postsDir = 'src/routes/(blog)' as const
+export const postsDir = 'src/routes/(main)/(blog)' as const
 
 export async function listBlogPostSlugs(): Promise<string[]> {
 	await fs.promises.readdir(postsDir)
@@ -54,10 +54,16 @@ export async function doesAssetExist(postSlug: string, assetName: string): Promi
 /** Get a blog post by the slug, returning null if it doesn't exist */
 export async function getPost(slug: string): Promise<BlogPost | null> {
 	if (!doesBlogPostExist(slug)) return null
+	return await getPostUnchecked(slug)
+}
 
+/**
+ * Same as getPost but doesn't validate that the slug is correct.
+ */
+export async function getPostUnchecked(slug: string): Promise<BlogPost | null> {
 	const url = new URL(`protocol://-/${slug}`)
 
-	const { default: post, metadata } = await import(`../routes/(blog)/${slug}/index.svx`)
+	const { default: post, metadata } = await import(`../routes/(main)/(blog)/${slug}/index.svx`)
 
 	const result: {
 		title: string
@@ -67,7 +73,9 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
 			map: null
 			code: string
 		}>
-	} = { title: '', subtitle: undefined, head: '', css: new Set() }
+		// pages can use this to hide or change content for previews
+		isPreview: boolean
+	} = { title: '', subtitle: undefined, head: '', css: new Set(), isPreview: true }
 
 	const renderHtml = render(post, {
 		props: result,

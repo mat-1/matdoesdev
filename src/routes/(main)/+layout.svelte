@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy'
-
 	import '../../app.css'
 	import { fly } from 'svelte/transition'
 	import type { LayoutData } from './$types'

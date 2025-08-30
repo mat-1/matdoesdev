@@ -21,15 +21,17 @@ export const GET: RequestHandler = async ({ params }) => {
 	if (!postSlug) throw new Error('No slug')
 	if (!assetName) throw new Error('No asset')
 
-	if (!(await doesAssetExist(postSlug, assetName))) error(404, 'Not found');
+	if (!(await doesAssetExist(postSlug, assetName))) error(404, 'Not found')
 
-	const file = await fs.promises.readFile(path.join(postsDir, postSlug, assetName))
+	const filePath = path.join(postsDir, postSlug, assetName)
+
+	const file = await fs.promises.readFile(filePath)
 
 	// extract the file extension from the end of the file name
 	const [ext = ''] = assetName.split('.').slice(-1)
 	const contentType = ext in extContentTypes ? extContentTypes[ext] : 'text/plain'
 
-	return new Response(file, {
+	return new Response(file as BodyInit, {
 		headers: {
 			'Content-Type': contentType,
 		},
