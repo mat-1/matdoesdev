@@ -38,7 +38,7 @@ VØJ - Moonlit`.split('\n')
 	let currentSongIndex = $state(0)
 	let currentSong = $derived(SONGS[currentSongIndex])
 
-	let currentSong_: string | null = $state(null)
+	let actualCurrentSong: string | null = $state(null)
 
 	$effect(() => {
 		if (musicPlayerEl) {
@@ -47,28 +47,31 @@ VØJ - Moonlit`.split('\n')
 	})
 	$effect(() => {
 		if (musicPlayerEl) {
+			updateMusicPlayerSrc(currentSong)
 			if (playing) musicPlayerEl.play()
 			else musicPlayerEl.pause()
 		}
 	})
-	$effect(() => {
-		if (musicPlayerEl) {
-			if (currentSong_ !== currentSong) {
-				const newSrc = `https://matdoes.dev/retro/music/${currentSong.replace(/\?/g, '')}.mp3`
-				musicPlayerEl.src = newSrc
-				musicPlayerEl.load()
-				currentSong_ = currentSong
-			}
-		}
-	})
+
+	function updateMusicPlayerSrc(newSong: string) {
+		if (!musicPlayerEl) return
+		if (actualCurrentSong === newSong) return
+
+		const newSrc = `https://matdoes.dev/retro/music/${newSong.replace(/\?/g, '')}.mp3`
+		musicPlayerEl.src = newSrc
+		musicPlayerEl.load()
+		actualCurrentSong = newSong
+	}
 
 	function nextSong() {
 		currentSongIndex = (currentSongIndex + 1) % SONGS.length
+		updateMusicPlayerSrc(currentSong)
 		musicPlayerEl?.play()
 	}
 
 	function prevSong() {
 		currentSongIndex = (currentSongIndex - 1 + SONGS.length) % SONGS.length
+		updateMusicPlayerSrc(currentSong)
 		musicPlayerEl?.play()
 	}
 </script>

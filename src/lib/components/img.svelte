@@ -8,7 +8,7 @@
 
 	let { src = $bindable(), alt }: Props = $props()
 
-	page.subscribe((p) => {
+	page.subscribe(async (p) => {
 		// hack so images work
 		if (!src.includes('//') && !src.startsWith('/')) {
 			src = `${p.url.pathname}/${src}`

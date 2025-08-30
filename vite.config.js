@@ -58,23 +58,6 @@ function pngToGifForRetro() {
 
 				await fs.promises.writeFile(newFilePath, gifBuffer)
 				console.log('wrote', newFilePath)
-
-				// 	// convert the path to the output folder
-				// 	const filePath: string = publicFilePath.replace(publicDir + sep, '');
-				// 	const fullFilePath: string = join(outputPath, filePath);
-
-				// 	if (fs.existsSync(fullFilePath) === false) return;
-
-				// 	const { mtimeMs } = await fsp.stat(fullFilePath);
-				// 	if (mtimeMs <= (mtimeCache.get(filePath) || 0)) return;
-
-				// 	const buffer: Buffer = await fsp.readFile(fullFilePath);
-				// 	const { content, skipWrite } = await processFile(filePath, buffer);
-				// 	// write the file only if its optimized size < original size
-				// 	if (content?.length > 0 && !skipWrite) {
-				// 	  await fsp.writeFile(fullFilePath, content);
-				// 	  mtimeCache.set(filePath, Date.now());
-				// 	}
 			})
 			await Promise.all(handles)
 		},

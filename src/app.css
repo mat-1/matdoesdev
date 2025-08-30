@@ -87,9 +87,18 @@ hr {
 img {
 	max-height: 100%;
 }
+figcaption {
+	text-align: center;
+	color: var(--text-color-alt-3);
+	font-size: 0.9em;
+}
+ul {
+	margin-top: 0;
+}
 
 pre {
 	white-space: pre-wrap;
+	tab-size: 2;
 }
 .token.keyword {
 	color: #ff8f40;
@@ -103,6 +112,12 @@ pre {
 }
 .token.string {
 	color: #aad94c;
+}
+.token.comment {
+	color: #acb6bf8c;
+}
+.token.class-name {
+	color: #59c2ff;
 }
 
 body.light-theme,

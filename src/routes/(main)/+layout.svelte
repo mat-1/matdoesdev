@@ -31,6 +31,7 @@
 	let stopGravity: (() => void) | null = null
 
 	async function onPathChange() {
+		if (currentPathName !== '/') return
 		// if we switched paths more than 10 times in the past 10 seconds, import $lib/gravity.js
 		pathChangeTimestamps.push(Date.now())
 		while (pathChangeTimestamps[0] < Date.now() - 10000) pathChangeTimestamps.shift()
