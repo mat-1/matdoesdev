@@ -20,8 +20,8 @@ matscan is a Minecraft bot that joins potentially vulnerable Minecraft servers a
 
 # How should I secure my server?
 
-- If the server was meant to be private: Enable a whitelist with `/whitelist on` and `/whitelist add <player>`
 - Enable backups, and maybe additionally install a plugin like [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- If the server was meant to be private: Enable a whitelist with `/whitelist on` and `/whitelist add <player>`
 - If the server is offline-mode: Enable `online-mode` in the `server.properties` or install a plugin such as [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
 - If the server has an exposed BungeeCord backend: Firewall it, install [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or switch to [Velocity](https://papermc.io/software/velocity).
 
