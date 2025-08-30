@@ -9,9 +9,14 @@ body,
 	background-attachment: local;
 }
 
-#page p:after,
+/* #page p:after,
 #page li:after {
 	content: ' :3';
+} */
+.article-container {
+	background: #000;
+	padding: 1rem 2rem;
+	margin-top: -1rem;
 }
 
 @font-face {

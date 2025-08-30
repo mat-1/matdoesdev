@@ -397,12 +397,6 @@
 			</td>
 			<td valign="top">
 				<div class="right-sidebar">
-					<h2>BLOG POSTS</h2>
-					{#each posts as post}
-						<div class="sidebar-list-entry-container"><a href={post.slug}>{post.title}</a></div>
-					{/each}
-				</div>
-				<div class="right-sidebar">
 					<h2>PROJECTS</h2>
 					{#each projects as project}
 						<div class="sidebar-list-entry-container">
@@ -413,20 +407,36 @@
 			</td>
 		</tr>
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
+			<td>
+				<p class="last-updated">Page last updated: December 9, 2014</p>
+			</td>
 			<td>
 				<center>
 					<img src="//counter.matdoes.dev" alt="visitor counter" id="counter" />
 				</center>
 			</td>
+			<td></td>
+			<td></td>
 		</tr>
-		<tr><td><p class="last-updated">Page last updated: December 9, 2014</p></td></tr>
+		<tr>
+			<td> </td>
+			<td>
+				<div class="blog-posts-section">
+					<h2>BLOG POSTS</h2>
+					{#each posts as post}
+						<a href={post.slug} class="blog-post-container">
+							<div class="blog-post">
+								<div class="blog-post-preview-title-container">
+									<h2 class="blog-post-preview-title">{post.title}</h2>
+									<span class="blog-post-preview-date">{post.published.split('T')[0]}</span>
+								</div>
+								<div class="blog-post-preview">{@html post.html}</div>
+							</div>
+						</a>
+					{/each}
+				</div>
+			</td>
+		</tr>
 	</tbody>
 </table>
 <table id="second-table">
@@ -466,7 +476,7 @@
 <style>
 	.right-sidebar {
 		text-align: right;
-		height: 400px;
+		height: 800px;
 		overflow-y: scroll;
 		float: right;
 		clear: right;
@@ -682,20 +692,48 @@
 		display: block;
 		max-width: 650px;
 	}
-	/*
-	.about h2 {
-		text-align: center;
-		transform: rotate(1deg);
-		text-shadow: 2px 2px 0 #00f;
+
+	.blog-posts-section {
+		margin: 0 auto;
+		width: fit-content;
 	}
-	.about p {
-		text-indent: 2em;
-		font-family: serif;
-		background: #000;
-		line-height: 1.5;
+	.blog-post-container {
+		display: block;
+		border: 2px solid #00f;
+		background-color: #000;
+		max-width: 650px;
+		font-family: 'Courier New', Courier, monospace;
+		margin-top: 1rem;
+		margin-bottom: 1.5rem;
+		box-shadow: 6px 6px #104;
+		height: 14em;
+		overflow: hidden;
 	}
-	.about p:first-of-type {
-		text-indent: 0;
+	.blog-post-preview-title-container {
+		background: #004;
+		border-bottom: 2px solid #008;
+		padding: 0.4rem 1rem 0.1rem 1rem;
+		position: relative;
 	}
-	*/
+	.blog-post-preview-title {
+		padding: 0 4rem 0 0;
+	}
+	.blog-post-preview-date {
+		font-size: 0.8rem;
+		opacity: 0.5;
+		margin: 0;
+		position: absolute;
+		top: 0.75rem;
+		right: 0.5rem;
+	}
+	.blog-post-preview {
+		font-size: 0.8rem;
+		padding: 0.5rem 1rem;
+	}
+	.blog-post-preview :global(:first-child) {
+		margin-top: 0;
+	}
+	.blog-post-container {
+		text-decoration: none;
+	}
 </style>
