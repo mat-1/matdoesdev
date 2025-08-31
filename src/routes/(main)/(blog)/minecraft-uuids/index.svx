@@ -160,7 +160,6 @@ Here's some random miscellaneous stats about usernames that I think are interest
 [14, 2174031],
 [15, 1839781],
 [16, 1032702],
-[19, 1, '<a href="https://namemc.com/profile/UltramegaCHICKEN123.1">1</a>'],
 ]} />
 
 <br />

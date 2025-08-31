@@ -111,10 +111,11 @@
 		}
 
 		// this is to make sure we don't do multiple searches at the same time
-		if (currentSearch) await currentSearch
-
-		// query changed, we don't care anymore
-		if (value !== $query) return
+		if (currentSearch) {
+			await currentSearch
+			// query changed, we don't care anymore
+			if (value !== $query) return
+		}
 
 		let resolve: (value: void) => void
 		currentSearch = new Promise((r) => {
