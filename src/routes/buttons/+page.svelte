@@ -93,6 +93,31 @@
 		return backlinksSecondLevelDomains.size + backlinks.size / 100
 	}
 
+	/**
+	 * Popularity, but only counts sites that used the button without linking to any site.
+	 * This is meant to be used for finding decorative buttons.
+	 */
+	function unlinkedPopularityScore(buttonIndex: number): number {
+		if (!data) return 0
+
+		const backlinks = new Set<string>()
+		for (const backlinkPageIdx of data.button_backlinks[buttonIndex]) {
+			const backlinkDomain = data.pages[backlinkPageIdx].split('/')[0]
+			const backlinkPageButtonIdx = data.link_buttons[backlinkPageIdx].indexOf(buttonIndex)
+			if (backlinkPageButtonIdx === -1) throw new Error('no backlinkPageButtonIdx')
+			const linkPageIdx = data.links[backlinkPageIdx][backlinkPageButtonIdx]
+
+			if (linkPageIdx === null || linkPageIdx === undefined) {
+				backlinks.add(backlinkDomain)
+			}
+		}
+
+		const backlinksSecondLevelDomains = new Set(
+			Array.from(backlinks).map((backlink) => backlink.split('/')[0].split('.').slice(-2).join('.'))
+		)
+		return backlinksSecondLevelDomains.size + backlinks.size / 100
+	}
+
 	function updateSearch(query: string, sortValue: string) {
 		if (!data || query === undefined || sortValue === undefined) return 0
 
@@ -133,6 +158,8 @@
 					score = popularityScore(buttonIndex)
 				} else if (sortValue === 'random') {
 					score = Math.random()
+				} else if (sortValue === 'unlinked') {
+					score = unlinkedPopularityScore(buttonIndex)
 				} else {
 					throw new Error(`Unknown sort value: ${sortValue}`)
 				}
@@ -271,6 +298,7 @@
 		<option value="relevance">Relevance</option>
 		<option value="popularity">Popularity</option>
 		<option value="random">Random</option>
+		<option value="unlinked">Unlinked</option>
 	</select>
 
 	{#if buttonEntries.length == 0 && data.pages.length === 0}
