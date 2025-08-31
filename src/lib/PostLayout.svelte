@@ -44,11 +44,22 @@
 {/if}
 
 <style>
-	article :global(img) {
+	article :global(img),
+	article :global(video) {
 		max-width: 100%;
 		max-height: 20rem;
-		margin: 1em auto;
+		margin: auto;
 		display: block;
+		width: auto;
+	}
+	article :global(> img) {
+		margin: 1em auto;
+	}
+	article :global(img.small-image) {
+		max-height: 10rem;
+	}
+	article :global(img.large-image) {
+		max-height: 40rem;
 	}
 	article :global(.box) {
 		border: 1px solid var(--background-color-alt-3);

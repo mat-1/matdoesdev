@@ -44,7 +44,7 @@ function cutOffAtLine(text: string, line: number) {
 		} else {
 			column++
 		}
-		if (column > 128 && !inHtmlTag) {
+		if (column > 80 && !inHtmlTag) {
 			row++
 			column = 0
 		}
@@ -91,7 +91,7 @@ export async function getPosts() {
 				.replace(/<(img|iframe).+?\/?>|<\/?(img|iframe)>/g, '')
 				// sveltekit doesn't like it when we have a tags in a tags
 				.replace(/<a(\b.*?)>(.*?)<\/a>/g, '<span class="link"$1>$2</span>'),
-			6
+			16
 		),
 		css: p.css,
 		slug: p.slug,
