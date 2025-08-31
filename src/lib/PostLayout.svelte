@@ -52,6 +52,13 @@
 		display: block;
 		width: auto;
 	}
+
+	article :global(:not(figure) > img),
+	article :global(:not(figure) > video) {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+
 	article :global(> img) {
 		margin: 1em auto;
 	}
