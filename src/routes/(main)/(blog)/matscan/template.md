@@ -2,11 +2,11 @@
 
 Translations: ...
 
-[Note for translators: if you're translating the page, feel free to put credits for yourself here like "Translated by name".]
+[Note for translators: Feel free to put credits for yourself here like "Translated by NAME".]
 
 matscan is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
 
-![uno dei messaggi che potrebbero essere visualizzati quando matscan si unisce a un server](matscan-messages.png)
+![one of the messages that may be shown when matscan joins a server](matscan-messages.png)
 
 ## How should I secure my server?
 
