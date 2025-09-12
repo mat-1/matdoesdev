@@ -4,6 +4,7 @@
 	const translations = {
 		en: 'English',
 		ru: 'Russian / Русский',
+		it: 'Italian / Italiano',
 	}
 </script>
 

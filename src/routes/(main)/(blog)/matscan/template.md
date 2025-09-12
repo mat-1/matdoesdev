@@ -1,22 +1,12 @@
----
-title: Why did "matscan" join my Minecraft server? (FAQ)
-published: 2023-05-29T02:48:09.000Z
----
+# Why did "matscan" join my Minecraft server? (FAQ)
 
-<script lang="ts">
-	import BASE from './base.svelte'
+Translations: ...
 
-	export let isPreview = false
-</script>
-
-{#if !isPreview}
-
-<BASE lang="en" />
-{/if}
+[Note for translators: if you're translating the page, feel free to put credits for yourself here like "Translated by name".]
 
 matscan is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
 
-![one of the messages that may be shown when matscan joins a server](matscan-messages.png)
+![uno dei messaggi che potrebbero essere visualizzati quando matscan si unisce a un server](matscan-messages.png)
 
 ## How should I secure my server?
 
@@ -50,5 +40,3 @@ You can email me at mat@matdoes.dev (<a href="/mat.asc" rel="external">public ke
 ## How can I help?
 
 If you appreciate the security work I do, please consider funding my projects at [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
-
-If you'd like to translate this page to more languages, you can also email me at the address above. There's a markdown template at <a href="/matscan/template.md" rel="external">./template.md</a>.
