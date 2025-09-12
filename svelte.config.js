@@ -35,6 +35,7 @@ const config = {
 				'/404',
 				'/451',
 				'/minecraft-scanning/minecraft-server-background.png',
+				'/matscan/template.md',
 				// redirect /blog/* to /*
 				'/blog/matdoes-dev-markdown',
 				'/blog/minecraft-server-warner',
