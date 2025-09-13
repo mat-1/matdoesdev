@@ -17,10 +17,10 @@ matscan è un bot di Minecraft che entra nei server di Minecraft potenzialmente 
 
 - Abilita i backup, magari installa anche un plugin come [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
 - Se il server è un server privato: abilita una whitelist con `/whitelist` on e `/whitelist add <player>`
-- Se il server è in offline-mode: abilita Enable `online-mode` in `server.properties` o installa un plugin come [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Se il server è in offline-mode: abilita l'online-mode `online-mode` in `server.properties` o installa un plugin come [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
 - Se il server ha un backend BungeeCord esposto: proteggilo con un firewall, installa [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or switch to [Velocity](https://papermc.io/software/velocity) o passa a [Velocity](https://papermc.io/software/velocity).
 
-Se hai fatto tutto ciò che ti riguarda delle cose scritte sopra dovresti essere apposto.
+Se hai fatto tutto ciò che ti riguarda delle cose scritte sopra dovresti essere a posto.
 
 ## Come hai trovato il mio server?
 

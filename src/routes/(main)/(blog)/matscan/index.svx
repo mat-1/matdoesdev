@@ -51,4 +51,4 @@ You can email me at mat@matdoes.dev (<a href="/mat.asc" rel="external">public ke
 
 If you appreciate the security work I do, please consider funding my projects at [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
 
-If you'd like to translate this page to more languages, you can also email me at the address above. There's a markdown template at <a href="/matscan/template.md" rel="external">./template.md</a>.
+If you'd like to translate this page to more languages, you can also email me at the address above. For translators, there's a markdown template at <a href="/matscan/template.md" rel="external">./template.md</a>.
