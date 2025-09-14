@@ -284,7 +284,7 @@
 											alt="thomas ricci aka rudrecciah"
 										/>
 										<Button href="//zptr.cc" src="zeroptr.png" alt="yui aka zeroptr" />
-										<Button href="//ednamode.xyz" src="edna.png" alt="edna" />
+										<Button href="//edna.land" src="edna.png" alt="edna" />
 										<Button href="//alula.me" src="alula.png" alt="alula" />
 										<Button href="//nap.is.being.pet" src="nap.gif" alt="naphteine" />
 										<Button href="//jordane.day" src="jordan.gif" alt="jordan aka 1sreal" />
