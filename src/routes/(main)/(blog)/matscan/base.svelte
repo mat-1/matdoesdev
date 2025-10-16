@@ -5,6 +5,7 @@
 		en: 'English',
 		ru: 'Russian / Русский',
 		it: 'Italian / Italiano',
+		es: 'Spanish / Español',
 	}
 </script>
 

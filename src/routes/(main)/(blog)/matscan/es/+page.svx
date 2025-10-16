@@ -1,0 +1,47 @@
+---
+title: Por qué "matscan" se ha unido a mi server de Minecraft? (FAQ)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="es" translations="Traducciones" />
+
+matscan es un bot de Minecraft que se une a servidores de Minecraft potencialmente vulnerables y envía un mensaje al chat para informar a los administradores.
+
+![uno de los mensajes que pueden aparecer cuanto matscan se une a un servidor](/matscan/matscan-messages.png)
+
+## ¿Cómo puedo hacer mi server más seguro?
+
+- Habilita backups, y también, adicionalmente, instala un plugin como [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- Si el servidor es privado: Habilita la whitelist ejecutando los comandos `/whitelist on`, `/whitelist add <player>`, y poniendo el ajuste `white-list=true` en el archivo `server.properties`.
+- Si el servidor es offline-mode: Habilita 'online-mode' en el archivo `server.properties` o instala un plugin como [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Si el servidor tiene un backend BungeeCord expuesto: Añadelo al firlewall, instala [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), o cambia a [Velocity](https://papermc.io/software/velocity).
+
+Si has hecho todo lo de arriba que aplica a tu caso, entonces probablemente estará todo ok.
+
+## Cómo encontraste mi server?
+
+Puedo escanear internet en busca de servidores de Minecraft, básicamente enviando un paquete a cada dirección IP y comprobando cuales responden (es un poco más complejo, pero por simplificar).
+
+## ¿Son tus datos públicos?
+
+No, deberías mejorar la seguridad de tu servidor igualmente ya que hay varios grupos de griefing/harassment que usan sus propios escáneres de servidores.
+
+## ¿Por qué ha intentado Herobrine unirse a mi servidor justo antes de matscan?
+
+matscan intentará unirse con el nombre de usuario Herobrine primero, para que si el server es offline-mode, entonces pueda demostrar que la gente puede unirse con cualquier nombre de usuario. Puede también intentar unirse con el nombre de usuario de algún jugador que haya estado online antes si el servidor es offline-mode pero tiene una whitelist.
+
+## ¿Desde qué IP se une matscan?
+
+El bot se unirá exclusivamente desde la dirección IP `151.115.73.107`. Se actualizará esta página si alguna vez cambia en el futuro.
+
+## ¿Cómo puedo contactarte?
+
+Me puedes enviar un email a mat@matdoes.dev (<a href="/mat.asc" rel="external">public key</a>).
+
+## ¿Cómo puedo ayudar?
+
+Si aprecias el trabajo de seguridad que hago, por favor, considera financiar mis proyectos en [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
