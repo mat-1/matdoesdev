@@ -1,0 +1,49 @@
+---
+title: Защо "matscan" се присъедини към Minecraft сървъра ми (FAQ)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="bg" translations="Преводи" />
+
+Преведено от Кристиан Николов
+
+matscan е Minecraft бот, който се присъединява към потенциално уязвими Minecraft сървъри и изпраща съобщение в чата, за да информира администраторите.
+
+![one of the messages that may be shown when matscan joins a server](/matscan/matscan-messages.png)
+
+## Как да предпазя сървъра си?
+
+- Прави чести бакъпи и ако искаш инсталирай плъгин като [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- Ако сървъра трябва да е частен: Активирай whitelist, чрез командите: `/whitelist on`, `/whitelist add <player>`, и чрез `white-list=true` във файла `server.properties`.
+- Ако сървърът е offline-mode: Активирай `online-mode` в `server.properties` или инсталирай плъгин като [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Ако сървърът има открит BungeeCord backend: Сложи Firewall, инсталирай [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), или използвай [Velocity](https://papermc.io/software/velocity).
+
+Ако всичко това е изпълнено, най-вероятно сървърът е защитен.
+
+## Как откри моя сървър?
+
+Сканирам интернетът за Minecraft сървъри, като изпращам пакет до всеки IP адрес и проверявам кои отговарят (малко по-сложно е от това).
+
+## Информацията ти публична ли е?
+
+Не, но все пак трябва да защитиш сървъра си, понеже съществуват групи, които унищожават сървъри и тормозят играчи, чрез техни скенери.
+
+## Защо Herobrine се опита да се присъедини преди matscan?
+
+matscan първо ще се опита да влезе с името Herobrine, за да може ако сървърът е offline-mode, да демонстрира, че хора могат да се присъединят със всяко име. Може и да използва името на играч, който е бил онлайн преди ако сървърът е offline-mode, но има whitelist.
+
+## От какво IP matscan се присъединява?
+
+Ботът използва единствено IP адреса: `151.115.73.107`. Тази страница ще бъде ъпдайтната ако това се промени.
+
+## Как да се свържа с теб?
+
+Можеш да ми напишеш имейл на mat@matdoes.dev (<a href="/mat.asc" rel="external">public key</a>).
+
+## Как да помогна?
+
+Ако оценяваш работата, която върша, можеш да финансираш проектите ми на [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).

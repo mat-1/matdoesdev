@@ -6,6 +6,7 @@
 		ru: 'Russian / Русский',
 		it: 'Italian / Italiano',
 		es: 'Spanish / Español',
+		bg: 'Bulgarian / български',
 	}
 </script>
 
