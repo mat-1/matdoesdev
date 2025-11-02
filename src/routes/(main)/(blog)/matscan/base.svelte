@@ -7,6 +7,7 @@
 		it: 'Italian / Italiano',
 		es: 'Spanish / Español',
 		bg: 'Bulgarian / български',
+		pl: 'Polish / Polski',
 	}
 </script>
 
@@ -16,9 +17,9 @@
 		{#if index > 0}
 			&nbsp;|&nbsp;
 		{/if}{#if lang === selectedLang}
-			<strong>{name}</strong>
+			<strong class="language-option">{name}</strong>
 		{:else}
-			<a href={lang === 'en' ? '/matscan' : `/matscan/${lang}`}>{name}</a>
+			<a class="language-option" href={lang === 'en' ? '/matscan' : `/matscan/${lang}`}>{name}</a>
 		{/if}
 	{/each}
 </div>
@@ -28,5 +29,8 @@
 		margin: 0 0 0.5rem 1rem;
 		font-size: 0.9rem;
 		font-style: italic;
+	}
+	.language-option {
+		white-space: nowrap;
 	}
 </style>

@@ -1,0 +1,47 @@
+---
+title: Dlaczego "matscan" dołączył do mojego serwera Minecraft? (FAQ)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="pl" translations="Tłumaczenia" />
+
+matscan to Minecraftowy bot, który dołącza do potencjalnie wartościowych serwerów Minecraft i wysyła wiadomość na czacie z informajcą dla adminów.
+
+![Przykładowa wiadomość wysyłana przez matscan](/matscan/matscan-messages.png)
+
+## Jak powinienem chronić swój serwer?
+
+- Włącz kopie zapasowe, możesz też zainstalować zewnętrzne pluginy takie jak [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- Jeśli serwer ma być prywatny: Włącz whitelistę używając komend: `/whitelist on`, `/whitelist add <player>`, i ustawiuając wartość `white-list=true` w pliku `server.properties`.
+- Jeśli serwer jest w trybie offline-mode (nie wymagający konta premium): Włącz `online-mode` w pliku `server.properties` lub zainstaluj plugin taki jak [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Jeśli serwer ma otwarty backend BungeeCord: Schowaj go za zaporą systemową (Firewall), zainstaluj [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), lub zmień na [Velocity](https://papermc.io/software/velocity).
+
+Jeśli zrobiłeś wszystko z powyższej listy, to w takim wypadku powineneś być bezpieczny.
+
+## Jak znalazłeś mój serwer?
+
+Przeszukuję internet w celu znalezienia serwerów Minecraft, przez wysyłanie pakietów do każdego adresu IP i czekam na jego odpowiedź (jest to trochę bardziej skomplikowane).
+
+## Czy twoje dane są publiczne?
+
+Nie. Powinieneś jednak zabezpieczyć swój serwer, ponieważ istnieje wiele grup zajmujących się griefowaniem i nękaniem, które używają własnych skanerów serwerów.
+
+## Dlaczego Herobrine próbował dołączyć na chwilę przed matscanem?
+
+matscan najpierw będzie próbował połączyć się z nazwą użytkownika Herobrine, więc jeśli serwer jest offline, to pokaże że użytkownicy mogą dołączyć z każdym nickiem. Może również użyć nicku gracza, który był na serwerze przed tym jak serwer stał się offline, ale miał zapisaną white-listę.
+
+## Z jakim adresem IP dołącza matscan?
+
+Bot łączy się wyłącznie z adresu IP `151.115.73.107`. Ta strona zostanie w przyszłości zaktualizowana, jeśli nastąpi zmiana.
+
+## Jak mogę się z Tobą skontaktować?
+
+Możesz mi wysłać maila na adres mat@matdoes.dev (<a href="/mat.asc" rel="external">public key</a>).
+
+## Czy mogę jakoś pomóc?
+
+Jeśli doceniasz moją pracę, proszę rozważ opcję wsparcia mnie na [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
