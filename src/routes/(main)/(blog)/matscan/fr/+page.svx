@@ -1,0 +1,50 @@
+---
+title: Pourquoi "matscan" a-t-il rejoins mon serveur ? (FAQ)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="fr" translations="Traductions" />
+
+matscan est un bot Minecraft qui rejoins les serveurs Minecraft potentiellement vulnérables et envoie un message dans le chat pour informer les administrateurs.
+
+![exemple de message qui pourrait s'afficher quand matscan rejoins un serveur](/matscan/matscan-messages.png)
+
+## Comment puis-je sécuriser mon serveur ?
+
+- Active les backups, et ajouter un greffon (plugin) tel que [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- Si le serveur est fait pour être privé : Activer la liste blanche (whitelist) en utilisant les commandes `/whitelist on`, `/whitelist add <player>`, et en configurant `white-list=true` dans le fichier `server.properties`.
+- Si le serveur est en mode offline : Active 'online-mode' dans le fichier 'server.properties' ou insstall un greffon (plugin) tel que [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Si le serveur a un Backend BungeeCord exposé : bloquez le avec votre firewall, installez [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), or basculez sur [Velocity](https://papermc.io/software/velocity).
+
+Si vous avez fait tout ça, alors vous êtes probablement au point.
+
+## Comment avez vous trouvé mon serveur ?
+
+Je scanne Internet afin de trouver des serveurs Minecraft, techniquement en envoyant un paquet à chaque adresse IP et en observant ceux répondent (c'est un petit peu plus compliqué que ça).
+
+## Est-ce que vos données sont publiques ?
+
+Non. Vous devriez tout de même sécuriser votre serveur car il y a plusieurs groupes harceleurs qui utilisent leurs propres scanneurs de serveur.
+
+## Pourquoi Herobrine a-t-elle essayé de rejoindre juste avant matscan ?
+
+matscan essaiera d’abord de rejoindre avec le nom d’utilisateur Herobrine, donc si le serveur est en mode hors ligne, il peut démontrer que les joueurs peuvent rejoindre avec n’importe quel nom d’utilisateur. Il peut également utiliser le nom d’utilisateur d’un joueur qui a déjà été en ligne si le serveur est en mode hors connexion mais dispose d’une liste blanche.
+.
+
+## Quelle est l’IP à partir de laquelle matscan rejoint ?
+
+Le bot rejoindra exclusivement à partir de l’adresse IP '151.115.73.107'. Cette page sera mise à jour si elle change un jour.
+
+## Comment puis-je vous contacter ?
+
+Vous pouvez m’envoyer un e-mail à mat@matdoes.dev (<a href="/mat.asc" rel="external">public key</a>).
+
+## Comment puis-je aider ?
+
+Si vous appréciez le travail de sécurité que je fais, veuillez envisager de financer mes projets sur [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
+
+Translated by PereCarambar.

@@ -8,6 +8,7 @@
 		es: 'Spanish / Español',
 		bg: 'Bulgarian / български',
 		pl: 'Polish / Polski',
+		fr: 'French / Français',
 	}
 </script>
 
