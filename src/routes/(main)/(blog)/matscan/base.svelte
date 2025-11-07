@@ -9,6 +9,7 @@
 		bg: 'Bulgarian / български',
 		pl: 'Polish / Polski',
 		fr: 'French / Français',
+		de: 'German / Deutsch',
 	}
 </script>
 

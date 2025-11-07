@@ -1,0 +1,49 @@
+---
+title: Warum ist "matscan" meinem Minecraft-Server beigetreten? (FAQ)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="de" translations="Übersetzungen" />
+
+Translated by xJessyX
+
+matscan ist ein Minecraft-Bot der potenziell verwundbare Minecraft-Server beitritt und sendet eine Nachricht in den Chat, um Admins darüber zu informieren.
+
+![one of the messages that may be shown when matscan joins a server](/matscan/matscan-messages.png)
+
+## Wie soll ich meinen Server sicherer machen?
+
+- Aktiviere Backups und installiere eventuell zusätzliche Plugins wie [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- Wenn der Server privat sein sollte: Aktiviere eine Whitelist mit den Befehlen `/whitelist on`, `/whitelist add <Spieler>` und indem man in der Datei server.properties den Eintrag white-list=true setzt
+- Wenn der Server auf offline-mode gestellt ist: Aktiviere `online-mode` in der `server.properties` oder installiere ein Plugin wie [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded)
+- Wenn der Server ein offenes BungeeCord-Backend hat: stelle eine Firewall davor, installiere [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), oder ändere zu [Velocity](https://papermc.io/software/velocity).
+
+Wenn du alles oben Genannte gemacht hast, bist du wahrscheinlich auf der sicheren Seite.
+
+## Wie hast du meinen Server gefunden?
+
+Ich scanne das Internet für Minecraft-Server, grundsätzlich sende ich ein Paket zu jeder IP-Adresse und sehe welche davon antworten (es ist ein bisschen mehr komplizierter als das).
+
+## Sind meine Daten öffentlich?
+
+Nein. Du solltest trotzdem deinen Server sichern, weil es gibt sehr viele Griefer-/Belästigungsgruppen, die deren eigenen Server zum scannen nutzen.
+
+## Warum hat Herobrine versucht meinen Server beizutreten gerade bevor matscan?
+
+matscan versucht mit dem Benutzernamen Herobrine zuerst beizutreten, so wenn der Server auf offline-mode ist, dann kann es demonstrieren, dass Leute mit jedem Benutzernamen den Server beitreten können. Es wird vielleicht auch versuchen mit einem Benutzernamen von einem Spieler der schon mal online war zu benutzen, wenn der server auf offline-mode gestellt wurde aber eine Whitelist an ist.
+
+## Mit welcher IP-Adresse verbindet sich matscan?
+
+Der Bot wird nur von der IP-Adresse `151.115.73.107` joinen. Diese Seite wird aktualisiert wenn sich das jemals ändern wird.
+
+## Wie kann ich dich kontaktieren?
+
+Du kannst mir eine E-Mail unter mat@matdoes.dev(<a href="/mat.asc" rel="external">public key</a>) schicken.
+
+## Wie kann ich helfen?
+
+Wenn du meine Sicherheitsarbeit zu schätzen weißt, kannst du meine Projekte hier finanziell unterstützen: [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev)

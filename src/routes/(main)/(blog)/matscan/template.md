@@ -1,7 +1,5 @@
 # Why did "matscan" join my Minecraft server? (FAQ)
 
-Translations: ...
-
 [Note for translators: Feel free to put credits for yourself here like "Translated by NAME".]
 
 matscan is a Minecraft bot that joins potentially vulnerable Minecraft servers and sends a message in chat to inform the admins.
