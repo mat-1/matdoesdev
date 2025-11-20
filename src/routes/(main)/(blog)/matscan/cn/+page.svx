@@ -10,7 +10,7 @@ published: 2023-05-29T02:48:09.000Z
 <style>
 	:root {
 		/* add Noto Sans SC to the fonts so Simplified Chinese renders correctly */
-		--text-font: 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Noto Sans SC';
+		--text-font: 'Atkinson Hyperlegible', 'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 	}
 </style>
 
