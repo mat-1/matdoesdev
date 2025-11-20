@@ -10,6 +10,7 @@
 		pl: 'Polish / Polski',
 		fr: 'French / Français',
 		de: 'German / Deutsch',
+		cn: 'Chinese / 中文',
 	}
 </script>
 

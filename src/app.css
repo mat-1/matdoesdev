@@ -1,4 +1,7 @@
-@import '$lib/atkinson-hyperlegible.css';
+@import '$lib/fonts/atkinson-hyperlegible/atkinson-hyperlegible.css';
+
+/* used for matscan simplified chinese translation */
+@import '$lib/fonts/noto-sans-sc/noto-sans-sc.css';
 
 :root {
 	--background-color: #010502;

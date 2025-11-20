@@ -1,0 +1,72 @@
+---
+title: 为什么matscan加入了我的 Minecraft 服务器?（FAQ）
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<style>
+	:root {
+		/* add Noto Sans SC to the fonts so Simplified Chinese renders correctly */
+		--text-font: 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Noto Sans SC';
+	}
+</style>
+
+<BASE lang="cn" translations="翻译 " />
+
+matscan 是一个友好的 Minecraft 机器人，它加入可能存在漏洞的 Minecraft 服务器并在聊天中发送消息通知管理员。
+
+![由matscan发送的消息](/matscan/matscan-messages.png)
+
+## 图片内容
+
+_matscan 加入了游戏_
+
+_&lt;matscan&gt; 您好，我是一个机器人，负责扫描互联网上的 Minecraft 服务器，但我不会破坏您的服务器_
+
+_&lt;matscan&gt; 此服务器未启用白名单，这意味着攻击者可能会加入此服务器_
+
+_&lt;matscan&gt; 为了避免这种情况，您可以更改server.properties或输入/whitelist on开启白名单，并使用/whitlist add &lt;游戏ID&gt;将用户名加入白名单_
+
+_&lt;matscan&gt; 如果您想公开您的 Minecraft 服务器，请确保服务器已开启自动备份，以确保服务器在受到攻击者的攻击时不会造成永久性损坏_
+
+_&lt;matscan&gt; mat | 常见问题解答：https://matdoes.dev/matscan_
+
+_matscan 退出了游戏_
+
+## 我该如何保护我的 Minecraft 服务器？
+
+- 尝试启用自动备份，或者安装类似于 [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/)的插件
+- 如果您不想将服务器公开，请在服务端输入 `/whitelist on`开启白名单并输入 `/whitelist add <player>`添加白名单玩家
+- 如果您的服务器启用了`offline-mode`(离线模式，代表服务器允许离线用户登录)您可以更改`server.properties`打开正版验证或者安装一个类似于[AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded)的插件
+- 如果服务器有暴露的 BungeeCord 后端：请设置防火墙，并安装 [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/)，或使用[Velocity](https://papermc.io/software/velocity)
+
+如果您已完成上述所有适用于您的操作，那么您的 Minecraft 服务器基本安全了，一下是一些常见问题的解答
+
+## matscan 是怎样找的我的 Minecraft 服务器的？
+
+matscan 将会扫描互联网上的 Minecraft 服务器，基本上向互联网上的每个 IP 地址发送一个数据包并查看哪些服务器做出响应，但实际原理比这复杂一些
+
+## matscan 是开源的吗？
+
+matscan 并不开源，但您仍应保护您的 Minecraft 服务器，因为可能会有一些恶意团伙使用他们的 Minecraft 服务器扫描仪
+
+## 为什么 Herobrine 在 matscan 之前尝试加入服务器？
+
+matscan 会首先尝试使用用户名 Herobrine 加入，因此如果服务器未开启正版验证，服务器将允许任何玩家加入此 Minecraft 服务器。
+
+## matscan 从哪个 IP 加入？
+
+该 matscan 将从`151.115.73.107`加入 Minecraft 服务器。如果将来这个IP地址发生变化，此页面会更改
+
+## 我该如何联系 mat
+
+你可以给 mat@matdoes.dev 发送电子邮件 (<a href="/mat.asc" rel="external">公钥</a>).
+
+## 我能为 matscan 贡献什么？
+
+如果您认为欣赏我的安全项目，您可以考虑资助我的项目[ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
+
+**_由 oak90ghp 翻译于2025年11月18日_**
