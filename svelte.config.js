@@ -28,7 +28,8 @@ const config = {
 
 	kit: {
 		adapter: staticAdapter({
-			precompress: true,
+			// precompress is too heavy on my server :(
+			// precompress: true,
 			fallback: 'fallback.html',
 		}),
 		prerender: {
