@@ -4,5 +4,10 @@
 	"[typescript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"files.associations": { "*.svx": "markdown" }
+	"files.associations": {
+		"*.svx": "markdown"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

@@ -2,6 +2,7 @@ import staticAdapter from '@sveltejs/adapter-static'
 import { sveltePreprocess } from 'svelte-preprocess'
 import { mdsvex } from 'mdsvex'
 import rehypeExternalLinks from 'rehype-external-links'
+import { join } from 'path'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,7 +12,8 @@ const config = {
 		sveltePreprocess(),
 		mdsvex({
 			extensions: ['.svx'],
-			layout: './src/lib/PostLayout.svelte',
+			// https://github.com/pngwn/MDsveX/issues/720
+			layout: join(import.meta.dirname, './src/lib/PostLayout.svelte'),
 			highlight: {
 				alias: { 'json,nofmt': 'json' },
 			},
