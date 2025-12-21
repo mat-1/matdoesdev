@@ -295,6 +295,7 @@
 											alt="pineapple cat"
 										/>
 										<Button href="//patsore.org" src="patsore.png" alt="patsore" />
+										<Button href="//funtimes909.xyz" src="amy.png" alt="amy" />
 										<!-- other -->
 										<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 										<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
