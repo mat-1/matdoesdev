@@ -70,14 +70,9 @@
 <style>
 	.buttons {
 		display: grid;
-		grid-column: 1/-1;
 		grid-template-columns: repeat(auto-fill, 88px);
 		justify-content: center;
-
-		/* grid-template-columns: repeat(auto-fill, 88px); */
-
 		gap: 3px;
-
 		max-width: 40em;
 	}
 </style>
