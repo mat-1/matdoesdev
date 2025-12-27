@@ -7,7 +7,7 @@
 
 	let { post }: Props = $props()
 	// HACK: we have to do this otherwise sveltekit does a dumb
-	const postHtml = post.html + (post.css ? `<sty` + `le>${post.css}</style>` : '')
+	const postHtml = $derived(post.html + (post.css ? `<sty` + `le>${post.css}</style>` : ''))
 </script>
 
 <a href="/{post.slug}" class="preview-anchor">

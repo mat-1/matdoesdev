@@ -20,10 +20,6 @@ body,
 }
 
 @font-face {
-	font-family: 'Comic Sans MS';
-	src: url(/retro/comicsans.ttf) format('truetype');
-}
-@font-face {
 	font-family: 'Press Start 2P';
 	src: url(/retro/pressstart2p.ttf) format('truetype');
 }

@@ -1,5 +1,6 @@
 @import '$lib/fonts/atkinson-hyperlegible/atkinson-hyperlegible.css';
 @import '$lib/fonts/vollkorn/vollkorn.css';
+@import '$lib/fonts/comic-sans-ms/comic-sans-ms.css';
 
 /* used for matscan simplified chinese translation */
 @import '$lib/fonts/noto-sans-sc/noto-sans-sc.css';
@@ -177,11 +178,6 @@ h4 {
 	margin-bottom: 0.4em;
 }
 
-@font-face {
-	font-family: 'Comic Sans MS';
-	font-display: swap;
-	src: url(/retro/comicsans.ttf) format('truetype');
-}
 @font-face {
 	font-family: 'Press Start 2P';
 	font-display: swap;

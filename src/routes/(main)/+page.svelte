@@ -4,8 +4,6 @@
 	import GitHubIcon from '$lib/Icon/GitHub.svelte'
 	import MatrixIcon from '$lib/Icon/Matrix.svelte'
 	import KofiIcon from '$lib/Icon/Kofi.svelte'
-	import ButtonRow from '$lib/ButtonRow.svelte'
-	import IconButtonRow from '$lib/IconButtonRow.svelte'
 	import Topography from '$lib/assets/topography.svg'
 	import sparkles from '$lib/assets/sparkles.gif'
 	import PostPreview from '$lib/PostPreview.svelte'
@@ -15,7 +13,7 @@
 	import EnvelopeIcon from '$lib/Icon/Envelope.svelte'
 	import KeyIcon from '$lib/Icon/Key.svelte'
 	import Fediverse from '$lib/Icon/Fediverse.svelte'
-	import { initNeko, pageRendered, loadedNekoCount } from '../neko/oneko'
+	import { initNeko } from '../neko/oneko'
 	import '../neko/oneko.css'
 	import sandcat2 from '$lib/sandcat2.svg'
 	import TorIcon from '$lib/Icon/Tor.svelte'
@@ -470,6 +468,11 @@
 		user-select: none;
 
 		transform: translateZ(-1px) scale(2) translateY(25%);
+	}
+	@media only screen and (max-width: 500px) {
+		:global(body:not(.sandcat-mode)) #index-background {
+			opacity: 15%;
+		}
 	}
 
 	.page-description {
