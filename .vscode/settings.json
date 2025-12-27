@@ -2,12 +2,15 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "prettier.prettier-vscode"
 	},
 	"files.associations": {
 		"*.svx": "markdown"
 	},
 	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "prettier.prettier-vscode"
 	}
 }

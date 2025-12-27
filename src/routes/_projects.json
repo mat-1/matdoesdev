@@ -1,217 +1,215 @@
 [
 	{
-		"name": "Seized banners",
-		"href": "https://seized.matdoes.dev",
+		"name": "Azalea",
+		"href": "https://github.com/azalea-rs/azalea",
+		"source": "https://github.com/azalea-rs/azalea",
+		"languages": ["rust"],
+		"description": "A collection of Rust crates for making Minecraft bots, clients, and tools.",
+		"startYear": 2021
+	},
+	{
+		"name": "matscan",
+		"href": "https://github.com/mat-1/matscan",
+		"source": "https://github.com/mat-1/matscan",
+		"languages": ["rust", "python", "typescript", "svelte"],
+		"description": "Internet-scale Minecraft server scanner with an automated warning system for admins.",
+		"startYear": 2022
+	},
+	{
+		"name": "seized.fyi",
+		"href": "https://seized.fyi",
 		"languages": ["rust", "typescript", "svelte"],
-		"description": "An archive of every website seizure banner image or page created by government agencies."
+		"description": "An archive of every website seizure banner created by government agencies.",
+		"startYear": 2024
 	},
 	{
 		"name": "metasearch2",
 		"href": "https://s.matdoes.dev",
 		"source": "https://github.com/mat-1/metasearch2",
 		"languages": ["rust"],
-		"description": "Cute and efficient metasearch engine."
+		"description": "Cute and efficient metasearch engine.",
+		"startYear": 2023
 	},
 	{
-		"name": "≿",
-		"href": "https://github.com/mat-1/x227f",
-		"source": "https://github.com/mat-1/x227f",
-		"languages": ["rust", "typescript", "svelte"],
-		"description": "Web crawler for 88x31 buttons."
+		"name": "Internet Roadtrip Pathfinder",
+		"href": "https://github.com/mat-1/internet-roadtrip-pathfinder",
+		"source": "https://github.com/mat-1/internet-roadtrip-pathfinder",
+		"languages": ["rust"],
+		"description": "Reverse-engineering a web game and Google Street View for optimal pathfinding.",
+		"startYear": 2025
 	},
 	{
 		"name": "matdoesdev-protocols",
 		"href": "https://github.com/mat-1/matdoesdev-protocols",
 		"source": "https://github.com/mat-1/matdoesdev-protocols",
 		"languages": ["rust"],
-		"description": "New implementations of several internet protocols for the sole purpose of making this website viewable through them."
+		"description": "Mirrors this website with implementations of SSH, Telnet, Gemini, Gopher, and others.",
+		"startYear": 2023
 	},
 	{
-		"name": "matscan",
-		"href": "https://github.com/mat-1/matscan",
-		"source": "https://github.com/mat-1/matscan",
+		"name": "simdnbt",
+		"href": "https://github.com/azalea-rs/simdnbt",
+		"source": "https://github.com/azalea-rs/simdnbt",
 		"languages": ["rust"],
-		"description": "Silly Minecraft server scanner with a custom TCP stack."
+		"description": "The fastest Rust implementation of the NBT protocol used by Minecraft.",
+		"startYear": 2023
+	},
+	{
+		"name": "SkyBlock Stats",
+		"href": "https://skyblock.matdoes.dev",
+		"source": "https://github.com/skyblockstats/skyblock-stats",
+		"languages": ["typescript", "svelte"],
+		"description": "A popular feature-rich web interface for the Hypixel SkyBlock API.",
+		"startYear": 2019,
+		"endYear": 2024
+	},
+	{
+		"name": "matdoesdev",
+		"href": "https://matdoes.dev",
+		"source": "https://github.com/mat-1/matdoesdev",
+		"languages": ["svelte"],
+		"description": "My blog and portfolio website.",
+		"startYear": 2019
+	},
+	{
+		"name": "x227f",
+		"href": "https://github.com/mat-1/x227f",
+		"source": "https://github.com/mat-1/x227f",
+		"languages": ["rust", "typescript", "svelte"],
+		"description": "Web crawler for 88x31 buttons.",
+		"startYear": 2023
+	},
+	{
+		"name": "Azalea Burger (fork)",
+		"href": "https://github.com/azalea-rs/azalea-burger",
+		"source": "https://github.com/azalea-rs/azalea-burger",
+		"languages": ["python"],
+		"description": "Automated reverse-engineering of modern Minecraft versions.",
+		"startYear": 2024
 	},
 	{
 		"name": "mat's packet debugger",
 		"href": "https://packet.matdoes.dev",
 		"source": "https://github.com/mat-1/minecraft-packet-debugger",
 		"languages": ["typescript", "svelte"],
-		"description": "Conveniently inspect Minecraft protocol packets."
-	},
-	{
-		"name": "Azalea",
-		"href": "https://github.com/mat-1/azalea",
-		"source": "https://github.com/mat-1/azalea",
-		"languages": ["rust"],
-		"description": "Collection of Rust crates primarily for creating Minecraft bots."
-	},
-	{
-		"name": "mat's server scanner",
-		"href": "/minecraft-scanning",
-		"languages": ["rust", "python", "typescript", "svelte"],
-		"description": "Scanning the internet for Minecraft servers for fun."
+		"description": "Conveniently inspect Minecraft protocol packets.",
+		"startYear": 2023
 	},
 	{
 		"name": "msdsmchr",
 		"href": "https://h.matdoes.dev/",
 		"source": "https://github.com/mat-1/msdsmchr",
 		"languages": ["rust"],
-		"description": "Fast Minecraft head API."
-	},
-	{
-		"name": "matdoesdev",
-		"href": "https://matdoes.dev",
-		"source": "https://github.com/mat-1/matdoesdev-svelte",
-		"languages": ["svelte"],
-		"description": "My portfolio."
-	},
-	{
-		"name": "i.matdoes.dev",
-		"href": "https://i.matdoes.dev",
-		"source": "https://github.com/mat-1/rust-image-host",
-		"languages": ["rust"],
-		"description": "Simple image host."
+		"description": "A very fast Minecraft head rendering API.",
+		"startYear": 2022
 	},
 	{
 		"name": "Web Utils",
 		"href": "https://u.matdoes.dev",
 		"source": "https://github.com/mat-1/web-utils",
 		"languages": ["svelte", "typescript"],
-		"description": "Utilities for software developers."
+		"description": "Website with convenient utilities for software developers.",
+		"startYear": 2021
 	},
 	{
-		"name": "mat's rss reader",
-		"href": "https://rss.matdoes.dev",
-		"languages": ["svelte", "typescript"],
-		"description": "Simple RSS reader."
+		"name": "i.matdoes.dev",
+		"href": "https://i.matdoes.dev",
+		"source": "https://github.com/mat-1/rust-image-host",
+		"languages": ["rust"],
+		"description": "Simple image host.",
+		"startYear": 2021,
+		"endYear": 2023
 	},
 	{
-		"name": "Metasearch",
+		"name": "metasearch v1",
 		"source": "https://github.com/mat-1/metasearch",
 		"languages": ["typescript"],
 		"description": "Simple metasearch engine.",
-		"archived": true
+		"startYear": 2020,
+		"endYear": 2023
 	},
 	{
 		"name": "SnooSlash",
 		"href": "https://www.youtube.com/channel/UCz5bLto2bC9fSC5N429WDnw",
 		"source": "https://github.com/mat-1/snooslash/",
 		"languages": ["python"],
-		"description": "Reddit TTS video generator."
+		"description": "Reddit TTS video generator.",
+		"startYear": 2020,
+		"endYear": 2020
 	},
 	{
 		"name": "DreamSMP Tracker",
 		"source": "https://github.com/mat-1/dreamsmp",
 		"languages": ["python"],
-		"description": "Tracks when DreamSMP members play and livestream."
-	},
-	{
-		"name": "Wynn Lea Moe",
-		"href": "https://wynnleamoe.matdoes.dev",
-		"languages": ["javascript"],
-		"description": "Parody of sky.lea.moe that shows Wynncraft stats instead of SkyBlock stats."
+		"description": "Automatically tracks when Dream SMP members play and livestream.",
+		"startYear": 2020,
+		"endYear": 2020
 	},
 	{
 		"name": "Forum Sweats",
-		"source": "https://github.com/mat-1/forum-sweats/",
+		"source": "https://github.com/mat-1/forum-sweats",
 		"languages": ["python"],
-		"description": "A Discord bot with many useful and unique features."
+		"description": "A Discord bot with many useful and unique features.",
+		"startYear": 2020,
+		"endYear": 2022
 	},
 	{
 		"name": "Minecraft Assets",
 		"href": "https://mcassets.matdoes.dev",
 		"languages": ["python"],
-		"description": "A user-friendly interface for the assets of all Minecraft versions."
-	},
-	{
-		"name": "SkyBlock Stats",
-		"href": "https://skyblock.matdoes.dev/",
-		"source": "https://github.com/skyblockstats/skyblock-stats",
-		"languages": ["typescript", "svelte"],
-		"description": "Check your Hypixel SkyBlock stats, see leaderboards, mayors, auction prices, and way more."
+		"description": "A user-friendly interface to view assets of all Minecraft versions.",
+		"startYear": 2020,
+		"endYear": 2022
 	},
 	{
 		"name": "SkyBlock API",
 		"href": "https://github.com/skyblockstats/skyblock-api",
 		"source": "https://github.com/skyblockstats/skyblock-api",
 		"languages": ["typescript"],
-		"description": "A better wrapper for the official SkyBlock API."
-	},
-	{
-		"name": "Super Duper Simple Pinger",
-		"href": "https://ping.matdoes.dev/",
-		"languages": ["python"],
-		"description": "Send an HTTP request to your repls every few minutes to keep them alive."
-	},
-	{
-		"name": "The Stonk Exchange",
-		"languages": ["python"],
-		"description": "A stock market simulator with a twist. Instead of investing in real companies, you invest in your fellow server members."
-	},
-	{
-		"name": "Domain Hack Finder",
-		"href": "https://replit.com/talk/share/Domain-Hack-Finder/15778",
-		"source": "https://replit.com/@mat1/domain-hack-finder",
-		"languages": ["python"],
-		"description": "Find domain hacks for any word or phrase."
-	},
-	{
-		"name": "Colors",
-		"href": "https://colors.matdoes.dev/",
-		"source": "https://replit.com/@mat1/colors",
-		"languages": ["python"],
-		"description": "Find the best colors."
-	},
-	{
-		"name": "HTTP Lookup",
-		"href": "https://http.matdoes.dev/",
-		"source": "https://replit.com/@mat1/http-statuses",
-		"description": "Look up HTTP status codes."
+		"description": "A better wrapper for the official SkyBlock API.",
+		"startYear": 2021,
+		"endYear": 2024
 	},
 	{
 		"name": "4bit",
 		"href": "https://web.archive.org/web/20190502100718/https://4bitbot.tk/",
-		"archived": true,
 		"languages": ["python"],
-		"description": "Fun utility bot for Discord."
+		"description": "Fun utility bot for Discord that was used by nearly 1,000 servers.",
+		"startYear": 2018,
+		"endYear": 2019
 	},
 	{
 		"name": "Repl Talk API",
 		"href": "https://pypi.org/project/repltalk/",
 		"source": "https://github.com/mat-1/repl-talk-api",
 		"languages": ["python"],
-		"description": "API wrapper for Repl Talk."
+		"description": "Python wrapper for Replit's undocumented API for their forums.",
+		"startYear": 2019,
+		"endYear": 2022
 	},
 	{
 		"name": "Old i.matdoes.dev",
 		"source": "https://github.com/mat-1/i.matdoes.dev",
 		"languages": ["python"],
-		"description": "A simple image host."
+		"description": "A simple image host.",
+		"startYear": 2019,
+		"endYear": 2021
 	},
 	{
 		"name": "Repl Talk Bot",
-		"href": "https://replit.com/talk/share/Repl-Talk-Discord-Bot/5599",
-		"archived": true,
+		"href": "http://web.archive.org/web/20210421214046/https://replit.com/talk/share/Repl-Talk-Discord-Bot/5599",
 		"languages": ["python"],
-		"description": "Discord bot that automatically sends posts from Repl Talk into the #repl-talk channel in the Replit Discord."
-	},
-	{
-		"name": "Old matdoesdev",
-		"languages": ["python"],
-		"description": "My portfolio."
+		"description": "Discord bot that bridged Repl Talk to the official Replit Discord.",
+		"startYear": 2018,
+		"endYear": 2020
+
 	},
 	{
 		"name": "Replit Dark Theme",
 		"href": "https://darktheme.matdoes.dev/themes",
 		"languages": ["python"],
-		"description": "A customizable dark theme for Replit."
-	},
-	{
-		"name": "Hytale Discord Webhook",
-		"href": "https://hytale.matdoes.dev",
-		"languages": ["python"],
-		"description": "Automatically send Hytale blog posts to your Discord server with only one click."
+		"description": "A customizable dark theme for Replit.",
+		"startYear": 2019,
+		"endYear": 2020
 	}
 ]

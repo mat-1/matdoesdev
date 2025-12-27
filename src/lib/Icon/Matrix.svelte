@@ -3,5 +3,12 @@
 </script>
 
 <Icon alt="Matrix">
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><text x="106" y="346" font-family="Arial" font-size="346"><tspan x="106" y="346" fill="#fff" font-weight="bold">m</tspan></text><path fill="#fff" d="M0 0h48v512H0zm48 0h64v48H48zm0 464h64v48H48zM512 0h-48v512h48zm-48 0h-64v48h64zm0 464h-64v48h64z"/></svg>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+		<text x="106" y="346" font-family="Arial" font-size="346">
+			<tspan x="106" y="346" font-weight="bold">m</tspan>
+		</text>
+		<path
+			d="M0 0h48v512H0zm48 0h64v48H48zm0 464h64v48H48zM512 0h-48v512h48zm-48 0h-64v48h64zm0 464h-64v48h64z"
+		/>
+	</svg>
 </Icon>

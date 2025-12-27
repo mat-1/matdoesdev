@@ -4,6 +4,7 @@
 	font-style: normal;
 	font-weight: 600;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC SemiBold"), local("NotoSansSC-SemiBold"), url($lib/fonts/noto-sans-sc/noto-sans-sc-semibold.woff2) format("woff2");
 }
 /* noto-sans-sc-medium */
@@ -12,6 +13,7 @@
 	font-style: normal;
 	font-weight: 500;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC Medium"), local("NotoSansSC-Medium"), url($lib/fonts/noto-sans-sc/noto-sans-sc-medium.woff2) format("woff2");
 }
 /* noto-sans-sc-extralight */
@@ -20,6 +22,7 @@
 	font-style: normal;
 	font-weight: 200;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC ExtraLight"), local("NotoSansSC-ExtraLight"), url($lib/fonts/noto-sans-sc/noto-sans-sc-extralight.woff2) format("woff2");
 }
 /* noto-sans-sc-black */
@@ -28,6 +31,7 @@
 	font-style: normal;
 	font-weight: 900;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC Black"), local("NotoSansSC-Black"), url($lib/fonts/noto-sans-sc/noto-sans-sc-black.woff2) format("woff2");
 }
 /* noto-sans-sc */
@@ -36,6 +40,7 @@
 	font-style: normal;
 	font-weight: 400;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC Regular"), local("NotoSansSC-Regular"), url($lib/fonts/noto-sans-sc/noto-sans-sc.woff2) format("woff2");
 }
 /* noto-sans-sc-extrabold */
@@ -44,6 +49,7 @@
 	font-style: normal;
 	font-weight: 800;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC ExtraBold"), local("NotoSansSC-ExtraBold"), url($lib/fonts/noto-sans-sc/noto-sans-sc-extrabold.woff2) format("woff2");
 }
 /* noto-sans-sc-bold */
@@ -52,6 +58,7 @@
 	font-style: normal;
 	font-weight: 700;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC Bold"), local("NotoSansSC-Bold"), url($lib/fonts/noto-sans-sc/noto-sans-sc-bold.woff2) format("woff2");
 }
 /* noto-sans-sc-light */
@@ -60,6 +67,7 @@
 	font-style: normal;
 	font-weight: 300;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC Light"), local("NotoSansSC-Light"), url($lib/fonts/noto-sans-sc/noto-sans-sc-light.woff2) format("woff2");
 }
 /* noto-sans-sc-thin */
@@ -68,6 +76,7 @@
 	font-style: normal;
 	font-weight: 100;
 	font-stretch: 100%;
+	font-display: swap;
 	src: local("Noto Sans SC Thin"), local("NotoSansSC-Thin"), url($lib/fonts/noto-sans-sc/noto-sans-sc-thin.woff2) format("woff2");
 }
 

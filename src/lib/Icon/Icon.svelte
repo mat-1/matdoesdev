@@ -1,10 +1,10 @@
 <script lang="ts">
 	interface Props {
-		children?: import('svelte').Snippet;
+		children?: import('svelte').Snippet
+		alt: string
 	}
 
-	let { children }: Props = $props();
-	export const alt: string | undefined = undefined
+	let { children, alt }: Props = $props()
 </script>
 
 <span class="icon" aria-label={alt}>
@@ -15,15 +15,15 @@
 	.icon {
 		height: 1em;
 		width: 1em;
-		opacity: 0.5;
+		/* opacity: 0.5; */
 		transition: opacity 200ms;
-		display: block;
+		display: inline-block;
 	}
 	.icon :global(img) {
 		display: block;
 		margin: 0 auto;
 	}
-	:global(a) .icon:hover {
+	/* :global(a) .icon:hover {
 		opacity: 0.9;
-	}
+	} */
 </style>

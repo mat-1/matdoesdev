@@ -75,28 +75,30 @@
 
 <svelte:window onmousemove={resetIdleTimeout} onkeydown={resetIdleTimeout} />
 
-<nav>
-	<BackAnchor href="/" />
-</nav>
-<section class="error-page">
-	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-	<div
-		bind:this={el}
-		class:bouncing={idleModeEnabled}
-		onmousedown={() => {
-			if (idleModeEnabled) {
-				if (Math.random() < 0.5) {
-					xVel *= -1.2
-				} else {
-					yVel *= -1.2
+<main>
+	<nav>
+		<BackAnchor href="/" />
+	</nav>
+	<section class="error-page">
+		<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+		<div
+			bind:this={el}
+			class:bouncing={idleModeEnabled}
+			onmousedown={() => {
+				if (idleModeEnabled) {
+					if (Math.random() < 0.5) {
+						xVel *= -1.2
+					} else {
+						yVel *= -1.2
+					}
 				}
-			}
-		}}
-	>
-		<h1>404</h1>
-		<h2>Not found</h2>
-	</div>
-</section>
+			}}
+		>
+			<h1>404</h1>
+			<h2>Not found</h2>
+		</div>
+	</section>
+</main>
 
 <style>
 	.error-page {

@@ -3,6 +3,32 @@ title: Who is mat?
 published: 2019-04-25T01:08:27.057+00:00
 ---
 
+<script>
+import { browser } from '$app/environment';
+import { onDestroy } from 'svelte';
+
+if (browser) {
+    let animation
+    let destroyed = false
+
+    setTimeout(() => {
+        if (destroyed) return
+        animation = document.querySelector("#page").animate(
+            [{ opacity: 0 }],
+            {
+                duration: 10000,
+                fill: 'forwards'
+            }
+        );
+    }, 1000);
+
+    onDestroy(() => {
+        animation?.cancel()
+        destroyed = true
+    });
+}
+</script>
+
 <div class="error box">
 Content expunged.
 </div>

@@ -17,7 +17,7 @@
 	<link rel="alternate" type="application/atom+xml" title="Atom" href="/blog.atom" />
 </svelte:head>
 
-<div>
+<main>
 	<nav>
 		<BackAnchor href="/" />
 	</nav>
@@ -26,4 +26,4 @@
 	{#each posts as post}
 		<PostPreview {post} />
 	{/each}
-</div>
+</main>

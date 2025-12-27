@@ -6,7 +6,7 @@
 		description?: string
 	}
 
-	let { title = 'matdoesdev', description = '' }: Props = $props()
+	let { title = 'mat does dev', description = '' }: Props = $props()
 </script>
 
 <svelte:head>

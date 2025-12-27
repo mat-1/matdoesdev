@@ -6,13 +6,13 @@ export const prerender = true
 
 export const GET: RequestHandler = async ({}) => {
 	const res = {
-		title: 'matdoesdev',
+		title: 'mat does dev',
 		description: [
-			"I'm mat, I do full-stack software development.",
-			"This portfolio contains my blog posts and links to some of the projects I've made.",
+			"hii, thanks for stopping by. i'm mat, and i make things on the internet.",
+			'this is my personal web site on the world wide web.',
 		],
 		socials: ['//github.com/mat-1', '//matrix.to/#/@mat:matdoes.dev', '//ko-fi.com/matdoesdev'],
-		links: ['/blog', '/projects'],
+		links: ['/blog.json', '/projects.json'],
 	}
 	return new Response(JSON.stringify(res, null, 2), {
 		headers: {

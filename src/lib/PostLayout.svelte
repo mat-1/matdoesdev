@@ -23,25 +23,28 @@
 	<title>{title}</title>
 </svelte:head>
 
-{#if title}
-	<div class="article-container">
-		<nav>
-			<BackAnchor href="/blog" />
-		</nav>
-		<div class="article-header">
-			<h1>{title}</h1>
-			{#if subtitle}
-				<p class="subtitle">{subtitle}</p>
-			{/if}
-			<time>{new Date(published).toLocaleDateString()}</time>
+<main>
+	{#if title}
+		<div id="article-container">
+			<nav>
+				<BackAnchor href="/#blog" />
+			</nav>
+			<div class="article-header">
+				<h1>{title}</h1>
+				{#if subtitle}
+					<p class="subtitle">{subtitle}</p>
+				{/if}
+				<time>{new Date(published).toLocaleDateString()}</time>
+			</div>
+			<article>
+				{@render children?.()}
+			</article>
 		</div>
-		<article>
-			{@render children?.()}
-		</article>
-	</div>
-{:else}
-	{@render children?.()}
-{/if}
+		<div id="article-minimap"></div>
+	{:else}
+		{@render children?.()}
+	{/if}
+</main>
 
 <style>
 	article :global(img),
@@ -106,7 +109,7 @@
 
 	h1 {
 		margin-bottom: 0;
-		font-size: 1.5em;
+		font-size: 1.75em;
 	}
 	.subtitle {
 		margin: 0;
@@ -118,4 +121,14 @@
 		opacity: 0.5;
 		font-style: italic;
 	}
+
+	/* don't think this looks good */
+	/* #article-minimap {
+		position: fixed;
+		width: 128px;
+		top: 16px;
+		right: 0;
+		bottom: 16px;
+		background: -moz-element(#article-container) no-repeat top / cover;
+	} */
 </style>

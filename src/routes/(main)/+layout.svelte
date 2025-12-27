@@ -5,20 +5,14 @@
 	import { browser } from '$app/environment'
 	import { writable } from 'svelte/store'
 	import { onMount } from 'svelte'
+	import Footer from '$lib/Footer.svelte'
 
 	interface Props {
 		data: LayoutData
-		// + 1 because i live in the future
-		copyrightYear?: any
 		children?: import('svelte').Snippet
 	}
 
-	let { data, copyrightYear = $bindable(new Date().getFullYear() + 1), children }: Props = $props()
-
-	function clickCopyrightYear() {
-		copyrightYear += 1
-		localStorage.setItem('copyrightYear', String(copyrightYear))
-	}
+	let { data, children }: Props = $props()
 
 	let previousPathname = $state(data.pathname)
 	let currentPathName = $state(data.pathname)
@@ -70,10 +64,6 @@
 			lastGlobalTheme = theme
 		})
 
-		// update copyright year from local storage
-		const storedCopyrightYear = localStorage.getItem('copyrightYear')
-		if (storedCopyrightYear) copyrightYear = Number(storedCopyrightYear)
-
 		// neko persistence
 		const persistNeko = localStorage.getItem('neko-persist')
 		if (persistNeko === 'true') {
@@ -89,19 +79,23 @@
 			})()
 		}
 		onMount(() => {
-			$pageRendered = true
+			requestAnimationFrame(() => {
+				$pageRendered = true
+			})
 		})
 	}
+
 	$effect(() => {
 		if (browser) {
 			if (previousPathname !== currentPathName) previousPathname = currentPathName
 			currentPathName = data.pathname
-
 			// fly right if we're going forward, left if we're going back
 			if (previousPathname === '/') flyDirection = 1
 			else if (previousPathname === '/blog' && currentPathName !== '/') flyDirection = 1
 			else flyDirection = -1
-			onPathChange()
+
+			// gravity easter egg temporarily disabled due to index page rewrite
+			// onPathChange()
 		}
 	})
 </script>
@@ -112,53 +106,42 @@
 		in:fly={{ x: -5 * flyDirection, duration: 200, delay: 200 }}
 		out:fly={{ x: 5 * flyDirection, duration: 200 }}
 	>
-		<main>
-			{@render children?.()}
-		</main>
+		{@render children?.()}
 
-		<footer>
-			<p class="copyright">
-				&copy; <span
-					class="copyrightYear"
-					onclick={clickCopyrightYear}
-					onkeydown={clickCopyrightYear}
-					role="button"
-					tabindex="0">{copyrightYear}</span
-				> mat
-			</p>
-		</footer>
+		<Footer></Footer>
 	</div>
 {/key}
 
 <style>
 	#page {
 		height: 100%;
+		overflow-y: auto;
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: stretch;
 		overflow-wrap: break-word;
-		position: relative;
+
+		scroll-behavior: smooth;
+	}
+	:global(article p, .force-text-justify) {
+		hyphens: auto;
+		hyphenate-limit-chars: 5 2 3;
+		text-align: justify;
+	}
+	:global(article p > code:first-child) {
+		text-align: left;
+		hyphens: none;
+		text-justify: none;
+	}
+	/* `text-justify: none` looks better but is unsupported by chrome */
+	@supports not (text-justify: none) {
+		:global(p > code:first-child) {
+			word-break: break-all;
+		}
 	}
 	:global(body) {
 		overflow-x: hidden;
-	}
-
-	main {
-		padding: 1em;
-		margin: auto;
-		flex: 1 0;
-		max-width: 50em;
-		width: calc(100% - 2em);
-	}
-	footer {
-		text-align: center;
-		flex: 0 0;
-		color: var(--text-color-alt-3);
-	}
-
-	.copyrightYear {
-		cursor: pointer;
-		user-select: none;
 	}
 </style>

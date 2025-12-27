@@ -1,4 +1,5 @@
 @import '$lib/fonts/atkinson-hyperlegible/atkinson-hyperlegible.css';
+@import '$lib/fonts/vollkorn/vollkorn.css';
 
 /* used for matscan simplified chinese translation */
 @import '$lib/fonts/noto-sans-sc/noto-sans-sc.css';
@@ -12,6 +13,8 @@
 	--background-color-alt-2: #222;
 	--background-color-alt-3: #333;
 
+	/* --text-color: #ddd; */
+	/* --text-color: #cdd6f4; */
 	--text-color: #f7f4f4;
 	--text-color-alt: #ddd;
 	--text-color-alt-2: #bbb;
@@ -37,14 +40,24 @@ body,
 #page {
 	height: 100%;
 	width: 100%;
-	scroll-behavior: smooth;
 }
 
 body {
+	margin: 0;
 	background-color: var(--background-color);
 	color: var(--text-color);
+
 	font-family: var(--text-font);
-	margin: 0;
+	font-feature-settings: 'zero', 'lnum';
+	font-weight: 500;
+}
+
+main {
+	padding: 1em;
+	margin: auto;
+	flex: 1 0;
+	width: 50em;
+	max-width: 100%;
 }
 
 button,
@@ -81,8 +94,8 @@ a {
 }
 
 hr {
-	background-color: var(--background-color-alt);
-	border-color: var(--background-color-alt);
+	background-color: var(--background-color-alt-2);
+	border: 1px solid var(--background-color-alt-2);
 	width: 90%;
 	margin: 1rem auto;
 }
@@ -147,4 +160,30 @@ body.extra-dark-theme {
 body.sandcat-mode {
 	--background-color: transparent;
 	--background-color-alt: #0006;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Vollkorn';
+}
+h2 {
+	margin-bottom: 0.6em;
+}
+h3 {
+	font-size: 1.5em;
+	margin-bottom: 0.4em;
+}
+h4 {
+	font-size: 1.2em;
+	margin-bottom: 0.4em;
+}
+
+@font-face {
+	font-family: 'Comic Sans MS';
+	font-display: swap;
+	src: url(/retro/comicsans.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Press Start 2P';
+	font-display: swap;
+	src: url(/retro/pressstart2p.ttf) format('truetype');
 }

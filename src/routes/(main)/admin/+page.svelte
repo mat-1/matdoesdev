@@ -25,14 +25,14 @@
 	}
 
 	async function shutdown() {
-		await fetch('/admin/api/shutdown', { method: 'POST' })
+		await fetch('https://matdoes.dev/admin/api/shutdown', { method: 'POST' })
 		// shutdown animation
 		document.body.classList.add('shutdown')
 		await new Promise((resolve) => setTimeout(resolve, 3000))
 		location.reload()
 	}
 	async function reboot() {
-		await fetch('/admin/api/reboot', { method: 'POST' })
+		await fetch('https://matdoes.dev/admin/api/reboot', { method: 'POST' })
 		document.body.classList.add('shutdown')
 		await new Promise((resolve) => setTimeout(resolve, 3000))
 		location.reload()
@@ -41,7 +41,7 @@
 	let logsEl: HTMLDivElement
 
 	function startEventSource() {
-		const es = new EventSource('/admin/api/stats')
+		const es = new EventSource('https://matdoes.dev/admin/api/stats')
 		es.addEventListener('message', (event) => {
 			console.log(JSON.parse(event.data))
 			const data = JSON.parse(event.data)
@@ -94,81 +94,84 @@
 	})
 </script>
 
-<h1>Admin</h1>
+<main>
+	<h1>Admin</h1>
 
-<noscript>
-	<p>JavaScript is required to view this page.</p>
-	<style>
-		.admin {
-			display: none;
-		}
-	</style>
-</noscript>
+	<noscript>
+		<p>JavaScript is required to view this page.</p>
+		<style>
+			.admin {
+				display: none;
+			}
+		</style>
+	</noscript>
 
-{#if uptimeSeconds === undefined}
-	<p>Loading...</p>
-	<style>
-		.admin {
-			display: none;
-		}
-	</style>
-{/if}
-<div class="admin">
-	<section class="container danger-buttons">
-		<button class="danger-button" onclick={reboot}>Reboot</button>
-		<button class="danger-button" onclick={shutdown}>Shut down</button>
-	</section>
-
-	{#if uptimeSeconds !== undefined}
-		<section class="container">
-			<span class="name">Uptime</span>:
-			<span class="value">{renderUptime(uptimeSeconds)}</span>
-		</section>
+	{#if uptimeSeconds === undefined}
+		<p>Loading...</p>
+		<style>
+			.admin {
+				display: none;
+			}
+		</style>
 	{/if}
+	<div class="admin">
+		<section class="container danger-buttons">
+			<button class="danger-button" onclick={reboot}>Reboot</button>
+			<button class="danger-button" onclick={shutdown}>Shut down</button>
+		</section>
 
-	<div class="chart-sections">
-		<span class="left">
-			{#if memoryTotal !== undefined}
-				<section class="container">
-					<div>
-						<span class="name">Memory usage</span>:
-						<span class="value">{memoryUsed} GiB</span>/{memoryTotal} GiB
-					</div>
-					<AdminGraph history={memoryUsedHistory} max={memoryTotal} color="#0dc7f9aa"></AdminGraph>
-				</section>
-			{/if}
-
+		{#if uptimeSeconds !== undefined}
 			<section class="container">
-				<span>Logs:</span>
-				<div class="logs" bind:this={logsEl}>
-					{#each logs as log}
-						<div>{log}</div>
-					{/each}
-				</div>
+				<span class="name">Uptime</span>:
+				<span class="value">{renderUptime(uptimeSeconds)}</span>
 			</section>
-		</span>
+		{/if}
 
-		<span class="right">
-			{#if cpuUsage !== undefined}
-				<section class="container">
-					<span class="name">CPU</span>: <span class="value">{Math.round(cpuUsage * 100)}%</span>
-					<AdminGraph history={cpuUsageHistory} max={1} color="#aad94caa"></AdminGraph>
-				</section>
-			{/if}
+		<div class="chart-sections">
+			<span class="left">
+				{#if memoryTotal !== undefined}
+					<section class="container">
+						<div>
+							<span class="name">Memory usage</span>:
+							<span class="value">{memoryUsed} GiB</span>/{memoryTotal} GiB
+						</div>
+						<AdminGraph history={memoryUsedHistory} max={memoryTotal} color="#0dc7f9aa"
+						></AdminGraph>
+					</section>
+				{/if}
 
-			{#if storageUsed !== undefined && storageTotal !== undefined}
 				<section class="container">
-					<span class="name">Storage</span>:
-					<span class="value">{storageUsed} GiB</span>/{storageTotal}
-					GiB
-					<div class="bar-container">
-						<div class="bar-item" style="width: {(storageUsed / storageTotal) * 100}%"></div>
+					<span>Logs:</span>
+					<div class="logs" bind:this={logsEl}>
+						{#each logs as log}
+							<div>{log}</div>
+						{/each}
 					</div>
 				</section>
-			{/if}
-		</span>
+			</span>
+
+			<span class="right">
+				{#if cpuUsage !== undefined}
+					<section class="container">
+						<span class="name">CPU</span>: <span class="value">{Math.round(cpuUsage * 100)}%</span>
+						<AdminGraph history={cpuUsageHistory} max={1} color="#aad94caa"></AdminGraph>
+					</section>
+				{/if}
+
+				{#if storageUsed !== undefined && storageTotal !== undefined}
+					<section class="container">
+						<span class="name">Storage</span>:
+						<span class="value">{storageUsed} GiB</span>/{storageTotal}
+						GiB
+						<div class="bar-container">
+							<div class="bar-item" style="width: {(storageUsed / storageTotal) * 100}%"></div>
+						</div>
+					</section>
+				{/if}
+			</span>
+		</div>
 	</div>
-</div>
+</main>
 
 <style>
 	.danger-buttons {

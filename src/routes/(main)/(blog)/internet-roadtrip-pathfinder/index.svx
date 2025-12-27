@@ -7,7 +7,7 @@ There's an internet web game slash social experiment thing called Internet Roadt
 
 ![A screenshot of the Internet Roadtrip website](internet-roadtrip.png)
 
-I was introduced to it on the day that the game launched by my friend [Mikarific](https://github.com/Mikarific) -- who also happens to own the Discord server for the game. I thought it'd be fun to reverse-engineer and create a bot for, so I decided to join the Discord and start investigating how the game works.
+I was introduced to it on the day that the game launched by my friend [Mikarific](https://github.com/Mikarific), who also happens to own the Discord server for the game. I thought it'd be fun to reverse-engineer and create a bot for, so I decided to join the Discord and start investigating how the game works.
 
 My first idea for something cool that I could make was a bot with a built-in pathfinder that could make the car go wherever I wanted in the most optimal way possible. To do this, I'd have to reverse engineer Google Maps, then figure out how it's used by Internet Roadtrip, and finally I could actually make the pathfinder. Surely this can't be that complicated, right? Shouldn't take longer than a couple of days, right?
 
@@ -575,7 +575,7 @@ And here were a few reactions by the players:
 
 I've kept continuously updating the pathfinder, including implementing more optimizations and some requested features like adding stops to the path. Also, I've published the complete source code to the pathfinder under a public-domain license on GitHub here: https://github.com/mat-1/internet-roadtrip-pathfinder.
 
-Special thanks to the other modders and people who helped with research, including [Mikarific](https://github.com/Mikarific), [Netux](https://netux.site), [Jakub](https://jdranczewski.github.io), [crschmidt](https://crschmidt.net/), and [Kali](https://xcancel.com/Kali_OwO). And of course, thanks [Neal](https://neal.fun) for making Internet Roadtrip. &lt;3
+Special thanks to the other modders and people who helped with research, including [Mikarific](https://github.com/Mikarific), [Netux](https://netux.site), [Jakub](https://jdranczewski.github.io), [crschmidt](https://crschmidt.net), and [Kali](https://xcancel.com/Kali_OwO). And of course, thanks [Neal](https://neal.fun) for making Internet Roadtrip. &lt;3
 
 After I finished writing this blog post I sent it to Neal, and here was his reaction:
 ![Discord message from Neal with the content 'read through it! great write-up, super interesting and detailed. like the part explaining the different types of panos'](neal-message.png)

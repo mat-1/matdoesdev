@@ -6,6 +6,9 @@
 
 	import {
 		BASE_SPRITESHEET_URL,
+		DEFAULT_ACCEL,
+		DEFAULT_PERSIST_ON_RELOAD,
+		DEFAULT_SLIPPERINESS,
 		initNeko,
 		LOCALSTORAGE_NAMES,
 		nekoConfig,
@@ -91,6 +94,14 @@
 		offsetX = e.clientX - startMouseX
 		offsetY = e.clientY - startMouseY
 	}
+
+	function resetNeko() {
+		accel = DEFAULT_ACCEL
+		slipperiness = DEFAULT_SLIPPERINESS
+		persistOnReload = DEFAULT_PERSIST_ON_RELOAD
+		console.log('reset')
+		location.reload()
+	}
 </script>
 
 <svelte:head>
@@ -130,7 +141,7 @@
 	<main class="window-body">
 		<section>
 			<button onclick={() => initNeko()()}>summon neko</button>
-			<!-- you intentionally cannot despawn nekos without disabling persistence and reloading -->
+			<button onclick={() => resetNeko()}>reset</button>
 		</section>
 
 		<section>

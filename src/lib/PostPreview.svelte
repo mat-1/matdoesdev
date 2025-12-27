@@ -17,7 +17,6 @@
 			<time>{new Date(post.published).toLocaleDateString()}</time>
 		</div>
 
-		<div class="disappearing-text-preview"></div>
 		<div class="preview">
 			{@html postHtml}
 		</div>
@@ -39,18 +38,8 @@
 
 		padding: 0;
 		margin: 0;
-	}
 
-	.disappearing-text-preview {
-		background: linear-gradient(
-			var(--background-color-transparent) 0%,
-			var(--background-color) 100%
-		);
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 70%;
+		mask-image: linear-gradient(#000d 0%, transparent 100%);
 	}
 
 	.preview-anchor {

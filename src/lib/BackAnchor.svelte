@@ -1,12 +1,12 @@
 <script lang="ts">
 	interface Props {
-		href: string;
+		href: string
 	}
 
-	let { href }: Props = $props();
+	let { href }: Props = $props()
 </script>
 
-<a {href} class="back-anchor">
+<a {href} class="back-anchor" data-sveltekit-noscroll>
 	← {#if href === '/'}Home{:else}Back{/if}
 </a>
 

@@ -9,12 +9,16 @@ export let loadedNekoCount = writable(0)
 
 export const BASE_SPRITESHEET_URL = '/retro/oneko.gif'
 
+export const DEFAULT_ACCEL = 10
+export const DEFAULT_SLIPPERINESS = 0
+export const DEFAULT_PERSIST_ON_RELOAD = false
+
 // this gets updated later (from localStorage)
 let nekoConfig = {
-	accelMultiplier: 10,
-	slipperiness: 0,
+	accelMultiplier: DEFAULT_ACCEL,
+	slipperiness: DEFAULT_SLIPPERINESS,
 
-	persistOnReload: false,
+	persistOnReload: DEFAULT_PERSIST_ON_RELOAD,
 	// we only store initialized nekos here
 	// (so we don't store the idle one on /retro unless it's clicked)
 	nekoStates: [] as NekoState[],
@@ -170,8 +174,9 @@ export function initNeko(
 	nekoEl.style.backgroundImage = 'url("/retro/oneko.gif")'
 
 	// by default, don't move until the mouse is moved
-	const xFromElement = nekoEl.offsetLeft + 16
-	const yFromElement = nekoEl.offsetTop + 16
+	const bbFromElement = nekoEl.getBoundingClientRect()
+	const xFromElement = bbFromElement.x + 16
+	const yFromElement = bbFromElement.y + 16
 
 	const nekoState: NekoState = {
 		index: nekoConfig.nekoStates.length,
@@ -222,8 +227,9 @@ export function initNeko(
 		let randomMouseOffsetX = Math.cos(randomMouseOffsetDirection) * randomMouseOffsetDistance
 		let randomMouseOffsetY = Math.sin(randomMouseOffsetDirection) * randomMouseOffsetDistance
 
-		nekoState.x = nekoEl.offsetLeft - window.scrollX + 16
-		nekoState.y = nekoEl.offsetTop - window.scrollY + 16
+		const nekoElBoundingBox = nekoEl.getBoundingClientRect()
+		nekoState.x = nekoElBoundingBox.x + 16
+		nekoState.y = nekoElBoundingBox.y + 16
 
 		function clampMousePos() {
 			// fix the position and velocity in case it hits a wall
