@@ -212,6 +212,8 @@
 		'/?stake',
 		'/buttons',
 		'/index.txt',
+		'/qotd',
+		'https://matdoes.dev:3',
 	]
 
 	let mysteryLink = mysteryLinks[Math.floor(Math.random() * mysteryLinks.length)]
