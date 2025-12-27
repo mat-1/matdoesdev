@@ -72,6 +72,13 @@
 		"startYear": 2019
 	},
 	{
+		"name": "Minecraft UUID archives",
+		"href": "https://archive.org/details/minecraft-uuids-2025-09-01",
+		"languages": ["rust"],
+		"description": "Archives of nearly every Minecraft player UUID and metadata.",
+		"startYear": 2024
+	},
+	{
 		"name": "x227f",
 		"href": "https://github.com/mat-1/x227f",
 		"source": "https://github.com/mat-1/x227f",
