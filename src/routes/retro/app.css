@@ -1,3 +1,5 @@
+@import '$lib/fonts/comic-sans-ms/comic-sans-ms.css';
+
 body,
 #page {
 	background: #000000 url(/retro/background.gif);

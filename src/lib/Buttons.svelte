@@ -63,7 +63,7 @@
 	<Button href="//display-a.sand.cat" src="sandcat.png" alt="display a sand cat" />
 	<Button href="//ssi.fyi" src="ssi.gif" alt="server scanning inc" />
 	<Button href="http://makea.fish" src="makeafish.png" alt="make a fish" />
-	<Button href="//seized.matdoes.dev" src="seized.gif" alt="this 88x31 has been seized" />
+	<Button href="//seized.fyi" src="seized.gif" alt="this 88x31 has been seized" />
 	<Button href="//deltarune.com" src="deltarune.png" alt="kris where tf are we" />
 </div>
 
