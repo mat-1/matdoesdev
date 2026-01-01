@@ -12,7 +12,7 @@
 		"href": "https://github.com/mat-1/matscan",
 		"source": "https://github.com/mat-1/matscan",
 		"languages": ["rust", "python", "typescript", "svelte"],
-		"description": "Internet-scale Minecraft server scanner with an automated warning system for admins.",
+		"description": "Sophisticated internet-scale Minecraft server scanner with an automated warning system for admins.",
 		"startYear": 2022
 	},
 	{
@@ -34,7 +34,7 @@
 		"name": "Internet Roadtrip Pathfinder",
 		"href": "https://github.com/mat-1/internet-roadtrip-pathfinder",
 		"source": "https://github.com/mat-1/internet-roadtrip-pathfinder",
-		"languages": ["rust"],
+		"languages": ["rust", "javascript"],
 		"description": "Reverse-engineering a web game and Google Street View for optimal pathfinding.",
 		"startYear": 2025
 	},
@@ -74,7 +74,7 @@
 	{
 		"name": "Minecraft UUID archives",
 		"href": "https://archive.org/details/minecraft-uuids-2025-09-01",
-		"languages": ["rust"],
+		"languages": ["rust", "python"],
 		"description": "Archives of nearly every Minecraft player UUID and metadata.",
 		"startYear": 2024
 	},
@@ -101,6 +101,15 @@
 		"languages": ["typescript", "svelte"],
 		"description": "Conveniently inspect Minecraft protocol packets.",
 		"startYear": 2023
+	},
+	{
+		"name": "Variance",
+		"href": "https://variance.matdoes.dev/",
+		"source": "https://github.com/mat-1/variance",
+		"languages": ["typescript", "react", "scss"],
+		"description": "An opinionated fork of Cinny that aims to align itself more closely with Discord.",
+		"startYear": 2023,
+		"endYear": 2025
 	},
 	{
 		"name": "msdsmchr",
@@ -163,10 +172,11 @@
 	{
 		"name": "Minecraft Assets",
 		"href": "https://mcassets.matdoes.dev",
+		"source": "https://github.com/mat-1/minecraft-asset-browser",
 		"languages": ["python"],
 		"description": "A user-friendly interface to view assets of all Minecraft versions.",
 		"startYear": 2020,
-		"endYear": 2022
+		"endYear": 2024
 	},
 	{
 		"name": "SkyBlock API",
@@ -184,6 +194,14 @@
 		"description": "Fun utility bot for Discord that was used by nearly 1,000 servers.",
 		"startYear": 2018,
 		"endYear": 2019
+	},
+	{
+		"name": "Repldex",
+		"href": "https://github.com/repldex/Repldex",
+		"languages": ["typescript", "svelte"],
+		"description": "A collaborative wiki for Replit lore.",
+		"startYear": 2018,
+		"endYear": 2020
 	},
 	{
 		"name": "Repl Talk API",
