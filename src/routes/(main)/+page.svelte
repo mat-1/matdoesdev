@@ -358,12 +358,11 @@
 					</a>.
 				</p>
 				<p>
-					You can donate to me through Ko-fi at <a
-						href="https://ko-fi.com/matdoesdev"
-						class="nowrap"
-					>
-						<span class="link-icon smaller-icon"><KofiIcon></KofiIcon></span>ko-fi.com/matdoesdev
-					</a>. &lt;3
+					You can donate to me through <a href="https://ko-fi.com/matdoesdev" class="nowrap">
+						<span class="link-icon smaller-icon"><KofiIcon></KofiIcon></span>Ko-fi
+					</a>
+					or
+					<a href="https://github.com/sponsors/mat-1">GitHub Sponsors</a>. &lt;3
 				</p>
 				<p>
 					If you'd like, you can also browse this site through Tor at <a

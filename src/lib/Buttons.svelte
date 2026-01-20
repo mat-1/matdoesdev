@@ -35,8 +35,9 @@
 	<Button href="//funtimes909.xyz" src="amy.gif" alt="amy" />
 	<Button href="//blahaj.pet" src="hyeve.gif" alt="hyeve" />
 	<Button href="//varun.ch" src="varun.png" alt="varun" />
-	<Button href="//freja-x3.neocities.org" src="freja.png" alt="freja" />
-	<Button href="//timedout.uk/" src="nexy.gif" alt="nexy" />
+	<Button href="//freja.moe" src="freja.png" alt="freja" />
+	<Button href="//timedout.uk" src="nexy.gif" alt="nexy" />
+	<Button href="//paddy.li" src="paddy.gif" alt="paddy" />
 	<!-- other -->
 	<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 	<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
