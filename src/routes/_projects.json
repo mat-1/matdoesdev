@@ -51,7 +51,7 @@
 		"href": "https://github.com/azalea-rs/simdnbt",
 		"source": "https://github.com/azalea-rs/simdnbt",
 		"languages": ["rust"],
-		"description": "The fastest Rust implementation of the NBT protocol used by Minecraft.",
+		"description": "A very highly optimized Rust implementation of the NBT format used by Minecraft.",
 		"startYear": 2023
 	},
 	{
@@ -227,7 +227,6 @@
 		"description": "Discord bot that bridged Repl Talk to the official Replit Discord.",
 		"startYear": 2018,
 		"endYear": 2020
-
 	},
 	{
 		"name": "Replit Dark Theme",
