@@ -1,4 +1,7 @@
 @import '$lib/fonts/atkinson-hyperlegible/atkinson-hyperlegible.css';
+/* lexica ultralegible is a fork of atkinson hyperlegible that adds ligatures
+and some other features */
+@import '$lib/fonts/lexica-ultralegible/lexica-ultralegible.css';
 @import '$lib/fonts/vollkorn/vollkorn.css';
 @import '$lib/fonts/comic-sans-ms/comic-sans-ms.css';
 
@@ -27,7 +30,9 @@
 	--error-color: #d95757;
 	--green: #aad94c;
 
-	--text-font: 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+	--text-font:
+		'Lexica Ultralegible', 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont,
+		sans-serif;
 }
 
 *,
@@ -169,6 +174,8 @@ h3,
 h4,
 h5 {
 	font-family: 'Vollkorn';
+	/* ligatures look bad in titles */
+	font-variant-ligatures: no-common-ligatures;
 }
 h2 {
 	margin-bottom: 0.3em;

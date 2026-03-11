@@ -1,0 +1,36 @@
+@font-face {
+	font-family: 'Lexica Ultralegible';
+	src:
+		local(Lexica Ultralegible),
+		url($lib/fonts/lexica-ultralegible/LexicaUltralegible-Regular.woff2) format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Lexica Ultralegible';
+	src:
+		local(Lexica Ultralegible),
+		url($lib/fonts/lexica-ultralegible/LexicaUltralegible-Italic.woff2) format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Lexica Ultralegible';
+	src:
+		local(Lexica Ultralegible),
+		url($lib/fonts/lexica-ultralegible/LexicaUltralegible-Bold.woff2) format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Lexica Ultralegible';
+	src:
+		local(Lexica Ultralegible),
+		url($lib/fonts/lexica-ultralegible/LexicaUltralegible-BoldItalic.woff2) format('woff2');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
