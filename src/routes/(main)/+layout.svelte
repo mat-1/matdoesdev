@@ -125,10 +125,14 @@
 
 		scroll-behavior: smooth;
 	}
-	:global(article p, .force-text-justify) {
-		hyphens: auto;
-		hyphenate-limit-chars: 5 2 3;
-		text-align: justify;
+	/* hyphens and justify look bad on small screens because too many words get
+	split, and some lines are stretched too much. */
+	@media (min-width: 45rem) {
+		:global(article p, .force-text-justify) {
+			hyphens: auto;
+			hyphenate-limit-chars: 5 2 3;
+			text-align: justify;
+		}
 	}
 	:global(article p > code:first-child) {
 		text-align: left;

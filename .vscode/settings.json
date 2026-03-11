@@ -12,5 +12,8 @@
 	},
 	"[markdown]": {
 		"editor.defaultFormatter": "prettier.prettier-vscode"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
 	}
 }
