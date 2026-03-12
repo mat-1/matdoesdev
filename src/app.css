@@ -1,7 +1,7 @@
 @import '$lib/fonts/atkinson-hyperlegible/atkinson-hyperlegible.css';
-/* lexica ultralegible is a fork of atkinson hyperlegible that adds ligatures
-and some other features */
+/* atkinson hyperlegible but with ligatures */
 @import '$lib/fonts/lexica-ultralegible/lexica-ultralegible.css';
+@import '$lib/fonts/minion-pro/minion-pro.css';
 @import '$lib/fonts/vollkorn/vollkorn.css';
 @import '$lib/fonts/comic-sans-ms/comic-sans-ms.css';
 
@@ -30,9 +30,15 @@ and some other features */
 	--error-color: #d95757;
 	--green: #aad94c;
 
-	--text-font:
-		'Lexica Ultralegible', 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont,
-		sans-serif;
+	--fallback-font: system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Noto Sans SC';
+
+	--body-font: 'Minion Pro', var(--fallback-font);
+	--body-size: 13.25pt;
+
+	--code-text-size: 10pt;
+
+	--title-font: 'Vollkorn', var(--fallback-font);
+	--caption-font: 'Minion Pro Caption', var(--fallback-font);
 }
 
 *,
@@ -53,7 +59,8 @@ body {
 	background-color: var(--background-color);
 	color: var(--text-color);
 
-	font-family: var(--text-font);
+	font-family: var(--body-font);
+	font-size: var(--body-size);
 	font-feature-settings: 'zero', 'lnum';
 	font-weight: 500;
 }
@@ -112,16 +119,20 @@ img {
 figcaption {
 	text-align: center;
 	color: var(--text-color-alt-3);
+	font-family: var(--caption-font);
 	font-size: 0.9em;
 }
 ul {
 	margin-top: 0;
 }
 
-pre {
+pre,
+code {
 	white-space: pre-wrap;
 	tab-size: 2;
+	font-size: var(--code-text-size);
 }
+
 .token.keyword {
 	color: #ff8f40;
 }
@@ -173,7 +184,7 @@ h2,
 h3,
 h4,
 h5 {
-	font-family: 'Vollkorn';
+	font-family: var(--title-font);
 	/* ligatures look bad in titles */
 	font-variant-ligatures: no-common-ligatures;
 }

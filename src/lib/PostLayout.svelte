@@ -47,9 +47,6 @@
 </main>
 
 <style>
-	article {
-		line-height: 1.2;
-	}
 	article :global(img),
 	article :global(video) {
 		max-width: 100%;
@@ -112,16 +109,17 @@
 
 	h1 {
 		margin-bottom: 0;
-		font-size: 3em;
 		margin-top: 10px;
 		line-height: 1.1;
 		word-spacing: -0.05em;
 		letter-spacing: 0.2px;
 		font-weight: 600;
+		font-size: 1.75em;
 	}
-	@media (max-width: 45em) {
+	@media (min-width: 45em) and (min-height: 25em) {
+		/* only make it big if your screen is also big enough */
 		h1 {
-			font-size: 1.75em;
+			font-size: 3em;
 		}
 	}
 	.subtitle {
@@ -132,7 +130,7 @@
 		margin-bottom: 1em;
 	}
 	time {
-		opacity: 0.5;
+		opacity: 0.7;
 		font-style: italic;
 	}
 

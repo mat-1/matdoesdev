@@ -321,8 +321,7 @@
 			</div>
 
 			<div class="page-description">
-				<p>{sentence1}</p>
-				<p>{sentence2} <img src={sandcat2} alt="Sand cat emoji" class="sandcat2" /></p>
+				<p>{sentence1} {sentence2} <img src={sandcat2} alt="Sand cat emoji" class="sandcat2" /></p>
 			</div>
 		</section>
 
@@ -478,6 +477,8 @@
 
 	.page-description {
 		margin-top: 1em;
+		max-width: 30em;
+		margin: 0 auto;
 	}
 
 	.section-container {

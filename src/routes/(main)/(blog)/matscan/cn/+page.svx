@@ -7,13 +7,6 @@ published: 2023-05-29T02:48:09.000Z
 	import BASE from '../base.svelte'
 </script>
 
-<style>
-	:root {
-		/* add Noto Sans SC to the fonts so Simplified Chinese renders correctly */
-		--text-font: 'Lexica Ultralegible', 'Atkinson Hyperlegible', 'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-	}
-</style>
-
 <BASE lang="cn" translations="翻译 " />
 
 matscan 是一个友好的 Minecraft 机器人，它加入可能存在漏洞的 Minecraft 服务器并在聊天中发送消息通知管理员。

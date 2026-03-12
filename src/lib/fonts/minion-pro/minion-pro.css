@@ -1,0 +1,1400 @@
+/* minion-pro-semibold-cond-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Semibold Cond'),
+		local('MinionPro-SemiboldCn'),
+		url(minion-pro-semibold-cond-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-semibold-cond-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Semibold Cond'),
+		local('MinionPro-SemiboldCn'),
+		url(minion-pro-semibold-cond-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-semibold-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Semibold Caption'),
+		local('MinionPro-SemiboldCapt'),
+		url(minion-pro-semibold-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-semibold-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Semibold Caption'),
+		local('MinionPro-SemiboldCapt'),
+		url(minion-pro-semibold-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-semibold-latin */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Semibold'),
+		local('MinionPro-Semibold'),
+		url(minion-pro-semibold-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-semibold-latin-ext */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 600;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Semibold'),
+		local('MinionPro-Semibold'),
+		url(minion-pro-semibold-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-latin */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro'),
+		local('MinionPro-Regular'),
+		url(minion-pro-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-latin-ext */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro'),
+		local('MinionPro-Regular'),
+		url(minion-pro-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Subhead'),
+		local('MinionPro-MediumSubh'),
+		url(minion-pro-medium-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Subhead'),
+		local('MinionPro-MediumSubh'),
+		url(minion-pro-medium-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic Subhead'),
+		local('MinionPro-MediumItSubh'),
+		url(minion-pro-medium-italic-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic Subhead'),
+		local('MinionPro-MediumItSubh'),
+		url(minion-pro-medium-italic-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-display-latin */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic Display'),
+		local('MinionPro-MediumItDisp'),
+		url(minion-pro-medium-italic-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic Display'),
+		local('MinionPro-MediumItDisp'),
+		url(minion-pro-medium-italic-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic Caption'),
+		local('MinionPro-MediumItCapt'),
+		url(minion-pro-medium-italic-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic Caption'),
+		local('MinionPro-MediumItCapt'),
+		url(minion-pro-medium-italic-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-latin */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic'),
+		local('MinionPro-MediumIt'),
+		url(minion-pro-medium-italic-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-italic-latin-ext */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Italic'),
+		local('MinionPro-MediumIt'),
+		url(minion-pro-medium-italic-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-display-latin */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Display'),
+		local('MinionPro-MediumDisp'),
+		url(minion-pro-medium-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Display'),
+		local('MinionPro-MediumDisp'),
+		url(minion-pro-medium-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Subhead'),
+		local('MinionPro-MediumCnSubh'),
+		url(minion-pro-medium-cond-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Subhead'),
+		local('MinionPro-MediumCnSubh'),
+		url(minion-pro-medium-cond-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic Subhead'),
+		local('MinionPro-MediumCnItSubh'),
+		url(minion-pro-medium-cond-italic-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic Subhead'),
+		local('MinionPro-MediumCnItSubh'),
+		url(minion-pro-medium-cond-italic-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-display-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic Display'),
+		local('MinionPro-MediumCnItDisp'),
+		url(minion-pro-medium-cond-italic-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic Display'),
+		local('MinionPro-MediumCnItDisp'),
+		url(minion-pro-medium-cond-italic-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic Caption'),
+		local('MinionPro-MediumCnItCapt'),
+		url(minion-pro-medium-cond-italic-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic Caption'),
+		local('MinionPro-MediumCnItCapt'),
+		url(minion-pro-medium-cond-italic-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic'),
+		local('MinionPro-MediumCnIt'),
+		url(minion-pro-medium-cond-italic-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-italic-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: italic;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Italic'),
+		local('MinionPro-MediumCnIt'),
+		url(minion-pro-medium-cond-italic-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-display-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Display'),
+		local('MinionPro-MediumCnDisp'),
+		url(minion-pro-medium-cond-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Display'),
+		local('MinionPro-MediumCnDisp'),
+		url(minion-pro-medium-cond-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Caption'),
+		local('MinionPro-MediumCnCapt'),
+		url(minion-pro-medium-cond-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond Caption'),
+		local('MinionPro-MediumCnCapt'),
+		url(minion-pro-medium-cond-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond'),
+		local('MinionPro-MediumCn'),
+		url(minion-pro-medium-cond-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-cond-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Cond'),
+		local('MinionPro-MediumCn'),
+		url(minion-pro-medium-cond-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Caption'),
+		local('MinionPro-MediumCapt'),
+		url(minion-pro-medium-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium Caption'),
+		local('MinionPro-MediumCapt'),
+		url(minion-pro-medium-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-medium-latin */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium'),
+		local('MinionPro-Medium'),
+		url(minion-pro-medium-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-medium-latin-ext */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Medium'),
+		local('MinionPro-Medium'),
+		url(minion-pro-medium-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-italic-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic Subhead'),
+		local('MinionPro-ItSubh'),
+		url(minion-pro-italic-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-italic-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic Subhead'),
+		local('MinionPro-ItSubh'),
+		url(minion-pro-italic-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-italic-display-latin */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic Display'),
+		local('MinionPro-ItDisp'),
+		url(minion-pro-italic-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-italic-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic Display'),
+		local('MinionPro-ItDisp'),
+		url(minion-pro-italic-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-italic-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic Caption'),
+		local('MinionPro-ItCapt'),
+		url(minion-pro-italic-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-italic-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic Caption'),
+		local('MinionPro-ItCapt'),
+		url(minion-pro-italic-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-italic-latin */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic'),
+		local('MinionPro-It'),
+		url(minion-pro-italic-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-italic-latin-ext */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Italic'),
+		local('MinionPro-It'),
+		url(minion-pro-italic-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-display-latin */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Display'),
+		local('MinionPro-Disp'),
+		url(minion-pro-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Display'),
+		local('MinionPro-Disp'),
+		url(minion-pro-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Subhead'),
+		local('MinionPro-CnSubh'),
+		url(minion-pro-cond-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Subhead'),
+		local('MinionPro-CnSubh'),
+		url(minion-pro-cond-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic Subhead'),
+		local('MinionPro-CnItSubh'),
+		url(minion-pro-cond-italic-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic Subhead'),
+		local('MinionPro-CnItSubh'),
+		url(minion-pro-cond-italic-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-display-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic Display'),
+		local('MinionPro-CnItDisp'),
+		url(minion-pro-cond-italic-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic Display'),
+		local('MinionPro-CnItDisp'),
+		url(minion-pro-cond-italic-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic Caption'),
+		local('MinionPro-CnItCapt'),
+		url(minion-pro-cond-italic-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic Caption'),
+		local('MinionPro-CnItCapt'),
+		url(minion-pro-cond-italic-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic'),
+		local('MinionPro-CnIt'),
+		url(minion-pro-cond-italic-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-italic-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Italic'),
+		local('MinionPro-CnIt'),
+		url(minion-pro-cond-italic-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-display-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Display'),
+		local('MinionPro-CnDisp'),
+		url(minion-pro-cond-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Display'),
+		local('MinionPro-CnDisp'),
+		url(minion-pro-cond-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Caption'),
+		local('MinionPro-CnCapt'),
+		url(minion-pro-cond-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond Caption'),
+		local('MinionPro-CnCapt'),
+		url(minion-pro-cond-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-cond-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond'),
+		local('MinionPro-Cn'),
+		url(minion-pro-cond-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-cond-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Cond'),
+		local('MinionPro-Cn'),
+		url(minion-pro-cond-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Caption'),
+		local('MinionPro-Capt'),
+		url(minion-pro-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Caption'),
+		local('MinionPro-Capt'),
+		url(minion-pro-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Subhead'),
+		local('MinionPro-BoldSubh'),
+		url(minion-pro-bold-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Subhead'),
+		local('MinionPro-BoldSubh'),
+		url(minion-pro-bold-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic Subhead'),
+		local('MinionPro-BoldItSubh'),
+		url(minion-pro-bold-italic-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Subhead';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic Subhead'),
+		local('MinionPro-BoldItSubh'),
+		url(minion-pro-bold-italic-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-display-latin */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic Display'),
+		local('MinionPro-BoldItDisp'),
+		url(minion-pro-bold-italic-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic Display'),
+		local('MinionPro-BoldItDisp'),
+		url(minion-pro-bold-italic-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic Caption'),
+		local('MinionPro-BoldItCapt'),
+		url(minion-pro-bold-italic-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic Caption'),
+		local('MinionPro-BoldItCapt'),
+		url(minion-pro-bold-italic-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-latin */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic'),
+		local('MinionPro-BoldIt'),
+		url(minion-pro-bold-italic-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-italic-latin-ext */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Italic'),
+		local('MinionPro-BoldIt'),
+		url(minion-pro-bold-italic-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-display-latin */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Display'),
+		local('MinionPro-BoldDisp'),
+		url(minion-pro-bold-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Display';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Display'),
+		local('MinionPro-BoldDisp'),
+		url(minion-pro-bold-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Subhead'),
+		local('MinionPro-BoldCnSubh'),
+		url(minion-pro-bold-cond-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Subhead'),
+		local('MinionPro-BoldCnSubh'),
+		url(minion-pro-bold-cond-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-subhead-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic Subhead'),
+		local('MinionPro-BoldCnItSubh'),
+		url(minion-pro-bold-cond-italic-subhead-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-subhead-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Subhead';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic Subhead'),
+		local('MinionPro-BoldCnItSubh'),
+		url(minion-pro-bold-cond-italic-subhead-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-display-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic Display'),
+		local('MinionPro-BoldCnItDisp'),
+		url(minion-pro-bold-cond-italic-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic Display'),
+		local('MinionPro-BoldCnItDisp'),
+		url(minion-pro-bold-cond-italic-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic Caption'),
+		local('MinionPro-BoldCnItCapt'),
+		url(minion-pro-bold-cond-italic-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic Caption'),
+		local('MinionPro-BoldCnItCapt'),
+		url(minion-pro-bold-cond-italic-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic'),
+		local('MinionPro-BoldCnIt'),
+		url(minion-pro-bold-cond-italic-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-italic-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: italic;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Italic'),
+		local('MinionPro-BoldCnIt'),
+		url(minion-pro-bold-cond-italic-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-display-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Display'),
+		local('MinionPro-BoldCnDisp'),
+		url(minion-pro-bold-cond-display-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-display-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Display';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Display'),
+		local('MinionPro-BoldCnDisp'),
+		url(minion-pro-bold-cond-display-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Caption'),
+		local('MinionPro-BoldCnCapt'),
+		url(minion-pro-bold-cond-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond Caption';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond Caption'),
+		local('MinionPro-BoldCnCapt'),
+		url(minion-pro-bold-cond-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-latin */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond'),
+		local('MinionPro-BoldCn'),
+		url(minion-pro-bold-cond-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-cond-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Cond';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Cond'),
+		local('MinionPro-BoldCn'),
+		url(minion-pro-bold-cond-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-caption-latin */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Caption'),
+		local('MinionPro-BoldCapt'),
+		url(minion-pro-bold-caption-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-caption-latin-ext */
+@font-face {
+	font-family: 'Minion Pro Caption';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold Caption'),
+		local('MinionPro-BoldCapt'),
+		url(minion-pro-bold-caption-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
+/* minion-pro-bold-latin */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold'),
+		local('MinionPro-Bold'),
+		url(minion-pro-bold-latin.woff2) format('woff2');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
+		U+20AC, U+2122, U+2212, U+2215;
+	font-display: swap;
+}
+/* minion-pro-bold-latin-ext */
+@font-face {
+	font-family: 'Minion Pro';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: 100%;
+	src:
+		local('Minion Pro Bold'),
+		local('MinionPro-Bold'),
+		url(minion-pro-bold-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F, U+A720-A7FF;
+	font-display: swap;
+}
