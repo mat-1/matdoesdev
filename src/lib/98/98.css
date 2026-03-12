@@ -85,7 +85,7 @@ input[type='submit']:not(:disabled):active {
 		inset 2px 2px grey;
 	text-shadow: 1px 1px #222;
 }
-@media (not(hover)) {
+@media not all and (hover: none) {
 	button:not(:disabled):hover,
 	input[type='reset']:not(:disabled):hover,
 	input[type='submit']:not(:disabled):hover {
