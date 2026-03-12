@@ -1,6 +1,6 @@
-@import '$lib/fonts/atkinson-hyperlegible/atkinson-hyperlegible.css';
+/* @import '$lib/fonts/atkinson-hyperlegible/atkinson-hyperlegible.css'; */
 /* atkinson hyperlegible but with ligatures */
-@import '$lib/fonts/lexica-ultralegible/lexica-ultralegible.css';
+/* @import '$lib/fonts/lexica-ultralegible/lexica-ultralegible.css'; */
 @import '$lib/fonts/minion-pro/minion-pro.css';
 @import '$lib/fonts/vollkorn/vollkorn.css';
 @import '$lib/fonts/comic-sans-ms/comic-sans-ms.css';
@@ -30,7 +30,7 @@
 	--error-color: #d95757;
 	--green: #aad94c;
 
-	--fallback-font: system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Noto Sans SC';
+	--fallback-font: 'Times New Roman', 'Liberation Serif', 'FreeSerif', serif, 'Noto Sans SC';
 
 	--body-font: 'Minion Pro', var(--fallback-font);
 	--body-size: 13.25pt;
@@ -48,8 +48,7 @@
 }
 
 html,
-body,
-#page {
+body {
 	height: 100%;
 	width: 100%;
 }

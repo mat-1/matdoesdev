@@ -520,7 +520,7 @@
 		background-clip: text;
 		filter: drop-shadow(2px 2px #333);
 		text-align: center;
-		font-family: 'Comic Sans MS', cursive !important;
+		font-family: 'Comic Sans MS', sans-serif !important;
 		font-size: 32px;
 		font-weight: 700;
 		margin: 0;

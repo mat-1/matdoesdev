@@ -113,17 +113,18 @@
 {/key}
 
 <style>
-	#page {
-		height: 100%;
+	:global(body) {
+		scroll-behavior: smooth;
 		overflow-y: auto;
+	}
+	#page {
+		min-height: 100%;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: stretch;
 		overflow-wrap: break-word;
-
-		scroll-behavior: smooth;
 	}
 	/* hyphens and justify look bad on small screens because too many words get
 	split, and some lines are stretched too much. */

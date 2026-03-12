@@ -1,5 +1,6 @@
 <script lang="ts">
-	import atkinsonHyperlegible from '$lib/fonts/atkinson-hyperlegible/latin.woff2'
+	import minionPro from '$lib/fonts/minion-pro/minion-pro-medium-latin.woff2'
+	import vollkorn from '$lib/fonts/vollkorn/vollkorn-bold.woff2'
 
 	interface Props {
 		title?: string
@@ -13,6 +14,7 @@
 	<title>{title}</title>
 	<meta name="description" content={description} />
 
-	<link rel="prefetch" href={atkinsonHyperlegible} />
+	<link rel="prefetch" href={minionPro} />
+	<link rel="prefetch" href={vollkorn} />
 	<link rel="me" href="https://f.matdoes.dev/mat" />
 </svelte:head>
