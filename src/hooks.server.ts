@@ -7,7 +7,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 				html.replace(
 					'<body>',
 					`<body bgcolor="#000000"
-background="/retro/background.gif"
+background="/retro/background.jpg"
 text="#ffffff"
 link="#ffffff"
 alink="#ffffff"
@@ -25,7 +25,7 @@ vlink="#ffffff">`
 // 			html.replace(
 // 				'%bodyfields%',
 // 				`bgcolor="#000000"
-// background="/retro/background.gif"
+// background="/retro/background.jpg"
 // text="#ffffff"
 // link="#ffffff"
 // alink="#ffffff"
