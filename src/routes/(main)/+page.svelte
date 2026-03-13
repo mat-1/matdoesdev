@@ -631,7 +631,7 @@
 		margin: 0 auto;
 	}
 	.colon3 {
-		font-family: 'Atkinson Hyperlegible';
+		font-family: var(--body-font);
 		color: var(--background-color-alt);
 		top: 0.05em;
 		margin-left: 0.3em;

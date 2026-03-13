@@ -1,6 +1,6 @@
 <script lang="ts">
 	import minionPro from '$lib/fonts/minion-pro/minion-pro-medium-latin.woff2'
-	import vollkorn from '$lib/fonts/vollkorn/vollkorn-bold.woff2'
+	import vollkorn from '$lib/fonts/vollkorn/vollkorn-bold-latin.woff2'
 
 	interface Props {
 		title?: string

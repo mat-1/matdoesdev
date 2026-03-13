@@ -114,7 +114,6 @@
 
 <style>
 	:global(body) {
-		scroll-behavior: smooth;
 		overflow-y: auto;
 	}
 	#page {
