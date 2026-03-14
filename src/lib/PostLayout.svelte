@@ -114,6 +114,7 @@
 		word-spacing: -0.05em;
 		letter-spacing: 0.2px;
 		font-weight: 600;
+		text-wrap: balance;
 		font-size: 1.75em;
 	}
 	@media (min-width: 45em) and (min-height: 25em) {
