@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment'
 	import BackAnchor from '$lib/BackAnchor.svelte'
 
-	let el: HTMLDivElement = $state()
+	let el = $state<HTMLDivElement>()
 
 	let idleModeEnabled = $state(false)
 
@@ -43,7 +43,9 @@
 
 		function hitWall() {
 			hue = Math.random() * 360
-			el.style.color = `hsl(${hue}, 100%, 50%)`
+			if (el) {
+				el.style.color = `hsl(${hue}, 100%, 50%)`
+			}
 		}
 
 		if (x > maxX) {
@@ -101,6 +103,11 @@
 </main>
 
 <style>
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 	.error-page {
 		max-width: fit-content;
 		text-align: center;
@@ -109,7 +116,8 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		height: 100%;
+
+		flex: 1;
 	}
 
 	h1 {

@@ -199,9 +199,6 @@
 		}
 	}
 
-	// can't make the height for the parallax effect be correct without js :(
-	let indexContainerHeight = $state(0)
-
 	// cheater :(
 	const mysteryLinks = [
 		'/index.html/index.html',
@@ -283,10 +280,7 @@
 
 <svelte:body />
 
-<!-- <div id="index-background-container"> -->
-<div id="index-background" style="height:calc({indexContainerHeight / 2 + 10}px + 50vh)"></div>
-<!-- </div> -->
-<main bind:clientHeight={indexContainerHeight}>
+<main>
 	<div class="section-container">
 		<section id="main-index-page-section">
 			<div id="main-title-effect-container">
@@ -444,35 +438,6 @@
 	main {
 		/* override its width just for this page */
 		width: 80em;
-	}
-
-	:global(#page) {
-		width: 100%;
-		perspective: 1px;
-		perspective-origin: top;
-		overflow-x: hidden;
-	}
-	:global(body:not(.sandcat-mode)) #index-background {
-		background-image: url('$lib/assets/hilbert-curve.png');
-		image-rendering: pixelated;
-		background-size: 100%;
-		background-repeat: repeat;
-		position: absolute;
-		width: 100%;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: -1000;
-		opacity: 10%;
-		user-select: none;
-
-		transform: translateZ(-1px) scale(2) translateY(25%);
-	}
-	@media only screen and (max-width: 500px) {
-		:global(body:not(.sandcat-mode)) #index-background {
-			opacity: 15%;
-		}
 	}
 
 	.page-description {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../../app.css'
-	import { fly } from 'svelte/transition'
+	import { fade, fly } from 'svelte/transition'
 	import type { LayoutData } from './$types'
 	import { browser } from '$app/environment'
 	import { writable } from 'svelte/store'
@@ -98,7 +98,26 @@
 			// onPathChange()
 		}
 	})
+
+	// can't make the height for the parallax effect be correct without js :(
+	let indexContainerHeight = browser ? document.documentElement.clientHeight : undefined
+
+	let indexBackgroundOffset = $state(0)
+	function onscroll() {
+		indexBackgroundOffset = -window.scrollY / 2
+	}
+	onMount(onscroll)
 </script>
+
+<svelte:document {onscroll} />
+{#if data.pathname === '/' && indexContainerHeight}
+	<div
+		id="index-background"
+		style="background-position:0 {indexBackgroundOffset}px"
+		in:fade
+		out:fade
+	></div>
+{/if}
 
 {#key data.pathname}
 	<div
@@ -113,9 +132,10 @@
 {/key}
 
 <style>
-	:global(body) {
-		overflow-y: auto;
+	:global(html, body) {
+		width: 100%;
 	}
+
 	#page {
 		min-height: 100%;
 		position: relative;
@@ -145,7 +165,28 @@
 			word-break: break-all;
 		}
 	}
-	:global(body) {
-		overflow-x: hidden;
+
+	#index-background {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+	}
+	:global(body:not(.sandcat-mode)) #index-background {
+		background-image: url('$lib/assets/hilbert-curve.png');
+		image-rendering: pixelated;
+		background-size: 100%;
+		background-repeat: repeat;
+		width: 100%;
+		z-index: -1000;
+		opacity: 10%;
+		user-select: none;
+	}
+	@media only screen and (max-width: 500px) {
+		:global(body:not(.sandcat-mode)) #index-background {
+			opacity: 15%;
+		}
 	}
 </style>
