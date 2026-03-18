@@ -12,7 +12,6 @@
 	<Button href="//kibty.town" src="kibtytown.gif" alt="kibty.town" />
 	<Button href="//honbra.com" src="honbra.png" alt="honbra" />
 	<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
-	<Button href="//8minty.me" src="8minty.gif" alt="8minty" />
 	<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />
 	<Button href="//actuallyruben.nl" src="actuallyruben.gif" alt="actuallyruben" />
 	<Button href="//jamie.rs" src="jamie.png" alt="jamie" />
