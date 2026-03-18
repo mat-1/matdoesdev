@@ -206,3 +206,8 @@ h4 {
 	font-display: swap;
 	src: url(/retro/pressstart2p.ttf) format('truetype');
 }
+
+time,
+.project-date {
+	font-feature-settings: normal;
+}

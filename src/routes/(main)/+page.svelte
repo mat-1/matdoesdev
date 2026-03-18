@@ -441,9 +441,8 @@
 	}
 
 	.page-description {
-		margin-top: 1em;
 		max-width: 30em;
-		margin: 0 auto;
+		margin: 0.3em auto 0 0.3em;
 	}
 
 	.section-container {
