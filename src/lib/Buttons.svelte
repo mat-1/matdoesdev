@@ -9,7 +9,7 @@
 	<Button href="//notnite.com" src="notnite.png" alt="notnite" />
 	<Button href="//shrecked.dev" src="shwecky.png" alt="shrecknt" />
 	<Button href="//goldenstack.net" src="goldenstack.png" alt="goldenstack" />
-	<Button href="//kibty.town" src="kibtytown.gif" alt="kibty.town" />
+	<Button href="//eva.ac" src="eva.png" alt="eva" />
 	<Button href="//honbra.com" src="honbra.png" alt="honbra" />
 	<Button href="//cbax.dev" src="cbax.gif" alt="cbax" />
 	<Button href="//slonk.ing" src="slonk.png" alt="slonkazoid" />

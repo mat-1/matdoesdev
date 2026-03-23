@@ -11,4 +11,5 @@ yarn-error.log
 
 vite.config.js.*
 
-staging.sh
+/staging.sh
+/deploy.sh
