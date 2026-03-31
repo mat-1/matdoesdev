@@ -9,7 +9,7 @@ published: 2023-05-29T02:48:09.000Z
 
 <BASE lang="de" translations="Übersetzungen" />
 
-Translated by xJessyX
+*Translated by xJessyX*
 
 matscan ist ein Minecraft-Bot der potenziell verwundbare Minecraft-Server beitritt und sendet eine Nachricht in den Chat, um Admins darüber zu informieren.
 

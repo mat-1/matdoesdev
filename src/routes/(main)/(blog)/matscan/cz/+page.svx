@@ -1,0 +1,48 @@
+---
+title: Proč se "matscan" připojil na můj Minecraft server? (FAQ)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="cz" translations="Překlady" />
+
+*Translated by Dejvee*
+
+matscan je Minecraft bot který se připojuje na potencionálně zranitelné servery a pošle zprávu aby informoval adminy.
+
+![one of the messages that may be shown when matscan joins a server](/matscan/matscan-messages.png)
+
+## Jak bych si měl zabezpečit server?
+
+- Zapněte si zálohy, nebo si můžete nainstalovat plugin například: [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- Pokud server má být soukromý: Zapněte whitelist pomocí příkazu: `/whitelist on`, `/whitelist add <player>`, a nastavením `white-list=true` v souboru `server.properties`.
+- Pokud je server v offline-mode: Zapněte `online-mode` v `server.properties` nebo nainstalujte plugin například: [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Pokud má váš server nechráněný backend: Nastavte firewall, stáhněte [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), nebo přejděte na [Velocity](https://papermc.io/software/velocity).
+
+Pokud jste udělali vše co se k vám vztahuje, měli by jste být v pořádku.
+
+## Jak jsi našel můj server?
+
+Skenuju internet pro Minecraft servery, stručně posílám paket na každou IP addresu a sleduji která zareaguje (Je to více komplikované).
+
+## Jsou tvá data veřejná?
+
+Ne. Ale stále by jsi měl zabezpečit svůj server, jelikož je zde několik ničících skupin které používají své vlastní skenery na servery.
+
+## Proč se Herobrine pokusil napojit těsně před matscan?
+
+matscan se pokouší připojit nejdříve s nickem Herobrine, protože kdyby měl server offline-mode tak může ukázat lidem že se mohou připojit s jakýmkoliv jménem. Je také možné že se připojí se jménem člověka který již byl online na serveru pokud je server v offline režimu ale má whitelist.
+## Z jaké ip adresy se "matscan" připojuje?
+
+Bot se připojuje pouze z ip adresy `151.115.73.107`. Toto bude aktualizované, pokud by se měla ip adresa změnit.
+
+## Jak tě mohu kontaktovat?
+
+Můžeš mi poslat email na mat@matdoes.dev (<a href="/mat.asc" rel="external">veřejný klíč</a>).
+
+## Jak ti mohu pomoci?
+
+Pokud si vážíš práce co dělám, prosím zvaž podporu mých projektů na [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).

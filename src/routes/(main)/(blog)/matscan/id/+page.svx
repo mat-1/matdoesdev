@@ -1,0 +1,50 @@
+---
+title: Kenapa "matscan" masuk ke server Minecraft ku? (FAQ)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="id" translations="Terjemahan" />
+
+*Translated by foreynd*
+
+matscan adalah sebuah bot Minecraft yang memasuki server Minecraft yang berpotensi rentan dan mengirimkan pesan di chat untuk memberi tahu admin.
+
+![salah satu pesan yang mungkin terlihat ketika matscan masuk ke server](/matscan/matscan-messages.png)
+
+## Bagaimana seharusnya aku mengamankan serverku?
+
+- Aktifkan backup, and mungkin pasang sebuah plugin seperti [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/) sebagai tambahan.
+- Jika server bertujuan untuk menjadi server pribadi: Aktifkan whitelist dengan menjalankan perintah `/whitelist on`, `/whitelist add <player>`, dan dengan menyetel `white-list=true` di dalam file `server.properties`.
+- Jika server dalam keadaan mode offline: Aktifkan `online-mode` di dalam `server.properties` atau pasang sebuah plugin seperti [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Jika server memiliki sebuah backend BungeeCord yang terekspos: Aktifkan firewall, pasang [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), atau beralih ke [Velocity](https://papermc.io/software/velocity).
+
+Jika kamu sudah melakukan semua hal di atas yang cocok untukmu, maka seharusnya kamu akan baik-baik saja.
+
+## Bagaimana kamu menemukan serverku?
+
+Aku memindai server Minecraft di internet, pada dasarnya aku mengirimkan sebuah paket ke semua alamat IP dan melihat mana yang merespon (sedikit lebih kompleks daripada ini.)
+
+## Apakah data mu bersifat publik?
+
+Tidak. Namun, kamu harus tetap mengamankan servermu karena ada beberapa grup griefing/pelecehan yang menggunakan server scanner milik mereka sendiri.
+
+## Kenapa Herobrine mencoba untuk masuk sebelum matscan?
+
+matscan akan mencoba untuk masuk dengan username Herobrine terlebih dahulu, agar bisa mendemonstrasikan bahwa orang dapat masuk dengan username apapun jika servernya dalam mode offline. Ia juga bisa menggunakan username pemain yang sebelumnya online jika server dalam mode offline tapi memiliki whitelist.
+
+## Alamat IP mana yang digunakan matscan?
+
+Bot akan secara eksklusif masuk dari alamat IP `151.115.73.107`. Halaman ini akan diperbarui jika itu berubah di kemudian hari.
+
+## Bagaimana aku bisa menghubungimu?
+
+Kamu bisa mengirim email padaku di mat@matdoes.dev (<a href="/mat.asc" rel="external">kunci publik</a>).
+
+## Bagaimana aku bisa membantu?
+
+Jika kamu menghargai pekerjaan keamanan yang aku lakukan, kamu bisa bantu mendanai proyek-proyek ku di [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).
+

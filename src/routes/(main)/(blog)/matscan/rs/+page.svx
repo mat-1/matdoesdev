@@ -1,0 +1,49 @@
+---
+title: Zašto je "matscan" ušao na moj server? (ČPP)
+published: 2023-05-29T02:48:09.000Z
+---
+
+<script lang="ts">
+	import BASE from '../base.svelte'
+</script>
+
+<BASE lang="rs" translations="Преводи" />
+
+*Translated by Frail*
+
+matscan je Minecraft bot koji ulazi na potencijalno ranjive Minecraft servere i šalje poruku u chat-u da bi upozorio admine.
+
+![one of the messages that may be shown when matscan joins a server](/matscan/matscan-messages.png)
+
+## Kako mogu da zaštitim svoj server?
+
+- Uključi rezervne kopije (backups), takođe ubaci plugin kao na primer [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/).
+- Ako si hteo da server ostane privatan: Uključi whitelist-u uz pomoć sledećih komandi `/whitelist on`, `/whitelist add <player>`, i pod ovom opcijom `white-list=true` u `server.properties` fajlu.
+- Ako je server u offline-mode-u: Uključi `online-mode` u `server.properties` ili instaliraj plugin kao što je [AuthMeReloaded](https://dev.bukkit.org/projects/authme-reloaded).
+- Ako server ima izložen BungeeCord backend: Postavi firewall, i instaliraj [BungeeGuard](https://www.spigotmc.org/resources/bungeeguard.79601/), ili pređi na [Velocity](https://papermc.io/software/velocity).
+
+Ako si uradio sve navedeno gore, što se odnosi na tebe, onda si verovatno bezbedan.
+
+## Kako si našao moj server?
+
+Skeniram internet u potrazi za Minecraft serverima, da uprostim šaljem 'ping' (paket) na svaku IP adresu i gledam da vidim koje adrese će da "odgovore" (malo je komplikovanije ali da)
+
+## Da li su tvoji podaci javni?
+
+Ne. Ali bi i dalje trebao da zaštitiš svoj server. Postoji više grupa grifera i siledžija koji imaju lične skenere.
+
+## Zašto je Herobrine pokušao da se priključi neposredno pre matscana?
+
+matscan će pokušati da se priključi sa korisničkim imenom Herobrine prvo, tako da ako je server u offline modu, to može da ti pokaže da ljudi mogu da se priključe sa bilo kojim korisničkim imenom. Takođe, može da koristi korisničko ime igrača koji je ranije bio online ako je server u offline modu, ali ima whitelistu.
+
+## Koji IP koristi matscan za prijavljivanje?
+
+Bot će se isključivo prijavljivati sa IP adresom `151.115.73.107`. Ova stranica će biti ažurirana ako se ikada promeni.
+
+## Kako mogu da te kontaktiram?
+
+Možeš da mi pošalješ mejl mat@matdoes.dev (<a href="/mat.asc" rel="external">gpg javni ključ</a>).
+
+## Kako mogu da pomognem?
+
+Ako ceniš moj security rad, razmisli da podržiš mene i moje projekte [ko-fi.com/matdoesdev](https://ko-fi.com/matdoesdev).

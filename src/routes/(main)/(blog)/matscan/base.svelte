@@ -11,10 +11,14 @@
 		fr: 'French / Français',
 		de: 'German / Deutsch',
 		cn: 'Chinese / 中文',
+		id: 'Indonesian / Indonesia',
+		cz: 'Czech / Český',
+		rs: 'Serbian / Српски',
 	}
 </script>
 
 <div class="language-select">
+	<span class="language-globe-icon">🌐</span>
 	{translationsWord}:
 	{#each Object.entries(translations) as [lang, name], index}
 		{#if index > 0}
@@ -30,10 +34,12 @@
 <style>
 	.language-select {
 		margin: 0 0 0.5rem 1rem;
-		font-size: 0.9rem;
 		font-style: italic;
 	}
 	.language-option {
 		white-space: nowrap;
+	}
+	.language-globe-icon {
+		font-style: normal;
 	}
 </style>
