@@ -39,6 +39,7 @@
 	<Button href="//paddy.li" src="paddy.gif" alt="paddy" />
 	<Button href="//kathund.dev" src="kath.png" alt="kath" />
 	<Button href="//sage.cat" src="sage.png" alt="sage" />
+	<Button href="//moon.is.being.pet/" src="moon.gif" alt="moon" />
 	<!-- other -->
 	<Button href="//github.com/mat-1" src="github.gif" alt="github" />
 	<Button href="//ko-fi.com/matdoesdev" src="kofi.gif" alt="kofi" />
