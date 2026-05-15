@@ -4,7 +4,7 @@
 		{
 			"label": "Dev",
 			"type": "shell",
-			"command": "bun dev",
+			"command": "pnpm dev",
 			"group": "none",
 			"presentation": {
 				"reveal": "always",

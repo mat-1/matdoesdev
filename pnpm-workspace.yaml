@@ -1,0 +1,5 @@
+allowBuilds:
+  cbor-extract: true
+  postinstall-postinstall: true
+  sharp: true
+  svelte-preprocess: true
